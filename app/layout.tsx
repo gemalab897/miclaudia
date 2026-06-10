@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import SessionTimer from "@/components/SessionTimer";
 
 export const metadata: Metadata = {
   title: "CBT PRO+ | Herramienta Clínica TCC",
@@ -26,6 +27,7 @@ export default function RootLayout({
             </div>
           </main>
         </div>
+        <SessionTimer />
       </body>
     </html>
   );
