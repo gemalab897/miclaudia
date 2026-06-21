@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { fichas } from "@/app/data/fichas";
 import PageHeader from "@/components/PageHeader";
@@ -9,34 +12,59 @@ const categoriaColors: Record<string, string> = {
   "Evaluación": "bg-purple-100 text-purple-700",
   "Prevención de Crisis": "bg-rose-100 text-rose-700",
   "Evaluación de Proceso": "bg-teal-100 text-teal-700",
+  "Ansiedad": "bg-sky-100 text-sky-700",
+  "Depresión": "bg-indigo-100 text-indigo-700",
+  "PTSD y Trauma": "bg-orange-100 text-orange-700",
+  "TOC": "bg-yellow-100 text-yellow-700",
+  "Sueño": "bg-violet-100 text-violet-700",
+  "Consumo de Sustancias": "bg-red-100 text-red-700",
+  "Trastorno Bipolar": "bg-pink-100 text-pink-700",
+  "Trastornos Sexuales": "bg-fuchsia-100 text-fuchsia-700",
+  "Fobias": "bg-lime-100 text-lime-700",
+  "Personalidad Límite": "bg-cyan-100 text-cyan-700",
 };
 
 export default function FichasPage() {
-  const categorias = Array.from(new Set(fichas.map((f) => f.categoria)));
+  const categorias = ["Todas", ...Array.from(new Set(fichas.map((f) => f.categoria)))];
+  const [categoriaActiva, setCategoriaActiva] = useState<string>("Todas");
+
+  const fichasFiltradas =
+    categoriaActiva === "Todas"
+      ? fichas
+      : fichas.filter((f) => f.categoria === categoriaActiva);
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-10">
       <PageHeader
         title="Fichas Clínicas Interactivas"
         description="Fichas para completar en pantalla durante la sesión o imprimir para el paciente. Todas incluyen instrucciones clínicas y notas para el terapeuta."
-        badge="10 Fichas"
+        badge={`${fichas.length} Fichas`}
         badgeColor="bg-purple-600"
       />
 
-      {/* Legend */}
+      {/* Category filter buttons */}
       <div className="flex flex-wrap gap-2 mb-8">
         {categorias.map((cat) => (
-          <span
+          <button
             key={cat}
-            className={`text-xs px-3 py-1 rounded-full font-medium ${categoriaColors[cat] || "bg-gray-100 text-gray-600"}`}
+            onClick={() => setCategoriaActiva(cat)}
+            className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all duration-150 border ${
+              categoriaActiva === cat
+                ? cat === "Todas"
+                  ? "bg-purple-600 text-white border-purple-600 shadow-sm"
+                  : `${categoriaColors[cat] || "bg-gray-100 text-gray-600"} border-transparent shadow-sm ring-2 ring-offset-1 ring-current`
+                : cat === "Todas"
+                ? "bg-gray-100 text-gray-600 border-transparent hover:bg-gray-200"
+                : `${categoriaColors[cat] || "bg-gray-100 text-gray-600"} border-transparent opacity-70 hover:opacity-100`
+            }`}
           >
             {cat}
-          </span>
+          </button>
         ))}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {fichas.map((ficha) => (
+        {fichasFiltradas.map((ficha) => (
           <Link
             key={ficha.id}
             href={`/fichas/${ficha.id}`}
