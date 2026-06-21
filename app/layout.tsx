@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import SessionTimer from "@/components/SessionTimer";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "CBT PRO+ | Herramienta Clínica TCC",
-  description:
-    "Plataforma clínica interactiva de Terapia Cognitivo-Conductual para psicólogos. Protocolos, fichas, casos clínicos y guía de decisión diagnóstica.",
+  title: "CBT PRO+ | Sistema Clínico de TCC",
+  description: "Plataforma clínica profesional de Terapia Cognitivo-Conductual. Protocolos, fichas interactivas, casos clínicos y guía de decisión diagnóstica basados en evidencia.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className="h-full antialiased">
-      <body className="h-full bg-slate-50">
+    <html lang="es" className={`h-full ${inter.variable}`}>
+      <body className="h-full bg-slate-50 font-sans antialiased">
         <div className="flex h-full">
           <div className="sidebar-wrapper no-print">
             <Sidebar />

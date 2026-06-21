@@ -4,182 +4,199 @@ const modules = [
   {
     href: "/modelo-cognitivo",
     title: "Modelo Cognitivo",
-    description: "Ciclo pensamiento-emoción-conducta, distorsiones cognitivas y tríada de Beck.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    color: "from-blue-600 to-blue-800",
-    stats: "12 conceptos",
+    description: "Ciclo TCC, distorsiones cognitivas y tríada de Beck explicados para la práctica clínica.",
+    emoji: "🧠",
+    accent: "#3b82f6",
+    bg: "from-blue-500/10 to-blue-600/5",
+    border: "border-blue-100",
+    tag: "Fundamentos",
   },
   {
     href: "/protocolos",
-    title: "Protocolos Clínicos",
-    description: "6 protocolos TCC completos con pasos detallados, técnicas y notas clínicas.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-      </svg>
-    ),
-    color: "from-emerald-500 to-emerald-700",
-    stats: "6 protocolos",
+    title: "Protocolos",
+    description: "10 protocolos paso a paso con técnicas, materiales y notas clínicas detalladas.",
+    emoji: "📋",
+    accent: "#10b981",
+    bg: "from-emerald-500/10 to-emerald-600/5",
+    border: "border-emerald-100",
+    tag: "10 protocolos",
   },
   {
     href: "/fichas",
     title: "Fichas Clínicas",
-    description: "Más de 10 fichas interactivas para rellenar en pantalla o imprimir en sesión.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
-    color: "from-purple-600 to-purple-800",
-    stats: "10 fichas",
+    description: "30 fichas interactivas para rellenar en pantalla, guardar y/o imprimir en sesión.",
+    emoji: "📝",
+    accent: "#8b5cf6",
+    bg: "from-violet-500/10 to-violet-600/5",
+    border: "border-violet-100",
+    tag: "30 fichas",
   },
   {
     href: "/guia-clinica",
     title: "Guía de Decisión",
-    description: "Protocolo por diagnóstico: ansiedad, depresión, TOC, fobias, PTSD y fobia social.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    ),
-    color: "from-amber-500 to-amber-700",
-    stats: "6 diagnósticos",
+    description: "Árbol de decisión clínica por diagnóstico: qué técnica, en qué orden y por qué.",
+    emoji: "🗺️",
+    accent: "#f59e0b",
+    bg: "from-amber-500/10 to-amber-600/5",
+    border: "border-amber-100",
+    tag: "6 diagnósticos",
+  },
+  {
+    href: "/dialogo-socratico",
+    title: "Diálogo Socrático",
+    description: "90+ preguntas y frases terapéuticas organizadas por situación clínica. Con botón copiar.",
+    emoji: "💬",
+    accent: "#ec4899",
+    bg: "from-pink-500/10 to-pink-600/5",
+    border: "border-pink-100",
+    tag: "90+ frases",
   },
   {
     href: "/casos",
     title: "Casos Clínicos",
-    description: "4 casos resueltos con formulación, objetivos y seguimiento sesión a sesión.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
-    color: "from-rose-500 to-rose-700",
-    stats: "4 casos",
+    description: "9 casos resueltos con reflexión interactiva antes de ver la solución sesión a sesión.",
+    emoji: "👤",
+    accent: "#ef4444",
+    bg: "from-red-500/10 to-red-600/5",
+    border: "border-red-100",
+    tag: "9 casos",
   },
   {
     href: "/evaluacion",
     title: "Evaluación",
-    description: "Instrumentos de screening validados y escalas de seguimiento terapéutico.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
-    color: "from-teal-500 to-teal-700",
-    stats: "PHQ-9, GAD-7, más",
+    description: "PHQ-9, GAD-7, BDI-II, BAI, PCL-5 y más. Instrumentos validados y plantillas clínicas.",
+    emoji: "📊",
+    accent: "#0ea5e9",
+    bg: "from-sky-500/10 to-sky-600/5",
+    border: "border-sky-100",
+    tag: "8 instrumentos",
   },
   {
     href: "/teleterapia",
     title: "Teleterapia",
-    description: "Kit adaptado para sesiones online. Guías y ajustes para trabajo remoto.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.069A1 1 0 0121 8.845v6.31a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-      </svg>
-    ),
-    color: "from-indigo-500 to-indigo-700",
-    stats: "Guía completa",
+    description: "Kit completo de adaptación online: técnicas, alianza terapéutica y manejo de crisis por pantalla.",
+    emoji: "💻",
+    accent: "#6366f1",
+    bg: "from-indigo-500/10 to-indigo-600/5",
+    border: "border-indigo-100",
+    tag: "Guía completa",
   },
 ];
 
 const stats = [
-  { value: "6", label: "Protocolos TCC" },
-  { value: "10+", label: "Fichas interactivas" },
-  { value: "6", label: "Guías diagnósticas" },
-  { value: "4", label: "Casos clínicos" },
+  { value: "10", label: "Protocolos TCC", icon: "📋" },
+  { value: "30", label: "Fichas clínicas", icon: "📝" },
+  { value: "9", label: "Casos clínicos", icon: "👤" },
+  { value: "90+", label: "Frases socrática", icon: "💬" },
+];
+
+const quickCasos = [
+  { id: "ansiedad-generalizada", name: "Elena, 34 · TAG", tag: "6 sesiones" },
+  { id: "depresion-mayor", name: "Marcos, 28 · Depresión Mayor", tag: "8 sesiones" },
+  { id: "trastorno-panico", name: "Marta, 31 · Pánico", tag: "8 sesiones" },
+  { id: "ptsd-trauma", name: "Ana, 29 · PTSD", tag: "12 sesiones" },
+];
+
+const quickProtocolos = [
+  { slug: "reestructuracion-cognitiva", name: "Reestructuración Cognitiva", tag: "Grado A" },
+  { slug: "tcci-insomnio", name: "TCC-I para Insomnio", tag: "Grado A" },
+  { slug: "protocolo-panico", name: "Protocolo Pánico (Clark)", tag: "Grado A" },
+  { slug: "primera-sesion", name: "Protocolo Primera Sesión", tag: "Evaluación" },
 ];
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#1e3a5f] via-[#1e4a7f] to-[#10b981] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-sm mb-6">
-              <span className="w-2 h-2 bg-[#10b981] rounded-full"></span>
-              Herramienta Clínica Profesional — TCC Basada en Evidencia
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              CBT PRO+
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 font-light mb-6 leading-relaxed">
-              La guía de Terapia Cognitivo-Conductual más completa para psicólogos clínicos
-            </p>
-            <p className="text-base text-blue-200 mb-8 leading-relaxed max-w-2xl">
-              Accede a protocolos clínicos detallados, fichas interactivas, guías de decisión por diagnóstico y casos clínicos resueltos. Todo el contenido basado en evidencia científica de nivel A.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/protocolos"
-                className="inline-flex items-center gap-2 bg-[#10b981] hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg"
-              >
-                Ver Protocolos
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
-                href="/guia-clinica"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
-              >
-                Guía por Diagnóstico
-              </Link>
-            </div>
+
+      {/* ── Hero ── */}
+      <div className="relative overflow-hidden bg-[#0f2744]">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-emerald-500/8 blur-3xl" />
+          <div className="absolute top-20 -left-20 w-72 h-72 rounded-full bg-blue-500/8 blur-3xl" />
+          <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-indigo-500/6 blur-3xl" />
+        </div>
+
+        <div className="relative max-w-5xl mx-auto px-6 pt-14 pb-10">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-500/25 text-emerald-300 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 animate-fade-up">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
+            Herramienta Clínica Profesional · Basada en Evidencia
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-3 animate-fade-up-2">
+            CBT PRO+
+            <span className="block text-2xl md:text-3xl font-normal text-white/50 mt-1">
+              Sistema Clínico de TCC
+            </span>
+          </h1>
+
+          <p className="text-white/60 text-base md:text-lg max-w-2xl leading-relaxed mb-8 animate-fade-up-3">
+            Todo lo que necesitas para estructurar, intervenir y medir el progreso en Terapia Cognitivo-Conductual — en un solo lugar y listo para usar en sesión.
+          </p>
+
+          <div className="flex flex-wrap gap-3 animate-fade-up-3">
+            <Link
+              href="/fichas"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-lg shadow-emerald-500/25"
+            >
+              Abrir Fichas Clínicas
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/guia-clinica"
+              className="inline-flex items-center gap-2 bg-white/8 hover:bg-white/14 border border-white/15 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+            >
+              Guía por Diagnóstico
+            </Link>
           </div>
         </div>
 
-        {/* Stats Bar */}
-        <div className="bg-[#1e3a5f]/80 border-t border-white/10">
-          <div className="max-w-6xl mx-auto px-6 py-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-[#10b981]">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-blue-200">{stat.label}</div>
+        {/* Stats bar */}
+        <div className="relative border-t border-white/8">
+          <div className="max-w-5xl mx-auto px-6 py-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {stats.map((s) => (
+              <div key={s.label} className="flex items-center gap-3">
+                <span className="text-xl">{s.icon}</span>
+                <div>
+                  <div className="text-xl font-bold text-emerald-400 leading-none">{s.value}</div>
+                  <div className="text-xs text-white/40 mt-0.5">{s.label}</div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Modules Grid */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-[#1e3a5f] mb-2">Módulos Clínicos</h2>
-          <p className="text-gray-500">Acceso rápido a todas las herramientas de la plataforma</p>
+      {/* ── Modules grid ── */}
+      <div className="max-w-5xl mx-auto px-6 py-10">
+        <div className="mb-6">
+          <h2 className="text-lg font-bold text-[#0f2744]">Módulos clínicos</h2>
+          <p className="text-sm text-slate-400 mt-0.5">Acceso directo a todas las herramientas</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {modules.map((module) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {modules.map((m) => (
             <Link
-              key={module.href}
-              href={module.href}
-              className="group bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md hover:border-slate-200 transition-all duration-200 flex flex-col"
+              key={m.href}
+              href={m.href}
+              className={`group card-hover bg-gradient-to-br ${m.bg} border ${m.border} rounded-2xl p-5 flex flex-col`}
             >
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${module.color} text-white flex items-center justify-center mb-4 group-hover:scale-105 transition-transform`}>
-                {module.icon}
-              </div>
-              <h3 className="font-semibold text-[#1e3a5f] mb-2 group-hover:text-[#10b981] transition-colors">
-                {module.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed flex-1">{module.description}</p>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs font-medium text-[#10b981] bg-emerald-50 px-2 py-1 rounded-full">
-                  {module.stats}
+              <div className="flex items-start justify-between mb-3">
+                <span className="text-2xl">{m.emoji}</span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/70 text-slate-500">
+                  {m.tag}
                 </span>
-                <svg
-                  className="w-4 h-4 text-gray-300 group-hover:text-[#10b981] transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+              </div>
+              <h3 className="font-semibold text-[#0f2744] text-sm mb-1.5 group-hover:text-emerald-600 transition-colors">
+                {m.title}
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed flex-1">{m.description}</p>
+              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-slate-400 group-hover:text-emerald-500 transition-colors">
+                Abrir
+                <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
@@ -187,78 +204,83 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Quick Access Section */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+        {/* ── Quick access ── */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Casos */}
+          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-[#1e3a5f]">Protocolos Destacados</h3>
-              <Link href="/protocolos" className="text-sm text-[#10b981] hover:underline">
-                Ver todos
+              <div>
+                <h3 className="font-bold text-[#0f2744] text-sm">Casos Clínicos Recientes</h3>
+                <p className="text-xs text-slate-400 mt-0.5">Reflexión interactiva sesión a sesión</p>
+              </div>
+              <Link href="/casos" className="text-xs text-emerald-500 font-semibold hover:text-emerald-600">
+                Ver todos →
               </Link>
             </div>
-            <div className="space-y-3">
-              {[
-                { slug: "reestructuracion-cognitiva", name: "Reestructuración Cognitiva", tag: "Nivel A" },
-                { slug: "activacion-conductual", name: "Activación Conductual", tag: "Depresión" },
-                { slug: "exposicion-graduada", name: "Exposición Graduada", tag: "Ansiedad" },
-                { slug: "primera-sesion", name: "Protocolo Primera Sesión", tag: "Evaluación" },
-              ].map((p) => (
+            <div className="space-y-1">
+              {quickCasos.map((c) => (
                 <Link
-                  key={p.slug}
-                  href={`/protocolos/${p.slug}`}
-                  className="flex items-center justify-between py-2 hover:bg-slate-50 rounded-lg px-2 transition-colors group"
+                  key={c.id}
+                  href={`/casos/${c.id}`}
+                  className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors group"
                 >
-                  <span className="text-sm text-gray-700 group-hover:text-[#1e3a5f]">{p.name}</span>
-                  <span className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full">{p.tag}</span>
+                  <span className="text-sm text-slate-700 group-hover:text-[#0f2744] font-medium">{c.name}</span>
+                  <span className="text-xs bg-red-50 text-red-500 px-2 py-0.5 rounded-full font-medium">{c.tag}</span>
                 </Link>
               ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+          {/* Protocolos */}
+          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-[#1e3a5f]">Casos Clínicos</h3>
-              <Link href="/casos" className="text-sm text-[#10b981] hover:underline">
-                Ver todos
+              <div>
+                <h3 className="font-bold text-[#0f2744] text-sm">Protocolos Destacados</h3>
+                <p className="text-xs text-slate-400 mt-0.5">Con evidencia científica Grado A</p>
+              </div>
+              <Link href="/protocolos" className="text-xs text-emerald-500 font-semibold hover:text-emerald-600">
+                Ver todos →
               </Link>
             </div>
-            <div className="space-y-3">
-              {[
-                { id: "ansiedad-generalizada", name: "Elena, 34 años — TAG", sessions: "6 sesiones" },
-                { id: "depresion-mayor", name: "Marcos, 28 años — Depresión Mayor", sessions: "8 sesiones" },
-                { id: "toc", name: "Laura, 22 años — TOC", sessions: "10 sesiones" },
-                { id: "fobia-social", name: "Pablo, 19 años — Fobia Social", sessions: "7 sesiones" },
-              ].map((c) => (
+            <div className="space-y-1">
+              {quickProtocolos.map((p) => (
                 <Link
-                  key={c.id}
-                  href={`/casos/${c.id}`}
-                  className="flex items-center justify-between py-2 hover:bg-slate-50 rounded-lg px-2 transition-colors group"
+                  key={p.slug}
+                  href={`/protocolos/${p.slug}`}
+                  className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors group"
                 >
-                  <span className="text-sm text-gray-700 group-hover:text-[#1e3a5f]">{c.name}</span>
-                  <span className="text-xs bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">{c.sessions}</span>
+                  <span className="text-sm text-slate-700 group-hover:text-[#0f2744] font-medium">{p.name}</span>
+                  <span className="text-xs bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-medium">{p.tag}</span>
                 </Link>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Info Banner */}
-        <div className="mt-8 bg-gradient-to-r from-[#1e3a5f] to-[#1e4a7f] rounded-2xl p-6 text-white">
-          <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <div className="flex-1">
-              <h3 className="font-bold text-lg mb-1">CBT PRO+ — Herramienta Clínica Profesional</h3>
-              <p className="text-blue-200 text-sm leading-relaxed">
-                Todo el contenido está basado en protocolos con evidencia científica de nivel A y guías clínicas internacionales (NICE, APA). Las fichas son interactivas y print-friendly para uso en sesión.
-              </p>
+        {/* ── Banner ── */}
+        <div className="mt-6 bg-[#0f2744] rounded-2xl p-6 flex flex-col md:flex-row md:items-center gap-4">
+          <div className="flex-1">
+            <div className="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-1">
+              Temporizador de Sesión
             </div>
-            <div className="flex gap-3">
-              <Link
-                href="/fichas"
-                className="flex-shrink-0 bg-[#10b981] hover:bg-emerald-400 text-white font-medium px-4 py-2 rounded-xl text-sm transition-colors"
-              >
-                Usar Fichas
-              </Link>
-            </div>
+            <h3 className="font-bold text-white text-base mb-1">Estructura cada sesión en fases</h3>
+            <p className="text-white/50 text-sm">
+              Usa el botón flotante (⏱) en cualquier página para activar el temporizador con fases automáticas y alertas a los 5 minutos.
+            </p>
+          </div>
+          <div className="flex gap-3 flex-shrink-0">
+            <Link
+              href="/dialogo-socratico"
+              className="bg-white/10 hover:bg-white/15 border border-white/15 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors"
+            >
+              Diálogo Socrático
+            </Link>
+            <Link
+              href="/fichas"
+              className="bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors shadow-lg shadow-emerald-500/20"
+            >
+              Fichas →
+            </Link>
           </div>
         </div>
       </div>

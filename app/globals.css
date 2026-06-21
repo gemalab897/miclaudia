@@ -1,34 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #1e3a5f;
-  --primary: #1e3a5f;
+  --font-inter: "Inter", sans-serif;
+  --primary: #0f2744;
+  --primary-light: #1e3a5f;
   --accent: #10b981;
+  --accent-light: #34d399;
+  --background: #f6f8fb;
+  --surface: #ffffff;
+  --border: #e8edf4;
+  --text-primary: #0f2744;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: #374151;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Print styles for fichas */
-@media print {
-  .no-print {
-    display: none !important;
-  }
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-  .print-full {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.animate-fade-up { animation: fadeUp 0.4s ease both; }
+.animate-fade-up-2 { animation: fadeUp 0.4s 0.1s ease both; }
+.animate-fade-up-3 { animation: fadeUp 0.4s 0.2s ease both; }
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* ── Card hover lift ── */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 8px 30px rgba(15, 39, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Glass surface ── */
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* ── Print styles ── */
+@media print {
+  .no-print { display: none !important; }
 
   body {
     background: white;
     color: black;
-    font-size: 12pt;
+    font-size: 11pt;
   }
 
   .ficha-container {
@@ -36,60 +79,23 @@ body {
     margin: 0 !important;
   }
 
-  .ficha-field {
-    border: 1px solid #333 !important;
-    padding: 8px !important;
-    margin-bottom: 8px !important;
-    min-height: 60px !important;
-    background: white !important;
-  }
-
   input[type="text"],
   input[type="number"],
   textarea {
-    border: 1px solid #333 !important;
+    border: 1px solid #999 !important;
     background: white !important;
     color: black !important;
   }
 
-  h1, h2, h3 {
-    color: black !important;
-  }
+  h1, h2, h3 { color: black !important; }
 
-  .page-break {
-    page-break-before: always;
-  }
+  .page-break { page-break-before: always; }
 
-  header, nav, aside, footer, .sidebar-wrapper {
-    display: none !important;
-  }
+  header, nav, aside, footer, .sidebar-wrapper { display: none !important; }
 
   main {
     margin: 0 !important;
     padding: 20px !important;
     width: 100% !important;
   }
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
 }
