@@ -24,12 +24,12 @@ const modules = [
   {
     href: "/fichas",
     title: "Fichas Clínicas",
-    description: "30 fichas interactivas para rellenar en pantalla, guardar y/o imprimir en sesión.",
+    description: "100+ fichas interactivas organizadas por diagnóstico para rellenar en pantalla, guardar y/o imprimir en sesión.",
     emoji: "📝",
     accent: "#8b5cf6",
     bg: "from-violet-500/10 to-violet-600/5",
     border: "border-violet-100",
-    tag: "30 fichas",
+    tag: "100+ fichas",
   },
   {
     href: "/guia-clinica",
@@ -85,7 +85,7 @@ const modules = [
 
 const stats = [
   { value: "10", label: "Protocolos TCC", icon: "📋" },
-  { value: "30", label: "Fichas clínicas", icon: "📝" },
+  { value: "100+", label: "Fichas clínicas", icon: "📝" },
   { value: "9", label: "Casos clínicos", icon: "👤" },
   { value: "90+", label: "Frases socrática", icon: "💬" },
 ];
