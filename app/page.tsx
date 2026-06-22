@@ -54,12 +54,12 @@ const modules = [
   {
     href: "/casos",
     title: "Casos Clínicos",
-    description: "9 casos resueltos con reflexión interactiva antes de ver la solución sesión a sesión.",
+    description: "20 casos resueltos con análisis sesión a sesión y reflexión interactiva antes de ver la solución.",
     emoji: "👤",
     accent: "#ef4444",
     bg: "from-red-500/10 to-red-600/5",
     border: "border-red-100",
-    tag: "9 casos",
+    tag: "20 casos",
   },
   {
     href: "/evaluacion",
@@ -86,15 +86,15 @@ const modules = [
 const stats = [
   { value: "10", label: "Protocolos TCC", icon: "📋" },
   { value: "100+", label: "Fichas clínicas", icon: "📝" },
-  { value: "9", label: "Casos clínicos", icon: "👤" },
+  { value: "20", label: "Casos clínicos", icon: "👤" },
   { value: "90+", label: "Frases socrática", icon: "💬" },
 ];
 
 const quickCasos = [
   { id: "ansiedad-generalizada", name: "Elena, 34 · TAG", tag: "6 sesiones" },
   { id: "depresion-mayor", name: "Marcos, 28 · Depresión Mayor", tag: "8 sesiones" },
-  { id: "trastorno-panico", name: "Marta, 31 · Pánico", tag: "8 sesiones" },
-  { id: "ptsd-trauma", name: "Ana, 29 · PTSD", tag: "12 sesiones" },
+  { id: "trastorno-bipolar-ii", name: "Miguel, 38 · Bipolar II", tag: "14 sesiones" },
+  { id: "dolor-cronico", name: "Rosa, 52 · Dolor Crónico", tag: "12 sesiones" },
 ];
 
 const quickProtocolos = [
