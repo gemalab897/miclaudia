@@ -22,6 +22,7 @@ const categoriaColors: Record<string, string> = {
   "Trastornos Sexuales": "bg-fuchsia-100 text-fuchsia-700",
   "Fobias": "bg-lime-100 text-lime-700",
   "Personalidad Límite": "bg-cyan-100 text-cyan-700",
+  "Terapia Somática": "bg-green-100 text-green-700",
 };
 
 export default function FichasPage() {
