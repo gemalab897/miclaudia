@@ -32,16 +32,49 @@ export default async function ProtocoloPage({ params }: Props) {
       </Link>
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-[#1e3a5f] to-[#1e4a7f] text-white rounded-2xl p-6 mb-8">
-        <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-xs mb-4">
-          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          {protocolo.sesiones}
+      <div className="bg-gradient-to-br from-[#1e3a5f] to-[#1e4a7f] text-white rounded-2xl p-6 mb-6">
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-xs">
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {protocolo.sesiones}
+          </div>
+          {protocolo.formatoSesion && (
+            <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-xs">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {protocolo.formatoSesion}
+            </div>
+          )}
         </div>
         <h1 className="text-2xl md:text-3xl font-bold mb-3">{protocolo.titulo}</h1>
         <p className="text-blue-200 leading-relaxed">{protocolo.descripcion}</p>
+        {protocolo.poblacion && (
+          <p className="text-blue-300 text-sm mt-3 italic">{protocolo.poblacion}</p>
+        )}
       </div>
+
+      {/* Objetivos principales */}
+      {protocolo.objetivosPrincipales && protocolo.objetivosPrincipales.length > 0 && (
+        <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-5 mb-8">
+          <h3 className="font-bold text-emerald-800 mb-3 flex items-center gap-2">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Objetivos Principales del Protocolo
+          </h3>
+          <ul className="space-y-1.5">
+            {protocolo.objetivosPrincipales.map((obj, i) => (
+              <li key={i} className="text-sm text-emerald-900 flex items-start gap-2">
+                <span className="text-emerald-500 mt-0.5 font-bold">•</span>
+                {obj}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Info Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -106,8 +139,66 @@ export default async function ProtocoloPage({ params }: Props) {
                   )}
                 </div>
               </div>
-              <div className="p-5">
-                <p className="text-gray-700 leading-relaxed mb-4">{paso.descripcion}</p>
+              <div className="p-5 space-y-4">
+                <p className="text-gray-700 leading-relaxed">{paso.descripcion}</p>
+
+                {/* Guión sugerido */}
+                {paso.guionTerapeuta && (
+                  <div className="bg-teal-50 rounded-lg border border-teal-200 p-3">
+                    <div className="text-xs font-semibold text-teal-700 uppercase mb-1 flex items-center gap-1">
+                      <span>💬</span>
+                      Guión sugerido
+                    </div>
+                    <p className="text-sm text-teal-900 leading-relaxed italic">&ldquo;{paso.guionTerapeuta}&rdquo;</p>
+                  </div>
+                )}
+
+                {/* Preguntas clave */}
+                {paso.preguntasClave && paso.preguntasClave.length > 0 && (
+                  <div className="bg-yellow-50 rounded-lg border border-yellow-200 p-3">
+                    <div className="text-xs font-semibold text-yellow-700 uppercase mb-2 flex items-center gap-1">
+                      <span>❓</span>
+                      Preguntas clave
+                    </div>
+                    <ul className="space-y-1">
+                      {paso.preguntasClave.map((q, i) => (
+                        <li key={i} className="text-sm text-yellow-900 flex items-start gap-2">
+                          <span className="text-yellow-500 mt-0.5 font-bold flex-shrink-0">—</span>
+                          <span className="italic">{q}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Ejemplo clínico */}
+                {paso.ejemploClinico && (
+                  <div className="bg-green-50 rounded-lg border border-green-200 p-3">
+                    <div className="text-xs font-semibold text-green-700 uppercase mb-1 flex items-center gap-1">
+                      <span>📋</span>
+                      Ejemplo clínico
+                    </div>
+                    <p className="text-sm text-green-900 leading-relaxed">{paso.ejemploClinico}</p>
+                  </div>
+                )}
+
+                {/* Errores frecuentes */}
+                {paso.erroresComunes && paso.erroresComunes.length > 0 && (
+                  <div className="bg-orange-50 rounded-lg border border-orange-200 p-3">
+                    <div className="text-xs font-semibold text-orange-700 uppercase mb-2 flex items-center gap-1">
+                      <span>⚠️</span>
+                      Errores frecuentes
+                    </div>
+                    <ul className="space-y-1">
+                      {paso.erroresComunes.map((e, i) => (
+                        <li key={i} className="text-sm text-orange-900 flex items-start gap-2">
+                          <span className="text-orange-500 mt-0.5 font-bold flex-shrink-0">✗</span>
+                          {e}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {paso.tecnicas && paso.tecnicas.length > 0 && (
@@ -142,7 +233,7 @@ export default async function ProtocoloPage({ params }: Props) {
                 </div>
 
                 {paso.notas && (
-                  <div className="mt-4 bg-amber-50 rounded-lg border border-amber-200 p-3">
+                  <div className="bg-amber-50 rounded-lg border border-amber-200 p-3">
                     <div className="text-xs font-semibold text-amber-700 uppercase mb-1 flex items-center gap-1">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

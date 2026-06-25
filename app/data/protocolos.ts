@@ -6,6 +6,10 @@ export interface Paso {
   materiales?: string[];
   tecnicas?: string[];
   notas?: string;
+  guionTerapeuta?: string;
+  preguntasClave?: string[];
+  ejemploClinico?: string;
+  erroresComunes?: string[];
 }
 
 export interface Protocolo {
@@ -18,6 +22,9 @@ export interface Protocolo {
   pasos: Paso[];
   fichasRelacionadas: string[];
   evidencia: string;
+  objetivosPrincipales?: string[];
+  poblacion?: string;
+  formatoSesion?: string;
 }
 
 export const protocolos: Protocolo[] = [
