@@ -7,8 +7,8 @@ export default function ProtocolosPage() {
     <div className="max-w-5xl mx-auto px-6 py-10">
       <PageHeader
         title="Protocolos Clínicos TCC"
-        description="6 protocolos basados en evidencia con pasos detallados, técnicas, materiales y notas clínicas para cada sesión."
-        badge="6 Protocolos"
+        description="10 protocolos basados en evidencia con pasos detallados, técnicas, materiales y notas clínicas para cada sesión."
+        badge={`${protocolos.length} Protocolos`}
         badgeColor="bg-emerald-600"
       />
 

@@ -144,7 +144,7 @@ const modules = [
 ];
 
 const stats = [
-  { value: "10", label: "Protocolos TCC", icon: "📋" },
+  { value: "10+", label: "Protocolos TCC", icon: "📋" },
   { value: "100+", label: "Fichas clínicas", icon: "📝" },
   { value: "20", label: "Casos clínicos", icon: "👤" },
   { value: "90+", label: "Frases socrática", icon: "💬" },
