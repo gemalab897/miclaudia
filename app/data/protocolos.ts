@@ -59,6 +59,18 @@ export const protocolos: Protocolo[] = [
         tecnicas: ["Psicoeducación", "Ejemplos ilustrativos", "Preguntas socrátidas"],
         notas:
           "Es fundamental que el paciente comprenda y acepte el modelo antes de avanzar. Usar ejemplos del propio paciente siempre que sea posible.",
+        guionTerapeuta: "Quiero explicarte algo que va a ser la base de todo nuestro trabajo. ¿Te ha pasado alguna vez que dos personas viven la misma situación y reaccionan de forma completamente distinta? Por ejemplo, si el jefe pone mala cara a dos compañeros, uno piensa 'algo he hecho mal' y se pone ansioso, y el otro piensa 'estará tenso por algo suyo' y no le da importancia. La situación es idéntica, pero el pensamiento que pasa por la mente en ese momento genera emociones distintas. En TCC llamamos a eso pensamientos automáticos.",
+        preguntasClave: [
+          "¿Puedes recordar alguna situación reciente en la que tu reacción emocional te sorprendió por su intensidad?",
+          "¿Qué crees que pasó por tu mente en ese momento para que sintieras eso?",
+          "Si otra persona hubiera vivido esa misma situación, ¿crees que habría sentido lo mismo? ¿Por qué?",
+        ],
+        ejemploClinico: "Laura, 34 años, depresión. Al explicar el modelo, el terapeuta usó un ejemplo de su propia vida: recibir un mensaje de un amigo cancelando una cita. Laura reconoció que su primer pensamiento automático habría sido 'no le importo lo suficiente', mientras que otra persona podría pensar 'algo le habrá surgido'. Ese momento fue el click que le permitió comprender el modelo.",
+        erroresComunes: [
+          "Usar solo ejemplos abstractos o de libro de texto sin conectar con la experiencia del paciente",
+          "Avanzar al siguiente paso sin verificar que el paciente realmente ha comprendido y aceptado el modelo",
+          "Confundir al paciente explicando simultáneamente el modelo ABC y el modelo de 5 columnas sin unificar",
+        ],
       },
       {
         numero: 2,
@@ -75,6 +87,18 @@ export const protocolos: Protocolo[] = [
         ],
         notas:
           "Diferenciar entre emoción ('me siento ansioso') y pensamiento ('voy a fracasar'). Los pensamientos son valoraciones, no hechos.",
+        guionTerapeuta: "Quiero que pensemos juntos en aquella situación que me contaste. Cierra los ojos un momento y revívela. Estás ahí. ¿Qué pasa exactamente? Y justo en ese instante, ¿qué cruza por tu mente? No lo que crees que deberías pensar, sino lo primero que apareció.",
+        preguntasClave: [
+          "¿Qué pasó exactamente por tu mente en ese momento? ¿Puedes capturarlo en una frase?",
+          "Cuando dices que te sentiste mal, ¿qué estabas pensando sobre ti, sobre la situación o sobre el futuro?",
+          "Si ese pensamiento fuera una película en tu cabeza, ¿qué estarías viendo?",
+        ],
+        ejemploClinico: "Marcos, 41 años, ansiedad social. Describía ansiedad intensa al entrar a reuniones de trabajo. Al aplicar la flecha descendente: 'La gente me mira' → '¿Y eso qué significa?' → 'Se dan cuenta de que estoy nervioso' → '¿Y si se dan cuenta?' → 'Pensarán que soy incompetente' → '¿Y eso qué significaría?' → 'Que no valgo para este trabajo y lo perderé'. El pensamiento profundo era la creencia nuclear de incompetencia, no el miedo superficial a ser observado.",
+        erroresComunes: [
+          "Confundir la emoción con el pensamiento: 'me sentí un fracasado' es la emoción, 'soy un fracasado' es el pensamiento",
+          "Quedarse en el pensamiento superficial sin usar la flecha descendente para llegar al pensamiento más nuclear",
+          "Sugerir el pensamiento al paciente en lugar de que él lo descubra con preguntas guiadas",
+        ],
       },
       {
         numero: 3,
@@ -91,6 +115,19 @@ export const protocolos: Protocolo[] = [
         ],
         notas:
           "No rebatir directamente el pensamiento. El objetivo es generar curiosidad y apertura, no convencer al paciente de que está equivocado.",
+        guionTerapeuta: "Ahora que tenemos claro el pensamiento, vamos a examinarlo como si fuéramos detectives. No para demostrar que está equivocado, sino para ver si tiene toda la información. ¿Qué evidencias tienes a favor de que esto es verdad? Anótalo. Ahora, ¿hay algo que no encaje con ese pensamiento? ¿Alguna excepción, alguna vez que no fue así?",
+        preguntasClave: [
+          "¿Qué evidencias concretas tienes de que este pensamiento es verdadero?",
+          "¿Existe alguna evidencia de que NO es verdadero o alguna excepción a la regla?",
+          "Si tu mejor amigo tuviera este pensamiento, ¿qué le dirías?",
+          "¿Estás mirando todos los hechos o solo los que confirman lo que ya creías?",
+        ],
+        ejemploClinico: "Carmen, 29 años, pensamiento 'nunca hago nada bien'. Al buscar evidencias EN CONTRA: recordó que había terminado su carrera universitaria, que su jefa la había elogiado la semana anterior y que organizó su boda sin ayuda. Las evidencias A FAVOR eran solo dos situaciones recientes de errores menores. El contraste fue impactante para ella.",
+        erroresComunes: [
+          "Actuar como abogado defensor del paciente y rebatir directamente el pensamiento en lugar de guiarlo a que él encuentre las evidencias",
+          "Aceptar evidencias vagas o emocionales como 'sé que es así' y no pedir evidencias concretas y verificables",
+          "Saltarse la columna de evidencias A FAVOR del pensamiento, lo que hace que el paciente sienta que no se le toma en serio",
+        ],
       },
       {
         numero: 4,
@@ -102,6 +139,18 @@ export const protocolos: Protocolo[] = [
         tecnicas: ["Psicoeducación", "Reconocimiento de patrones"],
         notas:
           "No etiquetar al paciente. Las distorsiones son hábitos mentales, no defectos de personalidad.",
+        guionTerapeuta: "Ahora que hemos visto la evidencia, me gustaría compartir algo contigo. Hay ciertos patrones de pensamiento que son tan comunes que los hemos nombrado. No porque tengas algo malo, sino porque son hábitos mentales que todos desarrollamos. Cuando dices 'siempre me pasa', eso tiene un nombre: generalización excesiva. ¿Lo reconoces en ti?",
+        preguntasClave: [
+          "¿Reconoces alguno de estos patrones como algo que aparece frecuentemente en tu forma de pensar?",
+          "¿En qué situaciones sueles pensar en blanco o negro, sin término medio?",
+          "¿Con qué frecuencia asumes que sabes lo que otros piensan de ti?",
+        ],
+        ejemploClinico: "David, 37 años. Al revisar su registro de pensamientos de dos semanas, identificó un patrón claro de 'catastrofización' (siempre anticipaba el peor resultado) y 'descalificación de lo positivo' (cuando algo salía bien, lo atribuía a la suerte). Nombrarlo fue un punto de inflexión: empezó a decirse 'esto es mi mente catastrofizando' en lugar de creerlo automáticamente.",
+        erroresComunes: [
+          "Centrarse en identificar muchas distorsiones diferentes en lugar de los 2-3 patrones más recurrentes del paciente",
+          "Presentar la lista de distorsiones como un test o diagnóstico en lugar de como una herramienta educativa",
+          "No conectar las distorsiones identificadas con ejemplos concretos de la vida del paciente",
+        ],
       },
       {
         numero: 5,
@@ -118,6 +167,19 @@ export const protocolos: Protocolo[] = [
         ],
         notas:
           "El pensamiento alternativo debe ser creíble para el paciente. Calificar la credibilidad de 0 a 100% antes y después.",
+        guionTerapeuta: "Ahora que hemos visto que hay evidencias que no encajan con ese pensamiento, me gustaría que generaras tú mismo una versión alternativa. No un pensamiento positivo forzado, sino algo que sea más justo con toda la evidencia disponible. ¿Cómo lo formularías? ¿Cuánto te lo crees, de 0 a 100?",
+        preguntasClave: [
+          "¿Cuál sería una forma más equilibrada y realista de ver esta situación?",
+          "Si le hubiera pasado a un amigo tuyo, ¿qué le dirías?",
+          "¿Cuánto te crees ese pensamiento alternativo, de 0 a 100?",
+          "¿Qué necesitaría ocurrir para que te lo creyeras más?",
+        ],
+        ejemploClinico: "Ana, 45 años, depresión. Pensamiento original: 'Soy una mala madre' (credibilidad 95%). Tras evaluar evidencias, generó: 'Me preocupo mucho por mis hijos, aunque cometo errores como cualquier madre. Tengo pruebas de que les doy amor y me esfuerzo.' Credibilidad del alternativo: 60%. Reducción del malestar de 90 a 55. Pequeño pero significativo avance en la primera sesión.",
+        erroresComunes: [
+          "Generar pensamientos positivos irrealistas tipo 'todo va a salir bien' que el paciente no se cree",
+          "Proponer el terapeuta el pensamiento alternativo en lugar de guiar al paciente a que lo construya él",
+          "No medir la credibilidad del pensamiento alternativo antes de finalizar — si es menor del 30%, no será útil",
+        ],
       },
       {
         numero: 6,
@@ -129,6 +191,18 @@ export const protocolos: Protocolo[] = [
         tecnicas: ["Escalas numéricas (0-100)", "Reflexión guiada"],
         notas:
           "No esperar una reducción del 100% del malestar. Incluso una reducción del 20-30% es clínicamente significativa.",
+        guionTerapeuta: "Para cerrar, vuelve al inicio del ejercicio. La emoción que sentías cuando tenías el pensamiento original, ¿qué tan intensa era, de 0 a 100? ¿Y ahora, cómo la puntuarías? Incluso una bajada pequeña importa. ¿Qué es lo que más te ha ayudado en este ejercicio hoy?",
+        preguntasClave: [
+          "¿Cómo era la intensidad de tu malestar antes del ejercicio y cómo está ahora?",
+          "¿Qué parte del proceso te resultó más útil o más difícil?",
+          "¿Crees que podrías intentar aplicar este mismo proceso por tu cuenta esta semana?",
+        ],
+        ejemploClinico: "Roberto, 52 años. Empezó con ansiedad a 85/100, pensando que su presentación sería un desastre. Al finalizar el registro completo, la ansiedad bajó a 50/100. Dijo: 'Sigo nervioso, pero ya no creo que sea una catástrofe segura.' Ese matiz fue el inicio del cambio cognitivo.",
+        erroresComunes: [
+          "No medir el cambio emocional al final, perdiendo la oportunidad de reforzar el progreso y motivar al paciente",
+          "Frustrarse si la emoción no cambia mucho en la primera sesión: el cambio cognitivo es gradual",
+          "Asignar el autorregistro como tarea sin practicarlo suficientemente en sesión primero",
+        ],
       },
     ],
     fichasRelacionadas: [
@@ -138,6 +212,15 @@ export const protocolos: Protocolo[] = [
     ],
     evidencia:
       "Nivel de evidencia A para depresión (Beck, 1979; Clark & Beck, 2010). Meta-análisis muestran eficacia superior a lista de espera y comparable a antidepresivos con menor tasa de recaída.",
+    objetivosPrincipales: [
+      "Identificar pensamientos automáticos negativos y su relación con el malestar emocional",
+      "Desarrollar la capacidad de evaluar críticamente las propias interpretaciones",
+      "Generar alternativas cognitivas más realistas y equilibradas",
+      "Reducir la intensidad y frecuencia de emociones disfuncionales",
+      "Transferir la habilidad al autorregistro autónomo fuera de sesión",
+    ],
+    poblacion: "Adultos con síntomas de depresión, ansiedad o baja autoestima. Requiere capacidad mínima de introspección y nivel cognitivo para el trabajo abstracto.",
+    formatoSesion: "Individual · 50 min · Frecuencia semanal",
   },
   {
     slug: "activacion-conductual",
@@ -167,6 +250,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Diagrama espiral de la depresión", "Hoja de psicoeducación"],
         notas:
           "Enfatizar: 'No esperamos a sentirnos bien para actuar. Actuamos para sentirnos bien.' Esto es clave para motivar al paciente.",
+        guionTerapeuta: "En la depresión hay un círculo vicioso muy claro: cuando nos sentimos mal, dejamos de hacer cosas. Y cuando dejamos de hacer cosas, nos sentimos peor. Es como un remolino que nos va tragando. Lo que vamos a hacer juntos es interrumpir ese ciclo. No vamos a esperar a que te apetezca actuar — porque con la depresión ese momento no llega. Vamos a actuar primero, y el estado de ánimo irá siguiendo.",
+        preguntasClave: [
+          "¿Qué actividades disfrutabas antes que ahora ya no haces?",
+          "¿Has notado que hay momentos del día o semana en que te encuentras algo mejor?",
+          "¿Qué diferencia crees que haría en tu día si hicieras aunque fuera una pequeña cosa diferente?",
+        ],
+        ejemploClinico: "Pedro, 48 años, depresión moderada. Llevaba tres meses sin salir de casa más que para lo imprescindible. Al dibujar la espiral descendente con sus propias palabras — 'cuanto más me quedo en el sofá, menos ganas tengo de levantarme, y eso me da más vergüenza y me hundo más' — fue el primer momento en que vio el patrón desde fuera y quiso cambiarlo.",
+        erroresComunes: [
+          "Presentar la activación conductual como 'ponerse las pilas' o 'esforzarse más', lo que el paciente vive como invalidación",
+          "No usar ejemplos del propio paciente para ilustrar la espiral — los ejemplos abstractos no conectan emocionalmente",
+          "Omitir el fundamento teórico y pasar directamente al registro sin que el paciente entienda el porqué",
+        ],
       },
       {
         numero: 2,
@@ -178,6 +273,18 @@ export const protocolos: Protocolo[] = [
         tecnicas: ["Automonitoreo", "Registro conductual"],
         notas:
           "Algunos pacientes se resisten. Empezar con registros simplificados (mañana/tarde/noche) si el detallado resulta abrumador.",
+        guionTerapeuta: "Esta semana te voy a pedir que hagas algo: anota lo que haces cada día, aunque sea en bloques de mañana, tarde y noche, y al lado puntúa tu estado de ánimo del 0 al 10. No es para juzgarte, sino para que los dos tengamos datos reales de cómo es tu semana típica. ¿Cómo te suena eso?",
+        preguntasClave: [
+          "¿Qué actividades has hecho esta semana, aunque hayan sido pequeñas?",
+          "¿Notaste alguna diferencia en tu estado de ánimo entre momentos del día o según lo que hacías?",
+          "¿Hubo algún momento, aunque fuera breve, en que el estado de ánimo fuera algo mejor que la media?",
+        ],
+        ejemploClinico: "Sofía, 33 años. Se negó a hacer el registro hora a hora por sentirlo 'agobiante'. Se acordó que anotaría solo tres momentos del día (mañana, tarde, noche) con una palabra y un número. Al revisar dos semanas de registros simplificados, ambos vieron que los jueves por la tarde, cuando iba a recoger a su hija, el estado de ánimo subía de 3 a 6. Ese insight fue el punto de partida.",
+        erroresComunes: [
+          "Insistir en el formato detallado cuando el paciente ya muestra resistencia — mejor datos parciales que ningún dato",
+          "No revisar el registro en sesión con suficiente detalle, desperdiciando la información recogida",
+          "Pedir el registro sin explicar claramente para qué sirve y qué se hará con él",
+        ],
       },
       {
         numero: 3,
@@ -188,6 +295,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Registro de actividades completado"],
         tecnicas: ["Análisis funcional", "Identificación de patrones", "ABC conductual"],
         notas: "Buscar tanto actividades que generan placer como actividades que generan sensación de logro o dominio.",
+        guionTerapeuta: "Miremos juntos lo que has registrado. Veo que el lunes por la mañana, cuando te quedaste en cama, el estado de ánimo estaba en 3. El miércoles, cuando saliste a comprar al mercado, estaba en 5. ¿Lo ves? No es que las actividades produzcan euforia, pero sí hay una diferencia. ¿Qué crees que explica esa diferencia?",
+        preguntasClave: [
+          "¿Qué actividades correlacionan con mejores puntuaciones de estado de ánimo, aunque sea ligeramente?",
+          "¿Hay alguna actividad que hayas dejado de hacer desde que empezaste a encontrarte mal?",
+          "¿En qué momentos del día sueles encontrarte algo peor, y qué sueles estar haciendo entonces?",
+        ],
+        ejemploClinico: "Javier, 55 años. El análisis del registro reveló que sus peores momentos eran los domingos por la tarde (estado de ánimo 2-3), cuando no tenía estructura y la mente 'se disparaba'. Sus mejores momentos eran cuando cocinaba (estado de ánimo 5-6). El tratamiento se construyó sobre ese dato: planificar actividades estructuradas los domingos y ampliar el tiempo de cocina.",
+        erroresComunes: [
+          "Buscar solo actividades de placer y omitir las de logro y dominio, que son igualmente importantes en depresión",
+          "No identificar los momentos de evitación activa y quedarse solo con la descripción de actividades realizadas",
+          "Hacer el análisis sin el paciente, llegando a conclusiones antes de que él las descubra por sí mismo",
+        ],
       },
       {
         numero: 4,
@@ -198,6 +317,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Lista de Actividades Agradables", "Ficha de inventario"],
         tecnicas: ["Brainstorming", "Jerarquización de actividades"],
         notas: "Algunos pacientes reportan que 'ya nada les da placer'. Explorar actividades del pasado y actividades pequeñas (tomar café, salir 10 min al sol).",
+        guionTerapeuta: "Vamos a hacer una lista de cosas que antes te gustaban o que crees que podrían gustarte. No te preocupes si ahora mismo no te apetece ninguna — eso es precisamente el síntoma. Piensa en lo que hacías hace dos años. ¿Qué había en tu semana que ahora ha desaparecido?",
+        preguntasClave: [
+          "¿Qué actividades hacías antes de la depresión que ahora no haces?",
+          "Si te encontraras bien un día, ¿qué te gustaría hacer?",
+          "¿Hay alguna actividad muy pequeña que pudieras hacer esta semana, aunque no tengas ganas?",
+        ],
+        ejemploClinico: "María, 38 años. Dijo que 'nada le daba placer'. Al explorar actividades pasadas, mencionó que antes disfrutaba mucho de los crucigramas por la mañana. El terapeuta propuso empezar con 10 minutos de crucigrama con el café del desayuno. Dos semanas después, María reportó que era 'el único momento del día que esperaba con ganas'. Esa pequeña actividad fue la primera apertura.",
+        erroresComunes: [
+          "Frustrarse porque el paciente 'no encuentra nada que le guste' — explorar el pasado, no solo el presente",
+          "Proponer actividades de alta demanda energética (gym, ver amigos) antes de establecer actividades mínimas",
+          "Crear una lista muy larga que abrume al paciente en lugar de seleccionar 2-3 actividades clave",
+        ],
       },
       {
         numero: 5,
@@ -208,6 +339,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Plan de Activación Conductual semanal", "Calendario"],
         tecnicas: ["Planificación conductual", "Graduación", "Contrato conductual"],
         notas: "Las actividades deben ser concretas ('caminar 15 minutos el martes a las 9h') no vagas ('hacer ejercicio'). Anticipar obstáculos.",
+        guionTerapeuta: "Vamos a hacer un plan para esta semana. No un plan perfecto — un plan realista. ¿Cuál es la actividad más pequeña de la lista que podrías hacer el martes? No 'si tengo ganas', sino como compromiso, independientemente del estado de ánimo. Ponemos un día, una hora, un lugar. Concreto.",
+        preguntasClave: [
+          "¿Cuál es la actividad más pequeña y factible que podrías comprometerte a hacer esta semana?",
+          "¿Qué podría impedir que lo hicieras? ¿Cómo lo resolverías?",
+          "¿A qué hora y dónde exactamente vas a hacerlo?",
+        ],
+        ejemploClinico: "Luis, 42 años. La primera semana el plan fue: 'Bajar al buzón a las 10 de la mañana del lunes y el jueves.' Parecía trivial pero Luis lo logró las dos veces. En sesión, el terapeuta lo trató como un logro real: 'Saliste de casa dos veces en una semana, eso es más de lo que hiciste el mes pasado.' Ese refuerzo abrió la puerta a planificar más.",
+        erroresComunes: [
+          "Planificar actividades ambiciosas que casi con seguridad el paciente no logrará, generando más frustración y culpa",
+          "No anticipar obstáculos: 'si llueve, qué harás en lugar de salir a caminar'",
+          "Planificar actividades sin días y horas concretos — la vaguedad garantiza la no ejecución",
+        ],
       },
       {
         numero: 6,
@@ -218,6 +361,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Plan de la semana anterior", "Nuevo plan semanal"],
         tecnicas: ["Análisis de barreras", "Resolución de problemas", "Refuerzo verbal"],
         notas: "Validar el esfuerzo más que el resultado. 'Intentarlo ya es un logro.' Conectar con reestructuración cognitiva si aparecen pensamientos bloqueantes.",
+        guionTerapeuta: "Antes de hablar de cómo te has encontrado esta semana, cuéntame: ¿lograste hacer lo que habíamos planificado? No te preocupes si no fue así — me interesa entender qué pasó, no juzgarte. Y si lo lograste aunque sea en parte, quiero que sepas que eso es un dato importante.",
+        preguntasClave: [
+          "¿Qué lograste hacer de lo que habíamos planificado?",
+          "¿Qué fue lo que más te costó hacer o lo que no pudiste hacer? ¿Qué se interpuso?",
+          "Cuando hiciste la actividad, ¿cómo te encontraste antes, durante y después?",
+        ],
+        ejemploClinico: "Elena, 29 años. No había hecho ninguna actividad del plan. Al explorar, apareció el pensamiento bloqueante: 'Para qué lo hago si no voy a sentir nada.' El terapeuta lo trabajó como pensamiento automático: '¿Y si actuamos a pesar de ese pensamiento, como un experimento?' La semana siguiente, con esa reformulación, Elena hizo dos de las tres actividades.",
+        erroresComunes: [
+          "Centrarse en lo que no se hizo en lugar de empezar por lo que sí se logró, aunque fuera parcial",
+          "No explorar los pensamientos que bloquearon la activación y quedarse solo en el nivel conductual",
+          "Aumentar el plan cuando el paciente no ha cumplido el anterior, lo que genera más presión y culpa",
+        ],
       },
     ],
     fichasRelacionadas: [
@@ -227,6 +382,15 @@ export const protocolos: Protocolo[] = [
     ],
     evidencia:
       "Nivel de evidencia A para depresión. Estudios de Lewinsohn (1975), Martell et al. (2001) y el ensayo TRAP-TRAC. Tan eficaz como la terapia cognitiva completa en depresión moderada-severa (Dimidjian et al., 2006).",
+    objetivosPrincipales: [
+      "Romper el ciclo de inactividad-depresión-más inactividad mediante acción conductual progresiva",
+      "Identificar actividades que generan placer y sensación de logro",
+      "Aumentar el contacto con refuerzos positivos en el ambiente",
+      "Reducir conductas de evitación que mantienen el estado de ánimo bajo",
+      "Generalizar el principio de activación como estrategia de mantenimiento a largo plazo",
+    ],
+    poblacion: "Adultos con depresión mayor, distimia o anhedonia. Especialmente efectiva cuando el componente conductual (inactividad, aislamiento) es predominante.",
+    formatoSesion: "Individual · 50 min · Frecuencia semanal",
   },
   {
     slug: "exposicion-graduada",
@@ -256,6 +420,18 @@ export const protocolos: Protocolo[] = [
         duracion: "20–30 minutos",
         materiales: ["Diagrama de curva de ansiedad", "Hoja de psicoeducación sobre el miedo"],
         notas: "Es fundamental que el paciente entienda POR QUÉ es necesario exponerse. La motivación inicial es clave para el éxito.",
+        guionTerapeuta: "Quiero que entendamos juntos qué le pasa a tu ansiedad cuando evitas. Imagina que tienes miedo a los perros. Un día ves uno y cruzas la calle para evitarlo. ¿Cómo te sientes en ese momento? Aliviado, claro. Pero la próxima vez que ves un perro, ¿el miedo ha bajado o ha subido? Exacto — ha subido. Porque tu cerebro ha aprendido que la única forma de estar seguro es evitar. La exposición deshace ese aprendizaje.",
+        preguntasClave: [
+          "¿Qué ocurre con tu ansiedad cuando evitas la situación que temes?",
+          "¿Alguna vez has conseguido tolerar la ansiedad sin escapar? ¿Qué pasó?",
+          "¿Cómo ha afectado la evitación a tu vida en el último año?",
+        ],
+        ejemploClinico: "Isabel, 27 años, fobia social. Al explicar la curva de ansiedad, dibujaron juntos cómo su ansiedad subía cuando llegaba a una fiesta, alcanzaba un pico a los 15 minutos y luego... ella siempre se iba antes de que bajara. 'Nunca he esperado a que baje,' dijo sorprendida. Esa comprensión fue el detonante de su motivación para exponerse.",
+        erroresComunes: [
+          "Explicar el fundamento demasiado brevemente y pasar rápido a la jerarquía sin asegurar la comprensión",
+          "No trabajar la motivación: el paciente entiende el modelo pero no ve por qué merece la pena el malestar",
+          "Omitir el concepto de habituación y centrarse solo en extinción, lo que genera expectativas incorrectas",
+        ],
       },
       {
         numero: 2,
@@ -266,6 +442,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Ficha de Jerarquía de Exposición", "Escala SUDS"],
         tecnicas: ["Brainstorming", "Escalación graduada", "Escala SUDS"],
         notas: "Incluir variantes: situación real, imaginal, videos. Ajustar si el paciente sobreestima o subestima el SUDS inicial.",
+        guionTerapeuta: "Vamos a construir una especie de escalera del miedo. Arriba están las situaciones que más ansiedad te generan, abajo las que menos. Para cada escalón, necesito que me des una puntuación del 0 al 100 sobre cuánta ansiedad te generaría ahora mismo. Empecemos por los más difíciles y luego bajamos.",
+        preguntasClave: [
+          "Si tuvieras que hacer esa situación ahora mismo, ¿cuánta ansiedad sentirías del 0 al 100?",
+          "¿Hay alguna variante de esa situación que te generara un poco menos de ansiedad?",
+          "¿Qué situación que evitas ahora te gustaría poder hacer sin miedo cuando terminemos?",
+        ],
+        ejemploClinico: "Alejandro, 31 años, fobia a conducir tras accidente. Jerarquía construida: sentarse en coche parado (SUDS 30), arrancar motor (40), conducir en parking (55), conducir calle tranquila (65), autovía sin coches (75), autovía con tráfico (90), autovía en lluvia (100). La gradación permitió empezar por algo factible en la tercera sesión.",
+        erroresComunes: [
+          "Construir jerarquías con saltos demasiado grandes entre ítems, sin escalones intermedios de transición",
+          "Tener todos los ítems agrupados en un rango alto (70-100) sin suficientes ítems de entrada",
+          "No verificar el SUDS con el paciente para cada ítem — los números los pone él, no el terapeuta",
+        ],
       },
       {
         numero: 3,
@@ -276,6 +464,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Guía de respiración diafragmática"],
         tecnicas: ["Respiración controlada", "Autoinstrucciones", "Mindfulness de sensaciones"],
         notas: "Evitar que las técnicas se conviertan en conductas de seguridad. El objetivo es TOLERAR la ansiedad, no eliminarla rápido.",
+        guionTerapeuta: "Antes de empezar con la exposición, quiero que tengas algunas herramientas para cuando la ansiedad suba. No para escapar de ella, sino para acompañarla. La respiración diafragmática no hace desaparecer la ansiedad, pero sí le dice a tu sistema nervioso que no hay emergencia real.",
+        preguntasClave: [
+          "¿Qué haces ahora mismo cuando la ansiedad sube? ¿Qué te ayuda más?",
+          "¿Serías capaz de tolerar la ansiedad si supieras que es temporal y que no es peligrosa?",
+          "¿Qué te dices a ti mismo cuando la ansiedad sube? ¿Hay frases que te ayuden?",
+        ],
+        ejemploClinico: "Carolina, 25 años. Aprendió respiración diafragmática en 10 minutos y practicó en consulta. El terapeuta fue explícito: 'Esto no es para usarlo cuando el miedo llegue al 80 para hacerlo bajar rápido — eso sería un escape. Es para usarlo como regulación de fondo mientras te mantienes en la situación.'",
+        erroresComunes: [
+          "Pasar demasiado tiempo (2-3 sesiones) en técnicas de afrontamiento antes de empezar la exposición",
+          "No advertir que las técnicas pueden convertirse en conductas de seguridad si se usan para escapar del malestar",
+          "Enseñar técnicas de relajación profunda que requieren mucho tiempo cuando en la exposición se necesitan estrategias breves",
+        ],
       },
       {
         numero: 4,
@@ -286,6 +486,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Ficha de registro SUDS", "Jerarquía de exposición"],
         tecnicas: ["Exposición in vivo", "Exposición imaginaria", "Exposición interoceptiva"],
         notas: "Primera exposición idealmente en sesión, con el terapeuta. Luego pasar a práctica autónoma. Registrar siempre el nivel inicial y final de SUDS.",
+        guionTerapeuta: "Vamos a empezar con el primer escalón de tu jerarquía. Recuerda: el objetivo no es no sentir ansiedad, sino quedarse en la situación mientras la ansiedad sube y baja por sí sola. Registramos el nivel de ansiedad cada cinco minutos. Yo estoy aquí contigo. ¿Listo?",
+        preguntasClave: [
+          "¿Cuánta ansiedad sientes ahora mismo, del 0 al 100?",
+          "¿Qué pensamientos están apareciendo?",
+          "¿Estás tentado a hacer algo para reducir la ansiedad — escapar, usar el teléfono, respirar profundo? ¿Puedes resistirlo?",
+        ],
+        ejemploClinico: "Tomás, 36 años, agorafobia. Primera exposición: subir al ascensor del edificio hasta el segundo piso y bajar. SUDS inicial: 55. A los 3 minutos: 70. A los 7 minutos: 60. A los 12 minutos: 35. Tomás lo repitió tres veces en la misma sesión. Al salir, dijo: 'No me ha pasado nada. El ascensor no me ha hecho daño.' Esa frase resume lo que la exposición enseña.",
+        erroresComunes: [
+          "Permitir que el paciente escape cuando la ansiedad llega al pico — justo cuando escapan, el condicionamiento de evitación se refuerza",
+          "No registrar SUDS periódicamente y perder los datos de habituación que refuerzan al paciente",
+          "Hacer la primera exposición como tarea para casa sin haberla practicado en sesión primero",
+        ],
       },
       {
         numero: 5,
@@ -296,6 +508,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Registro de exposiciones", "Jerarquía actualizada"],
         tecnicas: ["Revisión de tareas", "Solución de problemas", "Modelado"],
         notas: "Vigilar las 'conductas de seguridad' sutiles (agarrarse a algo, repetir frases, estar pendiente del teléfono). Deben eliminarse gradualmente.",
+        guionTerapeuta: "Has bajado en el ítem anterior a menos de 20 de ansiedad de forma estable. Eso significa que tu cerebro ha aprendido que esa situación es segura. Ahora podemos subir al siguiente escalón. ¿Cómo te sientes ante eso?",
+        preguntasClave: [
+          "¿Cómo fue hacer la exposición esta semana por tu cuenta?",
+          "¿Notaste la tendencia de hacer algo para reducir la ansiedad más rápido? ¿Qué hiciste?",
+          "¿Hay algo que hagas durante la exposición que no habíamos planificado y que podría ser una conducta de seguridad?",
+        ],
+        ejemploClinico: "Pilar, 44 años, fobia social. Al revisar su exposición (ir al supermercado sola), confesó que siempre llevaba los auriculares puestos para 'aislarse'. Al eliminar esa conducta de seguridad, la exposición inicial fue más dura, pero la habituación fue completa en menos sesiones. Eliminar la conducta de seguridad aceleró el tratamiento.",
+        erroresComunes: [
+          "Avanzar a un ítem superior antes de que el SUDS del ítem actual haya bajado a menos de 25 de forma estable",
+          "No identificar conductas de seguridad sutiles que el paciente ha desarrollado sin ser consciente de ello",
+          "Espaciar demasiado las exposiciones entre sesiones — la práctica debe ser frecuente (idealmente diaria) para mantener el impulso",
+        ],
       },
       {
         numero: 6,
@@ -306,6 +530,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Plan de mantenimiento", "Ficha de señales de alerta"],
         tecnicas: ["Psicoeducación", "Plan de acción personal"],
         notas: "El mayor predictor de recaída es la evitación post-tratamiento. El mantenimiento activo es fundamental.",
+        guionTerapeuta: "Has llegado al final de la jerarquía. Eso es un logro enorme. Ahora quiero que sepas que la ansiedad puede volver en momentos de estrés o cansancio — eso es normal y no significa que hayas fracasado. La diferencia es que ahora sabes qué hacer: exponerte, no evitar.",
+        preguntasClave: [
+          "¿Hay alguna situación de las que trabajamos que sigues sintiendo cierta tentación de evitar?",
+          "Si la ansiedad volviera en tres meses, ¿qué harías diferente a lo que hacías antes del tratamiento?",
+          "¿Con qué frecuencia crees que deberías 'practicar' la exposición para mantener lo ganado?",
+        ],
+        ejemploClinico: "Fernando, 38 años. Al finalizar el protocolo, diseñaron juntos un 'plan de mantenimiento': exponerse al metro al menos dos veces por semana los primeros tres meses, luego reducir a una. También acordaron una 'señal de alerta': si llevaba más de tres semanas evitando el metro, volvería a consulta. A los seis meses, Fernando reportó que 'ya no lo piensa — simplemente usa el metro'.",
+        erroresComunes: [
+          "No dedicar una sesión específica a prevención de recaídas y dar el alta sin plan de mantenimiento",
+          "No normalizar que la ansiedad puede volver temporalmente, lo que genera catastrofización si ocurre",
+          "No identificar las situaciones residuales de evitación parcial que pueden reactivar la fobia con el tiempo",
+        ],
       },
     ],
     fichasRelacionadas: [
@@ -315,6 +551,15 @@ export const protocolos: Protocolo[] = [
     ],
     evidencia:
       "Tratamiento de primera línea (Nivel A) para fobias específicas, fobia social y trastorno de pánico. Meta-análisis de Wolitzky-Taylor et al. (2008) y Chambless & Ollendick (2001). Tasas de remisión del 60-90% según el trastorno.",
+    objetivosPrincipales: [
+      "Romper el ciclo evitación-mantenimiento del miedo mediante exposición sistemática",
+      "Aprender que la ansiedad es tolerable y se reduce sin necesidad de escapar",
+      "Eliminar conductas de seguridad que impiden la extinción completa",
+      "Recuperar situaciones y actividades que la ansiedad había bloqueado",
+      "Consolidar estrategias de mantenimiento para prevenir recaídas",
+    ],
+    poblacion: "Adultos y adolescentes con trastornos de ansiedad. Requiere motivación suficiente para tolerar malestar y compromiso con las tareas entre sesiones.",
+    formatoSesion: "Individual · 60-90 min en sesiones de exposición · Frecuencia semanal o bisemanal",
   },
   {
     slug: "relajacion-muscular-progresiva",
@@ -345,6 +590,18 @@ export const protocolos: Protocolo[] = [
         duracion: "5–10 minutos",
         materiales: ["Colchoneta o sillón reclinable", "Guión de relajación"],
         notas: "Tener en cuenta contraindicaciones. Adaptar las instrucciones si hay dolor o limitación física.",
+        guionTerapeuta: "Lo que vamos a hacer hoy se llama relajación muscular progresiva. La idea es sencilla: tensamos un grupo de músculos, lo mantenemos unos segundos, y luego lo soltamos. Al soltar, el músculo se relaja más de lo que estaba antes de tensarlo. Así vamos recorriendo el cuerpo de arriba abajo. ¿Tienes alguna lesión o dolor en alguna zona que debamos tener en cuenta antes de empezar?",
+        preguntasClave: [
+          "¿Tienes alguna zona del cuerpo con dolor, lesión o limitación que debamos adaptar?",
+          "¿Has practicado alguna vez técnicas de relajación? ¿Cómo fue la experiencia?",
+          "¿Cómo estás de tensa/o en este momento, del 0 al 10?",
+        ],
+        ejemploClinico: "Beatriz, 52 años, ansiedad generalizada y cefaleas tensionales. Al iniciar la preparación, mencionó dolor crónico en el cuello. El terapeuta adaptó la instrucción para esa zona: en lugar de tensar el cuello, solo observaría la tensión natural presente y la soltaría con la exhalación. La adaptación fue clave para que Beatriz pudiera completar todo el ejercicio sin dolor.",
+        erroresComunes: [
+          "No preguntar por lesiones o dolor antes de empezar, lo que puede causar molestias y romper la alianza",
+          "Realizar la sesión en un entorno con ruido o interrupciones que impidan la inmersión",
+          "Leer el guión de relajación en un tono monótono y apresurado — la cadencia y el tono son parte de la técnica",
+        ],
       },
       {
         numero: 2,
@@ -353,6 +610,17 @@ export const protocolos: Protocolo[] = [
           "Mano dominante: apretar el puño con fuerza (5-7s), notar la tensión, soltar y observar la diferencia (20-30s). Repetir con mano no dominante. Luego doblar ambas manos hacia atrás (tensando la cara dorsal del antebrazo). Soltar y notar la sensación de relajación.",
         duracion: "4–5 minutos",
         tecnicas: ["Tensión-relajación", "Atención plena a sensaciones corporales"],
+        guionTerapeuta: "Cierra tu mano derecha en un puño. Aprieta con fuerza... nota la tensión en la mano, la muñeca, el antebrazo. Mantén... y ahora suelta lentamente. Observa la diferencia. La sensación de calor, de peso, de soltar. Eso es la relajación. Fíjate en el contraste entre cómo estaba antes y cómo está ahora.",
+        preguntasClave: [
+          "¿Notas la diferencia entre la tensión y la relajación en esa zona?",
+          "¿Hay zonas donde cuesta más notar el contraste o donde la relajación no llega igual?",
+        ],
+        ejemploClinico: "Gonzalo, 39 años. En la primera sesión, al soltar el puño dijo: 'Es la primera vez que soy consciente de que tengo los puños apretados todo el día.' Esa toma de conciencia corporal fue el valor añadido de la técnica más allá de la relajación en sí: aprendió a detectar su tensión habitual.",
+        erroresComunes: [
+          "Tensar demasiado con fuerza, especialmente en manos — puede causar calambres y romper la relajación",
+          "Soltar la tensión demasiado abruptamente en lugar de hacerlo de forma gradual",
+          "No dar suficiente tiempo en la fase de relajación — 20-30 segundos mínimo para notar el contraste",
+        ],
       },
       {
         numero: 3,
@@ -360,6 +628,12 @@ export const protocolos: Protocolo[] = [
         descripcion:
           "Brazos superiores: doblar los codos y tensar bíceps (como hacer un curl). Mantener, soltar. Tríceps: extender los brazos empujando hacia abajo. Hombros: elevar ambos hombros hacia las orejas. Mantener la tensión, notar el esfuerzo, soltar lentamente y sentir la relajación.",
         duracion: "4–5 minutos",
+        guionTerapeuta: "Ahora los hombros. Súbelos hacia las orejas lo más que puedas... mantén esa tensión... y suelta lentamente. Deja que los hombros caigan por su propio peso. Siente cómo se alejan de las orejas... cómo se abren... Esta es una zona donde muchos acumulamos la tensión del día sin darnos cuenta.",
+        ejemploClinico: "Patricia, 41 años. Al llegar a los hombros dijo 'aquí sí que noto la diferencia'. Era consciente de que cargaba los hombros tensos todo el día, especialmente en el trabajo con el ordenador. Aprendió a usar ese grupo como 'termómetro' de su tensión general durante el día.",
+        erroresComunes: [
+          "Elevar los hombros con tan poca fuerza que no hay contraste real al soltar",
+          "No hacer el ejercicio de tríceps por parecer complicado — es uno de los grupos que más tensión acumula",
+        ],
       },
       {
         numero: 4,
@@ -368,6 +642,17 @@ export const protocolos: Protocolo[] = [
           "Frente: elevar las cejas lo más alto posible (5-7s), soltar y sentir la frente lisa. Ojos: cerrar con fuerza, soltar. Nariz/mejillas: arrugar la nariz. Boca: apretar los dientes y estirar las comisuras. Cuello: empujar la cabeza hacia atrás contra la silla o colchoneta.",
         duracion: "5–7 minutos",
         notas: "Ir despacio en la cara. Muchos pacientes no son conscientes de la tensión facial. Es una zona muy importante para la ansiedad.",
+        guionTerapeuta: "Ahora la cara. Arrugamos la frente levantando las cejas lo más alto posible... mantén... y suelta. Nota cómo se alisa. Ahora cierra los ojos con fuerza... mantén... y relaja. Puedes notar un hormigueo suave. Eso es la circulación volviendo a las zonas relajadas.",
+        preguntasClave: [
+          "¿Habías notado antes la tensión que puedes acumular en la frente y mandíbula?",
+          "¿En qué momentos del día crees que tensas más la cara sin darte cuenta?",
+        ],
+        ejemploClinico: "Martín, 33 años, bruxismo nocturno. Al trabajar la mandíbula, reconoció que también la tensaba durante el día en reuniones difíciles. El registro de tensión facial se convirtió en una señal de alerta para aplicar la versión abreviada de relajación durante el día.",
+        erroresComunes: [
+          "Apretar la mandíbula con demasiada fuerza — puede generar dolor en pacientes con bruxismo",
+          "Ir demasiado rápido en la zona facial, que requiere más tiempo de relajación que extremidades",
+          "Omitir el cuello por miedo a molestias — adaptar en lugar de saltarse",
+        ],
       },
       {
         numero: 5,
@@ -376,6 +661,13 @@ export const protocolos: Protocolo[] = [
           "Pecho: respirar profundo y retener (tensión al expandir el pecho), soltar con larga exhalación. Abdomen: endurecer los músculos del abdomen como si esperara un golpe. Espalda baja: arquear la espalda ligeramente presionando los omóplatos. Notar la diferencia al soltar.",
         duracion: "5–7 minutos",
         notas: "La relajación del pecho suele producir suspiros espontáneos. Esto es normal y positivo. Invitar al paciente a observarlo.",
+        guionTerapeuta: "Inspira profundamente, llena los pulmones... retén el aire un momento sintiendo cómo el pecho se expande... y exhala lentamente, todo el aire. Con cada exhalación, siente cómo el pecho se hunde suavemente, como si liberara tensión acumulada. Si sale un suspiro, es buena señal.",
+        ejemploClinico: "Clara, 47 años. Al trabajar el pecho, soltó un suspiro profundo involuntario y empezó a llorar suavemente. El terapeuta lo normalizó: 'Eso que sale es tensión almacenada. No hay que hacer nada con ello, solo dejarlo pasar.' Esa sesión fue el punto de inflexión de su proceso.",
+        erroresComunes: [
+          "Interrumpir el ejercicio si el paciente tiene una reacción emocional — normalizar y continuar suavemente",
+          "Retener el aire en el pecho durante demasiado tiempo, lo que puede generar mareo o incomodidad",
+          "Omitir la zona de espalda baja por parecer complicada de tensar en posición recostada",
+        ],
       },
       {
         numero: 6,
@@ -383,6 +675,12 @@ export const protocolos: Protocolo[] = [
         descripcion:
           "Muslos: apretar los muslos juntos o contraer los glúteos. Pantorrillas: flexionar los pies hacia arriba tensando pantorrillas. Pies: doblar los dedos hacia abajo como garras. Después de cada grupo, 20-30 segundos de relajación profunda, notando el contraste con la tensión previa.",
         duracion: "5–7 minutos",
+        guionTerapeuta: "Ahora los muslos y glúteos. Aprieta los muslos juntos con fuerza... mantén... y suelta. Nota el peso de las piernas hundiéndose en la colchoneta. Ahora las pantorrillas: flexiona los pies hacia ti, como si quisieras tocarte la espinilla con los dedos... y suelta. Siente el calor que aparece.",
+        ejemploClinico: "Jorge, 28 años, corredora con contracturas crónicas en pantorrillas. Al hacer la tensión-relajación en esa zona dijo que era 'como un masaje desde dentro'. Empezó a usar la técnica después de los entrenamientos, reduciendo significativamente sus contracturas habituales.",
+        erroresComunes: [
+          "Tensar las pantorrillas arqueando el pie hacia abajo (extensión de punta), lo que puede provocar calambres",
+          "Saltarse los pies por parecer poco importantes — acumulan tensión significativa en personas que están mucho tiempo de pie",
+        ],
       },
       {
         numero: 7,
@@ -391,11 +689,32 @@ export const protocolos: Protocolo[] = [
           "Tras completar todos los grupos, hacer un recorrido mental de cabeza a pies, soltando cualquier tensión residual. 2-3 minutos de respiración lenta y profunda. Conteo de regreso 5-4-3-2-1 para la reactivación progresiva. Pedir al paciente que evalúe el nivel de relajación (0-10).",
         duracion: "10–15 minutos",
         notas: "Prescribir práctica diaria de 15-20 minutos. Al inicio con guión completo; a las 2-3 semanas, versión abreviada (8 grupos); más adelante, relajación por señal.",
+        guionTerapeuta: "Ahora vamos a hacer un recorrido mental por todo el cuerpo. Empezando por los pies... si queda alguna tensión, suéltala con la siguiente exhalación. Piernas... abdomen... pecho... manos... hombros... cara... Todo tu cuerpo está pesado y cálido. Ahora cuento de cinco a uno: en cinco abres los ojos, en uno estás completamente alerta. Cinco... cuatro... tres... dos... uno.",
+        preguntasClave: [
+          "¿Cómo te encuentras ahora comparado con cómo estabas al empezar?",
+          "¿Hay alguna zona donde sientes que no llegó del todo la relajación?",
+          "¿Crees que podrías practicar esto en casa? ¿Qué momento del día sería más fácil?",
+        ],
+        ejemploClinico: "Raquel, 35 años. Al abrir los ojos tras el cierre dijo: 'He tardado en recordar dónde estaba.' Puntuó la tensión en 8/10 al inicio y 2/10 al finalizar. Se comprometió a practicar cada noche antes de dormir. A las tres semanas, reportó que tardaba menos en quedarse dormida y que el guión completo ya no lo necesitaba — con cinco minutos de recorrido mental le bastaba.",
+        erroresComunes: [
+          "No evaluar el nivel de tensión antes y después, perdiendo el dato de efectividad que motiva al paciente a practicar",
+          "Dejar al paciente levantarse abruptamente sin conteo de regreso — puede causar mareo o desorientación",
+          "No prescribir práctica diaria con instrucciones concretas de cuándo y dónde hacerla",
+        ],
       },
     ],
     fichasRelacionadas: ["automonitoreo-ansiedad", "diario-estado-animo"],
     evidencia:
       "Nivel de evidencia A para TAG. Eficaz para insomnio, cefaleas y dolor crónico (evidencia B-C). Berstein & Borkovec (1973) sistematizaron el protocolo. Ampliamente integrada en protocolos para ansiedad y PTSD.",
+    objetivosPrincipales: [
+      "Aprender a identificar y reducir voluntariamente la tensión muscular acumulada",
+      "Activar la respuesta parasimpática de relajación como contrapeso a la activación ansiosa",
+      "Desarrollar conciencia corporal para detectar tensión en fases tempranas del día",
+      "Adquirir una herramienta de autorregulación que el paciente pueda aplicar de forma autónoma",
+      "Progresar desde la versión completa (16 grupos) hasta la relajación por señal en pocas semanas",
+    ],
+    poblacion: "Adultos y adolescentes con ansiedad, estrés crónico, insomnio o somatizaciones tensionales. Adaptable a personas con dolor crónico o limitaciones físicas.",
+    formatoSesion: "Individual o grupal · 30-40 min de práctica guiada · Formación en 2-4 sesiones",
   },
   {
     slug: "habilidades-sociales",
@@ -422,6 +741,18 @@ export const protocolos: Protocolo[] = [
           "Identificar las áreas de dificultad específicas: iniciar conversaciones, mantenerlas, expresar opiniones, decir no, manejar críticas, hablar en público, etc. Usar role-play diagnóstico, observación y autoinforme. Establecer objetivos concretos y medibles.",
         duracion: "20–30 minutos",
         materiales: ["Inventario de situaciones sociales difíciles", "Escala de Asertividad"],
+        guionTerapeuta: "Para entender bien en qué áreas trabajar, quiero que pensemos en situaciones sociales concretas que te resultan difíciles. No en general — sino situaciones específicas. Por ejemplo: ¿te cuesta más decir que no a un amigo o a un jefe? ¿Expresar un desacuerdo o recibir una crítica?",
+        preguntasClave: [
+          "¿Cuál es la situación social que más evitas o que más te genera ansiedad?",
+          "¿Hay personas específicas con las que te resulta especialmente difícil comunicarte?",
+          "¿Qué crees que pasaría si dijeras lo que realmente piensas en una situación difícil?",
+        ],
+        ejemploClinico: "Natalia, 26 años. El inventario reveló que le costaba especialmente decir no a peticiones de compañeras de trabajo y expresar desacuerdo con su pareja. El role-play diagnóstico mostró que usaba estrategias pasivo-agresivas (acceder verbalmente y luego no cumplir) para evitar el conflicto directo. Ese patrón se convirtió en el foco del tratamiento.",
+        erroresComunes: [
+          "Hacer el inventario de forma muy general sin identificar situaciones y personas específicas",
+          "No realizar un role-play diagnóstico y basarse solo en el autoinforme — muchos pacientes se subestiman o sobreestiman",
+          "Definir objetivos del terapeuta en lugar de del paciente: 'ser más asertivo' en general vs. 'poder decir no a mi jefa'",
+        ],
       },
       {
         numero: 2,
@@ -430,6 +761,18 @@ export const protocolos: Protocolo[] = [
           "Presentar los tres estilos de comunicación: pasivo (ceder siempre, resentimiento), agresivo (imponer, dañar relaciones) y asertivo (expresar necesidades respetando al otro). Explicar los derechos asertivos. El objetivo no es 'ganar' sino comunicarse con respeto mutuo.",
         duracion: "20–25 minutos",
         materiales: ["Hoja de estilos de comunicación", "Lista de derechos asertivos"],
+        guionTerapeuta: "Existen tres formas básicas de comunicarnos. La pasiva: callamos, cedemos, acumulamos resentimiento. La agresiva: imponemos, atacamos, dañamos la relación. Y la asertiva: expresamos lo que necesitamos respetando al otro. La asertividad no es ser más duro — es ser más claro. ¿Con cuál de los tres estilos te identificas más en las situaciones difíciles que mencionaste?",
+        preguntasClave: [
+          "¿En qué estilo crees que te mueves más habitualmente?",
+          "¿Hay situaciones donde respondes de forma diferente — por ejemplo, pasivo con el jefe pero agresivo en casa?",
+          "¿Qué crees que te impide responder de forma asertiva? ¿El miedo a qué?",
+        ],
+        ejemploClinico: "Roberto, 44 años. Se identificaba como 'muy pasivo' en el trabajo pero reconoció ser 'explosivo' en casa. Al entender que ambos son dos caras del mismo problema — no saber expresar necesidades de forma regulada — la conexión fue reveladora. El tratamiento trabajó las dos variantes: afirmarse en el trabajo y regular la ira en casa.",
+        erroresComunes: [
+          "Presentar la asertividad solo como 'decir no' o como 'ser más firme', reduciendo un concepto complejo",
+          "No adaptar el concepto a la cultura del paciente — en algunas culturas la asertividad directa es vista como descortesía",
+          "No explorar los miedos que subyacen a la no-asertividad: miedo al rechazo, al conflicto, a la crítica",
+        ],
       },
       {
         numero: 3,
@@ -438,6 +781,18 @@ export const protocolos: Protocolo[] = [
           "El terapeuta modela la habilidad social que se trabajará en esa sesión (por ejemplo, hacer una petición directa). Demostrar tanto el componente verbal (qué decir) como no verbal (tono, contacto visual, postura, gestos). El paciente observa y luego describe qué notó.",
         duracion: "15–20 minutos",
         tecnicas: ["Modelado en vivo", "Video-modelado", "Análisis de componentes"],
+        guionTerapeuta: "Antes de que lo practiques tú, quiero mostrarte cómo sería. Voy a representar la situación como si yo fuera a pedir al jefe un cambio de turno. Mientras lo hago, fíjate no solo en lo que digo sino en cómo lo digo: el tono de voz, la postura, el contacto visual. Luego me cuentas qué has notado.",
+        preguntasClave: [
+          "¿Qué has notado en cómo lo he hecho? ¿El tono, la postura, el contacto visual?",
+          "¿Qué partes te parecen más difíciles de replicar?",
+          "¿Cómo crees que habría reaccionado la otra persona en una situación real?",
+        ],
+        ejemploClinico: "Vanesa, 30 años. El terapeuta modeló cómo rechazar una petición de una amiga para salir cuando Vanesa estaba cansada. Vanesa señaló: 'Lo dices con voz firme pero sin enfadarte.' Esa observación resumía exactamente lo que necesitaba aprender: firmeza sin agresividad.",
+        erroresComunes: [
+          "Modelar solo el componente verbal sin prestar atención al lenguaje no verbal, que es tan importante como lo que se dice",
+          "Modelar demasiado tiempo sin que el paciente practique — el modelado es preparación, no sustituto del role-play",
+          "Modelar situaciones abstractas en lugar de la situación específica que el paciente ha traído como objetivo",
+        ],
       },
       {
         numero: 4,
@@ -447,6 +802,18 @@ export const protocolos: Protocolo[] = [
         duracion: "25–35 minutos",
         tecnicas: ["Role-play", "Ensayo conductual", "Inversión de roles"],
         notas: "Ser específico en el escenario del role-play. Cuanto más parecido a la situación real, mayor generalización.",
+        guionTerapeuta: "Ahora te toca a ti. Yo voy a hacer el papel de tu compañero de trabajo. Recuerda: el objetivo no es que salga perfecto sino practicar. Si te bloqueas, paramos y lo retomamos. ¿Listo? Empezamos. [Adopta el rol] Oye, ¿puedes quedarte hoy hasta las siete a terminar el informe?",
+        preguntasClave: [
+          "¿Cómo te has sentido durante el role-play?",
+          "¿Qué parte te salió bien y qué parte notaste más difícil?",
+          "¿Qué harías diferente si lo repitieras ahora?",
+        ],
+        ejemploClinico: "David, 37 años. En el primer role-play para pedir un aumento de sueldo, bajó la vista al suelo y habló muy bajo. El terapeuta pausó: 'Para. Muy bien por empezar. Ahora lo hacemos otra vez con la misma frase pero mirándome a los ojos. Solo eso.' La repetición con ese ajuste cambió completamente la comunicación.",
+        erroresComunes: [
+          "Hacer el role-play solo una vez sin repetir — la práctica repetida es lo que crea el automatismo",
+          "Plantear escenarios de role-play demasiado fáciles que no generan ansiedad real ni entrenamiento real",
+          "Interrumpir el role-play ante el primer bloqueo del paciente en lugar de dejarle gestionar el momento",
+        ],
       },
       {
         numero: 5,
@@ -456,6 +823,18 @@ export const protocolos: Protocolo[] = [
         duracion: "10–15 minutos",
         tecnicas: ["Feedback constructivo", "Autoevaluación", "Análisis de video"],
         notas: "Muy importante que el paciente primero se autoevalúe. Muchos se critican excesivamente: la discrepancia paciente-terapeuta es terapéutica.",
+        guionTerapeuta: "Antes de que yo diga nada, cuéntame tú: ¿cómo te has visto? ¿Qué crees que has hecho bien y qué mejorarías?",
+        preguntasClave: [
+          "¿Cómo te has visto tú? ¿Qué crees que ha ido bien?",
+          "¿En qué crees que podrías mejorar si lo repitieras?",
+          "Si alguien más hubiera hecho eso, ¿cómo lo habrías valorado?",
+        ],
+        ejemploClinico: "Cristina, 24 años. Tras el role-play, se puntuó un 3/10 y dijo 'ha sido terrible'. El terapeuta le pidió ver el video. Al verlo, ella misma reconoció que el tono había sido apropiado y que había mantenido el contacto visual. La discrepancia entre su autopercepción (-3) y la realidad observada fue el material más valioso de toda la sesión.",
+        erroresComunes: [
+          "Empezar el feedback del terapeuta antes de que el paciente se autoevalúe, perdiendo el dato de la autopercepción",
+          "Dar feedback muy global ('lo has hecho muy bien') sin ser específico sobre qué componentes concretos funcionaron",
+          "No usar la grabación en video cuando está disponible — es el espejo más potente y el que más cambia la autopercepción",
+        ],
       },
       {
         numero: 6,
@@ -465,11 +844,32 @@ export const protocolos: Protocolo[] = [
         duracion: "10 minutos de planificación",
         materiales: ["Diario de práctica de habilidades sociales"],
         tecnicas: ["Asignación de tareas", "Generalización", "Resolución de problemas"],
+        guionTerapeuta: "Esta semana, quiero que lo practiques en real. No tienes que buscar la situación perfecta — simplemente cuando surja una oportunidad parecida a lo que hemos practicado, úsala. Y lo anotas: qué pasó, qué hiciste, cómo reaccionó la otra persona, cómo te sentiste tú.",
+        preguntasClave: [
+          "¿Qué situación concreta de esta semana podrías usar para practicar lo que hemos trabajado?",
+          "¿Qué harás si la otra persona reacciona de forma inesperada o negativa?",
+          "¿Qué te dirías a ti mismo si no te sale como esperabas?",
+        ],
+        ejemploClinico: "Ignacio, 31 años. La tarea fue: en la próxima reunión de equipo, hacer al menos una pregunta o comentario. Tarea mínima, muy factible. Volvió diciendo que no solo lo había hecho sino que después un compañero le preguntó su opinión. 'Nunca había ocurrido eso antes.' El primer éxito real abrió una espiral positiva.",
+        erroresComunes: [
+          "Asignar tareas demasiado ambiciosas para el primer intento en la vida real, generando fracaso y desánimo",
+          "No preparar al paciente para reacciones negativas del otro — son predecibles y se pueden anticipar",
+          "No revisar el diario de práctica en la siguiente sesión con la misma atención que el role-play de sesión",
+        ],
       },
     ],
     fichasRelacionadas: ["registro-pensamientos", "experimentos-conductuales"],
     evidencia:
       "Nivel de evidencia A para fobia social (Heimberg, 2002; Clark et al., 2006). Componente clave de los tratamientos basados en evidencia para fobia social, depresión y esquizofrenia. Integrado en el protocolo de Linehan para TLP.",
+    objetivosPrincipales: [
+      "Identificar el estilo comunicativo del paciente y sus áreas de déficit específicas",
+      "Aprender los componentes verbales y no verbales de la comunicación asertiva",
+      "Practicar habilidades mediante modelado, role-play y retroalimentación en sesión",
+      "Generalizar las habilidades aprendidas a situaciones reales de la vida cotidiana",
+      "Reducir la ansiedad social asociada a situaciones interpersonales",
+    ],
+    poblacion: "Adultos y adolescentes con déficits en comunicación interpersonal, fobia social, dificultades asertivas o aislamiento social. Adaptable a formato grupal.",
+    formatoSesion: "Individual o grupal · 60-90 min (grupal) · 50 min (individual) · Frecuencia semanal",
   },
   {
     slug: "primera-sesion",
@@ -488,6 +888,18 @@ export const protocolos: Protocolo[] = [
         duracion: "10–15 minutos",
         materiales: ["Consentimiento informado", "Hoja de información sobre TCC"],
         notas: "El encuadre claro desde el inicio previene malentendidos y establece expectativas realistas.",
+        guionTerapeuta: "Bienvenido/a. Antes de empezar, me gustaría explicarte cómo funciona esto. Las sesiones duran 50 minutos, nos veremos una vez a la semana. Todo lo que hablemos aquí es confidencial — con la excepción de si existiera un riesgo serio para tu vida o la de otros. La terapia TCC es activa: habrá tareas para casa, registros. Tu participación entre sesiones es tan importante como lo que hacemos aquí. ¿Tienes alguna pregunta antes de empezar?",
+        preguntasClave: [
+          "¿Tienes alguna duda sobre la confidencialidad o sobre cómo funciona la terapia?",
+          "¿Has estado en terapia antes? ¿Cómo fue esa experiencia?",
+          "¿Hay algo que quieras que sepa antes de empezar, algo que quieras que tenga en cuenta?",
+        ],
+        ejemploClinico: "Irene, 29 años. Preguntó en el encuadre si podía grabar las sesiones en audio para escucharlas. El terapeuta lo discutió: acordaron que podría tomar notas pero no grabar, explicando los motivos. Esa conversación inicial sobre el encuadre generó confianza y mostró a Irene que sus preguntas serían tomadas en serio.",
+        erroresComunes: [
+          "Hacer el encuadre de forma mecánica y rápida como un trámite administrativo, sin espacio para preguntas",
+          "No obtener el consentimiento informado por escrito, lo que puede generar problemas legales y éticos",
+          "Asumir que el paciente ha entendido el encuadre sin verificarlo — muchos no preguntan aunque tengan dudas",
+        ],
       },
       {
         numero: 2,
@@ -497,6 +909,18 @@ export const protocolos: Protocolo[] = [
         duracion: "20–30 minutos",
         tecnicas: ["Entrevista motivacional", "Escucha activa", "Preguntas abiertas"],
         notas: "No interrumpir con cuestionarios en los primeros minutos. Dar espacio para que el paciente se sienta escuchado.",
+        guionTerapeuta: "Cuéntame, ¿qué te ha traído hasta aquí? Tómate el tiempo que necesites.",
+        preguntasClave: [
+          "¿Qué te ha traído a consulta en este momento? ¿Por qué ahora?",
+          "¿Cuánto tiempo llevas sintiéndote así? ¿Cómo ha afectado a tu vida?",
+          "¿Qué has intentado hasta ahora para resolver esto?",
+        ],
+        ejemploClinico: "Samuel, 43 años. Pasó los primeros 15 minutos hablando sin parar de su ansiedad, su historia familiar y sus problemas de pareja, todo entrelazado. El terapeuta solo escuchó, asintió y en un momento dijo: 'Hay muchas cosas que me estás contando y todas parecen importantes. ¿Cuál dirías que es la que más te pesa ahora mismo?' Esa pregunta centró la sesión sin cortar el flujo del paciente.",
+        erroresComunes: [
+          "Interrumpir demasiado pronto con preguntas estructuradas del historial clínico antes de que el paciente haya podido expresarse",
+          "Tomar notas exhaustivas durante el relato del paciente, lo que interfiere con el contacto visual y la escucha",
+          "Pasar a la evaluación diagnóstica sin haber reflejado y validado la experiencia del paciente primero",
+        ],
       },
       {
         numero: 3,
@@ -507,6 +931,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Formulario de historia clínica", "Escala de depresión PHQ-9", "GAD-7"],
         tecnicas: ["Entrevista clínica semi-estructurada", "Instrumentos de screening"],
         notas: "Registrar factores de protección y recursos del paciente, no solo déficits. Esto es base para la formulación cognitiva.",
+        guionTerapeuta: "Para entender mejor la situación, me gustaría hacerte algunas preguntas más concretas. ¿Cuándo empezó esto exactamente? ¿Hubo algo que lo precipitó? ¿Has tenido algo parecido antes? ¿Estás tomando alguna medicación?",
+        preguntasClave: [
+          "¿Cuándo empezó el problema y hubo algún acontecimiento que lo desencadenó?",
+          "¿Has tenido tratamientos psicológicos o psiquiátricos anteriores? ¿Cómo fueron?",
+          "¿Hay alguien en tu vida que te apoya y en quien confías?",
+        ],
+        ejemploClinico: "Lucía, 51 años. Al recoger la historia clínica, el terapeuta preguntó por fortalezas además de por problemas. Lucía mencionó que había salido adelante tras una separación difícil diez años antes y que tenía una red de amigas muy sólida. Esos recursos se incorporaron a la formulación como factores protectores y se usaron terapéuticamente más adelante.",
+        erroresComunes: [
+          "Centrarse solo en los síntomas y el diagnóstico sin explorar recursos, fortalezas y factores protectores",
+          "No preguntar por ideación suicida por incomodidad del terapeuta — es imprescindible hacerlo en la primera sesión",
+          "Hacer la historia clínica como un formulario administrativo en lugar de como una conversación clínica",
+        ],
       },
       {
         numero: 4,
@@ -517,6 +953,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Hoja de formulación cognitiva"],
         tecnicas: ["Formulación colaborativa", "Psicoeducación", "Metáforas"],
         notas: "La formulación es un mapa, no un diagnóstico definitivo. Presentarla como hipótesis a contrastar juntos.",
+        guionTerapeuta: "Con todo lo que me has contado, me gustaría compartir contigo cómo entiendo yo lo que está pasando. Es una hipótesis, no una verdad definitiva — me interesa que me digas si te suena o si hay algo que no encaje. Lo que veo es que...",
+        preguntasClave: [
+          "¿Qué te parece lo que te estoy describiendo? ¿Te suena así o hay algo que cambiarías?",
+          "¿Hay algo importante que sientes que no he captado bien?",
+          "¿En qué parte de lo que te he descrito crees que sería más útil trabajar primero?",
+        ],
+        ejemploClinico: "Héctor, 36 años. Al presentar la formulación, el terapeuta la dibujó en un papel mientras la explicaba. Héctor dijo: 'Es la primera vez que alguien me lo explica de forma que lo entiendo.' Al salir, preguntó si podía llevarse el dibujo. Esa reacción es frecuente: la formulación visual impacta más que la verbal.",
+        erroresComunes: [
+          "Presentar la formulación de forma unilateral sin pedir feedback — debe ser colaborativa",
+          "Usar jerga técnica (creencias nucleares, esquemas disfuncionales) sin traducirla al lenguaje del paciente",
+          "Hacer una formulación demasiado completa y detallada en la primera sesión — preferible algo tentativo que invite a profundizar",
+        ],
       },
       {
         numero: 5,
@@ -527,6 +975,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Hoja de objetivos terapéuticos"],
         tecnicas: ["Entrevista motivacional", "Técnica SMART", "Escala de importancia-confianza"],
         notas: "Los objetivos deben ser del paciente, no del terapeuta. El terapeuta puede guiar pero el paciente debe apropiarse de ellos.",
+        guionTerapeuta: "Para terminar esta parte, me gustaría que pensáramos juntos: si la terapia va bien, ¿cómo te gustaría estar dentro de seis meses? No un ideal inalcanzable — algo concreto y realista. ¿Qué estarías haciendo diferente? ¿Cómo te relacionarías de otra forma?",
+        preguntasClave: [
+          "Si la terapia va bien, ¿qué sería diferente en tu vida dentro de seis meses?",
+          "¿Cuál de los objetivos que hemos identificado sería el más importante para ti?",
+          "¿Del 0 al 10, qué tan importante es para ti lograr este cambio? ¿Y qué tan confiado te sientes de poder lograrlo?",
+        ],
+        ejemploClinico: "Paola, 22 años. Su objetivo inicial era 'estar mejor'. El terapeuta la guió: '¿Qué estarías haciendo cuando estés mejor?' Paola llegó a: 'Podría ir a la universidad sin sentir que me voy a desmayar y estudiar en la biblioteca sin que la ansiedad me saque.' Ese objetivo concreto se convirtió en la brújula de las siguientes 12 sesiones.",
+        erroresComunes: [
+          "Aceptar objetivos vagos ('estar mejor', 'ser más feliz') sin traducirlos a comportamientos concretos observables",
+          "Fijar los objetivos el terapeuta en lugar de co-construirlos con el paciente",
+          "No explorar la motivación para el cambio: un paciente con objetivos claros pero poca motivación tendrá baja adherencia",
+        ],
       },
       {
         numero: 6,
@@ -537,6 +997,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Plan de tratamiento escrito", "Primera ficha de autorregistro"],
         tecnicas: ["Resumen colaborativo", "Escala de sesión"],
         notas: "Terminar con algo que el paciente se lleve: información útil, una pequeña tarea o simplemente la sensación de haber sido escuchado.",
+        guionTerapeuta: "Para cerrar esta sesión: hemos hablado de lo que te trajo aquí, entiendo mejor tu situación y tenemos un primer mapa de cómo trabajar. La tarea para esta semana es muy sencilla: este registro de estado de ánimo, anótalo una vez al día. Y si surge alguna situación que te genere mucha ansiedad o malestar, intenta describírtela a ti mismo por escrito. ¿Cómo te has sentido hoy aquí?",
+        preguntasClave: [
+          "¿Cómo te ha ido en esta sesión? ¿Hay algo que hayas echado de menos o que te haya incomodado?",
+          "¿La tarea que te propongo te parece factible esta semana?",
+          "¿Tienes alguna pregunta sobre el proceso antes de que nos veamos la próxima vez?",
+        ],
+        ejemploClinico: "Rodrigo, 47 años. Al final de la primera sesión, el terapeuta preguntó cómo se había sentido. Rodrigo dijo: 'Aliviado pero también con miedo — no sé si voy a poder con esto.' El terapeuta normalizó ese miedo y lo señaló como señal de que el cambio importa. Esa respuesta honesta al cierre estableció el tipo de vínculo que sostuvo todo el proceso.",
+        erroresComunes: [
+          "No pedir feedback sobre la sesión, perdiendo información valiosa sobre la experiencia del paciente",
+          "Asignar una tarea compleja en la primera sesión — algo mínimo y factible es mejor que nada o que algo que no se hará",
+          "Terminar la sesión de forma abrupta sin dar tiempo al cierre emocional y la transición",
+        ],
       },
     ],
     fichasRelacionadas: [
@@ -546,6 +1018,15 @@ export const protocolos: Protocolo[] = [
     ],
     evidencia:
       "Basado en los protocolos de evaluación e inicio de Beck (1979), el modelo de Persons (2008) de formulación de caso cognitiva, y las guías NICE para inicio de TCC.",
+    objetivosPrincipales: [
+      "Establecer una alianza terapéutica sólida y un encuadre claro desde el primer contacto",
+      "Recoger información suficiente para una formulación cognitiva preliminar",
+      "Validar la experiencia del paciente y generar esperanza realista de cambio",
+      "Definir conjuntamente objetivos terapéuticos concretos y medibles",
+      "Acordar un plan de tratamiento tentativo y asignar primera tarea",
+    ],
+    poblacion: "Cualquier paciente adulto que inicia un proceso de TCC. El protocolo se adapta al nivel de angustia inicial y a la capacidad de procesamiento en ese momento.",
+    formatoSesion: "Individual · 60-75 min (primera sesión) · Puede requerir segunda sesión de evaluación",
   },
   {
     slug: "protocolo-panico",
@@ -572,6 +1053,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Diagrama del círculo vicioso del pánico", "Folleto sobre el pánico", "Explicación fisiológica"],
         tecnicas: ["Psicoeducación", "Normalización", "Metáfora de la alarma"],
         notas: "La psicoeducación sola ya es terapéutica para muchos pacientes. Asegurarse de que han tenido evaluación médica previa que descarte causa orgánica.",
+        guionTerapeuta: "Quiero explicarte algo que cambia por completo cómo verás los ataques de pánico. El pánico no es peligroso. Es muy desagradable, pero no peligroso. Lo que ocurre es que tu sistema de alarma — la respuesta de lucha o huida — se activa en situaciones donde no hay peligro real. Es como una alarma de incendios que suena sin que haya fuego. La reacción física es exactamente la misma que si hubiera un incendio real: taquicardia, sudor, mareo... pero el fuego no existe. ¿Te ha dicho el cardiólogo que tu corazón está bien?",
+        preguntasClave: [
+          "¿Cuándo tienes un ataque, qué es lo peor que crees que podría pasar?",
+          "¿Alguna vez te ha ocurrido lo que temías durante un ataque? ¿El infarto, el desmayo, la locura?",
+          "¿Sabes qué son exactamente las sensaciones que sientes? ¿Alguien te las ha explicado?",
+        ],
+        ejemploClinico: "Teresa, 34 años, cuatro meses con ataques de pánico. Al explicar la fisiología del pánico — específicamente que en el pánico la presión arterial sube, por lo que el desmayo es casi imposible — Teresa dijo: 'Eso nadie me lo había explicado.' Esa información redujo su miedo al desmayo de un 90 a un 30 en una sola sesión, antes de hacer ninguna otra intervención.",
+        erroresComunes: [
+          "Empezar la intervención sin confirmar que el paciente ha tenido evaluación médica previa que descarte causa orgánica",
+          "Explicar la fisiología demasiado rápido sin verificar que el paciente la ha comprendido y la encuentra creíble",
+          "No conectar la explicación fisiológica con las sensaciones específicas del paciente — debe ser personalizada",
+        ],
       },
       {
         numero: 2,
@@ -581,6 +1074,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Registro de ataques de pánico"],
         tecnicas: ["Identificación de pensamientos automáticos", "Análisis funcional"],
         notas: "El nivel de especificidad importa: 'tengo miedo' no es suficiente. Necesitamos saber exactamente qué catastrófico creen que ocurrirá.",
+        guionTerapeuta: "Cuando el pánico empieza y sientes la taquicardia — ¿qué pasa exactamente por tu mente? No 'me pongo nervioso', sino cuál es el pensamiento concreto. '¿Me va a dar un infarto?' '¿Me voy a desmayar?' '¿Voy a perder el control?'",
+        preguntasClave: [
+          "¿Qué sensación física es la primera en aparecer en un ataque?",
+          "Y ante esa sensación, ¿cuál es el primer pensamiento exacto que tienes?",
+          "Si ese pensamiento se hiciera realidad, ¿qué ocurriría exactamente?",
+        ],
+        ejemploClinico: "Andrés, 29 años. Al principio solo decía 'me pongo muy mal'. Con la flecha descendente: taquicardia → 'me está dando algo' → '¿qué te está dando?' → 'un infarto o un derrame' → '¿y si fuera un derrame?' → 'moriría o quedaría paralítico y dependiente'. La interpretación específica fue el material exacto para la reestructuración posterior.",
+        erroresComunes: [
+          "Quedarse con descripciones emocionales vagas sin llegar a la interpretación catastrófica específica",
+          "Usar el mismo abordaje de reestructuración con todos los miedos de pánico sin adaptar a la interpretación concreta del paciente",
+          "No registrar los ataques sistematicamente — la memoria del paciente durante el pánico es poco fiable",
+        ],
       },
       {
         numero: 3,
@@ -590,6 +1095,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Hoja de evidencia a favor/en contra", "Información fisiológica del pánico"],
         tecnicas: ["Cuestionamiento socrático", "Evidencia empírica", "Psicoeducación fisiológica"],
         notas: "El dato de que la presión sube en el pánico es especialmente potente para el miedo al desmayo. Verificar siempre con el paciente que la alternativa le resulta creíble, no solo intelectual.",
+        guionTerapeuta: "Tienes miedo a desmayarte cuando el corazón se acelera. Vamos a examinar eso juntos. ¿Cuántos ataques has tenido? ¿Cuántas veces te has desmayado? Cero, ¿verdad? Ahora te explico por qué: cuando te desmayarías es cuando la presión baja mucho, como al ver sangre. En el pánico, la presión sube. Fisiológicamente el desmayo en pánico es casi imposible. ¿Te resulta creíble esto, o hay algo que te hace dudarlo?",
+        preguntasClave: [
+          "¿Cuántas veces has tenido ataques y cuántas veces ha ocurrido lo que temías?",
+          "¿Hay alguna parte de esta explicación que no te cuadra o te genera dudas?",
+          "¿En qué porcentaje crees ahora que el desmayo podría ocurrir, comparado con antes de esta sesión?",
+        ],
+        ejemploClinico: "Miriam, 38 años. Tenía pánico al desmayo. Al explicar que la presión sube en el pánico, su credibilidad bajó de 85% a 40%. El terapeuta le pidió que hiciera un experimento: la semana siguiente, cuando sintiera el corazón acelerado, se quedaría 60 segundos midiendo su pulso en lugar de escapar. Resultado: pulso 115, sin desmayo. Credibilidad de desmayo: 15%.",
+        erroresComunes: [
+          "Usar solo argumentos verbales sin comprobar empíricamente con experimentos conductuales",
+          "Presentar la reestructuración de forma didáctica sin preguntar qué tan creíble le resulta al paciente",
+          "No adaptar la reestructuración a la interpretación catastrófica específica de ese paciente",
+        ],
       },
       {
         numero: 4,
@@ -599,6 +1116,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Jerarquía de exposición interoceptiva", "Registro SUDS"],
         tecnicas: ["Exposición interoceptiva", "Prevención de respuesta", "Procesamiento post-exposición"],
         notas: "Es la técnica diferencial del tratamiento del pánico. Muchos pacientes se resisten: explicar el fundamento antes. Nunca forzar. La exposición debe llegar al nivel suficiente de activación para que sea efectiva.",
+        guionTerapeuta: "Lo que vamos a hacer puede sonar contraintuitivo: vamos a provocar a propósito las sensaciones que temes para que tu cerebro aprenda que no son peligrosas. Empezamos con algo suave. ¿Estás dispuesto a probar? Te guío en todo momento y paramos cuando tú quieras.",
+        preguntasClave: [
+          "¿Cuánta ansiedad sientes ahora mismo, del 0 al 100?",
+          "¿Qué sensaciones estás notando y qué pensamientos aparecen con ellas?",
+          "¿Qué ha pasado realmente mientras hacías el ejercicio? ¿Ocurrió lo que temías?",
+        ],
+        ejemploClinico: "Pablo, 32 años. Se negó inicialmente a la hiperventilación. El terapeuta lo invitó solo a respirar por una pajita durante 30 segundos. El mareo leve que apareció fue suficiente para trabajar: 'Noto el mareo y... no me desmayo. Estoy aquí.' Esa primera exposición interoceptiva mínima abrió la puerta a las siguientes.",
+        erroresComunes: [
+          "Forzar la exposición interoceptiva sin preparación suficiente y sin que el paciente haya aceptado el modelo cognitivo",
+          "Hacer los ejercicios de exposición muy cortos para 'no generar demasiado malestar' — deben generar sensaciones reales",
+          "No procesar cognitivamente después de cada ejercicio: ¿qué esperabas? ¿qué ocurrió realmente?",
+        ],
       },
       {
         numero: 5,
@@ -608,6 +1137,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Lista de conductas de seguridad"],
         tecnicas: ["Análisis funcional", "Experimentos conductuales", "Exposición sin conductas de seguridad"],
         notas: "Las conductas de seguridad son con frecuencia el mantenedor más potente. Muchos pacientes no las habían identificado como parte del problema.",
+        guionTerapeuta: "Hay algo sutil que mantiene el pánico que quiero que veamos juntos. Son las conductas de seguridad: cosas que hacemos para sentirnos más seguros y que, sin quererlo, confirman que el peligro existe. Por ejemplo, ¿llevas siempre el teléfono cerca por si necesitas llamar a urgencias? ¿Evitas el café o el ejercicio? ¿Te sientas siempre cerca de la salida?",
+        preguntasClave: [
+          "¿Qué cosas haces o llevas contigo para sentirte más seguro ante un posible ataque?",
+          "¿Hay lugares que evites, actividades que hayas dejado de hacer o situaciones donde siempre necesitas acompañante?",
+          "¿Qué crees que pasaría si no tuvieras esa 'muleta' de seguridad disponible?",
+        ],
+        ejemploClinico: "Álvaro, 41 años. Llevaba siempre una pastilla de lorazepam en el bolsillo aunque rara vez la tomaba. Al analizar la función, el terapeuta identificó que la pastilla era una conducta de seguridad: la certeza de tenerla reducía la ansiedad anticipatoria pero mantenía la creencia de que sin ella el pánico sería inmanejable. Acordaron eliminarla gradualmente como experimento.",
+        erroresComunes: [
+          "No hacer el inventario completo de conductas de seguridad porque el paciente no las reconoce espontáneamente",
+          "Eliminar las conductas de seguridad sin explicar el fundamento, lo que genera resistencia intensa",
+          "Eliminar demasiadas conductas de seguridad al mismo tiempo antes de que el paciente tenga confianza suficiente",
+        ],
       },
       {
         numero: 6,
@@ -617,6 +1158,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Jerarquía de exposición situacional", "Registro de exposición"],
         tecnicas: ["Exposición in vivo", "Prevención de respuesta", "Experimentos conductuales"],
         notas: "La exposición situacional puede hacerse en paralelo con la interoceptiva o después. Depende del caso.",
+        guionTerapeuta: "Ahora que las sensaciones ya no te dan tanto miedo, es el momento de recuperar los lugares que habías dejado de frecuentar. El metro, los centros comerciales, los sitios donde te habías sentido mal. ¿Cuál es el que más echas de menos o el que más limita tu vida?",
+        preguntasClave: [
+          "¿Qué lugares o actividades has dejado de hacer a causa del pánico?",
+          "¿Cuál de esos recuperar te cambiaría más la vida cotidiana?",
+          "¿Cómo fue la exposición que hiciste esta semana? ¿Qué esperabas y qué ocurrió?",
+        ],
+        ejemploClinico: "Silvia, 36 años. Llevaba dos años sin usar el metro. Su jerarquía situacional: ver el metro desde fuera (SUDS 35), bajar al andén sin subir (45), subir un tramo (60), subir dos tramos en hora no punta (75), subir en hora punta (90). A la octava sesión, Silvia fue al trabajo en metro. 'He tardado dos años en hacer esto y ahora me parece que no era para tanto,' dijo.",
+        erroresComunes: [
+          "Hacer la exposición situacional antes de que la exposición interoceptiva haya reducido el miedo a las sensaciones",
+          "No registrar el SUDS antes y después de cada exposición situacional",
+          "No procesar cognitivamente los resultados de la exposición: ¿lo que esperabas ocurrió o no ocurrió?",
+        ],
       },
       {
         numero: 7,
@@ -626,10 +1179,31 @@ export const protocolos: Protocolo[] = [
         materiales: ["Tarjetas de manejo del pánico", "Guía de respiración diafragmática"],
         tecnicas: ["Respiración diafragmática", "Tarjetas de manejo", "Ensayo mental"],
         notas: "Cuidado con que las técnicas de manejo se conviertan en conductas de seguridad. La respiración debe usarse como regulación, no como escape del pánico.",
+        guionTerapeuta: "Aunque el objetivo final es que los ataques dejen de darte miedo y por tanto ocurran menos, quiero darte también un mapa para cuando ocurran. El mensaje más importante es este: 'Esto es pánico. No voy a morir, no me voy a desmayar, no me voy a volver loco. Va a durar entre 5 y 10 minutos y va a bajar por sí solo.' Repítelo conmigo.",
+        preguntasClave: [
+          "¿Qué te dices a ti mismo actualmente cuando empieza un ataque?",
+          "¿Qué diferencia crees que haría decirte 'esto es pánico, no peligro' en lugar de lo que te dices ahora?",
+          "¿Hay una frase concreta que queremos que lleves en el bolsillo para los próximos ataques?",
+        ],
+        ejemploClinico: "Elena, 31 años. Diseñó su tarjeta de manejo: 'Esto es pánico. Mi corazón está sano. La presión sube, no bajo. No me voy a desmayar. Va a pasar en 10 minutos sin que yo haga nada. Ya me ha pasado antes y aquí sigo.' La primera vez que aplicó la tarjeta en un ataque real, tardó 8 minutos en calmarse en lugar de los 40 habituales.",
+        erroresComunes: [
+          "Presentar la respiración diafragmática como 'la cura' del pánico en lugar de como una herramienta de regulación",
+          "No practicar las tarjetas de manejo en sesión antes de que el paciente las use en situaciones reales",
+          "Diseñar tarjetas con demasiado texto — deben ser memorables y simples para poder recordarlas en pleno ataque",
+        ],
       },
     ],
     fichasRelacionadas: ["registro-panico", "exposicion-graduada", "registro-pensamientos"],
     evidencia: "Basado en el modelo cognitivo del pánico de Clark (1986) y el protocolo de tratamiento de Barlow y Craske (2000). Clasificado como tratamiento de primera línea por la APA y las guías NICE.",
+    objetivosPrincipales: [
+      "Eliminar el miedo a las sensaciones físicas de activación autonómica mediante psicoeducación",
+      "Identificar y reestructurar las interpretaciones catastrofistas específicas del paciente",
+      "Romper el ciclo sensación → interpretación catastrófica → más ansiedad → más sensaciones",
+      "Recuperar lugares, actividades y situaciones evitadas por el miedo al pánico",
+      "Eliminar conductas de seguridad que mantienen la creencia de peligro",
+    ],
+    poblacion: "Adultos con trastorno de pánico con o sin agorafobia. Requiere evaluación médica previa para descartar causa orgánica de los síntomas.",
+    formatoSesion: "Individual · 50-60 min · Frecuencia semanal · Sesiones de exposición pueden ser de 60-90 min",
   },
   {
     slug: "tcci-insomnio",
@@ -656,6 +1230,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Diario de sueño", "Escala DBAS", "Calculadora de eficiencia"],
         tecnicas: ["Diario de sueño", "Evaluación de creencias"],
         notas: "La eficiencia de sueño es el dato clave: si es < 85%, la restricción de sueño está indicada. No intervenir antes de tener al menos 7-14 días de datos.",
+        guionTerapeuta: "Antes de hacer nada, necesito datos reales sobre cómo duermes. Las personas con insomnio frecuentemente subestiman cuánto duermen y sobreestiman cuánto tiempo están despiertas. El diario de sueño nos dará los datos objetivos. No es para juzgarte — es para saber exactamente qué estamos tratando.",
+        preguntasClave: [
+          "¿A qué hora sueles meterte en la cama y a qué hora te levantas habitualmente?",
+          "¿Cuántas veces te despiertas por la noche y cuánto tiempo calculas que estás despierto en total?",
+          "¿Qué haces cuando no puedes dormir? ¿Te quedas en la cama o te levantas?",
+        ],
+        ejemploClinico: "Amelia, 55 años. Creía dormir 'solo 3-4 horas'. El diario de sueño durante dos semanas reveló que dormía entre 5,5 y 6 horas, con eficiencia del 72% (7,5 horas en cama para 5,5 horas de sueño). Ese dato cambió la intervención: el problema no era 'no dormir nada' sino pasar demasiado tiempo en cama despierta, lo que se abordó con restricción de sueño.",
+        erroresComunes: [
+          "Empezar la intervención sin el diario de sueño y trabajar sobre la percepción subjetiva del paciente",
+          "Calcular la eficiencia de sueño mal o no explicarla al paciente, perdiendo un dato motivador",
+          "No explicar por qué se recogen datos dos semanas antes de intervenir — el paciente puede sentirse abandonado",
+        ],
       },
       {
         numero: 2,
@@ -665,6 +1251,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Lista de higiene del sueño", "Plan personalizado"],
         tecnicas: ["Psicoeducación", "Planificación conductual"],
         notas: "La higiene del sueño sola raramente es suficiente para el insomnio crónico, pero es la base necesaria para las otras intervenciones.",
+        guionTerapeuta: "Vamos a revisar las condiciones básicas del sueño. Hay hábitos que, sin que nos demos cuenta, están saboteando el sueño. Te voy a hacer una lista y me dices cuáles haces y cuáles no. Sin juicio — solo para identificar qué podríamos mejorar.",
+        preguntasClave: [
+          "¿A qué hora te levantas los fines de semana? ¿Es muy diferente a los días laborales?",
+          "¿Usas el teléfono o ves series en la cama antes de dormir?",
+          "¿Tomas cafeína después de las dos de la tarde?",
+        ],
+        ejemploClinico: "Bernardo, 48 años. Al revisar la higiene del sueño, identificó que se quedaba en la cama los fines de semana hasta las 11 AM 'para recuperar'. El terapeuta explicó el efecto en el ritmo circadiano: 'Los fines de semana estás haciendo jet lag a tu propio cuerpo.' Ese cambio solo — levantarse a la misma hora todos los días — mejoró su eficiencia de sueño un 15% antes de empezar la restricción.",
+        erroresComunes: [
+          "Presentar todas las normas de higiene del sueño a la vez como una lista de deberes que abrumar al paciente",
+          "Priorizar la higiene del sueño como intervención principal cuando la eficiencia es < 75% — la restricción es más potente",
+          "No personalizar cuáles normas son prioritarias para ese paciente específico",
+        ],
       },
       {
         numero: 3,
@@ -674,6 +1272,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Instrucciones de control de estímulos"],
         tecnicas: ["Control de estímulos", "Recondiccionamiento"],
         notas: "El control de estímulos es especialmente efectivo para el insomnio de conciliación. Requiere persistencia: los primeros días el sueño puede empeorar antes de mejorar.",
+        guionTerapeuta: "Te voy a pedir algo que parece ilógico pero que funciona. Si en 20 minutos no estás dormido, levántate. Ve a otra habitación, haz algo tranquilo — leer un libro físico, escuchar música suave — y cuando tengas sueño de verdad, vuelves a la cama. La cama tiene que ser un lugar donde el cerebro asocie 'aquí duermo', no 'aquí me quedo despierto pensando'.",
+        preguntasClave: [
+          "¿Qué sueles hacer cuando llevas 20-30 minutos sin poder dormirte?",
+          "¿Tienes alguna actividad tranquila que podrías hacer fuera del dormitorio durante esos ratos?",
+          "¿Qué crees que pasaría si dejaras de mirar el reloj cuando te despiertas por la noche?",
+        ],
+        ejemploClinico: "Susana, 62 años. Se resistía mucho a levantarse de la cama: 'Si me levanto me desvelo más.' El terapeuta la invitó a probar como experimento durante una semana. Al revisar el diario: las noches que se levantó, tardó en volver a dormirse un promedio de 25 minutos. Las noches que se quedó en cama, el tiempo despierta fue 75 minutos. Los datos la convencieron.",
+        erroresComunes: [
+          "No anticipar la resistencia del paciente a levantarse de la cama — trabajarla cognitivamente antes de prescribirlo",
+          "No especificar qué hacer cuando se levanta — la vaguedad lleva a que el paciente use el teléfono o vea la tele",
+          "No insistir en que no mire el reloj — mirar la hora activa el sistema de alarma cognitiva",
+        ],
       },
       {
         numero: 4,
@@ -683,6 +1293,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Diario de sueño", "Calculadora de eficiencia", "Protocolo de ajuste"],
         tecnicas: ["Restricción de sueño", "Titulación progresiva"],
         notas: "Genera mucha resistencia y fatiga inicial. Advertir al paciente: las primeras 1-2 semanas son difíciles pero son parte del proceso. Contraindicada en bipolar y epilepsia.",
+        guionTerapeuta: "Esto va a sonar duro: si según tu diario duermes 5 horas, vamos a limitar el tiempo en cama a 5 horas y media. Sé que parece una locura cuando ya duermes poco, pero hay una razón. Al limitar el tiempo en cama, aumenta la presión de sueño — el 'hambre de sueño' — y el sueño se consolida. Las primeras dos semanas serás algo más cansado, pero después el sueño mejora de forma significativa.",
+        preguntasClave: [
+          "¿Cuántas horas reales de sueño refleja el diario de las últimas dos semanas de media?",
+          "¿Estás dispuesto a intentar la restricción de sueño durante dos semanas como experimento?",
+          "¿Hay alguna situación esta semana (conducir, cirugía) donde el cansancio extra pudiera ser peligroso?",
+        ],
+        ejemploClinico: "Tomás, 59 años. La restricción inicial fue de 5 horas (1:00 a 6:00 AM). La primera semana fue dura: cansancio diurno marcado. La segunda semana, eficiencia de sueño 91%. La tercera, se amplió a 5:30 horas. A las ocho semanas, Tomás dormía 6,5 horas con eficiencia del 88%, algo que no había logrado en diez años de medicación.",
+        erroresComunes: [
+          "Aplicar restricción de sueño sin tener datos del diario — el tiempo en cama debe basarse en el sueño real del paciente",
+          "No advertir al paciente del empeoramiento inicial y la fatiga las primeras semanas, lo que lleva al abandono",
+          "Reducir el tiempo en cama a menos de 5 horas, lo que es ineficaz y puede ser peligroso",
+        ],
       },
       {
         numero: 5,
@@ -692,6 +1314,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["DBAS completado", "Hoja de reestructuración", "Datos de investigación sobre sueño"],
         tecnicas: ["Reestructuración cognitiva", "Intención paradójica", "Desdramatización"],
         notas: "Las creencias sobre 'necesitar 8 horas' son muy resistentes. La evidencia de que el paciente ha funcionado con menos horas muchas veces es el argumento más efectivo.",
+        guionTerapeuta: "Hay una trampa muy común en el insomnio: cuanto más intentas dormir, más te activas. El sueño es como la felicidad — no se puede forzar directamente. Se crea las condiciones y viene. ¿Qué te dices cuando llevas 30 minutos sin dormir?",
+        preguntasClave: [
+          "¿Cuántas horas crees que necesitas dormir para funcionar bien?",
+          "¿Ha habido noches en que dormiste 5 horas y al día siguiente funcionaste razonablemente bien?",
+          "¿Qué crees que pasará mañana si esta noche duermes mal? ¿Es seguro que sea tan catastrófico?",
+        ],
+        ejemploClinico: "Rosa, 44 años. Creencia central: 'Si no duermo 8 horas, no puedo funcionar.' Al revisar su diario, identificaron que sus mejores días de trabajo correspondían a noches de 6 horas, no de 8. La creencia nunca había sido verificada empíricamente. Al cuestionar la creencia, la presión por dormir se redujo, lo que paradójicamente mejoró el sueño.",
+        erroresComunes: [
+          "Debatir intelectualmente las creencias sobre el sueño sin conectarlas con datos reales del propio paciente",
+          "No trabajar la 'paradoja del esfuerzo' — cuanto más se intenta dormir, peor se duerme",
+          "Presuponer que el paciente necesita 8 horas cuando las necesidades de sueño son muy individuales",
+        ],
       },
       {
         numero: 6,
@@ -701,10 +1335,31 @@ export const protocolos: Protocolo[] = [
         materiales: ["Diario de preocupaciones", "Guía de mindfulness del sueño"],
         tecnicas: ["Tiempo de preocupación", "Mindfulness", "Distracción cognitiva"],
         notas: "El tiempo de preocupación programado es una de las técnicas más efectivas para el insomnio de mantenimiento por activación cognitiva.",
+        guionTerapeuta: "Cuando te quedas pensando en la cama, el problema no es que el cerebro piense — es que la cama no es el lugar para pensar. Propongo algo: esta semana, cada tarde a las 18:00, tienes 30 minutos para preocuparte y planificar. Escribes todo lo que te preocupa y una acción posible para cada cosa. Lo que queda sin resolver, va a la lista de mañana. Cuando llegues a la cama y aparezcan pensamientos, te dices: 'Ya lo trabajé hoy a las 18:00. No toca ahora.'",
+        preguntasClave: [
+          "¿Qué tipo de pensamientos suelen aparecer cuando estás despierto por la noche?",
+          "¿En qué horario del atardecer podrías hacer el tiempo de preocupación programado?",
+          "¿Crees que podría funcionar para ti reservar un momento específico del día para pensar en tus preocupaciones?",
+        ],
+        ejemploClinico: "Ángela, 38 años. Implementó el tiempo de preocupación a las 19:00 los días laborables. La primera semana, los pensamientos nocturnos siguieron llegando pero pudo decirse: 'Ya está en la lista de mañana.' A las tres semanas, el tiempo despierta por la noche se redujo de 90 a 25 minutos. Dijo que era la técnica que 'más sentido le hacía de toda la terapia'.",
+        erroresComunes: [
+          "Hacer el tiempo de preocupación demasiado tarde (21:00 o después) — debe terminar al menos 2 horas antes de acostarse",
+          "Prescribir el tiempo de preocupación sin el componente de escritura — la escritura externaliza las preocupaciones mejor que solo pensar",
+          "No trabajar también la activación cognitiva nocturna con técnicas de distracción como alternativa para noches difíciles",
+        ],
       },
     ],
     fichasRelacionadas: ["registro-sueno", "diario-estado-animo"],
     evidencia: "La TCC-I tiene Grado A de evidencia (NICE, APA, ESS). Más efectiva que la medicación hipnótica a largo plazo (Morin et al., 2006). Efectos se mantienen a los 2 años post-tratamiento.",
+    objetivosPrincipales: [
+      "Aumentar la eficiencia de sueño por encima del 85% mediante restricción y control de estímulos",
+      "Recondicionar la asociación cama-sueño deteriorada por el insomnio crónico",
+      "Modificar creencias disfuncionales sobre el sueño que mantienen la hipervigilancia nocturna",
+      "Reducir la activación cognitiva nocturna con técnicas de manejo de preocupaciones",
+      "Proporcionar herramientas de mantenimiento para prevenir recaídas sin medicación",
+    ],
+    poblacion: "Adultos con insomnio crónico (> 3 meses). Especialmente útil para quienes quieren reducir o eliminar medicación hipnótica. Contraindicado en trastorno bipolar y epilepsia.",
+    formatoSesion: "Individual · 50 min · Frecuencia semanal · Mínimo 4 sesiones, óptimo 6-8",
   },
   {
     slug: "protocolo-ira",
@@ -731,6 +1386,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Mapa de la ira", "Registro de episodios de ira"],
         tecnicas: ["Evaluación funcional", "Psicoeducación", "Validación de la ira como señal"],
         notas: "La alianza terapéutica con estos pacientes requiere validar la ira como señal legítima antes de cuestionar la forma de expresarla. Suelen llegar a la defensiva esperando ser juzgados.",
+        guionTerapeuta: "Antes de hablar de cómo manejar la ira, quiero que sepas algo: la ira es una emoción legítima. Es información — te dice que algo ha vulnerado algo que te importa. No venimos aquí a quitarte la ira. Venimos a entender cuándo te ayuda y cuándo te perjudica, y a que tengas más opciones de respuesta.",
+        preguntasClave: [
+          "¿Cuándo fue el último episodio de ira intensa? ¿Qué pasó exactamente?",
+          "¿Qué consecuencias ha tenido en tu vida — relaciones, trabajo, salud — la forma en que expresas la ira?",
+          "¿Hay situaciones donde manejas bien la ira? ¿Qué hace que en esas situaciones sea diferente?",
+        ],
+        ejemploClinico: "Esteban, 40 años. Llegó enviado por su mujer tras una discusión grave. El terapeuta empezó validando: 'Me imagina que esta situación te genera muchas emociones, incluida quizás rabia de estar aquí.' Esteban se relajó visiblemente: 'Sí. No quería venir.' Esa validación inicial fue el comienzo de la alianza.",
+        erroresComunes: [
+          "Cuestionar o minimizar la ira del paciente en lugar de validarla como señal antes de trabajar su expresión",
+          "Centrarse solo en la conducta explosiva visible sin explorar el patrón completo: disparadores, cogniciones, consecuencias",
+          "No explorar las consecuencias reales de la ira — el paciente debe conectar el problema con su propia motivación de cambio",
+        ],
       },
       {
         numero: 2,
@@ -740,6 +1407,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Termómetro de ira personalizado"],
         tecnicas: ["Conciencia interoceptiva", "Identificación de señales tempranas"],
         notas: "La mayoría de pacientes no ha identificado nunca las fases de la escalada: creen que 'de repente' estallan. Descubrir que hay señales tempranas es el primer paso para el control.",
+        guionTerapeuta: "Quiero que dibujemos juntos tu termómetro de ira. Del 0 al 10. El 0 es calma total y el 10 es cuando explota. ¿Qué sientes en el cuerpo cuando estás en un 3? ¿Y en un 5? ¿En qué momento crees que ya no puedes controlarlo?",
+        preguntasClave: [
+          "¿Cuáles son las primeras señales corporales de que la ira está empezando a subir?",
+          "¿Hay pensamientos recurrentes que aparecen justo antes de un estallido?",
+          "¿En qué nivel del termómetro crees que aún puedes hacer algo para evitar la escalada?",
+        ],
+        ejemploClinico: "Carlos, 45 años. Al construir el termómetro identificó: nivel 3 (mandíbula apretada, habla más despacio), nivel 5 (pensamiento 'qué irresponsable', voz más alta), nivel 7 (calor en la cara, pensamiento 'voy a explotar'), nivel 9 (ya no puede parar). Descubrir que había señales en el 3 fue revelador: 'Pensaba que me pasaba de 0 a 10 directamente.'",
+        erroresComunes: [
+          "No personalizar el termómetro con las señales específicas del paciente — cada persona tiene su propia fisiología de la escalada",
+          "No identificar el punto de 'no retorno' — saber hasta qué nivel puede intervenir marca la urgencia de las señales tempranas",
+          "Quedarse solo en las señales conductuales y omitir las señales cognitivas (pensamientos que aparecen en cada nivel)",
+        ],
       },
       {
         numero: 3,
@@ -749,6 +1428,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Protocolo de tiempo fuera", "Guía de respiración"],
         tecnicas: ["Tiempo fuera", "Respiración diafragmática", "Actividad física como regulación"],
         notas: "El compromiso de aplicar el tiempo fuera antes de que sea tarde (nivel 5, no nivel 8) es crucial. Practicar la comunicación del tiempo fuera ('Necesito 15 minutos') para que la otra parte no lo interprete como huida.",
+        guionTerapeuta: "El tiempo fuera funciona así: cuando llegas al nivel 5 — y no al 8, que ya es tarde — te alejas de la situación durante 15-20 minutos. En ese tiempo, no rumiamos lo que ha pasado, sino que hacemos algo que regule la activación: caminar deprisa, respirar, actividad física. Y luego volvemos. La diferencia con huir es que hay compromiso de volver.",
+        preguntasClave: [
+          "¿En qué nivel del termómetro te comprometes a pedir el tiempo fuera?",
+          "¿Cómo comunicarías el tiempo fuera a tu pareja o compañero para que no lo interprete como abandono o huida?",
+          "¿Qué harás durante esos 15-20 minutos para regularte — no para seguir pensando en el conflicto?",
+        ],
+        ejemploClinico: "Roberto, 47 años. Acordó decir a su mujer: 'Necesito 15 minutos para calmarme y luego seguimos hablando.' La primera semana, su mujer interpretó el tiempo fuera como 'dejación'. El terapeuta preparó a Roberto para esa reacción anticipada y le dio frases para explicar el proceso. La segunda semana, su mujer empezó a verlo como algo positivo.",
+        erroresComunes: [
+          "Aplicar el tiempo fuera cuando la ira ya está en niveles 8-9, cuando ya no hay capacidad de autorregulación",
+          "No acordar previamente cómo se comunicará el tiempo fuera con la otra persona involucrada",
+          "Usar el tiempo fuera para rumiar el conflicto en lugar de regular la activación fisiológica",
+        ],
       },
       {
         numero: 4,
@@ -758,6 +1449,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Registro de pensamientos de ira", "Hoja de reestructuración"],
         tecnicas: ["Cuestionamiento socrático", "Técnica de la intención", "Distinguir exigencias de preferencias"],
         notas: "La distinción entre intención maliciosa e incompetencia sin intención es uno de los momentos más impactantes del tratamiento para estos pacientes.",
+        guionTerapeuta: "Cuando tu jefe no te avisa del cambio de reunión, ¿qué es lo que piensas exactamente? '¿Qué te ha hecho a propósito?' ¿O podría ser que simplemente se le olvidó o que tiene una gestión muy mala del tiempo? La pregunta clave es: ¿cuántas veces la gente actúa con malicia deliberada hacia ti, y cuántas veces simplemente son torpes, descuidados o están pensando en sí mismos?",
+        preguntasClave: [
+          "En ese episodio, ¿crees que la persona actuó con intención de hacerte daño o fue más bien descuido o incompetencia?",
+          "¿Qué porcentaje de las veces que alguien te hace daño crees que es con intención deliberada?",
+          "Si otra persona te contara esta situación, ¿qué le dirías sobre las intenciones del otro?",
+        ],
+        ejemploClinico: "Félix, 38 años. Creía que su cuñado 'siempre le ninguneaba deliberadamente' en reuniones familiares. Al aplicar la técnica de la intención: '¿Cuántas evidencias tienes de que lo hace a propósito y cuántas de que simplemente es muy egocéntrico y no piensa en los demás?' Félix reconoció que era más lo segundo. Eso redujo la ira de un 9 a un 5.",
+        erroresComunes: [
+          "Hacer la técnica de la intención demasiado rápido, antes de que el paciente sienta que se le ha validado la ira",
+          "Aplicar la técnica cuando hay evidencias reales de intención maliciosa — en esos casos, la ira puede ser completamente proporcional",
+          "No conectar la reestructuración con los pensamientos específicos del último episodio, quedándose en lo abstracto",
+        ],
       },
       {
         numero: 5,
@@ -767,6 +1470,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Guía de comunicación asertiva", "Fórmula asertiva"],
         tecnicas: ["Modelado", "Role-play", "Retroalimentación"],
         notas: "Los pacientes con ira explosiva frecuentemente no han tenido modelo de comunicación emocional asertiva. El role-play en sesión es esencial para practicar antes de aplicar en situaciones reales.",
+        guionTerapeuta: "Hay una diferencia enorme entre decir 'eres un irresponsable' y decir 'cuando no avisas del cambio de planes, yo me siento ignorado y necesito que me lo comuniques con antelación.' La primera es un ataque a la persona. La segunda describe la conducta, la emoción tuya y la necesidad. Vamos a practicarlo. Yo soy tu jefe. Empieza.",
+        preguntasClave: [
+          "¿Hay una diferencia entre atacar a la persona y describir la conducta concreta que te molestó?",
+          "¿Cómo quedaría formulado lo que quieres comunicar usando 'cuando... yo me siento... necesito...'?",
+          "¿Cómo crees que reaccionaría la otra persona si lo expresaras de esta forma?",
+        ],
+        ejemploClinico: "Manuel, 51 años. En el role-play inicial atacaba siempre a la persona: 'Eres un desastre'. Al practicar la fórmula asertiva: 'Cuando me das las instrucciones a medias, me siento frustrado porque luego tengo que repetir el trabajo. Necesito que me lo expliques completo desde el principio.' Su compañero de role-play (el terapeuta) respondió de forma conciliadora. Manuel dijo: 'Nunca imaginé que funcionaría así.'",
+        erroresComunes: [
+          "No hacer role-play y quedarse en la explicación teórica de la fórmula asertiva — solo la práctica genera habilidad",
+          "No preparar al paciente para que la otra persona pueda reaccionar negativamente incluso con comunicación asertiva",
+          "Usar la fórmula asertiva de forma mecánica y robotizada — necesita sonar natural y sentida",
+        ],
       },
       {
         numero: 6,
@@ -776,10 +1491,31 @@ export const protocolos: Protocolo[] = [
         materiales: ["Guía de la carta sin enviar"],
         tecnicas: ["Carta sin enviar", "Perspectiva temporal", "Aceptación"],
         notas: "La carta sin enviar no es para perdonar moralmente al otro sino para liberarse del peso emocional que el resentimiento supone para uno mismo.",
+        guionTerapeuta: "El resentimiento crónico es como llevar una piedra enorme cargada todo el día, mientras la persona que te hizo daño sigue viviendo su vida sin saber nada. El resentimiento no te protege — solo te daña a ti. Esto no quiere decir que lo que te hicieron estuviera bien. Significa que puedes soltar el peso emocional aunque no apruebes lo que ocurrió.",
+        preguntasClave: [
+          "¿Hay alguna persona o situación del pasado que sigues revisitando con ira o amargura?",
+          "¿Qué función crees que tiene ese resentimiento? ¿Te protege de algo o solo te genera malestar?",
+          "¿Estarías dispuesto a escribir una carta a esa persona que nunca enviarás, solo para vaciar lo que llevas dentro?",
+        ],
+        ejemploClinico: "José, 53 años. Llevaba 8 años resentido con su ex socio. El terapeuta le propuso la carta sin enviar. José escribió cuatro páginas. Al leerla en sesión, lloraron los dos. Al terminar dijo: 'Llevo ocho años cargando con esto.' La carta no resolvió nada con el ex socio — pero a José le quitó un peso que no sabía que seguía llevando.",
+        erroresComunes: [
+          "Presentar la carta sin enviar como 'perdonar al otro', lo que genera mucha resistencia cuando la injusticia fue real",
+          "No leer la carta en sesión o procesarla emocionalmente — hacerla como tarea para casa sin revisarla pierde el potencial terapéutico",
+          "No distinguir entre resentimiento funcional (señal de valor transgredido) y resentimiento rumiativo (bucle sin salida)",
+        ],
       },
     ],
     fichasRelacionadas: ["registro-ira", "registro-pensamientos"],
     evidencia: "Basado en el Anger Management de Novaco (1975), el modelo cognitivo de Deffenbacher y el protocolo de regulación emocional de Linehan. Evidencia sólida para trastorno explosivo intermitente y ira en PTSD.",
+    objetivosPrincipales: [
+      "Identificar el patrón completo de la ira: disparadores, escalada, expresión y consecuencias",
+      "Aprender a detectar señales tempranas de escalada para intervenir antes del punto de no retorno",
+      "Desarrollar habilidades de regulación fisiológica y tiempo fuera efectivo",
+      "Reestructurar pensamientos de injusticia, exigencias absolutistas e intención maliciosa",
+      "Sustituir la expresión explosiva por comunicación asertiva de la ira",
+    ],
+    poblacion: "Adultos con problemas de regulación emocional con ira predominante, trastorno explosivo intermitente, o ira como síntoma de PTSD, depresión o dolor crónico.",
+    formatoSesion: "Individual · 60 min · Frecuencia semanal · Puede incluir sesiones de pareja o familiar para trabajar la comunicación",
   },
   {
     slug: "protocolo-duelo",
@@ -806,6 +1542,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["ICG (Inventario de Duelo Complicado)", "PG-13"],
         tecnicas: ["Escucha activa", "Validación emocional"],
         notas: "La primera sesión debe ser principalmente de escucha. La prisa por intervenir es el error más frecuente con pacientes en duelo.",
+        guionTerapeuta: "Cuéntame sobre [nombre del fallecido]. No sobre cómo murió todavía — cuéntame quién era para ti.",
+        preguntasClave: [
+          "¿Cuándo murió y cómo fue para ti ese momento?",
+          "¿Hay personas con quienes puedas hablar de él/ella? ¿O sientes que los demás ya han 'pasado página'?",
+          "¿Hay algo que sientas que no has podido decir o hacer en relación con esta pérdida?",
+        ],
+        ejemploClinico: "Concha, 61 años. Llevaba 18 meses sin poder hablar de su marido en casa 'para no poner triste a los hijos'. En la primera sesión, el terapeuta le dio permiso explícito para hablar de él durante 50 minutos sin interrupciones. Concha habló de su marido, de su humor, de las cosas que hacían juntos. Al final de la sesión dijo: 'Hace mucho que no hablaba de él así.' Esa fue la intervención de la primera sesión.",
+        erroresComunes: [
+          "Empezar con evaluaciones formales antes de dejar que el paciente cuente libremente su historia",
+          "Intentar normalizar o relativizar el dolor en la primera sesión: 'es normal', 'el tiempo lo cura' — el paciente necesita ser escuchado, no consolado",
+          "Preguntar demasiado sobre las circunstancias de la muerte antes de establecer el vínculo terapéutico",
+        ],
       },
       {
         numero: 2,
@@ -815,6 +1563,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Folleto sobre las tareas del duelo", "Diagrama del duelo complicado"],
         tecnicas: ["Psicoeducación", "Normalización"],
         notas: "El modelo de tareas es más útil que el de etapas porque orienta la intervención: ¿en qué tarea está atascado el paciente?",
+        guionTerapeuta: "Quiero compartir contigo cómo entendemos el duelo en psicología. No como etapas que hay que superar en orden — eso es un mito. Lo vemos como tareas, y la clave es que en el duelo complicado hay una o varias tareas donde el proceso se ha atascado. No es que no hayas querido suficiente, ni que no hayas podido. Es que algo lo ha bloqueado. ¿Tiene sentido para ti?",
+        preguntasClave: [
+          "¿Sientes que has podido aceptar que [nombre] ya no está, o hay momentos en que parece irreal?",
+          "¿Has podido llorar, hablar de él/ella, sentir el dolor? ¿O has intentado no pensar?",
+          "¿Cómo es tu vida ahora comparada con antes de la pérdida? ¿Qué ha cambiado?",
+        ],
+        ejemploClinico: "Alfredo, 58 años. Al presentar el modelo de tareas, se identificó claramente en la primera tarea: no podía aceptar del todo que su hija hubiera muerto. 'A veces oigo la puerta y pienso que es ella.' El terapeuta normalizó: 'Eso es exactamente lo que ocurre cuando la pérdida es tan grande y tan repentina. El cerebro tarda.' El modelo les dio un mapa para el trabajo terapéutico.",
+        erroresComunes: [
+          "Usar el modelo de las 5 etapas de Kübler-Ross como si fuera una secuencia obligatoria — genera culpa en quienes no siguen ese orden",
+          "Presentar las tareas del duelo como cosas que el paciente 'tiene que hacer', en lugar de como proceso natural que puede facilitarse",
+          "No identificar en cuál de las tareas está el bloqueo principal, lo que hace perder el foco terapéutico",
+        ],
       },
       {
         numero: 3,
@@ -824,6 +1584,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Jerarquía de exposición al duelo", "Guía de escritura expresiva"],
         tecnicas: ["Exposición gradual", "Escritura expresiva", "Prevención de respuesta evitativa"],
         notas: "Distinguir entre el dolor que procesa (llanto catártico, narrativa coherente) y el dolor que rumiación (bucle sin resolución). El primero avanza, el segundo se estanca.",
+        guionTerapeuta: "Hay algo que quiero preguntarte: ¿hay cosas relacionadas con [nombre] que evitas? ¿Fotos que no puedes mirar, lugares que no visitas, música que apagas cuando la oyes? No es malo evitar — es una respuesta normal al dolor. Pero si llevas meses o años haciéndolo, eso es lo que está congelando el proceso.",
+        preguntasClave: [
+          "¿Hay objetos, lugares o situaciones relacionados con [nombre] que evitas? ¿Desde cuándo?",
+          "¿Has sido capaz de hablar de él/ella en detalle, o siempre evitas el tema o lo pasas muy rápido?",
+          "¿Qué crees que pasaría si te permitieras sentir el dolor completamente, sin intentar controlarlo?",
+        ],
+        ejemploClinico: "Victoria, 49 años. Llevaba tres años sin entrar al cuarto de su madre fallecida. En sesión se construyó una jerarquía de exposición: primero hablar de recuerdos de su madre en sesión (SUDS 50), luego mirar fotos juntas (60), luego entrar al cuarto con el terapeuta por videollamada (75), luego sola (85). Al cabo de ocho semanas, Victoria había reorganizado el cuarto y puesto las fotos en el salón.",
+        erroresComunes: [
+          "Empujar la exposición antes de establecer el espacio seguro y la alianza terapéutica suficiente",
+          "Confundir la rumiación (bucle sin resolución) con el procesamiento genuino — ambos implican pensar en el fallecido pero con efectos muy diferentes",
+          "No usar la escritura expresiva, que es especialmente efectiva en duelo porque permite externalizar y organizar el relato",
+        ],
       },
       {
         numero: 4,
@@ -833,6 +1605,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Hoja de reestructuración del duelo"],
         tecnicas: ["Cuestionamiento socrático", "Perspectiva del ser querido", "Separar amor de sufrimiento"],
         notas: "La creencia 'avanzar = traicionar' es el núcleo cognitivo más frecuente y el que más bloquea el proceso. Debe abordarse explícitamente.",
+        guionTerapeuta: "Hay una creencia que aparece mucho en el duelo complicado y que quiero explorar contigo. Algunas personas sienten que si empiezan a estar mejor — si ríen, si disfrutan, si retoman la vida — de alguna forma están traicionando al ser querido. Como si el sufrimiento fuera la prueba del amor. ¿Te reconoces en eso?",
+        preguntasClave: [
+          "¿Sientes que avanzar o estar mejor significaría de alguna forma olvidar o traicionar a [nombre]?",
+          "¿Qué crees que querría [nombre] para ti si pudiera verte ahora?",
+          "¿El amor que sentías por [nombre] y el sufrimiento que sientes ahora son la misma cosa?",
+        ],
+        ejemploClinico: "Amparo, 66 años, viuda. Creía que reír era una falta de respeto a su marido. Al preguntarle qué querría su marido para ella, respondió entre lágrimas: 'Él siempre decía que lo más importante era que fuéramos felices.' El terapeuta señaló la contradicción: 'Entonces el sufrimiento no es la forma de honrarle.' Esa sesión fue el punto de inflexión del proceso.",
+        erroresComunes: [
+          "Abordar la creencia 'avanzar = traicionar' demasiado pronto, antes de que el paciente haya procesado suficiente dolor",
+          "No usar la perspectiva del fallecido — es el argumento más potente y el que el paciente no puede rechazar fácilmente",
+          "Presentar la reestructuración como un debate intelectual en lugar de una exploración emocional",
+        ],
       },
       {
         numero: 5,
@@ -842,6 +1626,18 @@ export const protocolos: Protocolo[] = [
         materiales: ["Mapa de identidad", "Exploración de valores", "Plan de activación"],
         tecnicas: ["Mapa de identidad", "Activación conductual", "Trabajo de valores"],
         notas: "No precipitar: la reconstrucción de identidad no puede ocurrir antes de haber procesado suficientemente el dolor. Si se introduce demasiado pronto, el paciente lo vive como 'pasar página'.",
+        guionTerapeuta: "Ahora quiero que pensemos en algo diferente. Antes de perder a [nombre], ¿quién eras tú? ¿Qué hacías, qué te importaba, qué disfrutabas? Y ahora: ¿qué queda de esa persona? No para forzarte a volver a ser quien eras, sino para explorar qué partes tuyas siguen ahí y cuáles han cambiado.",
+        preguntasClave: [
+          "¿Qué parte de tu identidad o de tu vida cotidiana estaba más construida alrededor de [nombre]?",
+          "¿Hay actividades, relaciones o aspectos de ti mismo que existían antes de esta pérdida y que podrían recuperarse?",
+          "¿Qué querías hacer con tu vida que todavía no has hecho y que sigue siendo posible?",
+        ],
+        ejemploClinico: "Rafael, 64 años, viudo tras 35 años de matrimonio. Toda su identidad estaba construida como 'marido de Pilar'. Al explorar quién era antes de conocerla: apasionado de la historia, aficionado a la fotografía, tenía amigos de la juventud con quienes había perdido el contacto. El plan de activación se construyó sobre esas raíces identitarias previas.",
+        erroresComunes: [
+          "Proponer la reconstrucción de identidad antes de que el paciente haya procesado suficiente dolor — se vive como imposición de 'pasar página'",
+          "Enfocarse solo en el rol perdido sin explorar qué otras partes de la identidad siguen intactas o pueden desarrollarse",
+          "Hacer la activación conductual demasiado ambiciosa y rápida — debe ser muy gradual y siempre vinculada al sentido",
+        ],
       },
       {
         numero: 6,
@@ -851,9 +1647,30 @@ export const protocolos: Protocolo[] = [
         materiales: ["Guía de la carta de integración"],
         tecnicas: ["Ritual de conexión", "Carta de integración", "Legado"],
         notas: "El cierre del duelo no significa que ya no se eche de menos al fallecido. Significa que se puede vivir con plenitud a pesar de la ausencia.",
+        guionTerapeuta: "El objetivo de lo que vamos a hacer no es que te olvides de [nombre] — eso no es posible ni sería deseable. El objetivo es transformar la relación: de una presencia física que ya no está, a una presencia interior que acompaña. [Nombre] puede estar en tus recuerdos, en los valores que te enseñó, en las cosas que haces pensando en él/ella. ¿Hay algo que él/ella valoraba o que te enseñó que tú podrías encarnar?",
+        preguntasClave: [
+          "¿Hay algo que [nombre] te enseñó o que representaba que podrías llevar contigo como legado?",
+          "¿Cómo te gustaría recordarle en el futuro — no con sufrimiento sino con afecto?",
+          "¿Qué le escribirías a [nombre] hoy, contándole cómo estás y cómo quieres vivir de aquí en adelante?",
+        ],
+        ejemploClinico: "Mercedes, 54 años. En la última sesión escribió la carta de integración a su hermano: 'Sé que te gustaba verme reír. Voy a intentar reírme más. Voy a cuidar a mis sobrinos como tú querías. Y cuando coma paella los domingos, voy a pensar en ti con alegría, no con dolor.' Al leerla en voz alta, ella misma dijo: 'Esto ya no es el principio del duelo — esto es el final de una etapa.'",
+        erroresComunes: [
+          "Proponer el ritual de conexión o la carta de integración sin que el paciente haya procesado suficiente dolor previamente",
+          "No hacer la carta de integración en sesión o al menos leerla en sesión — hacerla como tarea sola en casa puede ser demasiado",
+          "Confundir el cierre del duelo con la ausencia de dolor — el dolor residual es normal y no indica fracaso del tratamiento",
+        ],
       },
     ],
     fichasRelacionadas: ["ficha-duelo", "plan-seguridad-emocional"],
     evidencia: "Basado en el modelo de tareas del duelo de Worden (2009), la Terapia del Duelo Complicado de Shear (2005) y la Terapia de Duelo Prolongado de Boelen (2010). La TCC para el duelo complicado tiene Grado B de evidencia.",
+    objetivosPrincipales: [
+      "Crear un espacio terapéutico seguro donde el dolor del duelo pueda ser expresado sin restricciones",
+      "Identificar en qué tarea del duelo está atascado el proceso y trabajar específicamente ese bloqueo",
+      "Reducir la evitación del dolor mediante exposición gradual a recuerdos, lugares y objetos asociados",
+      "Reestructurar creencias bloqueadoras como 'avanzar es traicionar' o 'si dejo de sufrir es que no le amaba'",
+      "Transformar la relación con el fallecido de presencia física a conexión duradera interior",
+    ],
+    poblacion: "Adultos con duelo complicado o prolongado (> 12 meses en adultos). Requiere descartar episodio depresivo mayor severo sin tratamiento antes de iniciar.",
+    formatoSesion: "Individual · 60 min · Frecuencia semanal · Proceso de 8-16 sesiones según la complejidad",
   },
 ];
