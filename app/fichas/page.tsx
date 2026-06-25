@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { fichas } from "@/app/data/fichas";
 import PageHeader from "@/components/PageHeader";
@@ -28,6 +28,28 @@ const categoriaColors: Record<string, string> = {
 export default function FichasPage() {
   const categorias = ["Todas", ...Array.from(new Set(fichas.map((f) => f.categoria)))];
   const [categoriaActiva, setCategoriaActiva] = useState<string>("Todas");
+  const [favoritos, setFavoritos] = useState<string[]>([]);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("favoritos");
+    if (stored) {
+      try {
+        setFavoritos(JSON.parse(stored));
+      } catch {
+        setFavoritos([]);
+      }
+    }
+  }, []);
+
+  const toggleFavorito = (e: React.MouseEvent, fichaId: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const next = favoritos.includes(fichaId)
+      ? favoritos.filter((id) => id !== fichaId)
+      : [...favoritos, fichaId];
+    setFavoritos(next);
+    localStorage.setItem("favoritos", JSON.stringify(next));
+  };
 
   const fichasFiltradas =
     categoriaActiva === "Todas"
@@ -36,12 +58,30 @@ export default function FichasPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-10">
-      <PageHeader
-        title="Fichas Clínicas Interactivas"
-        description="Fichas para completar en pantalla durante la sesión o imprimir para el paciente. Todas incluyen instrucciones clínicas y notas para el terapeuta."
-        badge={`${fichas.length} Fichas`}
-        badgeColor="bg-purple-600"
-      />
+      <div className="flex items-start justify-between mb-1">
+        <div className="flex-1">
+          <PageHeader
+            title="Fichas Clínicas Interactivas"
+            description="Fichas para completar en pantalla durante la sesión o imprimir para el paciente. Todas incluyen instrucciones clínicas y notas para el terapeuta."
+            badge={`${fichas.length} Fichas`}
+            badgeColor="bg-purple-600"
+          />
+        </div>
+        {favoritos.length > 0 && (
+          <Link
+            href="/favoritos"
+            className="flex-shrink-0 mt-1 ml-4 inline-flex items-center gap-1.5 text-sm text-emerald-600 font-medium hover:text-emerald-700 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            Ver guardadas ({favoritos.length})
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        )}
+      </div>
 
       {/* Category filter buttons */}
       <div className="flex flex-wrap gap-2 mb-8">
@@ -65,41 +105,62 @@ export default function FichasPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {fichasFiltradas.map((ficha) => (
-          <Link
-            key={ficha.id}
-            href={`/fichas/${ficha.id}`}
-            className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-200 transition-all duration-200 p-5 flex flex-col"
-          >
-            <div className="flex items-start justify-between mb-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-white flex-shrink-0">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <span
-                className={`text-xs px-2 py-0.5 rounded-full font-medium ${categoriaColors[ficha.categoria] || "bg-gray-100 text-gray-600"}`}
+        {fichasFiltradas.map((ficha) => {
+          const esFavorito = favoritos.includes(ficha.id);
+          return (
+            <div key={ficha.id} className="relative">
+              <Link
+                href={`/fichas/${ficha.id}`}
+                className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-200 transition-all duration-200 p-5 flex flex-col"
               >
-                {ficha.categoria}
-              </span>
-            </div>
+                <div className="flex items-start justify-between mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <span
+                    className={`text-xs px-2 py-0.5 rounded-full font-medium ${categoriaColors[ficha.categoria] || "bg-gray-100 text-gray-600"}`}
+                  >
+                    {ficha.categoria}
+                  </span>
+                </div>
 
-            <h3 className="font-bold text-[#1e3a5f] mb-2 group-hover:text-purple-600 transition-colors leading-tight">
-              {ficha.titulo}
-            </h3>
-            <p className="text-gray-500 text-xs leading-relaxed flex-1">{ficha.descripcion}</p>
+                <h3 className="font-bold text-[#1e3a5f] mb-2 group-hover:text-purple-600 transition-colors leading-tight">
+                  {ficha.titulo}
+                </h3>
+                <p className="text-gray-500 text-xs leading-relaxed flex-1">{ficha.descripcion}</p>
 
-            <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
-              <span className="text-xs text-gray-400">{ficha.campos.length} campos</span>
-              <span className="text-sm text-purple-600 font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                Abrir ficha
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
+                <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+                  <span className="text-xs text-gray-400">{ficha.campos.length} campos</span>
+                  <span className="text-sm text-purple-600 font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                    Abrir ficha
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+
+              {/* Favorites toggle button */}
+              <button
+                onClick={(e) => toggleFavorito(e, ficha.id)}
+                aria-label={esFavorito ? "Quitar de favoritos" : "Guardar en favoritos"}
+                className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-sm border border-slate-100 hover:scale-110 transition-transform"
+              >
+                {esFavorito ? (
+                  <svg className="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 text-slate-400 hover:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                )}
+              </button>
             </div>
-          </Link>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-10 bg-purple-50 rounded-2xl border border-purple-100 p-6">
