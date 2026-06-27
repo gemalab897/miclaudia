@@ -126,6 +126,78 @@ const secciones = [
       "No estás solo/a en esto. Trabajaremos juntos.",
     ],
   },
+  {
+    titulo: "Ejercicios de Terapia Somática — Enraizamiento",
+    color: "border-teal-200 bg-teal-50",
+    headerColor: "bg-teal-700",
+    descripcion: "Instrucciones verbales para guiar ejercicios de grounding y conexión con el cuerpo en sesión",
+    items: [
+      "Lleva tu atención a la suela de los pies. Nota el contacto con el suelo. Presiona un poco hacia abajo. ¿Qué sientes ahí?",
+      "Siente el peso de tu cuerpo en la silla. La silla sostiene todo tu peso. No tienes que sostenerte tú solo/a en este momento.",
+      "Mira lentamente alrededor de la habitación. Nombra en voz baja cinco cosas que puedes ver. Sin prisa.",
+      "Escucha los sonidos que hay en la habitación ahora mismo. Los cercanos, los lejanos. Sin juzgarlos, solo escucha.",
+      "Toca con las manos la superficie de [la silla / la mesa / tu ropa]. Nota la textura, la temperatura. ¿Es suave, rugosa, fría, cálida?",
+      "Respira despacio. No tienes que hacerlo perfecto. Solo nota el aire entrando y saliendo. Cada respiración te ancla un poco más aquí.",
+      "Nombra tres cosas que puedes ver, dos que puedes oír y una que puedes sentir en tu cuerpo ahora mismo.",
+      "Lleva los pies al suelo, la espalda al respaldo. Siéntete sostenido/a. Estás aquí. Estás seguro/a.",
+      "Oriéntate en el espacio: ¿dónde estás? ¿Qué día es? ¿Qué hora aproximadamente? Dejar que tu sistema nervioso sepa que el peligro ha pasado.",
+      "¿Puedes notar alguna parte de tu cuerpo que esté un poco más tranquila que el resto? Quédate con esa sensación un momento.",
+    ],
+  },
+  {
+    titulo: "Ejercicios de Terapia Somática — Escaneo Corporal",
+    color: "border-cyan-200 bg-cyan-50",
+    headerColor: "bg-cyan-700",
+    descripcion: "Guía verbal para el escaneo corporal progresivo: observar sensaciones sin juzgar ni cambiar",
+    items: [
+      "Cierra los ojos si te resulta cómodo, o baja la mirada. Empieza por notar tu respiración tal como es ahora, sin cambiarla.",
+      "Lleva la atención a los pies. ¿Hay tensión, hormigueo, calor, frío? No tienes que cambiar nada, solo observar.",
+      "Sube la atención por las piernas, las pantorrillas, las rodillas, los muslos. ¿Qué notas? ¿Peso, ligereza, tensión?",
+      "Llega al abdomen. ¿Está tenso o relajado? ¿Sientes algo moviéndose con la respiración?",
+      "Nota el pecho. ¿Cómo respira? ¿El pecho sube y baja libremente o hay constricción?",
+      "Lleva la atención a los hombros. ¿Están elevados, tensos, apretados? Simplemente obsérvalo.",
+      "Ahora el cuello y la mandíbula. ¿Hay tensión ahí? ¿Los dientes apretados? Solo nota.",
+      "Escanea la cara: frente, cejas, ojos, mejillas. ¿Hay tensión o suavidad?",
+      "Ahora haz un recorrido de cabeza a pies: ¿qué zona tiene más tensión? ¿Qué zona está más tranquila?",
+      "Si has encontrado alguna zona de tensión, respira suavemente hacia ella. No para cambiarla, sino para acompañarla.",
+    ],
+  },
+  {
+    titulo: "Ejercicios de Terapia Somática — Regulación del Sistema Nervioso",
+    color: "border-indigo-200 bg-indigo-50",
+    headerColor: "bg-indigo-700",
+    descripcion: "Técnicas verbales de respiración y regulación para activar el sistema parasimpático",
+    items: [
+      "Vamos a respirar juntos. Inhala contando mentalmente hasta 4... mantén un momento... exhala lentamente hasta 6. La exhalación más larga activa el freno del sistema nervioso.",
+      "Prueba la respiración fisiológica: una inhalación normal, y al final añade un sorbo más de aire antes de exhalar largo. Es un reset del sistema nervioso.",
+      "Inhala por la nariz 4 tiempos, exhala por la boca 8 tiempos con los labios fruncidos como si soplaras una vela. Hazlo tres veces.",
+      "Nota si tu sistema nervioso ahora mismo está acelerado (hiperactivación) o apagado (hipoactivación). ¿Hay más tensión o más entumecimiento?",
+      "Si hay hiperactivación: pies en el suelo, respiración lenta, orientación al entorno. Activamos el freno.",
+      "Si hay hipoactivación: pequeños movimientos, frotarse las manos, respiración más energizante. Despertamos el sistema.",
+      "Pon una mano en el pecho y otra en el abdomen. ¿Cuál se mueve más? Intentemos que sea la del abdomen — señal de respiración diafragmática.",
+      "Suspiro fisiológico: dos inhalaciones rápidas por la nariz seguidas de una exhalación larga por la boca. Hazlo una vez. ¿Cómo quedas?",
+      "La voz regula el sistema nervioso. Prueba a humear suavemente (hmmm) con los labios cerrados. ¿Sientes la vibración en el pecho?",
+      "¿Cuánto ha cambiado tu nivel de activación del 0 al 10 desde que empezamos el ejercicio? Nota el cambio, aunque sea pequeño.",
+    ],
+  },
+  {
+    titulo: "Ejercicios de Terapia Somática — Trabajo con Trauma",
+    color: "border-violet-200 bg-violet-50",
+    headerColor: "bg-violet-700",
+    descripcion: "Titulación, pendulación y recursos somáticos para aproximarse al material traumático con seguridad",
+    items: [
+      "Antes de acercarnos al material difícil, necesitamos un recurso somático. Piensa en un lugar o momento donde te sentiste seguro/a. ¿Qué sensaciones corporales aparecen cuando lo imaginas?",
+      "Ese recurso es tu ancla. Podemos volver ahí en cualquier momento. Solo tienes que decirme 'pausa' y volvemos al recurso.",
+      "Vamos a acercarnos al material en dosis pequeñas. No de golpe. Como meter el pie en agua fría antes de entrar.",
+      "¿Cuándo empiezas a sentir tensión o incomodidad al pensar en eso? Para ahí. Ese es el límite por ahora.",
+      "Ahora vuelve al recurso somático. Recuerda las sensaciones de seguridad. Quédate ahí un momento.",
+      "Eso se llama pendulación: ir hacia el material difícil y volver al recurso. El sistema nervioso se regula oscilando entre los dos.",
+      "¿Qué sensación corporal acompaña a ese recuerdo difícil? No el contenido — la sensación. ¿Dónde la notas en el cuerpo?",
+      "Las sensaciones físicas del trauma cambian cuando las nombramos y las observamos. No tienes que hacer nada con ellas, solo acompañarlas.",
+      "Si la intensidad sube de 7, hacemos pausa y volvemos al recurso. Por encima de ese nivel, el trabajo no es posible ni útil.",
+      "¿Ha cambiado algo en esa sensación corporal desde que la estamos observando? Las sensaciones se mueven cuando les damos atención.",
+    ],
+  },
 ];
 
 
@@ -134,8 +206,8 @@ export default function DialogoSocratico() {
     <div className="max-w-4xl mx-auto px-6 py-10">
       <PageHeader
         title="Diálogo Socrático"
-        description="Preguntas, frases y técnicas de cuestionamiento para cada momento de la sesión TCC. Pasa el cursor sobre cualquier frase para copiarla."
-        badge="💬 Técnicas verbales"
+        description="Preguntas socráticas, frases terapéuticas y guías verbales para ejercicios somáticos. Pasa el cursor sobre cualquier frase para copiarla."
+        badge="💬 Técnicas verbales y somáticas"
       />
 
       <div className="space-y-8 mt-8">
