@@ -114,13 +114,10 @@ const groups = [
 
 function LogoMark() {
   return (
-    <div className="w-8 h-8 rounded-lg border border-emerald-400/30 bg-gradient-to-br from-emerald-400/15 to-emerald-600/10 flex items-center justify-center flex-shrink-0">
-      <span
-        className="text-emerald-300 text-[17px] font-bold leading-none select-none"
-        style={{ fontFamily: "var(--font-playfair)" }}
-      >
-        C
-      </span>
+    <div className="w-8 h-8 rounded-lg border border-emerald-400/25 bg-gradient-to-br from-emerald-400/12 to-teal-600/8 flex items-center justify-center flex-shrink-0">
+      <svg className="w-4 h-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      </svg>
     </div>
   );
 }
@@ -135,19 +132,18 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 h-14 bg-[#0c1e3d] border-b border-white/[0.06] flex items-center justify-between px-4">
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 h-14 bg-[#0b1d3a] border-b border-white/[0.06] flex items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2.5">
           <LogoMark />
-          <span
-            className="font-bold text-white text-[16px] leading-none tracking-tight"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            Claudia
-          </span>
+          <div>
+            <span className="font-bold text-white text-sm tracking-tight leading-none">
+              CBT <span className="text-emerald-400">PRO+</span>
+            </span>
+          </div>
         </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/8 text-white/70 hover:text-white transition-colors"
+          className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/8 text-white/60 hover:text-white transition-colors"
         >
           {mobileOpen
             ? <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
@@ -164,7 +160,7 @@ export default function Sidebar() {
       {/* Sidebar */}
       <aside className={`
         fixed top-0 left-0 h-full w-60 z-40 flex flex-col
-        bg-[#0c1e3d] border-r border-white/[0.06]
+        bg-[#0b1d3a] border-r border-white/[0.06]
         transition-transform duration-300 ease-in-out
         ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0 lg:static lg:flex
@@ -174,13 +170,10 @@ export default function Sidebar() {
           <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 group">
             <LogoMark />
             <div>
-              <div
-                className="font-bold text-white text-[16px] leading-none tracking-tight group-hover:text-emerald-200 transition-colors"
-                style={{ fontFamily: "var(--font-playfair)" }}
-              >
-                Claudia
+              <div className="font-bold text-white text-[15px] leading-none tracking-tight group-hover:text-emerald-200 transition-colors">
+                CBT <span className="text-emerald-400">PRO+</span>
               </div>
-              <div className="text-[10px] text-white/30 mt-1 tracking-[0.14em] uppercase font-medium">
+              <div className="text-[10px] text-white/28 mt-[5px] tracking-[0.15em] uppercase font-medium">
                 Sistema Clínico · TCC
               </div>
             </div>
@@ -191,11 +184,11 @@ export default function Sidebar() {
         <nav className="flex-1 overflow-y-auto py-5 px-3 space-y-5">
           {groups.map((group) => (
             <div key={group.label}>
-              <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/25 select-none">
+              <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/22 select-none">
                 {group.label}
               </div>
               <div className="space-y-0.5">
-                {group.items.map((item) => {
+                {groups && group.items.map((item) => {
                   const active = isActive(item.href);
                   return (
                     <Link
@@ -205,15 +198,15 @@ export default function Sidebar() {
                       className={`
                         relative flex items-center gap-3 px-3 py-[7px] rounded-lg text-[13px] transition-all duration-150
                         ${active
-                          ? "bg-white/[0.08] text-white font-semibold"
-                          : "text-white/48 font-medium hover:text-white/85 hover:bg-white/[0.05]"
+                          ? "bg-white/[0.09] text-white font-semibold"
+                          : "text-white/45 font-medium hover:text-white/82 hover:bg-white/[0.05]"
                         }
                       `}
                     >
                       {active && (
                         <span className="absolute left-0 inset-y-1.5 w-[2px] rounded-full bg-emerald-400" />
                       )}
-                      <span className={`flex-shrink-0 transition-colors ${active ? "text-emerald-300" : "text-white/35"}`}>
+                      <span className={`flex-shrink-0 transition-colors ${active ? "text-emerald-300" : "text-white/32"}`}>
                         {item.icon}
                       </span>
                       {item.label}
@@ -229,10 +222,10 @@ export default function Sidebar() {
         <div className="px-5 py-4 border-t border-white/[0.06]">
           <div className="flex items-center gap-2 mb-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot flex-shrink-0" />
-            <span className="text-[11px] text-white/35 font-medium">Evidencia Grado A</span>
+            <span className="text-[11px] text-white/32 font-medium">Evidencia Grado A · Nivel 1</span>
           </div>
-          <p className="text-[10px] text-white/20 tracking-wide">
-            Beck Institute · APA · NICE · TCC
+          <p className="text-[10px] text-white/18 tracking-wide">
+            Beck Institute · APA · NICE
           </p>
         </div>
       </aside>

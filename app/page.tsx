@@ -169,36 +169,41 @@ export default function Home() {
     <div className="min-h-screen">
 
       {/* ── Hero ── */}
-      <div className="relative overflow-hidden bg-[#0f2744]">
-        {/* Background decoration */}
+      <div className="relative overflow-hidden bg-[#0b1d3a] dot-pattern">
+        {/* Glow blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-emerald-500/8 blur-3xl" />
-          <div className="absolute top-20 -left-20 w-72 h-72 rounded-full bg-blue-500/8 blur-3xl" />
-          <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-indigo-500/6 blur-3xl" />
+          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-emerald-500/10 blur-[100px]" />
+          <div className="absolute top-10 -left-24 w-80 h-80 rounded-full bg-blue-500/8 blur-[80px]" />
+          <div className="absolute bottom-0 left-1/2 w-72 h-48 rounded-full bg-indigo-500/6 blur-[60px]" />
         </div>
 
-        <div className="relative max-w-5xl mx-auto px-6 pt-14 pb-10">
+        <div className="relative max-w-5xl mx-auto px-6 pt-16 pb-12">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-500/25 text-emerald-300 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 animate-fade-up">
+          <div className="inline-flex items-center gap-2.5 bg-emerald-400/10 border border-emerald-400/20 text-emerald-300 text-[11px] font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wide animate-fade-up">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
-            Herramienta Clínica Profesional · Basada en Evidencia
+            Plataforma Clínica Profesional · Basada en Evidencia
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-3 animate-fade-up-2" style={{ fontFamily: "var(--font-playfair)" }}>
-            Claudia
-            <span className="block text-xl md:text-2xl font-normal text-white/45 mt-2 tracking-widest uppercase" style={{ fontFamily: "var(--font-inter)" }}>
-              Plataforma Clínica · TCC
+          <h1 className="animate-fade-up-2 mb-5">
+            <span
+              className="block text-[52px] md:text-[68px] font-bold text-white leading-[1.05] tracking-tight"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              CBT <span className="text-emerald-400">PRO+</span>
+            </span>
+            <span className="block text-base md:text-lg text-white/38 mt-3 tracking-[0.22em] uppercase font-medium">
+              Sistema Clínico de Terapia Cognitivo-Conductual
             </span>
           </h1>
 
-          <p className="text-white/60 text-base md:text-lg max-w-2xl leading-relaxed mb-8 animate-fade-up-3">
-            Todo lo que necesitas para estructurar, intervenir y medir el progreso en Terapia Cognitivo-Conductual — en un solo lugar y listo para usar en sesión.
+          <p className="text-white/55 text-base md:text-[17px] max-w-xl leading-relaxed mb-10 animate-fade-up-3">
+            Todo lo que necesitas para estructurar, intervenir y medir el progreso en TCC — en un solo lugar y listo para usar en sesión.
           </p>
 
           <div className="flex flex-wrap gap-3 animate-fade-up-3">
             <Link
               href="/fichas"
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-lg shadow-emerald-500/25"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
             >
               Abrir Fichas Clínicas
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -207,7 +212,7 @@ export default function Home() {
             </Link>
             <Link
               href="/guia-clinica"
-              className="inline-flex items-center gap-2 bg-white/8 hover:bg-white/14 border border-white/15 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 bg-white/6 hover:bg-white/12 border border-white/12 hover:border-white/20 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-all"
             >
               Guía por Diagnóstico
             </Link>
@@ -215,14 +220,18 @@ export default function Home() {
         </div>
 
         {/* Stats bar */}
-        <div className="relative border-t border-white/8">
-          <div className="max-w-5xl mx-auto px-6 py-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="relative border-t border-white/[0.07]">
+          <div className="max-w-5xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
               <div key={s.label} className="flex items-center gap-3">
-                <span className="text-xl">{s.icon}</span>
+                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-lg flex-shrink-0">
+                  {s.icon}
+                </div>
                 <div>
-                  <div className="text-xl font-bold text-emerald-400 leading-none">{s.value}</div>
-                  <div className="text-xs text-white/40 mt-0.5">{s.label}</div>
+                  <div className="text-[22px] font-bold text-emerald-400 leading-none" style={{ fontFamily: "var(--font-playfair)" }}>
+                    {s.value}
+                  </div>
+                  <div className="text-[11px] text-white/35 mt-0.5 tracking-wide">{s.label}</div>
                 </div>
               </div>
             ))}
@@ -232,9 +241,17 @@ export default function Home() {
 
       {/* ── Modules grid ── */}
       <div className="max-w-5xl mx-auto px-6 py-10">
-        <div className="mb-6">
-          <h2 className="text-lg font-bold text-[#0f2744]">Módulos clínicos</h2>
-          <p className="text-sm text-slate-400 mt-0.5">Acceso directo a todas las herramientas</p>
+        <div className="flex items-end justify-between mb-6">
+          <div>
+            <h2
+              className="text-2xl font-bold text-[#0b1d3a] leading-tight"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              Módulos clínicos
+            </h2>
+            <p className="text-sm text-slate-400 mt-1">Acceso directo a todas las herramientas</p>
+          </div>
+          <div className="gradient-divider hidden md:block w-48 mb-2" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -242,22 +259,24 @@ export default function Home() {
             <Link
               key={m.href}
               href={m.href}
-              className={`group card-hover bg-gradient-to-br ${m.bg} border ${m.border} rounded-2xl p-5 flex flex-col`}
+              className={`group card-hover bg-gradient-to-br ${m.bg} border ${m.border} rounded-2xl p-5 flex flex-col bg-white`}
             >
               <div className="flex items-start justify-between mb-3">
                 <span className="text-2xl">{m.emoji}</span>
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/70 text-slate-500">
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/80 text-slate-500 border border-slate-200/60">
                   {m.tag}
                 </span>
               </div>
-              <h3 className="font-semibold text-[#0f2744] text-sm mb-1.5 group-hover:text-emerald-600 transition-colors">
+              <h3
+                className="font-semibold text-[#0b1d3a] text-sm mb-1.5 group-hover:text-emerald-600 transition-colors leading-snug"
+              >
                 {m.title}
               </h3>
               <p className="text-xs text-slate-500 leading-relaxed flex-1">{m.description}</p>
-              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-slate-400 group-hover:text-emerald-500 transition-colors">
+              <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-slate-400 group-hover:text-emerald-500 transition-colors">
                 Abrir
                 <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
             </Link>
@@ -267,50 +286,60 @@ export default function Home() {
         {/* ── Quick access ── */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Casos */}
-          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
+          <div className="bg-white rounded-2xl border border-[#e4eaf4] shadow-sm p-5">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="font-bold text-[#0f2744] text-sm">Casos Clínicos Recientes</h3>
+                <h3
+                  className="font-bold text-[#0b1d3a] text-base"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  Casos Clínicos
+                </h3>
                 <p className="text-xs text-slate-400 mt-0.5">Reflexión interactiva sesión a sesión</p>
               </div>
-              <Link href="/casos" className="text-xs text-emerald-500 font-semibold hover:text-emerald-600">
+              <Link href="/casos" className="text-xs text-emerald-500 font-semibold hover:text-emerald-600 transition-colors">
                 Ver todos →
               </Link>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-0.5">
               {quickCasos.map((c) => (
                 <Link
                   key={c.id}
                   href={`/casos/${c.id}`}
                   className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors group"
                 >
-                  <span className="text-sm text-slate-700 group-hover:text-[#0f2744] font-medium">{c.name}</span>
-                  <span className="text-xs bg-red-50 text-red-500 px-2 py-0.5 rounded-full font-medium">{c.tag}</span>
+                  <span className="text-sm text-slate-600 group-hover:text-[#0b1d3a] font-medium">{c.name}</span>
+                  <span className="text-[11px] bg-red-50 text-red-500 px-2.5 py-0.5 rounded-full font-semibold">{c.tag}</span>
                 </Link>
               ))}
             </div>
           </div>
 
           {/* Protocolos */}
-          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
+          <div className="bg-white rounded-2xl border border-[#e4eaf4] shadow-sm p-5">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="font-bold text-[#0f2744] text-sm">Protocolos Destacados</h3>
+                <h3
+                  className="font-bold text-[#0b1d3a] text-base"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  Protocolos Destacados
+                </h3>
                 <p className="text-xs text-slate-400 mt-0.5">Con evidencia científica Grado A</p>
               </div>
-              <Link href="/protocolos" className="text-xs text-emerald-500 font-semibold hover:text-emerald-600">
+              <Link href="/protocolos" className="text-xs text-emerald-500 font-semibold hover:text-emerald-600 transition-colors">
                 Ver todos →
               </Link>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-0.5">
               {quickProtocolos.map((p) => (
                 <Link
                   key={p.slug}
                   href={`/protocolos/${p.slug}`}
                   className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors group"
                 >
-                  <span className="text-sm text-slate-700 group-hover:text-[#0f2744] font-medium">{p.name}</span>
-                  <span className="text-xs bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-medium">{p.tag}</span>
+                  <span className="text-sm text-slate-600 group-hover:text-[#0b1d3a] font-medium">{p.name}</span>
+                  <span className="text-[11px] bg-emerald-50 text-emerald-600 px-2.5 py-0.5 rounded-full font-semibold">{p.tag}</span>
                 </Link>
               ))}
             </div>
@@ -318,26 +347,32 @@ export default function Home() {
         </div>
 
         {/* ── Banner ── */}
-        <div className="mt-6 bg-[#0f2744] rounded-2xl p-6 flex flex-col md:flex-row md:items-center gap-4">
-          <div className="flex-1">
-            <div className="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-1">
+        <div className="mt-6 bg-[#0b1d3a] dot-pattern rounded-2xl p-7 flex flex-col md:flex-row md:items-center gap-5 relative overflow-hidden">
+          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
+          <div className="flex-1 relative">
+            <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-[0.2em] mb-2">
               Temporizador de Sesión
             </div>
-            <h3 className="font-bold text-white text-base mb-1">Estructura cada sesión en fases</h3>
-            <p className="text-white/50 text-sm">
-              Usa el botón flotante (⏱) en cualquier página para activar el temporizador con fases automáticas y alertas a los 5 minutos.
+            <h3
+              className="font-bold text-white text-xl mb-2 leading-tight"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              Estructura cada sesión en fases
+            </h3>
+            <p className="text-white/45 text-sm leading-relaxed">
+              Usa el botón flotante ⏱ en cualquier página para activar el temporizador con fases automáticas y alertas.
             </p>
           </div>
-          <div className="flex gap-3 flex-shrink-0">
+          <div className="flex gap-3 flex-shrink-0 relative">
             <Link
               href="/dialogo-socratico"
-              className="bg-white/10 hover:bg-white/15 border border-white/15 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors"
+              className="bg-white/8 hover:bg-white/14 border border-white/12 text-white text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
             >
               Diálogo Socrático
             </Link>
             <Link
               href="/fichas"
-              className="bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors shadow-lg shadow-emerald-500/20"
+              className="bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-emerald-500/20"
             >
               Fichas →
             </Link>
