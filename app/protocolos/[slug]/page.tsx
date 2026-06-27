@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { protocolos } from "@/app/data/protocolos";
+import PrintButton from "./PrintButton";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -21,15 +22,15 @@ export default async function ProtocoloPage({ params }: Props) {
   return (
     <div className="max-w-4xl mx-auto px-6 py-10">
       {/* Back button */}
-      <Link
-        href="/protocolos"
-        className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#1e3a5f] mb-6 transition-colors"
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-        Volver a Protocolos
-      </Link>
+      <div className="flex items-center justify-between mb-6 no-print">
+        <Link href="/protocolos" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#1e3a5f] transition-colors">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Volver a Protocolos
+        </Link>
+        <PrintButton />
+      </div>
 
       {/* Header */}
       <div className="bg-gradient-to-br from-[#1e3a5f] to-[#1e4a7f] text-white rounded-2xl p-6 mb-6">

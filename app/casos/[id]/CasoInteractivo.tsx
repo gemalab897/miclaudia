@@ -1,15 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { CasoClinico, Sesion } from "@/app/data/casos";
 
 interface Props {
   caso: CasoClinico;
 }
 
-function SesionCard({ sesion, index }: { sesion: Sesion; index: number }) {
+interface SesionCardProps {
+  sesion: Sesion;
+  index: number;
+  casoId: string;
+  revisadas: Set<number>;
+  toggleRevisada: (numero: number) => void;
+}
+
+function SesionCard({ sesion, index, revisadas, toggleRevisada }: SesionCardProps) {
   const [respuesta, setRespuesta] = useState("");
   const [revelado, setRevelado] = useState(false);
+  const esRevisada = revisadas.has(sesion.numero);
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
@@ -17,8 +26,15 @@ function SesionCard({ sesion, index }: { sesion: Sesion; index: number }) {
         <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
           {sesion.numero}
         </div>
-        <div>
-          <div className="text-white font-semibold text-sm">{sesion.titulo}</div>
+        <div className="flex-1">
+          <div className="text-white font-semibold text-sm flex items-center gap-2">
+            {sesion.titulo}
+            {esRevisada && (
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500 text-white text-xs font-bold flex-shrink-0">
+                ✓
+              </span>
+            )}
+          </div>
           <div className="text-white/60 text-xs">Sesión {sesion.numero} de {index + 1}</div>
         </div>
       </div>
@@ -97,6 +113,25 @@ function SesionCard({ sesion, index }: { sesion: Sesion; index: number }) {
             )}
           </div>
         )}
+
+        {/* Marcar como revisada */}
+        <div className="pt-2 border-t border-slate-100">
+          {esRevisada ? (
+            <button
+              onClick={() => toggleRevisada(sesion.numero)}
+              className="text-sm font-medium text-emerald-600 flex items-center gap-1.5 hover:text-emerald-700 transition-colors"
+            >
+              <span className="text-emerald-500">✓</span> Sesión revisada
+            </button>
+          ) : (
+            <button
+              onClick={() => toggleRevisada(sesion.numero)}
+              className="text-sm font-medium text-slate-500 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-xl transition-colors"
+            >
+              Marcar como revisada
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -104,9 +139,57 @@ function SesionCard({ sesion, index }: { sesion: Sesion; index: number }) {
 
 export default function CasoInteractivo({ caso }: Props) {
   const [mostrarFormulacion, setMostrarFormulacion] = useState(false);
+  const [revisadas, setRevisadas] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    const key = `caso-progreso-${caso.id}`;
+    const stored = localStorage.getItem(key);
+    if (stored) {
+      try {
+        const parsed: number[] = JSON.parse(stored);
+        setRevisadas(new Set(parsed));
+      } catch {
+        // ignore malformed data
+      }
+    }
+  }, [caso.id]);
+
+  const toggleRevisada = (numero: number) => {
+    setRevisadas((prev) => {
+      const next = new Set(prev);
+      if (next.has(numero)) {
+        next.delete(numero);
+      } else {
+        next.add(numero);
+      }
+      const key = `caso-progreso-${caso.id}`;
+      localStorage.setItem(key, JSON.stringify(Array.from(next)));
+      return next;
+    });
+  };
+
+  const totalSesiones = caso.sesiones.length;
+  const sesionesRevisadas = caso.sesiones.filter((s) => revisadas.has(s.numero)).length;
+  const progresoPct = totalSesiones > 0 ? (sesionesRevisadas / totalSesiones) * 100 : 0;
 
   return (
     <div className="space-y-6">
+      {/* Barra de progreso */}
+      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-sm font-semibold text-slate-700">
+            {sesionesRevisadas} de {totalSesiones} sesiones revisadas
+          </span>
+          <span className="text-sm font-bold text-emerald-600">{Math.round(progresoPct)}%</span>
+        </div>
+        <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+          <div
+            className="bg-emerald-500 h-2.5 rounded-full transition-all duration-300"
+            style={{ width: `${progresoPct}%` }}
+          />
+        </div>
+      </div>
+
       {/* Presentación */}
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
         <h2 className="text-lg font-bold text-[#1e3a5f] mb-3">Presentación del caso</h2>
@@ -191,7 +274,14 @@ export default function CasoInteractivo({ caso }: Props) {
         <h2 className="text-lg font-bold text-[#1e3a5f] mb-4">Desarrollo sesión a sesión</h2>
         <div className="space-y-4">
           {caso.sesiones.map((sesion, i) => (
-            <SesionCard key={sesion.numero} sesion={sesion} index={i} />
+            <SesionCard
+              key={sesion.numero}
+              sesion={sesion}
+              index={i}
+              casoId={caso.id}
+              revisadas={revisadas}
+              toggleRevisada={toggleRevisada}
+            />
           ))}
         </div>
       </div>
