@@ -166,72 +166,88 @@ const quickProtocolos = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#f4f6fb]">
 
       {/* ── Hero ── */}
-      <div className="relative overflow-hidden bg-[#0b1d3a] dot-pattern">
+      <div
+        className="relative overflow-hidden dot-pattern"
+        style={{ background: "linear-gradient(160deg, #0f2a50 0%, #0a1e3d 55%, #071529 100%)" }}
+      >
+        {/* Accent top line */}
+        <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg,#10b981 0%,#059669 40%,transparent 100%)" }} />
+
         {/* Glow blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-emerald-500/10 blur-[100px]" />
-          <div className="absolute top-10 -left-24 w-80 h-80 rounded-full bg-blue-500/8 blur-[80px]" />
-          <div className="absolute bottom-0 left-1/2 w-72 h-48 rounded-full bg-indigo-500/6 blur-[60px]" />
+          <div className="absolute -top-24 right-0 w-[600px] h-[400px] rounded-full opacity-60" style={{ background: "radial-gradient(ellipse,rgba(16,185,129,0.12) 0%,transparent 70%)" }} />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[300px] rounded-full opacity-40" style={{ background: "radial-gradient(ellipse,rgba(59,130,246,0.1) 0%,transparent 70%)" }} />
         </div>
 
         <div className="relative max-w-5xl mx-auto px-6 pt-16 pb-12">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 bg-emerald-400/10 border border-emerald-400/20 text-emerald-300 text-[11px] font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wide animate-fade-up">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
-            Plataforma Clínica Profesional · Basada en Evidencia
-          </div>
+          <div className="max-w-2xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2.5 border text-[11px] font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wide animate-fade-up"
+              style={{ background: "rgba(16,185,129,0.1)", borderColor: "rgba(16,185,129,0.25)", color: "#6ee7b7" }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
+              Plataforma Clínica Profesional · Basada en Evidencia
+            </div>
 
-          <h1 className="animate-fade-up-2 mb-5">
-            <span
-              className="block text-[52px] md:text-[68px] font-bold text-white leading-[1.05] tracking-tight"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
-              CBT <span className="text-emerald-400">PRO+</span>
-            </span>
-            <span className="block text-base md:text-lg text-white/38 mt-3 tracking-[0.22em] uppercase font-medium">
-              Sistema Clínico de Terapia Cognitivo-Conductual
-            </span>
-          </h1>
+            <h1 className="animate-fade-up-2 mb-6">
+              <span
+                className="block font-bold text-white leading-[1.0]"
+                style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(48px,8vw,76px)" }}
+              >
+                CBT <span style={{ color: "#34d399" }}>PRO+</span>
+              </span>
+              <span className="block text-sm md:text-base text-white/35 mt-4 tracking-[0.25em] uppercase font-medium">
+                Sistema Clínico · Terapia Cognitivo-Conductual
+              </span>
+            </h1>
 
-          <p className="text-white/55 text-base md:text-[17px] max-w-xl leading-relaxed mb-10 animate-fade-up-3">
-            Todo lo que necesitas para estructurar, intervenir y medir el progreso en TCC — en un solo lugar y listo para usar en sesión.
-          </p>
+            <p className="text-white/50 text-base md:text-[17px] leading-relaxed mb-10 animate-fade-up-3">
+              Todo lo que necesitas para estructurar, intervenir y medir el progreso en TCC — en un solo lugar.
+            </p>
 
-          <div className="flex flex-wrap gap-3 animate-fade-up-3">
-            <Link
-              href="/fichas"
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
-            >
-              Abrir Fichas Clínicas
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link
-              href="/guia-clinica"
-              className="inline-flex items-center gap-2 bg-white/6 hover:bg-white/12 border border-white/12 hover:border-white/20 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-all"
-            >
-              Guía por Diagnóstico
-            </Link>
+            <div className="flex flex-wrap gap-3 animate-fade-up-3">
+              <Link
+                href="/fichas"
+                className="inline-flex items-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all"
+                style={{ background: "linear-gradient(135deg,#10b981,#059669)", boxShadow: "0 8px 24px rgba(16,185,129,0.35)" }}
+              >
+                Abrir Fichas Clínicas
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link
+                href="/guia-clinica"
+                className="inline-flex items-center gap-2 text-white/80 text-sm font-semibold px-6 py-3 rounded-xl transition-all hover:text-white"
+                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)" }}
+              >
+                Guía por Diagnóstico
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Stats bar */}
-        <div className="relative border-t border-white/[0.07]">
-          <div className="max-w-5xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((s) => (
+        <div className="relative" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+          <div className="max-w-5xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((s, i) => (
               <div key={s.label} className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-lg flex-shrink-0">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
+                >
                   {s.icon}
                 </div>
                 <div>
-                  <div className="text-[22px] font-bold text-emerald-400 leading-none" style={{ fontFamily: "var(--font-playfair)" }}>
+                  <div
+                    className="font-bold leading-none"
+                    style={{ fontFamily: "var(--font-playfair)", fontSize: "26px", color: i === 0 ? "#34d399" : "#6ee7b7" }}
+                  >
                     {s.value}
                   </div>
-                  <div className="text-[11px] text-white/35 mt-0.5 tracking-wide">{s.label}</div>
+                  <div className="text-[11px] text-white/30 mt-1 font-medium">{s.label}</div>
                 </div>
               </div>
             ))}
@@ -241,17 +257,14 @@ export default function Home() {
 
       {/* ── Modules grid ── */}
       <div className="max-w-5xl mx-auto px-6 py-10">
-        <div className="flex items-end justify-between mb-6">
-          <div>
-            <h2
-              className="text-2xl font-bold text-[#0b1d3a] leading-tight"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
-              Módulos clínicos
-            </h2>
-            <p className="text-sm text-slate-400 mt-1">Acceso directo a todas las herramientas</p>
-          </div>
-          <div className="gradient-divider hidden md:block w-48 mb-2" />
+        <div className="mb-7">
+          <h2
+            className="text-[28px] font-bold text-[#0b1d3a] leading-tight"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            Módulos clínicos
+          </h2>
+          <p className="text-sm text-slate-400 mt-1">14 herramientas especializadas en un solo lugar</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -259,21 +272,34 @@ export default function Home() {
             <Link
               key={m.href}
               href={m.href}
-              className={`group card-hover bg-gradient-to-br ${m.bg} border ${m.border} rounded-2xl p-5 flex flex-col bg-white`}
+              className="group card-hover bg-white rounded-2xl p-5 flex flex-col"
+              style={{
+                boxShadow: "0 1px 3px rgba(11,29,58,0.06), 0 4px 12px rgba(11,29,58,0.07)",
+                borderTop: `1px solid #e8eef6`,
+                borderRight: `1px solid #e8eef6`,
+                borderBottom: `1px solid #e8eef6`,
+                borderLeft: `3px solid ${m.accent}`,
+              }}
             >
               <div className="flex items-start justify-between mb-3">
-                <span className="text-2xl">{m.emoji}</span>
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/80 text-slate-500 border border-slate-200/60">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-[20px] flex-shrink-0"
+                  style={{ background: `${m.accent}15` }}
+                >
+                  {m.emoji}
+                </div>
+                <span
+                  className="text-[10px] font-bold px-2.5 py-1 rounded-full mt-0.5"
+                  style={{ background: `${m.accent}15`, color: m.accent }}
+                >
                   {m.tag}
                 </span>
               </div>
-              <h3
-                className="font-semibold text-[#0b1d3a] text-sm mb-1.5 group-hover:text-emerald-600 transition-colors leading-snug"
-              >
+              <h3 className="font-bold text-[#0b1d3a] text-sm mb-1.5 group-hover:text-emerald-600 transition-colors leading-snug">
                 {m.title}
               </h3>
               <p className="text-xs text-slate-500 leading-relaxed flex-1">{m.description}</p>
-              <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-slate-400 group-hover:text-emerald-500 transition-colors">
+              <div className="mt-3 flex items-center gap-1 text-xs font-bold transition-colors" style={{ color: m.accent }}>
                 Abrir
                 <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -285,19 +311,15 @@ export default function Home() {
 
         {/* ── Quick access ── */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Casos */}
-          <div className="bg-white rounded-2xl border border-[#e4eaf4] shadow-sm p-5">
+          <div className="bg-white rounded-2xl p-6" style={{ boxShadow: "0 1px 3px rgba(11,29,58,0.06), 0 4px 12px rgba(11,29,58,0.07)", border: "1px solid #e8eef6", borderTop: "3px solid #ef4444" }}>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3
-                  className="font-bold text-[#0b1d3a] text-base"
-                  style={{ fontFamily: "var(--font-playfair)" }}
-                >
+                <h3 className="font-bold text-[#0b1d3a] text-base" style={{ fontFamily: "var(--font-playfair)" }}>
                   Casos Clínicos
                 </h3>
                 <p className="text-xs text-slate-400 mt-0.5">Reflexión interactiva sesión a sesión</p>
               </div>
-              <Link href="/casos" className="text-xs text-emerald-500 font-semibold hover:text-emerald-600 transition-colors">
+              <Link href="/casos" className="text-xs font-bold text-emerald-600 hover:text-emerald-700 transition-colors">
                 Ver todos →
               </Link>
             </div>
@@ -306,28 +328,24 @@ export default function Home() {
                 <Link
                   key={c.id}
                   href={`/casos/${c.id}`}
-                  className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                 >
                   <span className="text-sm text-slate-600 group-hover:text-[#0b1d3a] font-medium">{c.name}</span>
-                  <span className="text-[11px] bg-red-50 text-red-500 px-2.5 py-0.5 rounded-full font-semibold">{c.tag}</span>
+                  <span className="text-[11px] bg-red-50 text-red-500 px-2.5 py-1 rounded-full font-bold">{c.tag}</span>
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Protocolos */}
-          <div className="bg-white rounded-2xl border border-[#e4eaf4] shadow-sm p-5">
+          <div className="bg-white rounded-2xl p-6" style={{ boxShadow: "0 1px 3px rgba(11,29,58,0.06), 0 4px 12px rgba(11,29,58,0.07)", border: "1px solid #e8eef6", borderTop: "3px solid #10b981" }}>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3
-                  className="font-bold text-[#0b1d3a] text-base"
-                  style={{ fontFamily: "var(--font-playfair)" }}
-                >
+                <h3 className="font-bold text-[#0b1d3a] text-base" style={{ fontFamily: "var(--font-playfair)" }}>
                   Protocolos Destacados
                 </h3>
                 <p className="text-xs text-slate-400 mt-0.5">Con evidencia científica Grado A</p>
               </div>
-              <Link href="/protocolos" className="text-xs text-emerald-500 font-semibold hover:text-emerald-600 transition-colors">
+              <Link href="/protocolos" className="text-xs font-bold text-emerald-600 hover:text-emerald-700 transition-colors">
                 Ver todos →
               </Link>
             </div>
@@ -336,10 +354,10 @@ export default function Home() {
                 <Link
                   key={p.slug}
                   href={`/protocolos/${p.slug}`}
-                  className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                 >
                   <span className="text-sm text-slate-600 group-hover:text-[#0b1d3a] font-medium">{p.name}</span>
-                  <span className="text-[11px] bg-emerald-50 text-emerald-600 px-2.5 py-0.5 rounded-full font-semibold">{p.tag}</span>
+                  <span className="text-[11px] bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-bold">{p.tag}</span>
                 </Link>
               ))}
             </div>
@@ -347,32 +365,34 @@ export default function Home() {
         </div>
 
         {/* ── Banner ── */}
-        <div className="mt-6 bg-[#0b1d3a] dot-pattern rounded-2xl p-7 flex flex-col md:flex-row md:items-center gap-5 relative overflow-hidden">
-          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
+        <div
+          className="mt-6 rounded-2xl p-7 flex flex-col md:flex-row md:items-center gap-6 relative overflow-hidden dot-pattern"
+          style={{ background: "linear-gradient(135deg, #0f2a50 0%, #071529 100%)" }}
+        >
+          <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-50 pointer-events-none" style={{ background: "radial-gradient(circle,rgba(16,185,129,0.2) 0%,transparent 70%)" }} />
           <div className="flex-1 relative">
-            <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-[0.2em] mb-2">
+            <div className="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.25em] mb-2">
               Temporizador de Sesión
             </div>
-            <h3
-              className="font-bold text-white text-xl mb-2 leading-tight"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
+            <h3 className="font-bold text-white text-[22px] mb-2 leading-tight" style={{ fontFamily: "var(--font-playfair)" }}>
               Estructura cada sesión en fases
             </h3>
-            <p className="text-white/45 text-sm leading-relaxed">
+            <p className="text-white/40 text-sm leading-relaxed">
               Usa el botón flotante ⏱ en cualquier página para activar el temporizador con fases automáticas y alertas.
             </p>
           </div>
           <div className="flex gap-3 flex-shrink-0 relative">
             <Link
               href="/dialogo-socratico"
-              className="bg-white/8 hover:bg-white/14 border border-white/12 text-white text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
+              className="text-white/70 text-sm font-semibold px-4 py-2.5 rounded-xl transition-all hover:text-white"
+              style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
             >
               Diálogo Socrático
             </Link>
             <Link
               href="/fichas"
-              className="bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-emerald-500/20"
+              className="text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all"
+              style={{ background: "linear-gradient(135deg,#10b981,#059669)", boxShadow: "0 4px 16px rgba(16,185,129,0.3)" }}
             >
               Fichas →
             </Link>

@@ -9,22 +9,20 @@ export default function PageHeader({
   title,
   description,
   badge,
-  badgeColor = "bg-[#10b981]",
+  badgeColor = "bg-emerald-600",
 }: PageHeaderProps) {
   return (
-    <div className="mb-10">
+    <div className="mb-10 pb-8 border-b border-slate-100">
       {badge && (
-        <div className="flex items-center gap-2 mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-          <span
-            className={`text-[11px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full text-white ${badgeColor}`}
-          >
-            {badge}
-          </span>
-        </div>
+        <span
+          className={`inline-flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase text-white px-3.5 py-1.5 rounded-full mb-5 ${badgeColor}`}
+        >
+          <span className="w-1 h-1 rounded-full bg-white/60" />
+          {badge}
+        </span>
       )}
       <h1
-        className="text-3xl md:text-4xl font-bold text-[#0b1d3a] mb-3 leading-tight"
+        className="text-[32px] md:text-[42px] font-bold leading-tight text-[#0b1d3a] mb-3"
         style={{ fontFamily: "var(--font-playfair)" }}
       >
         {title}
@@ -34,7 +32,6 @@ export default function PageHeader({
           {description}
         </p>
       )}
-      <div className="gradient-divider mt-6" />
     </div>
   );
 }
