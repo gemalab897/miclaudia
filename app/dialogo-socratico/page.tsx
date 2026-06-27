@@ -126,11 +126,17 @@ const secciones = [
       "No estás solo/a en esto. Trabajaremos juntos.",
     ],
   },
+];
+
+const ejerciciosSomaticos = [
   {
-    titulo: "Ejercicios de Terapia Somática — Enraizamiento",
-    color: "border-teal-200 bg-teal-50",
-    headerColor: "bg-teal-700",
-    descripcion: "Instrucciones verbales para guiar ejercicios de grounding y conexión con el cuerpo en sesión",
+    titulo: "Enraizamiento",
+    subtitulo: "Grounding somático",
+    icono: "🌿",
+    acento: "border-teal-400",
+    badge: "bg-teal-600",
+    fondo: "bg-teal-50",
+    numeroBadge: "bg-teal-600",
     items: [
       "Lleva tu atención a la suela de los pies. Nota el contacto con el suelo. Presiona un poco hacia abajo. ¿Qué sientes ahí?",
       "Siente el peso de tu cuerpo en la silla. La silla sostiene todo tu peso. No tienes que sostenerte tú solo/a en este momento.",
@@ -140,15 +146,18 @@ const secciones = [
       "Respira despacio. No tienes que hacerlo perfecto. Solo nota el aire entrando y saliendo. Cada respiración te ancla un poco más aquí.",
       "Nombra tres cosas que puedes ver, dos que puedes oír y una que puedes sentir en tu cuerpo ahora mismo.",
       "Lleva los pies al suelo, la espalda al respaldo. Siéntete sostenido/a. Estás aquí. Estás seguro/a.",
-      "Oriéntate en el espacio: ¿dónde estás? ¿Qué día es? ¿Qué hora aproximadamente? Dejar que tu sistema nervioso sepa que el peligro ha pasado.",
+      "Oriéntate en el espacio: ¿dónde estás? ¿Qué día es? ¿Qué hora aproximadamente? Deja que tu sistema nervioso sepa que el peligro ha pasado.",
       "¿Puedes notar alguna parte de tu cuerpo que esté un poco más tranquila que el resto? Quédate con esa sensación un momento.",
     ],
   },
   {
-    titulo: "Ejercicios de Terapia Somática — Escaneo Corporal",
-    color: "border-cyan-200 bg-cyan-50",
-    headerColor: "bg-cyan-700",
-    descripcion: "Guía verbal para el escaneo corporal progresivo: observar sensaciones sin juzgar ni cambiar",
+    titulo: "Escaneo Corporal",
+    subtitulo: "Observar sin juzgar ni cambiar",
+    icono: "🫁",
+    acento: "border-cyan-400",
+    badge: "bg-cyan-600",
+    fondo: "bg-cyan-50",
+    numeroBadge: "bg-cyan-600",
     items: [
       "Cierra los ojos si te resulta cómodo, o baja la mirada. Empieza por notar tu respiración tal como es ahora, sin cambiarla.",
       "Lleva la atención a los pies. ¿Hay tensión, hormigueo, calor, frío? No tienes que cambiar nada, solo observar.",
@@ -158,35 +167,41 @@ const secciones = [
       "Lleva la atención a los hombros. ¿Están elevados, tensos, apretados? Simplemente obsérvalo.",
       "Ahora el cuello y la mandíbula. ¿Hay tensión ahí? ¿Los dientes apretados? Solo nota.",
       "Escanea la cara: frente, cejas, ojos, mejillas. ¿Hay tensión o suavidad?",
-      "Ahora haz un recorrido de cabeza a pies: ¿qué zona tiene más tensión? ¿Qué zona está más tranquila?",
+      "Haz un recorrido de cabeza a pies: ¿qué zona tiene más tensión? ¿Qué zona está más tranquila?",
       "Si has encontrado alguna zona de tensión, respira suavemente hacia ella. No para cambiarla, sino para acompañarla.",
     ],
   },
   {
-    titulo: "Ejercicios de Terapia Somática — Regulación del Sistema Nervioso",
-    color: "border-indigo-200 bg-indigo-50",
-    headerColor: "bg-indigo-700",
-    descripcion: "Técnicas verbales de respiración y regulación para activar el sistema parasimpático",
+    titulo: "Regulación del Sistema Nervioso",
+    subtitulo: "Activar el freno parasimpático",
+    icono: "💨",
+    acento: "border-indigo-400",
+    badge: "bg-indigo-600",
+    fondo: "bg-indigo-50",
+    numeroBadge: "bg-indigo-600",
     items: [
-      "Vamos a respirar juntos. Inhala contando mentalmente hasta 4... mantén un momento... exhala lentamente hasta 6. La exhalación más larga activa el freno del sistema nervioso.",
-      "Prueba la respiración fisiológica: una inhalación normal, y al final añade un sorbo más de aire antes de exhalar largo. Es un reset del sistema nervioso.",
+      "Vamos a respirar juntos. Inhala contando hasta 4... mantén un momento... exhala lentamente hasta 6. La exhalación más larga activa el freno del sistema nervioso.",
+      "Respiración fisiológica: una inhalación normal y, al final, añade un sorbo más de aire antes de exhalar largo. Es un reset del sistema nervioso.",
       "Inhala por la nariz 4 tiempos, exhala por la boca 8 tiempos con los labios fruncidos como si soplaras una vela. Hazlo tres veces.",
-      "Nota si tu sistema nervioso ahora mismo está acelerado (hiperactivación) o apagado (hipoactivación). ¿Hay más tensión o más entumecimiento?",
+      "¿Tu sistema nervioso está acelerado (hiperactivación) o apagado (hipoactivación)? ¿Hay más tensión o más entumecimiento?",
       "Si hay hiperactivación: pies en el suelo, respiración lenta, orientación al entorno. Activamos el freno.",
       "Si hay hipoactivación: pequeños movimientos, frotarse las manos, respiración más energizante. Despertamos el sistema.",
       "Pon una mano en el pecho y otra en el abdomen. ¿Cuál se mueve más? Intentemos que sea la del abdomen — señal de respiración diafragmática.",
       "Suspiro fisiológico: dos inhalaciones rápidas por la nariz seguidas de una exhalación larga por la boca. Hazlo una vez. ¿Cómo quedas?",
       "La voz regula el sistema nervioso. Prueba a humear suavemente (hmmm) con los labios cerrados. ¿Sientes la vibración en el pecho?",
-      "¿Cuánto ha cambiado tu nivel de activación del 0 al 10 desde que empezamos el ejercicio? Nota el cambio, aunque sea pequeño.",
+      "¿Cuánto ha cambiado tu nivel de activación del 0 al 10 desde que empezamos? Nota el cambio, aunque sea pequeño.",
     ],
   },
   {
-    titulo: "Ejercicios de Terapia Somática — Trabajo con Trauma",
-    color: "border-violet-200 bg-violet-50",
-    headerColor: "bg-violet-700",
-    descripcion: "Titulación, pendulación y recursos somáticos para aproximarse al material traumático con seguridad",
+    titulo: "Trabajo con Trauma",
+    subtitulo: "Titulación, pendulación y recursos somáticos",
+    icono: "🕊️",
+    acento: "border-violet-400",
+    badge: "bg-violet-600",
+    fondo: "bg-violet-50",
+    numeroBadge: "bg-violet-600",
     items: [
-      "Antes de acercarnos al material difícil, necesitamos un recurso somático. Piensa en un lugar o momento donde te sentiste seguro/a. ¿Qué sensaciones corporales aparecen cuando lo imaginas?",
+      "Antes de acercarnos al material difícil, necesitamos un recurso somático. Piensa en un lugar donde te sentiste seguro/a. ¿Qué sensaciones corporales aparecen?",
       "Ese recurso es tu ancla. Podemos volver ahí en cualquier momento. Solo tienes que decirme 'pausa' y volvemos al recurso.",
       "Vamos a acercarnos al material en dosis pequeñas. No de golpe. Como meter el pie en agua fría antes de entrar.",
       "¿Cuándo empiezas a sentir tensión o incomodidad al pensar en eso? Para ahí. Ese es el límite por ahora.",
@@ -200,7 +215,6 @@ const secciones = [
   },
 ];
 
-
 export default function DialogoSocratico() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-10">
@@ -210,6 +224,7 @@ export default function DialogoSocratico() {
         badge="💬 Técnicas verbales y somáticas"
       />
 
+      {/* Secciones cognitivas */}
       <div className="space-y-8 mt-8">
         {secciones.map((seccion) => (
           <div key={seccion.titulo} className={`rounded-2xl border ${seccion.color} overflow-hidden`}>
@@ -231,6 +246,77 @@ export default function DialogoSocratico() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* ── Bloque Terapia Somática ── */}
+      <div className="mt-14">
+        {/* Banner separador */}
+        <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-emerald-800 rounded-2xl px-8 py-7 mb-8 relative overflow-hidden">
+          {/* Decoración de fondo */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full bg-white" />
+            <div className="absolute -bottom-8 -left-4 w-32 h-32 rounded-full bg-teal-300" />
+          </div>
+          <div className="relative">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-3xl">🧘</span>
+              <span className="text-xs font-bold text-teal-300 uppercase tracking-widest">Técnicas corporales</span>
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-2">Ejercicios de Terapia Somática</h2>
+            <p className="text-teal-200 text-sm leading-relaxed max-w-xl">
+              Instrucciones verbales para guiar al paciente en técnicas de regulación corporal. Cada frase está diseñada para usarse en voz alta durante la sesión. Pasa el cursor para copiarla.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-4">
+              {ejerciciosSomaticos.map((e) => (
+                <span key={e.titulo} className="text-xs bg-white/15 text-white px-3 py-1 rounded-full">
+                  {e.icono} {e.titulo}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Grid de subsecciones somáticas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {ejerciciosSomaticos.map((ejercicio) => (
+            <div
+              key={ejercicio.titulo}
+              className={`rounded-2xl border-2 ${ejercicio.acento} bg-white shadow-sm overflow-hidden flex flex-col`}
+            >
+              {/* Cabecera de subsección */}
+              <div className={`${ejercicio.fondo} px-5 py-4 border-b-2 ${ejercicio.acento}`}>
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{ejercicio.icono}</span>
+                  <div>
+                    <h3 className="font-bold text-slate-800 text-base">{ejercicio.titulo}</h3>
+                    <p className="text-xs text-slate-500 mt-0.5">{ejercicio.subtitulo}</p>
+                  </div>
+                  <span className={`ml-auto text-xs font-bold text-white ${ejercicio.badge} px-2.5 py-1 rounded-full flex-shrink-0`}>
+                    {ejercicio.items.length} guías
+                  </span>
+                </div>
+              </div>
+
+              {/* Items: diseño paso a paso */}
+              <div className="p-4 space-y-2 flex-1">
+                {ejercicio.items.map((item, i) => (
+                  <div
+                    key={i}
+                    className="group flex items-start gap-3 bg-slate-50 hover:bg-white rounded-xl px-3 py-3 transition-colors border border-transparent hover:border-slate-200 hover:shadow-sm"
+                  >
+                    <span className={`w-6 h-6 rounded-full ${ejercicio.numeroBadge} text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                      {i + 1}
+                    </span>
+                    <span className="text-sm text-slate-700 leading-relaxed flex-1 italic">
+                      &ldquo;{item}&rdquo;
+                    </span>
+                    <CopyButton text={item} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
