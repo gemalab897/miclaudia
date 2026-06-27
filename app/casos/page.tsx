@@ -38,8 +38,9 @@ export default function CasosPage() {
             href={`/casos/${caso.id}`}
             className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-[#10b981]/30 transition-all p-5 flex gap-5 items-start"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2a4a6f] flex items-center justify-center text-white text-lg font-bold flex-shrink-0">
-              {caso.edad}
+            <div className="w-12 h-14 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2a4a6f] flex flex-col items-center justify-center text-white flex-shrink-0">
+              <span className="text-lg font-bold leading-none">{caso.edad}</span>
+              <span className="text-[9px] font-medium opacity-75 leading-tight">años</span>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-3 flex-wrap">
