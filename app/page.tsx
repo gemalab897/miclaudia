@@ -184,10 +184,10 @@ export default function Home() {
             Herramienta Clínica Profesional · Basada en Evidencia
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-3 animate-fade-up-2">
-            CBT PRO+
-            <span className="block text-2xl md:text-3xl font-normal text-white/50 mt-1">
-              Sistema Clínico de TCC
+          <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-3 animate-fade-up-2" style={{ fontFamily: "var(--font-playfair)" }}>
+            Claudia
+            <span className="block text-xl md:text-2xl font-normal text-white/45 mt-2 tracking-widest uppercase" style={{ fontFamily: "var(--font-inter)" }}>
+              Plataforma Clínica · TCC
             </span>
           </h1>
 

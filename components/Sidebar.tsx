@@ -112,6 +112,19 @@ const groups = [
   },
 ];
 
+function LogoMark() {
+  return (
+    <div className="w-8 h-8 rounded-lg border border-emerald-400/30 bg-gradient-to-br from-emerald-400/15 to-emerald-600/10 flex items-center justify-center flex-shrink-0">
+      <span
+        className="text-emerald-300 text-[17px] font-bold leading-none select-none"
+        style={{ fontFamily: "var(--font-playfair)" }}
+      >
+        C
+      </span>
+    </div>
+  );
+}
+
 export default function Sidebar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -122,18 +135,19 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 h-14 bg-[#0f2744] flex items-center justify-between px-4 shadow-lg">
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 h-14 bg-[#0c1e3d] border-b border-white/[0.06] flex items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-lg bg-emerald-500 flex items-center justify-center">
-            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-            </svg>
-          </div>
-          <span className="font-bold text-white text-base tracking-tight">CBT PRO+</span>
+          <LogoMark />
+          <span
+            className="font-bold text-white text-[16px] leading-none tracking-tight"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            Claudia
+          </span>
         </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/10 text-white transition-colors"
+          className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/8 text-white/70 hover:text-white transition-colors"
         >
           {mobileOpen
             ? <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
@@ -144,37 +158,40 @@ export default function Sidebar() {
 
       {/* Overlay */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 bg-black/60 z-40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
+        <div className="lg:hidden fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
       )}
 
       {/* Sidebar */}
       <aside className={`
         fixed top-0 left-0 h-full w-60 z-40 flex flex-col
-        bg-[#0f2744]
+        bg-[#0c1e3d] border-r border-white/[0.06]
         transition-transform duration-300 ease-in-out
         ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0 lg:static lg:flex
       `}>
         {/* Logo */}
-        <div className="h-16 flex items-center px-5 border-b border-white/8">
+        <div className="h-16 flex items-center px-5 border-b border-white/[0.06]">
           <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/30 group-hover:shadow-emerald-500/50 transition-shadow">
-              <svg className="w-4.5 h-4.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-              </svg>
-            </div>
+            <LogoMark />
             <div>
-              <div className="font-bold text-white text-[15px] leading-none tracking-tight">CBT PRO+</div>
-              <div className="text-[10px] text-white/40 mt-0.5 font-medium tracking-wide uppercase">Sistema Clínico TCC</div>
+              <div
+                className="font-bold text-white text-[16px] leading-none tracking-tight group-hover:text-emerald-200 transition-colors"
+                style={{ fontFamily: "var(--font-playfair)" }}
+              >
+                Claudia
+              </div>
+              <div className="text-[10px] text-white/30 mt-1 tracking-[0.14em] uppercase font-medium">
+                Sistema Clínico · TCC
+              </div>
             </div>
           </Link>
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-5">
+        <nav className="flex-1 overflow-y-auto py-5 px-3 space-y-5">
           {groups.map((group) => (
             <div key={group.label}>
-              <div className="px-3 mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-white/25">
+              <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/25 select-none">
                 {group.label}
               </div>
               <div className="space-y-0.5">
@@ -186,14 +203,17 @@ export default function Sidebar() {
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
                       className={`
-                        flex items-center gap-3 px-3 py-2 rounded-xl text-[13px] font-medium transition-all duration-150
+                        relative flex items-center gap-3 px-3 py-[7px] rounded-lg text-[13px] transition-all duration-150
                         ${active
-                          ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/20"
-                          : "text-white/55 hover:text-white/90 hover:bg-white/7"
+                          ? "bg-white/[0.08] text-white font-semibold"
+                          : "text-white/48 font-medium hover:text-white/85 hover:bg-white/[0.05]"
                         }
                       `}
                     >
-                      <span className={`flex-shrink-0 ${active ? "text-white" : "text-white/40"}`}>
+                      {active && (
+                        <span className="absolute left-0 inset-y-1.5 w-[2px] rounded-full bg-emerald-400" />
+                      )}
+                      <span className={`flex-shrink-0 transition-colors ${active ? "text-emerald-300" : "text-white/35"}`}>
                         {item.icon}
                       </span>
                       {item.label}
@@ -206,13 +226,13 @@ export default function Sidebar() {
         </nav>
 
         {/* Footer */}
-        <div className="px-5 py-4 border-t border-white/8">
+        <div className="px-5 py-4 border-t border-white/[0.06]">
           <div className="flex items-center gap-2 mb-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
-            <span className="text-[11px] text-white/40 font-medium">Evidencia científica Grado A</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot flex-shrink-0" />
+            <span className="text-[11px] text-white/35 font-medium">Evidencia Grado A</span>
           </div>
-          <p className="text-[10px] text-white/25">
-            TCC · Beck Institute · APA · NICE
+          <p className="text-[10px] text-white/20 tracking-wide">
+            Beck Institute · APA · NICE · TCC
           </p>
         </div>
       </aside>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import SessionTimer from "@/components/SessionTimer";
@@ -10,14 +10,20 @@ const inter = Inter({
   display: "swap",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "CBT PRO+ | Sistema Clínico de TCC",
+  title: "Claudia | Plataforma Clínica TCC",
   description: "Plataforma clínica profesional de Terapia Cognitivo-Conductual. Protocolos, fichas interactivas, casos clínicos y guía de decisión diagnóstica basados en evidencia.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`h-full ${inter.variable}`}>
+    <html lang="es" className={`h-full ${inter.variable} ${playfair.variable}`}>
       <body className="h-full bg-slate-50 font-sans antialiased">
         <div className="flex h-full">
           <div className="sidebar-wrapper no-print">

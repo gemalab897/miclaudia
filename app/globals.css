@@ -2,14 +2,15 @@
 
 :root {
   --font-inter: "Inter", sans-serif;
-  --primary: #0f2744;
-  --primary-light: #1e3a5f;
+  --font-playfair: "Playfair Display", Georgia, serif;
+  --primary: #0c1e3d;
+  --primary-light: #1a3560;
   --accent: #10b981;
   --accent-light: #34d399;
-  --background: #f6f8fb;
+  --background: #f5f6fa;
   --surface: #ffffff;
-  --border: #e8edf4;
-  --text-primary: #0f2744;
+  --border: #e6ecf5;
+  --text-primary: #0c1e3d;
   --text-secondary: #64748b;
   --text-muted: #94a3b8;
 }
