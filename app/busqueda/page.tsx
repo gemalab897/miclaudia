@@ -378,7 +378,7 @@ export default function BusquedaPage() {
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <PageHeader
           title="Búsqueda Global"
-          description="Busca en fichas, casos clínicos y protocolos de CBT PRO+"
+          description="Busca en fichas, casos clínicos y protocolos de CBT Atlas"
           badge="Búsqueda"
           badgeColor="bg-[#10b981]"
         />

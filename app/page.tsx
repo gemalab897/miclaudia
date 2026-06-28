@@ -198,7 +198,7 @@ export default function Home() {
                 className="block font-bold text-white leading-[1.0]"
                 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(48px,8vw,76px)" }}
               >
-                CBT <span style={{ color: "#a78bfa" }}>PRO+</span>
+                CBT <span style={{ color: "#a78bfa" }}>Atlas</span>
               </span>
               <span className="block text-sm md:text-base mt-4 tracking-[0.25em] uppercase font-medium" style={{ color: "rgba(196,181,253,0.45)" }}>
                 Sistema Clínico · Terapia Cognitivo-Conductual

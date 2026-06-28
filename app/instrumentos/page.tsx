@@ -496,7 +496,7 @@ export default function InstrumentosPage() {
       <PageHeader
         title="Calculadora de Instrumentos"
         description="Puntúa y registra la evolución del paciente sesión a sesión"
-        badge="CBT PRO+"
+        badge="CBT Atlas"
         badgeColor="bg-[#0f2744]"
       />
 

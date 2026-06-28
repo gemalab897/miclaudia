@@ -71,7 +71,7 @@ export default function Sidebar() {
             </svg>
           </div>
           <span className="font-bold text-white text-[15px] tracking-tight">
-            CBT <span style={{ color: ACCENT_LIGHT }}>PRO+</span>
+            CBT <span style={{ color: ACCENT_LIGHT }}>Atlas</span>
           </span>
         </Link>
         <button
@@ -112,7 +112,7 @@ export default function Sidebar() {
             </div>
             <div>
               <div className="font-bold text-white text-[15px] leading-none">
-                CBT <span style={{ color: ACCENT_LIGHT }}>PRO+</span>
+                CBT <span style={{ color: ACCENT_LIGHT }}>Atlas</span>
               </div>
               <div className="text-[9.5px] mt-[5px] tracking-[0.18em] uppercase font-medium" style={{ color: "rgba(167,139,250,0.4)" }}>
                 Sistema Clínico · TCC
