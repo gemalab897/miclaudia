@@ -166,28 +166,30 @@ const quickProtocolos = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f4f6fb]">
+    <div className="min-h-screen" style={{ background: "#f7f8fc" }}>
 
       {/* ── Hero ── */}
       <div
         className="relative overflow-hidden dot-pattern"
-        style={{ background: "linear-gradient(160deg, #0f2a50 0%, #0a1e3d 55%, #071529 100%)" }}
+        style={{ background: "linear-gradient(150deg, #16144a 0%, #0d0c2b 55%, #08071e 100%)" }}
       >
-        {/* Accent top line */}
-        <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg,#10b981 0%,#059669 40%,transparent 100%)" }} />
+        {/* Violet top accent */}
+        <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg,#7c3aed 0%,#a78bfa 50%,transparent 100%)" }} />
 
         {/* Glow blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 right-0 w-[600px] h-[400px] rounded-full opacity-60" style={{ background: "radial-gradient(ellipse,rgba(16,185,129,0.12) 0%,transparent 70%)" }} />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[300px] rounded-full opacity-40" style={{ background: "radial-gradient(ellipse,rgba(59,130,246,0.1) 0%,transparent 70%)" }} />
+          <div className="absolute -top-24 right-0 w-[600px] h-[400px]" style={{ background: "radial-gradient(ellipse,rgba(124,58,237,0.18) 0%,transparent 70%)" }} />
+          <div className="absolute bottom-0 -left-12 w-[400px] h-[300px]" style={{ background: "radial-gradient(ellipse,rgba(167,139,250,0.07) 0%,transparent 70%)" }} />
         </div>
 
         <div className="relative max-w-5xl mx-auto px-6 pt-16 pb-12">
           <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2.5 border text-[11px] font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wide animate-fade-up"
-              style={{ background: "rgba(16,185,129,0.1)", borderColor: "rgba(16,185,129,0.25)", color: "#6ee7b7" }}>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
+            <div
+              className="inline-flex items-center gap-2.5 text-[11px] font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wide animate-fade-up"
+              style={{ background: "rgba(124,58,237,0.15)", border: "1px solid rgba(167,139,250,0.3)", color: "#c4b5fd" }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full pulse-dot" style={{ background: "#a78bfa" }} />
               Plataforma Clínica Profesional · Basada en Evidencia
             </div>
 
@@ -196,22 +198,22 @@ export default function Home() {
                 className="block font-bold text-white leading-[1.0]"
                 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(48px,8vw,76px)" }}
               >
-                CBT <span style={{ color: "#34d399" }}>PRO+</span>
+                CBT <span style={{ color: "#a78bfa" }}>PRO+</span>
               </span>
-              <span className="block text-sm md:text-base text-white/35 mt-4 tracking-[0.25em] uppercase font-medium">
+              <span className="block text-sm md:text-base mt-4 tracking-[0.25em] uppercase font-medium" style={{ color: "rgba(196,181,253,0.45)" }}>
                 Sistema Clínico · Terapia Cognitivo-Conductual
               </span>
             </h1>
 
-            <p className="text-white/50 text-base md:text-[17px] leading-relaxed mb-10 animate-fade-up-3">
+            <p className="text-base md:text-[17px] leading-relaxed mb-10 animate-fade-up-3" style={{ color: "rgba(255,255,255,0.5)" }}>
               Todo lo que necesitas para estructurar, intervenir y medir el progreso en TCC — en un solo lugar.
             </p>
 
             <div className="flex flex-wrap gap-3 animate-fade-up-3">
               <Link
                 href="/fichas"
-                className="inline-flex items-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all"
-                style={{ background: "linear-gradient(135deg,#10b981,#059669)", boxShadow: "0 8px 24px rgba(16,185,129,0.35)" }}
+                className="inline-flex items-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all hover:opacity-90"
+                style={{ background: "linear-gradient(135deg,#7c3aed,#5b21b6)", boxShadow: "0 8px 24px rgba(124,58,237,0.4)" }}
               >
                 Abrir Fichas Clínicas
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -220,8 +222,8 @@ export default function Home() {
               </Link>
               <Link
                 href="/guia-clinica"
-                className="inline-flex items-center gap-2 text-white/80 text-sm font-semibold px-6 py-3 rounded-xl transition-all hover:text-white"
-                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)" }}
+                className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-xl transition-all hover:opacity-90"
+                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(167,139,250,0.15)", color: "rgba(255,255,255,0.75)" }}
               >
                 Guía por Diagnóstico
               </Link>
@@ -230,24 +232,21 @@ export default function Home() {
         </div>
 
         {/* Stats bar */}
-        <div className="relative" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="relative" style={{ borderTop: "1px solid rgba(167,139,250,0.08)" }}>
           <div className="max-w-5xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((s, i) => (
+            {stats.map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
+                  style={{ background: "rgba(124,58,237,0.12)", border: "1px solid rgba(167,139,250,0.15)" }}
                 >
                   {s.icon}
                 </div>
                 <div>
-                  <div
-                    className="font-bold leading-none"
-                    style={{ fontFamily: "var(--font-playfair)", fontSize: "26px", color: i === 0 ? "#34d399" : "#6ee7b7" }}
-                  >
+                  <div className="font-bold leading-none" style={{ fontFamily: "var(--font-playfair)", fontSize: "26px", color: "#a78bfa" }}>
                     {s.value}
                   </div>
-                  <div className="text-[11px] text-white/30 mt-1 font-medium">{s.label}</div>
+                  <div className="text-[11px] mt-1 font-medium" style={{ color: "rgba(196,181,253,0.4)" }}>{s.label}</div>
                 </div>
               </div>
             ))}
@@ -367,32 +366,32 @@ export default function Home() {
         {/* ── Banner ── */}
         <div
           className="mt-6 rounded-2xl p-7 flex flex-col md:flex-row md:items-center gap-6 relative overflow-hidden dot-pattern"
-          style={{ background: "linear-gradient(135deg, #0f2a50 0%, #071529 100%)" }}
+          style={{ background: "linear-gradient(135deg, #16144a 0%, #0d0c2b 100%)" }}
         >
-          <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-50 pointer-events-none" style={{ background: "radial-gradient(circle,rgba(16,185,129,0.2) 0%,transparent 70%)" }} />
+          <div className="absolute -top-8 -right-8 w-48 h-48 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle,rgba(124,58,237,0.25) 0%,transparent 70%)" }} />
           <div className="flex-1 relative">
-            <div className="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.25em] mb-2">
+            <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-2" style={{ color: "#a78bfa" }}>
               Temporizador de Sesión
             </div>
             <h3 className="font-bold text-white text-[22px] mb-2 leading-tight" style={{ fontFamily: "var(--font-playfair)" }}>
               Estructura cada sesión en fases
             </h3>
-            <p className="text-white/40 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed" style={{ color: "rgba(196,181,253,0.4)" }}>
               Usa el botón flotante ⏱ en cualquier página para activar el temporizador con fases automáticas y alertas.
             </p>
           </div>
           <div className="flex gap-3 flex-shrink-0 relative">
             <Link
               href="/dialogo-socratico"
-              className="text-white/70 text-sm font-semibold px-4 py-2.5 rounded-xl transition-all hover:text-white"
-              style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+              className="text-sm font-semibold px-4 py-2.5 rounded-xl transition-all"
+              style={{ background: "rgba(167,139,250,0.1)", border: "1px solid rgba(167,139,250,0.2)", color: "rgba(196,181,253,0.8)" }}
             >
               Diálogo Socrático
             </Link>
             <Link
               href="/fichas"
               className="text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all"
-              style={{ background: "linear-gradient(135deg,#10b981,#059669)", boxShadow: "0 4px 16px rgba(16,185,129,0.3)" }}
+              style={{ background: "linear-gradient(135deg,#7c3aed,#5b21b6)", boxShadow: "0 4px 16px rgba(124,58,237,0.35)" }}
             >
               Fichas →
             </Link>
