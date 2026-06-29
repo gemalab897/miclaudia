@@ -9,8 +9,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/worksheets", label: "All Worksheets" },
+    { href: "/", label: "Inicio" },
+    { href: "/worksheets", label: "Todas las fichas" },
   ];
 
   return (
@@ -19,7 +19,6 @@ export default function Navbar() {
         className="no-print fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-between px-6"
         style={{ background: "#0c1a17", borderBottom: "1px solid rgba(20,184,166,0.12)" }}
       >
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -31,15 +30,14 @@ export default function Navbar() {
           </div>
           <div>
             <span className="font-bold text-white text-[15px] leading-none">
-              Therapy <span style={{ color: "#14b8a6" }}>Worksheets</span>
+              Fichas de <span style={{ color: "#14b8a6" }}>Terapia</span>
             </span>
             <div className="text-[9px] tracking-[0.18em] uppercase font-medium mt-0.5" style={{ color: "rgba(20,184,166,0.4)" }}>
-              Professional Toolkit
+              Kit Profesional
             </div>
           </div>
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const active = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -59,7 +57,6 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Mobile menu button */}
         <button
           className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-white/50"
           style={{ background: "rgba(255,255,255,0.05)" }}
@@ -74,7 +71,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div
           className="md:hidden fixed top-14 left-0 right-0 z-40 py-2 px-4 no-print"

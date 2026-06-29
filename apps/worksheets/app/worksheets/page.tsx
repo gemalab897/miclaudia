@@ -15,19 +15,17 @@ const colorMap: Record<string, { bg: string; border: string; badge: string }> = 
 export default function AllWorksheetsPage() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-10">
-      {/* Header */}
       <div className="mb-10">
         <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-teal-600 font-medium hover:text-teal-700 mb-4 transition-colors">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          Back to Home
+          Volver al inicio
         </Link>
-        <h1 className="text-[28px] font-extrabold text-slate-900 mb-2">All Worksheets</h1>
-        <p className="text-slate-500 text-sm">{worksheets.length} worksheets across {categories.length} clinical domains</p>
+        <h1 className="text-[28px] font-extrabold text-slate-900 mb-2">Todas las fichas</h1>
+        <p className="text-slate-500 text-sm">{worksheets.length} fichas en {categories.length} áreas clínicas</p>
       </div>
 
-      {/* Each category section */}
       <div className="space-y-12">
         {categories.map((cat) => {
           const catWorksheets = worksheets.filter((w) => w.category === cat.id);
@@ -35,7 +33,6 @@ export default function AllWorksheetsPage() {
 
           return (
             <div key={cat.id}>
-              {/* Category header */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div
@@ -46,7 +43,7 @@ export default function AllWorksheetsPage() {
                   </div>
                   <div>
                     <h2 className="font-bold text-slate-900 text-[17px]">{cat.title}</h2>
-                    <p className="text-xs text-slate-400">{catWorksheets.length} worksheets</p>
+                    <p className="text-xs text-slate-400">{catWorksheets.length} fichas</p>
                   </div>
                 </div>
                 <Link
@@ -54,11 +51,10 @@ export default function AllWorksheetsPage() {
                   className="text-xs font-bold transition-colors"
                   style={{ color: cat.color }}
                 >
-                  View all →
+                  Ver todas →
                 </Link>
               </div>
 
-              {/* Worksheet cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {catWorksheets.map((ws) => (
                   <Link
@@ -77,10 +73,10 @@ export default function AllWorksheetsPage() {
                     <p className="text-xs text-slate-500 leading-relaxed flex-1">{ws.description}</p>
                     <div className="mt-3 flex items-center justify-between">
                       <span className="text-[10px] font-medium text-slate-400">
-                        {ws.fields.length} fields
+                        {ws.fields.length} campos
                       </span>
                       <span className="text-[11px] font-bold text-teal-600 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
-                        Open
+                        Abrir
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                         </svg>

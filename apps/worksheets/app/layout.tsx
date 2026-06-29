@@ -3,8 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Therapy Worksheets | Professional Toolkit for Psychologists",
-  description: "Interactive, printable therapy worksheets for CBT, DBT, Trauma, Anxiety, Depression, Couples, Self-Esteem, Children & Adolescents, and more.",
+  title: "Fichas de Terapia | Kit Profesional para Psicólogos",
+  description: "Fichas de terapia interactivas e imprimibles para TCC, DBT, Trauma, Ansiedad, Depresión, Parejas, Autoestima, Niños y Adolescentes, y más.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
