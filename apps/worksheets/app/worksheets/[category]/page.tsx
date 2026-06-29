@@ -19,16 +19,16 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-10">
-      {/* Breadcrumb */}
+      {/* Migas de pan */}
       <div className="flex items-center gap-2 text-sm text-slate-400 mb-8">
-        <Link href="/" className="hover:text-teal-600 transition-colors">Home</Link>
+        <Link href="/" className="hover:text-teal-600 transition-colors">Inicio</Link>
         <span>/</span>
-        <Link href="/worksheets" className="hover:text-teal-600 transition-colors">Worksheets</Link>
+        <Link href="/worksheets" className="hover:text-teal-600 transition-colors">Fichas</Link>
         <span>/</span>
         <span className="text-slate-700 font-medium">{cat.title}</span>
       </div>
 
-      {/* Category hero */}
+      {/* Cabecera de categoría */}
       <div
         className="rounded-2xl p-7 mb-8 relative overflow-hidden"
         style={{ background: `linear-gradient(135deg,${cat.color}18,${cat.color}08)`, border: `1px solid ${cat.color}30` }}
@@ -48,15 +48,15 @@ export default async function CategoryPage({ params }: Props) {
                 className="text-[11px] font-bold px-3 py-1 rounded-full"
                 style={{ background: `${cat.color}18`, color: cat.color }}
               >
-                {ws.length} worksheets
+                {ws.length} fichas
               </span>
-              <span className="text-[11px] text-slate-400">Interactive · Printable · Auto-saved</span>
+              <span className="text-[11px] text-slate-400">Interactivas · Imprimibles · Autoguardado</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Worksheet list */}
+      {/* Lista de fichas */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {ws.map((sheet) => (
           <Link
@@ -75,15 +75,15 @@ export default async function CategoryPage({ params }: Props) {
               </h3>
               {sheet.printable && (
                 <span className="flex-shrink-0 text-[9px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-500 uppercase tracking-wide">
-                  Printable
+                  Imprimible
                 </span>
               )}
             </div>
             <p className="text-xs text-slate-500 leading-relaxed flex-1">{sheet.description}</p>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs text-slate-400">{sheet.fields.length} interactive fields</span>
+              <span className="text-xs text-slate-400">{sheet.fields.length} campos interactivos</span>
               <span className="text-sm font-bold text-teal-600 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
-                Open worksheet
+                Abrir ficha
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                 </svg>
