@@ -58,39 +58,73 @@ export default async function CategoryPage({ params }: Props) {
 
       {/* Lista de fichas */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {ws.map((sheet) => (
-          <Link
-            key={sheet.id}
-            href={`/worksheets/${category}/${sheet.id}`}
-            className="group bg-white rounded-2xl p-5 flex flex-col card-hover"
-            style={{
-              boxShadow: "0 1px 3px rgba(15,23,42,0.06), 0 4px 12px rgba(15,23,42,0.06)",
-              border: "1px solid #e2e8f0",
-              borderLeft: `4px solid ${cat.color}`,
-            }}
-          >
-            <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className="font-bold text-slate-900 text-[15px] leading-snug group-hover:text-teal-700 transition-colors">
-                {sheet.title}
-              </h3>
-              {sheet.printable && (
-                <span className="flex-shrink-0 text-[9px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-500 uppercase tracking-wide">
-                  Imprimible
+        {ws.map((sheet) =>
+          sheet.cuadernoUrl ? (
+            <a
+              key={sheet.id}
+              href={sheet.cuadernoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white rounded-2xl p-5 flex flex-col card-hover"
+              style={{
+                boxShadow: "0 1px 3px rgba(15,23,42,0.06), 0 4px 12px rgba(15,23,42,0.06)",
+                border: "1px solid #e2e8f0",
+                borderLeft: `4px solid ${cat.color}`,
+              }}
+            >
+              <div className="flex items-start justify-between gap-2 mb-2">
+                <h3 className="font-bold text-slate-900 text-[15px] leading-snug group-hover:text-teal-700 transition-colors">
+                  {sheet.title}
+                </h3>
+                <span className="flex-shrink-0 text-[9px] font-bold px-2 py-0.5 rounded bg-teal-50 text-teal-600 uppercase tracking-wide border border-teal-100">
+                  Cuaderno
                 </span>
-              )}
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed flex-1">{sheet.description}</p>
-            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs text-slate-400">{sheet.fields.length} campos interactivos</span>
-              <span className="text-sm font-bold text-teal-600 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
-                Abrir ficha
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </div>
-          </Link>
-        ))}
+              </div>
+              <p className="text-xs text-slate-500 leading-relaxed flex-1">{sheet.description}</p>
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs text-slate-400">62 páginas · 8 módulos</span>
+                <span className="text-sm font-bold text-teal-600 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
+                  Abrir cuaderno
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ) : (
+            <Link
+              key={sheet.id}
+              href={`/worksheets/${category}/${sheet.id}`}
+              className="group bg-white rounded-2xl p-5 flex flex-col card-hover"
+              style={{
+                boxShadow: "0 1px 3px rgba(15,23,42,0.06), 0 4px 12px rgba(15,23,42,0.06)",
+                border: "1px solid #e2e8f0",
+                borderLeft: `4px solid ${cat.color}`,
+              }}
+            >
+              <div className="flex items-start justify-between gap-2 mb-2">
+                <h3 className="font-bold text-slate-900 text-[15px] leading-snug group-hover:text-teal-700 transition-colors">
+                  {sheet.title}
+                </h3>
+                {sheet.printable && (
+                  <span className="flex-shrink-0 text-[9px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-500 uppercase tracking-wide">
+                    Imprimible
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-slate-500 leading-relaxed flex-1">{sheet.description}</p>
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs text-slate-400">{sheet.fields.length} campos interactivos</span>
+                <span className="text-sm font-bold text-teal-600 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
+                  Abrir ficha
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          )
+        )}
       </div>
     </div>
   );
