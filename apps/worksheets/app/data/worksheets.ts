@@ -34,6 +34,7 @@ export interface Worksheet {
   fields: Field[];
   therapistNote?: string;
   printable: boolean;
+  cuadernoHref?: string;
 }
 
 export const categories = [
@@ -1056,6 +1057,18 @@ export const worksheets: Worksheet[] = [
       { id: "most_control", label: "La emoción sobre la que tengo más control sobre mi impulso:", type: "textarea", rows: 2, placeholder: "" },
       { id: "reflection", label: "Reflexión de la semana: ¿Qué he aprendido sobre la relación entre mis emociones y mis acciones?", type: "textarea", rows: 3, placeholder: "" },
     ],
+  },
+
+  {
+    id: "regulacion-emocional-cuaderno",
+    category: "self-esteem",
+    title: "Cuaderno Terapéutico de Regulación Emocional",
+    description: "Cuaderno completo de 62 páginas con 8 módulos clínicos basados en TCD y TCC: Comprendiendo las Emociones, Intensidad Emocional, Zonas de Regulación, Impulsos Emoción-Acción, Aceptación, Habilidades de Afrontamiento, Desencadenantes y Fortaleza Emocional.",
+    goal: "Proporcionar un recurso terapéutico integral e imprimible para trabajar la regulación emocional a lo largo del proceso terapéutico.",
+    instructions: "Abre el cuaderno completo en pantalla. Incluye todos los ejercicios interactivos del original y botón de impresión/PDF.",
+    printable: true,
+    cuadernoHref: "/cuadernos/regulacion-emocional",
+    fields: [],
   },
 
   // ─── REGULACIÓN EMOCIONAL: COMPRENDIENDO LAS EMOCIONES ───────────────────────
