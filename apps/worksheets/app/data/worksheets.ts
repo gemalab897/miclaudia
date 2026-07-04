@@ -34,6 +34,7 @@ export interface Worksheet {
   fields: Field[];
   therapistNote?: string;
   printable: boolean;
+  cuadernoUrl?: string;
 }
 
 export const categories = [
@@ -958,6 +959,17 @@ export const worksheets: Worksheet[] = [
     ],
   },
 
+  {
+    id: "regulacion-emocional-cuaderno",
+    category: "self-esteem",
+    title: "Cuaderno Terapéutico de Regulación Emocional",
+    description: "Cuaderno completo de 62 páginas con 8 módulos: Comprendiendo las Emociones, Intensidad Emocional, Zonas de Regulación, Impulsos Emoción-Acción, Aceptación Emocional, Habilidades de Afrontamiento, Desencadenantes y Fortaleza Emocional.",
+    goal: "Proporcionar un recurso terapéutico integral para trabajar la regulación emocional a lo largo del proceso terapéutico.",
+    instructions: "Este cuaderno se abre en pantalla completa e incluye todos los ejercicios interactivos y listo para imprimir.",
+    printable: true,
+    cuadernoUrl: "/cuadernos/regulacion-emocional.html",
+    fields: [],
+  },
   {
     id: "emotion-regulation-assessment",
     category: "self-esteem",
