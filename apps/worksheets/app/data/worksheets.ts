@@ -109,9 +109,18 @@ export const categories = [
     color: "#0ea5e9",
     count: 46,
   },
+  {
+    id: "uso-de-sustancias",
+    title: "Uso de Sustancias y Recuperación",
+    description: "Cuaderno terapéutico completo basado en TCC y Entrevista Motivacional: etapas del cambio, comprensión del uso, desencadenantes y antojos, análisis de costo-beneficio, situaciones de alto riesgo, red de apoyo y prevención de recaídas.",
+    icon: "🔄",
+    color: "#f43f5e",
+    count: 42,
+  },
 ];
 
 import { regulacionEmocionalWorksheets } from "./regulacion-emocional";
+import { usoDeSustanciasWorksheets } from "./uso-de-sustancias";
 
 export const worksheets: Worksheet[] = [
   // ─── TCC BÁSICA ─────────────────────────────────────────────────────────────
@@ -1069,6 +1078,7 @@ export const worksheets: Worksheet[] = [
   },
 
   ...regulacionEmocionalWorksheets,
+  ...usoDeSustanciasWorksheets,
 ];
 
 export function getWorksheetsByCategory(categoryId: string): Worksheet[] {
