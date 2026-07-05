@@ -1,62 +1,48 @@
 import Link from "next/link";
 import { categories, worksheets } from "@/app/data/worksheets";
 
-const colorMap: Record<string, { bg: string; border: string; badge: string }> = {
-  "#3b82f6": { bg: "rgba(59,130,246,0.08)", border: "rgba(59,130,246,0.2)", badge: "rgba(59,130,246,0.12)" },
-  "#8b5cf6": { bg: "rgba(139,92,246,0.08)", border: "rgba(139,92,246,0.2)", badge: "rgba(139,92,246,0.12)" },
-  "#f59e0b": { bg: "rgba(245,158,11,0.08)", border: "rgba(245,158,11,0.2)", badge: "rgba(245,158,11,0.12)" },
-  "#06b6d4": { bg: "rgba(6,182,212,0.08)",  border: "rgba(6,182,212,0.2)",  badge: "rgba(6,182,212,0.12)"  },
-  "#ec4899": { bg: "rgba(236,72,153,0.08)", border: "rgba(236,72,153,0.2)", badge: "rgba(236,72,153,0.12)" },
-  "#10b981": { bg: "rgba(16,185,129,0.08)", border: "rgba(16,185,129,0.2)", badge: "rgba(16,185,129,0.12)" },
-  "#f97316": { bg: "rgba(249,115,22,0.08)", border: "rgba(249,115,22,0.2)", badge: "rgba(249,115,22,0.12)" },
-  "#64748b": { bg: "rgba(100,116,139,0.08)",border: "rgba(100,116,139,0.2)",badge: "rgba(100,116,139,0.12)"},
-};
-
 export default function HomePage() {
+  const totalWorksheets = worksheets.length;
+  const totalCategories = categories.length;
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-slate-50">
 
       {/* ── Hero ── */}
-      <div
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(150deg, #0c1a17 0%, #0a1f1b 55%, #061410 100%)" }}
-      >
-        <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg,#0f766e 0%,#14b8a6 50%,transparent 100%)" }} />
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 right-0 w-[600px] h-[400px]" style={{ background: "radial-gradient(ellipse,rgba(15,118,110,0.2) 0%,transparent 70%)" }} />
-          <div className="absolute bottom-0 -left-12 w-[400px] h-[300px]" style={{ background: "radial-gradient(ellipse,rgba(20,184,166,0.07) 0%,transparent 70%)" }} />
+      <div className="relative overflow-hidden" style={{ background: "linear-gradient(150deg,#071a16 0%,#0b211c 55%,#040e0c 100%)" }}>
+        {/* Decorative glows */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div style={{ position: "absolute", top: "-80px", right: "-40px", width: "600px", height: "500px", background: "radial-gradient(ellipse,rgba(13,148,136,0.18) 0%,transparent 70%)" }} />
+          <div style={{ position: "absolute", bottom: "-60px", left: "-60px", width: "400px", height: "350px", background: "radial-gradient(ellipse,rgba(20,184,166,0.08) 0%,transparent 70%)" }} />
+          <div style={{ position: "absolute", top: "40%", left: "50%", width: "800px", height: "300px", transform: "translate(-50%,-50%)", background: "radial-gradient(ellipse,rgba(15,118,110,0.06) 0%,transparent 70%)" }} />
         </div>
+        {/* Top accent line */}
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#0f766e,#14b8a6 50%,transparent)" }} />
 
-        <div className="relative max-w-5xl mx-auto px-6 pt-16 pb-12">
+        <div className="relative max-w-5xl mx-auto px-6 pt-16 pb-14">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-8"
+            style={{ background: "rgba(20,184,166,0.12)", border: "1px solid rgba(20,184,166,0.25)", color: "#5eead4" }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+            Basado en evidencia · Interactivo · Imprimible
+          </div>
+
           <div className="max-w-2xl">
-            <div
-              className="inline-flex items-center gap-2.5 text-[11px] font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wide animate-fade-up"
-              style={{ background: "rgba(15,118,110,0.2)", border: "1px solid rgba(20,184,166,0.3)", color: "#5eead4" }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#14b8a6" }} />
-              Basado en evidencia · Listo para imprimir · Rellenable online
-            </div>
-            <h1 className="animate-fade-up-2 mb-6">
-              <span
-                className="block font-extrabold text-white leading-tight"
-                style={{ fontSize: "clamp(42px,7vw,68px)" }}
-              >
-                Fichas de{" "}
-                <span style={{ color: "#14b8a6" }}>Terapia</span>
-              </span>
-              <span className="block text-sm mt-3 tracking-[0.22em] uppercase font-medium" style={{ color: "rgba(94,234,212,0.4)" }}>
-                Kit Profesional para Psicólogos
+            <h1 className="font-black text-white leading-[1.1] mb-5" style={{ fontSize: "clamp(38px,6.5vw,66px)" }}>
+              Fichas de{" "}
+              <span style={{ color: "#14b8a6" }}>Terapia</span>
+              <br />
+              <span className="text-white/30 font-semibold" style={{ fontSize: "clamp(14px,2vw,22px)", letterSpacing: "0.22em" }}>
+                KIT PROFESIONAL PARA PSICÓLOGOS
               </span>
             </h1>
-            <p className="text-[17px] leading-relaxed mb-10 animate-fade-up-3" style={{ color: "rgba(255,255,255,0.48)" }}>
-              {worksheets.length}+ fichas interactivas e imprimibles en 8 áreas clínicas. Completa en sesión, entrega a tu paciente o asigna como tarea entre sesiones.
+            <p className="text-[16px] leading-relaxed mb-10 max-w-xl" style={{ color: "rgba(255,255,255,0.45)" }}>
+              {totalWorksheets}+ fichas clínicas en {totalCategories} áreas. Rellena en sesión, entrega impresa o asigna como tarea. Autoguardado incluido.
             </p>
-            <div className="flex flex-wrap gap-3 animate-fade-up-3">
-              <Link
-                href="/worksheets"
-                className="inline-flex items-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all hover:opacity-90"
-                style={{ background: "linear-gradient(135deg,#0f766e,#0d9488)", boxShadow: "0 8px 24px rgba(15,118,110,0.4)" }}
-              >
+            <div className="flex flex-wrap gap-3">
+              <Link href="/worksheets"
+                className="inline-flex items-center gap-2 text-white text-sm font-bold px-7 py-3.5 rounded-xl transition-all hover:opacity-90 active:scale-95"
+                style={{ background: "linear-gradient(135deg,#0f766e,#0d9488)", boxShadow: "0 8px 28px rgba(15,118,110,0.45)" }}>
                 Ver todas las fichas
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -66,18 +52,18 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Barra de estadísticas */}
-        <div className="relative" style={{ borderTop: "1px solid rgba(20,184,166,0.08)" }}>
-          <div className="max-w-5xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+        {/* Stats bar */}
+        <div className="relative" style={{ borderTop: "1px solid rgba(20,184,166,0.1)" }}>
+          <div className="max-w-5xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: `${worksheets.length}+`, label: "Fichas clínicas" },
-              { value: `${categories.length}`, label: "Áreas clínicas" },
-              { value: "100%", label: "Interactivas e imprimibles" },
-              { value: "Gratis", label: "Para tus pacientes" },
+              { value: `${totalWorksheets}+`, label: "Fichas clínicas" },
+              { value: `${totalCategories}`, label: "Áreas clínicas" },
+              { value: "TCC · TCD · ACT", label: "Enfoques terapéuticos" },
+              { value: "Gratis", label: "Sin registro" },
             ].map((s) => (
               <div key={s.label} className="text-center md:text-left">
-                <div className="font-extrabold text-2xl" style={{ color: "#14b8a6" }}>{s.value}</div>
-                <div className="text-[11px] mt-1 font-medium" style={{ color: "rgba(94,234,212,0.4)" }}>{s.label}</div>
+                <div className="font-extrabold text-[22px]" style={{ color: "#14b8a6" }}>{s.value}</div>
+                <div className="text-[10px] uppercase tracking-widest font-semibold mt-0.5" style={{ color: "rgba(94,234,212,0.35)" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -86,50 +72,54 @@ export default function HomePage() {
 
       {/* ── Categorías ── */}
       <div className="max-w-5xl mx-auto px-6 py-12">
-        <div className="mb-8">
-          <h2 className="text-[26px] font-extrabold text-slate-900 leading-tight">
-            Áreas clínicas
-          </h2>
-          <p className="text-sm text-slate-400 mt-1">Selecciona una categoría para explorar las fichas</p>
+        <div className="flex items-end justify-between mb-7">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-600 mb-1">Áreas clínicas</p>
+            <h2 className="text-[24px] font-extrabold text-slate-900 leading-tight">Elige tu área de trabajo</h2>
+          </div>
+          <Link href="/worksheets" className="text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors flex items-center gap-1">
+            Ver todas
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {categories.map((cat) => {
-            const colors = colorMap[cat.color] ?? { bg: "rgba(100,116,139,0.08)", border: "rgba(100,116,139,0.2)", badge: "rgba(100,116,139,0.12)" };
             const count = worksheets.filter((w) => w.category === cat.id).length;
             return (
               <Link
                 key={cat.id}
                 href={`/worksheets/${cat.id}`}
-                className="group card-hover bg-white rounded-2xl p-6 flex gap-5 items-start"
+                className="group bg-white rounded-2xl p-5 flex gap-4 items-start transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  boxShadow: "0 1px 3px rgba(15,23,42,0.06), 0 4px 12px rgba(15,23,42,0.07)",
-                  border: `1px solid ${colors.border}`,
+                  boxShadow: "0 1px 3px rgba(15,23,42,0.05), 0 4px 16px rgba(15,23,42,0.06)",
+                  border: `1px solid rgba(0,0,0,0.06)`,
                   borderLeft: `4px solid ${cat.color}`,
                 }}
               >
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
-                  style={{ background: colors.bg }}
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 transition-transform group-hover:scale-110"
+                  style={{ background: `${cat.color}18` }}
                 >
                   {cat.icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between gap-2 mb-1">
+                  <div className="flex items-start justify-between gap-2 mb-1.5">
                     <h3 className="font-bold text-slate-900 text-[15px] leading-snug group-hover:text-teal-700 transition-colors">
                       {cat.title}
                     </h3>
-                    <span
-                      className="flex-shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full"
-                      style={{ background: colors.badge, color: cat.color }}
-                    >
+                    <span className="flex-shrink-0 text-[10px] font-bold px-2.5 py-0.5 rounded-full"
+                      style={{ background: `${cat.color}15`, color: cat.color }}>
                       {count} fichas
                     </span>
                   </div>
-                  <p className="text-xs text-slate-500 leading-relaxed">{cat.description}</p>
-                  <div className="mt-3 flex items-center gap-1 text-xs font-bold text-teal-600 group-hover:gap-2 transition-all">
-                    Abrir
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">{cat.description}</p>
+                  <div className="mt-2.5 flex items-center gap-1 text-xs font-bold transition-all"
+                    style={{ color: cat.color }}>
+                    Explorar fichas
+                    <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
@@ -140,34 +130,29 @@ export default function HomePage() {
         </div>
 
         {/* Cómo usar */}
-        <div
-          className="mt-10 rounded-2xl p-7 relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #0c1a17 0%, #0a1f1b 100%)" }}
-        >
-          <div className="absolute -top-8 -right-8 w-48 h-48 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle,rgba(15,118,110,0.3) 0%,transparent 70%)" }} />
+        <div className="mt-10 rounded-2xl p-7 relative overflow-hidden"
+          style={{ background: "linear-gradient(135deg,#0c1a17 0%,#0b2218 100%)" }}>
+          <div className="absolute -top-12 -right-12 w-56 h-56 rounded-full pointer-events-none"
+            style={{ background: "radial-gradient(circle,rgba(15,118,110,0.25) 0%,transparent 70%)" }} />
           <div className="relative">
-            <div className="text-[10px] font-bold uppercase tracking-[0.25em] mb-2" style={{ color: "#14b8a6" }}>
-              Cómo usar
-            </div>
-            <h3 className="font-bold text-white text-[20px] mb-3 leading-tight">
-              Completa en sesión → Imprime → Entrega al paciente
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] mb-1" style={{ color: "#14b8a6" }}>Flujo de trabajo</p>
+            <h3 className="font-extrabold text-white text-[19px] mb-5 leading-tight">
+              Completa → Imprime → Entrega al paciente
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {[
-                { n: "1", t: "Completa en pantalla", d: "Rellena los campos directamente en el navegador durante o antes de la sesión. Se guarda automáticamente en este dispositivo." },
-                { n: "2", t: "Imprime para el paciente", d: "Haz clic en el botón Imprimir. Las fichas tienen estilos optimizados para impresión: sin menús, diseño limpio." },
-                { n: "3", t: "Asigna como tarea", d: "Comparte la URL de la ficha con tu paciente para que la complete entre sesiones." },
+                { n: "1", icon: "✏️", t: "Rellena en sesión", d: "Completa los campos directamente en pantalla. Todo se guarda automáticamente en el navegador." },
+                { n: "2", icon: "🖨️", t: "Imprime para el paciente", d: "Diseño limpio optimizado para impresión. Sin menús ni distracciones." },
+                { n: "3", icon: "📤", t: "Asigna entre sesiones", d: "Comparte la URL para que tu paciente complete la ficha desde casa." },
               ].map((s) => (
-                <div key={s.n} className="flex gap-3">
-                  <div
-                    className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5"
-                    style={{ background: "rgba(20,184,166,0.15)", color: "#14b8a6" }}
-                  >
+                <div key={s.n} className="flex gap-3 items-start">
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-black flex-shrink-0"
+                    style={{ background: "rgba(20,184,166,0.15)", color: "#14b8a6" }}>
                     {s.n}
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-white mb-1">{s.t}</div>
-                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{s.d}</p>
+                    <div className="text-sm font-bold text-white mb-0.5">{s.icon} {s.t}</div>
+                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.38)" }}>{s.d}</p>
                   </div>
                 </div>
               ))}
