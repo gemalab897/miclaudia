@@ -1,81 +1,92 @@
 import Link from "next/link";
 import { categories, worksheets } from "@/app/data/worksheets";
 
-const colorMap: Record<string, { bg: string; border: string; badge: string }> = {
-  "#3b82f6": { bg: "rgba(59,130,246,0.08)", border: "#bfdbfe", badge: "rgba(59,130,246,0.12)" },
-  "#8b5cf6": { bg: "rgba(139,92,246,0.08)", border: "#ddd6fe", badge: "rgba(139,92,246,0.12)" },
-  "#f59e0b": { bg: "rgba(245,158,11,0.08)", border: "#fde68a", badge: "rgba(245,158,11,0.12)" },
-  "#06b6d4": { bg: "rgba(6,182,212,0.08)",  border: "#a5f3fc", badge: "rgba(6,182,212,0.12)"  },
-  "#ec4899": { bg: "rgba(236,72,153,0.08)", border: "#fbcfe8", badge: "rgba(236,72,153,0.12)" },
-  "#10b981": { bg: "rgba(16,185,129,0.08)", border: "#a7f3d0", badge: "rgba(16,185,129,0.12)" },
-  "#f97316": { bg: "rgba(249,115,22,0.08)", border: "#fed7aa", badge: "rgba(249,115,22,0.12)" },
-  "#64748b": { bg: "rgba(100,116,139,0.08)",border: "#cbd5e1", badge: "rgba(100,116,139,0.12)"},
-};
-
 export default function AllWorksheetsPage() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-10">
-      <div className="mb-10">
-        <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-teal-600 font-medium hover:text-teal-700 mb-4 transition-colors">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Volver al inicio
-        </Link>
-        <h1 className="text-[28px] font-extrabold text-slate-900 mb-2">Todas las fichas</h1>
-        <p className="text-slate-500 text-sm">{worksheets.length} fichas en {categories.length} áreas clínicas</p>
+    <div className="min-h-screen bg-slate-50">
+      {/* Header */}
+      <div className="bg-white border-b border-slate-100">
+        <div className="max-w-5xl mx-auto px-6 py-8">
+          <div className="flex items-center gap-2 text-xs text-slate-400 font-medium mb-4">
+            <Link href="/" className="hover:text-teal-600 transition-colors">Inicio</Link>
+            <span>/</span>
+            <span className="text-slate-600">Todas las fichas</span>
+          </div>
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <h1 className="text-[24px] font-extrabold text-slate-900 leading-tight mb-1">Todas las fichas</h1>
+              <p className="text-sm text-slate-400">{worksheets.length} fichas en {categories.length} áreas clínicas</p>
+            </div>
+          </div>
+
+          {/* Category pills */}
+          <div className="flex flex-wrap gap-2 mt-5">
+            {categories.map((cat) => {
+              const count = worksheets.filter((w) => w.category === cat.id).length;
+              return (
+                <a key={cat.id} href={`#${cat.id}`}
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full border transition-all hover:opacity-80"
+                  style={{ borderColor: `${cat.color}30`, background: `${cat.color}0c`, color: cat.color }}>
+                  {cat.icon} {cat.title}
+                  <span className="opacity-60">·{count}</span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      <div className="space-y-12">
+      {/* Content */}
+      <div className="max-w-5xl mx-auto px-6 py-10 space-y-14">
         {categories.map((cat) => {
           const catWorksheets = worksheets.filter((w) => w.category === cat.id);
-          const colors = colorMap[cat.color] ?? { bg: "rgba(100,116,139,0.08)", border: "#cbd5e1", badge: "rgba(100,116,139,0.12)" };
-
           return (
-            <div key={cat.id}>
+            <div key={cat.id} id={cat.id}>
+              {/* Section header */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
-                    style={{ background: colors.bg, border: `1px solid ${colors.border}` }}
-                  >
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                    style={{ background: `${cat.color}15`, border: `1.5px solid ${cat.color}20` }}>
                     {cat.icon}
                   </div>
                   <div>
-                    <h2 className="font-bold text-slate-900 text-[17px]">{cat.title}</h2>
-                    <p className="text-xs text-slate-400">{catWorksheets.length} fichas</p>
+                    <h2 className="font-extrabold text-slate-900 text-[16px] leading-tight">{cat.title}</h2>
+                    <p className="text-[11px] text-slate-400 font-medium">{catWorksheets.length} fichas</p>
                   </div>
                 </div>
-                <Link
-                  href={`/worksheets/${cat.id}`}
-                  className="text-xs font-bold transition-colors"
-                  style={{ color: cat.color }}
-                >
-                  Ver todas →
+                <Link href={`/worksheets/${cat.id}`}
+                  className="text-[11px] font-bold flex items-center gap-1 transition-colors hover:opacity-80"
+                  style={{ color: cat.color }}>
+                  Ver categoría
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Link>
               </div>
+
+              {/* Divider */}
+              <div className="h-px mb-4" style={{ background: `linear-gradient(90deg, ${cat.color}40 0%, transparent 60%)` }} />
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {catWorksheets.map((ws) => (
                   <Link
                     key={ws.id}
                     href={`/worksheets/${cat.id}/${ws.id}`}
-                    className="group bg-white rounded-xl p-4 flex flex-col hover:shadow-md transition-all"
+                    className="group bg-white rounded-xl p-4 flex flex-col transition-all duration-200 hover:-translate-y-0.5"
                     style={{
-                      boxShadow: "0 1px 3px rgba(15,23,42,0.06)",
-                      border: `1px solid ${colors.border}`,
+                      boxShadow: "0 1px 3px rgba(15,23,42,0.05), 0 2px 8px rgba(15,23,42,0.04)",
+                      border: "1px solid rgba(0,0,0,0.06)",
                       borderLeft: `3px solid ${cat.color}`,
                     }}
                   >
-                    <h3 className="font-bold text-slate-800 text-sm mb-1 group-hover:text-teal-700 transition-colors leading-snug">
+                    <h3 className="font-bold text-slate-800 text-[13px] mb-1.5 group-hover:text-teal-700 transition-colors leading-snug">
                       {ws.title}
                     </h3>
-                    <p className="text-xs text-slate-500 leading-relaxed flex-1">{ws.description}</p>
+                    <p className="text-[11px] text-slate-500 leading-relaxed flex-1 line-clamp-2">{ws.description}</p>
                     <div className="mt-3 flex items-center justify-between">
-                      <span className="text-[10px] font-medium text-slate-400">
-                        {ws.fields.length} campos
-                      </span>
-                      <span className="text-[11px] font-bold text-teal-600 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
+                      <span className="text-[10px] text-slate-400 font-medium">{ws.fields.length} campos</span>
+                      <span className="text-[11px] font-bold flex items-center gap-0.5 group-hover:gap-1 transition-all"
+                        style={{ color: cat.color }}>
                         Abrir
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
