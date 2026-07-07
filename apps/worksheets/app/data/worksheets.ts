@@ -118,6 +118,14 @@ export const categories = [
     count: 42,
   },
   {
+    id: "mindfulness",
+    title: "Mindfulness y Relajación",
+    description: "Cuaderno terapéutico completo basado en MBSR y TCC: momento presente, ejercicios de respiración, escaneo corporal, relajación muscular progresiva, técnicas de anclaje, alimentación consciente y práctica de meditación.",
+    icon: "🧘",
+    color: "#6abfaa",
+    count: 20,
+  },
+  {
     id: "terapia-grupal",
     title: "Terapia Grupal",
     description: "Manual completo para facilitadores y participantes: fundamentos grupales, icebreakers, comunicación, construcción de confianza, grupo de proceso, psicoeducación, prevención de recaídas y cierre.",
@@ -131,6 +139,7 @@ import { autoestimaWorksheets } from "./autoestima";
 import { regulacionEmocionalWorksheets } from "./regulacion-emocional";
 import { usoDeSustanciasWorksheets } from "./uso-de-sustancias";
 import { terapiaGrupalWorksheets } from "./terapia-grupal";
+import { mindfulnessWorksheets } from "./mindfulness";
 
 export const worksheets: Worksheet[] = [
   // ─── TCC BÁSICA ─────────────────────────────────────────────────────────────
@@ -861,6 +870,7 @@ export const worksheets: Worksheet[] = [
   ...regulacionEmocionalWorksheets,
   ...usoDeSustanciasWorksheets,
   ...terapiaGrupalWorksheets,
+  ...mindfulnessWorksheets,
 ];
 
 export function getWorksheetsByCategory(categoryId: string): Worksheet[] {
