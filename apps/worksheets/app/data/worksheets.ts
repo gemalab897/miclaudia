@@ -51,7 +51,7 @@ export const categories = [
     description: "Tolerancia al malestar, regulación emocional, efectividad interpersonal, mente sabia y aceptación radical.",
     icon: "⚖️",
     color: "#8b5cf6",
-    count: 6,
+    count: 31,
   },
   {
     id: "trauma-ptsd",
@@ -149,6 +149,7 @@ import { usoDeSustanciasWorksheets } from "./uso-de-sustancias";
 import { terapiaGrupalWorksheets } from "./terapia-grupal";
 import { mindfulnessWorksheets } from "./mindfulness";
 import { dueloWorksheets } from "./duelo";
+import { tcdWorksheets } from "./tcd";
 
 export const worksheets: Worksheet[] = [
   // ─── TCC BÁSICA ─────────────────────────────────────────────────────────────
@@ -881,6 +882,7 @@ export const worksheets: Worksheet[] = [
   ...terapiaGrupalWorksheets,
   ...mindfulnessWorksheets,
   ...dueloWorksheets,
+  ...tcdWorksheets,
 ];
 
 export function getWorksheetsByCategory(categoryId: string): Worksheet[] {
