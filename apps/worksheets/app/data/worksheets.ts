@@ -118,6 +118,14 @@ export const categories = [
     count: 42,
   },
   {
+    id: "duelo",
+    title: "Duelo y Pérdida",
+    description: "Cuaderno terapéutico basado en evidencia: comprender el duelo, mantener la memoria, línea de tiempo, vínculos continuos, escritura de cartas, creación de significado y ritual de aniversario.",
+    icon: "🕯️",
+    color: "#7c6d8a",
+    count: 34,
+  },
+  {
     id: "mindfulness",
     title: "Mindfulness y Relajación",
     description: "Cuaderno terapéutico completo basado en MBSR y TCC: momento presente, ejercicios de respiración, escaneo corporal, relajación muscular progresiva, técnicas de anclaje, alimentación consciente y práctica de meditación.",
@@ -140,6 +148,7 @@ import { regulacionEmocionalWorksheets } from "./regulacion-emocional";
 import { usoDeSustanciasWorksheets } from "./uso-de-sustancias";
 import { terapiaGrupalWorksheets } from "./terapia-grupal";
 import { mindfulnessWorksheets } from "./mindfulness";
+import { dueloWorksheets } from "./duelo";
 
 export const worksheets: Worksheet[] = [
   // ─── TCC BÁSICA ─────────────────────────────────────────────────────────────
@@ -871,6 +880,7 @@ export const worksheets: Worksheet[] = [
   ...usoDeSustanciasWorksheets,
   ...terapiaGrupalWorksheets,
   ...mindfulnessWorksheets,
+  ...dueloWorksheets,
 ];
 
 export function getWorksheetsByCategory(categoryId: string): Worksheet[] {
