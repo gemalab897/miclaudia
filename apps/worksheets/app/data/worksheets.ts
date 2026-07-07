@@ -117,11 +117,20 @@ export const categories = [
     color: "#f43f5e",
     count: 42,
   },
+  {
+    id: "terapia-grupal",
+    title: "Terapia Grupal",
+    description: "Manual completo para facilitadores y participantes: fundamentos grupales, icebreakers, comunicación, construcción de confianza, grupo de proceso, psicoeducación, prevención de recaídas y cierre.",
+    icon: "🤝",
+    color: "#7c3aed",
+    count: 41,
+  },
 ];
 
 import { autoestimaWorksheets } from "./autoestima";
 import { regulacionEmocionalWorksheets } from "./regulacion-emocional";
 import { usoDeSustanciasWorksheets } from "./uso-de-sustancias";
+import { terapiaGrupalWorksheets } from "./terapia-grupal";
 
 export const worksheets: Worksheet[] = [
   // ─── TCC BÁSICA ─────────────────────────────────────────────────────────────
@@ -851,6 +860,7 @@ export const worksheets: Worksheet[] = [
   ...autoestimaWorksheets,
   ...regulacionEmocionalWorksheets,
   ...usoDeSustanciasWorksheets,
+  ...terapiaGrupalWorksheets,
 ];
 
 export function getWorksheetsByCategory(categoryId: string): Worksheet[] {
