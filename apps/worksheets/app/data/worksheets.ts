@@ -43,7 +43,7 @@ export const categories = [
     description: "Registros de pensamientos, hojas de distorsiones cognitivas, registros de activación conductual, fichas ABC y exploración de creencias nucleares.",
     icon: "🧠",
     color: "#3b82f6",
-    count: 6,
+    count: 16,
   },
   {
     id: "dbt-skills",
@@ -59,7 +59,7 @@ export const categories = [
     description: "Líneas de tiempo del trauma, técnicas de anclaje, ventana de tolerancia, planificación de seguridad e identificación de desencadenantes.",
     icon: "🛡️",
     color: "#f59e0b",
-    count: 6,
+    count: 18,
   },
   {
     id: "anxiety-depression",
@@ -67,7 +67,7 @@ export const categories = [
     description: "Registros de preocupaciones, jerarquías de exposición, mapas del ciclo del pánico, seguimiento del estado de ánimo y fichas de rumiación.",
     icon: "🌊",
     color: "#06b6d4",
-    count: 6,
+    count: 17,
   },
   {
     id: "couples-relationships",
@@ -75,7 +75,7 @@ export const categories = [
     description: "Habilidades de comunicación, resolución de conflictos, estilos de apego, registro de intentos de conexión y reparación de la relación.",
     icon: "💑",
     color: "#ec4899",
-    count: 6,
+    count: 16,
   },
   {
     id: "ninos-adolescentes",
@@ -83,7 +83,7 @@ export const categories = [
     description: "Termómetro de emociones, rueda emocional, volcán de la ira, semáforo emocional, monstruo de las preocupaciones, habilidades sociales, asertividad, presión de grupo, identidad adolescente y red de apoyo.",
     icon: "🌈",
     color: "#f97316",
-    count: 17,
+    count: 24,
   },
   {
     id: "tdah",
@@ -91,7 +91,7 @@ export const categories = [
     description: "Psicoeducación, gestión del tiempo, planificación diaria, control de distracciones, técnica Pomodoro, regulación emocional, sensibilidad al rechazo, diseño de rutinas y autocompasión.",
     icon: "⚡",
     color: "#eab308",
-    count: 13,
+    count: 17,
   },
   {
     id: "sueno",
@@ -99,7 +99,7 @@ export const categories = [
     description: "Evaluación del sueño, diario de sueño, higiene del sueño, rutina nocturna, restricción del sueño, control de estímulos, reestructuración cognitiva y técnicas de relajación basadas en la TCC para el insomnio.",
     icon: "🌙",
     color: "#6366f1",
-    count: 11,
+    count: 16,
   },
   {
     id: "formularios-clinicos",
@@ -107,7 +107,7 @@ export const categories = [
     description: "Evaluación biopsicosocial inicial, consentimiento informado, plan de tratamiento, nota de progreso SOAP, evaluación de riesgo y plan de seguridad, seguimiento de síntomas, cierre terapéutico y hoja de derivación.",
     icon: "📋",
     color: "#64748b",
-    count: 8,
+    count: 13,
   },
   {
     id: "self-esteem",
@@ -170,6 +170,10 @@ import { ninosAdolescentesWorksheets } from "./ninos-adolescentes";
 import { tdahWorksheets } from "./tdah";
 import { suenoWorksheets } from "./sueno";
 import { formulariosClinicosWorksheets } from "./formularios-clinicos";
+import { cbtCoreExpandedWorksheets } from "./cbt-core-expanded";
+import { traumaPtsdExpandedWorksheets } from "./trauma-ptsd-expanded";
+import { anxietyDepressionExpandedWorksheets } from "./anxiety-depression-expanded";
+import { couplesExpandedWorksheets } from "./couples-expanded";
 
 export const worksheets: Worksheet[] = [
   // ─── TCC BÁSICA ─────────────────────────────────────────────────────────────
@@ -907,6 +911,10 @@ export const worksheets: Worksheet[] = [
   ...tdahWorksheets,
   ...suenoWorksheets,
   ...formulariosClinicosWorksheets,
+  ...cbtCoreExpandedWorksheets,
+  ...traumaPtsdExpandedWorksheets,
+  ...anxietyDepressionExpandedWorksheets,
+  ...couplesExpandedWorksheets,
 ];
 
 export function getWorksheetsByCategory(categoryId: string): Worksheet[] {
