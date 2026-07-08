@@ -78,6 +78,38 @@ export const categories = [
     count: 6,
   },
   {
+    id: "ninos-adolescentes",
+    title: "Niños y Adolescentes",
+    description: "Termómetro de emociones, rueda emocional, volcán de la ira, semáforo emocional, monstruo de las preocupaciones, habilidades sociales, asertividad, presión de grupo, identidad adolescente y red de apoyo.",
+    icon: "🌈",
+    color: "#f97316",
+    count: 17,
+  },
+  {
+    id: "tdah",
+    title: "TDAH y Funciones Ejecutivas",
+    description: "Psicoeducación, gestión del tiempo, planificación diaria, control de distracciones, técnica Pomodoro, regulación emocional, sensibilidad al rechazo, diseño de rutinas y autocompasión.",
+    icon: "⚡",
+    color: "#eab308",
+    count: 13,
+  },
+  {
+    id: "sueno",
+    title: "Sueño e Insomnio (TCC-I)",
+    description: "Evaluación del sueño, diario de sueño, higiene del sueño, rutina nocturna, restricción del sueño, control de estímulos, reestructuración cognitiva y técnicas de relajación basadas en la TCC para el insomnio.",
+    icon: "🌙",
+    color: "#6366f1",
+    count: 11,
+  },
+  {
+    id: "formularios-clinicos",
+    title: "Formularios Clínicos",
+    description: "Evaluación biopsicosocial inicial, consentimiento informado, plan de tratamiento, nota de progreso SOAP, evaluación de riesgo y plan de seguridad, seguimiento de síntomas, cierre terapéutico y hoja de derivación.",
+    icon: "📋",
+    color: "#64748b",
+    count: 8,
+  },
+  {
     id: "self-esteem",
     title: "Autoestima",
     description: "Cuaderno terapéutico completo: historia de la autoestima, crítico interno, límites, comparación, perfeccionismo, vulnerabilidad y confianza — basado en evidencia clínica.",
@@ -134,6 +166,10 @@ import { terapiaGrupalWorksheets } from "./terapia-grupal";
 import { mindfulnessWorksheets } from "./mindfulness";
 import { dueloWorksheets } from "./duelo";
 import { tcdWorksheets } from "./tcd";
+import { ninosAdolescentesWorksheets } from "./ninos-adolescentes";
+import { tdahWorksheets } from "./tdah";
+import { suenoWorksheets } from "./sueno";
+import { formulariosClinicosWorksheets } from "./formularios-clinicos";
 
 export const worksheets: Worksheet[] = [
   // ─── TCC BÁSICA ─────────────────────────────────────────────────────────────
@@ -867,6 +903,10 @@ export const worksheets: Worksheet[] = [
   ...mindfulnessWorksheets,
   ...dueloWorksheets,
   ...tcdWorksheets,
+  ...ninosAdolescentesWorksheets,
+  ...tdahWorksheets,
+  ...suenoWorksheets,
+  ...formulariosClinicosWorksheets,
 ];
 
 export function getWorksheetsByCategory(categoryId: string): Worksheet[] {
