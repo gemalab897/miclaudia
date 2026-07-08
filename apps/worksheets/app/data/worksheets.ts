@@ -79,27 +79,11 @@ export const categories = [
   },
   {
     id: "self-esteem",
-    title: "Autoestima y Regulación Emocional",
+    title: "Autoestima",
     description: "Cuaderno terapéutico completo: historia de la autoestima, crítico interno, límites, comparación, perfeccionismo, vulnerabilidad y confianza — basado en evidencia clínica.",
     icon: "🌱",
     color: "#10b981",
     count: 21,
-  },
-  {
-    id: "children-adolescents",
-    title: "Niños y Adolescentes",
-    description: "Termómetro de emociones, monstruo de las preocupaciones, volcán de la ira, habilidades sociales y funciones ejecutivas.",
-    icon: "🌈",
-    color: "#f97316",
-    count: 6,
-  },
-  {
-    id: "group-grief-intake",
-    title: "Grupo, Duelo, Sustancias e Intake",
-    description: "Dinámicas de inicio, prevención de recaídas, fases del duelo, evaluación biopsicosocial, planificación del tratamiento y notas de progreso.",
-    icon: "📋",
-    color: "#64748b",
-    count: 6,
   },
   {
     id: "regulacion-emocional",
