@@ -58,3 +58,12 @@ input:focus, textarea:focus, select:focus, button:focus-visible {
 .prose-lesson strong {
   color: var(--ink);
 }
+
+.prose-lesson-tight p {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.prose-lesson-tight ul {
+  margin-top: 0.25rem;
+}

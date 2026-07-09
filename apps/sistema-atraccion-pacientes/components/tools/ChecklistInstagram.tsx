@@ -11,7 +11,7 @@ const items = [
   "Bio incluye un llamado a la acción (CTA) claro",
   "Link en bio funcional y actualizado (agenda, WhatsApp o más info)",
   "Highlights organizados por temas (Cómo trabajo, FAQ, Sobre mí)",
-  "Los primeros 9 posts comunican en conjunto a quién ayudás",
+  "Los primeros 9 posts comunican en conjunto a quién ayudas",
 ];
 
 function MockProfile({ variant }: { variant: "antes" | "despues" }) {
@@ -35,7 +35,7 @@ function MockProfile({ variant }: { variant: "antes" | "despues" }) {
         </div>
         <p className="text-xs mb-2" style={{ color: "var(--ink-soft)" }}>
           {good
-            ? "Ayudo a parejas a reconstruir la conexión sin señalar culpables. 💬 Agendá tu primera sesión ⬇️"
+            ? "Ayudo a parejas a reconstruir la conexión sin señalar culpables. 💬 Agenda tu primera sesión ⬇️"
             : "Psicóloga clínica. Atiendo diversas problemáticas."}
         </p>
         <div

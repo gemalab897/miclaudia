@@ -7,7 +7,7 @@ const niveles = [
   {
     nombre: "Inconsciente del problema",
     recomendacion:
-      "Priorizá contenido educativo que ayude a poner en palabras lo que la persona siente (\"si te pasa esto, podría ser...\").",
+      "Prioriza contenido educativo que ayude a poner en palabras lo que la persona siente (\"si te pasa esto, podría ser...\").",
   },
   {
     nombre: "Consciente del problema",
@@ -29,12 +29,12 @@ const niveles = [
 
 const preguntas = [
   {
-    q: "¿Qué tipo de comentarios recibís más seguido en tus posts?",
+    q: "¿Qué tipo de comentarios recibes más seguido en tus posts?",
     opciones: [
       "Describen síntomas sin nombrarlos (\"a mí también me pasa esto\")",
       "Preguntan \"¿esto que siento tiene nombre?\"",
       "Preguntan qué tipos de ayuda existen para su problema",
-      "Preguntan sobre tu enfoque específico y cómo trabajás",
+      "Preguntan sobre tu enfoque específico y cómo trabajas",
       "Preguntan directamente por precio y disponibilidad",
     ],
   },
@@ -52,9 +52,9 @@ const preguntas = [
     q: "Cuando alguien te sigue después de ver un post, ¿qué parece estar buscando?",
     opciones: [
       "Solo información general, sin relacionarlo consigo mismo todavía",
-      "Reconocerse en lo que describís",
+      "Reconocerse en lo que describes",
       "Comparar si la terapia es mejor que otras alternativas",
-      "Evaluar si vos sos la persona indicada para su caso",
+      "Evaluar si tú eres la persona indicada para su caso",
       "Ya decidió que quiere empezar, busca el siguiente paso",
     ],
   },
@@ -64,8 +64,8 @@ const preguntas = [
       "Ninguna todavía — ni siquiera se plantean buscar ayuda",
       "\"No sé si esto amerita ir a terapia\"",
       "\"No sé qué tipo de terapia necesito\"",
-      "\"No sé si vos sos la persona indicada para mi caso\"",
-      "\"¿Cuándo tenés disponibilidad?\"",
+      "\"No sé si tú eres la persona indicada para mi caso\"",
+      "\"¿Cuándo tienes disponibilidad?\"",
     ],
   },
 ];

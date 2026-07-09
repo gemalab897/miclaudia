@@ -42,7 +42,7 @@ export default function ChecklistPruebaSocial() {
       {done === items.length && (
         <ResultBox title="Excelente">
           <p className="text-sm" style={{ color: "var(--ink)" }}>
-            Ya cubrís todos los elementos éticos de prueba social y autoridad de esta lección.
+            Ya cubres todos los elementos éticos de prueba social y autoridad de esta lección.
           </p>
         </ResultBox>
       )}

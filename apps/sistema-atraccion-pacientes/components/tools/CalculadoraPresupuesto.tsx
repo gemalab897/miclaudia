@@ -45,7 +45,7 @@ export default function CalculadoraPresupuesto() {
 
       <div>
         <p className="text-xs font-semibold mb-3" style={{ color: "var(--ink-soft)" }}>
-          Tasas del embudo — ajustalas si ya tenés datos propios (lección 12), o dejá los valores
+          Tasas del embudo — ajústalas si ya tienes datos propios (lección 12), o deja los valores
           por defecto como referencia inicial.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -109,7 +109,7 @@ export default function CalculadoraPresupuesto() {
           <p className="text-xs mt-4" style={{ color: "var(--ink-soft)" }}>
             Cálculo: leads necesarios = meta de pacientes ÷ (% agendamiento × % asistencia × %
             conversión). Presupuesto = leads necesarios × costo por lead. Antes de escalar,
-            confirmá que estas tasas ya funcionan de forma orgánica (lección 10).
+            confirma que estas tasas ya funcionan de forma orgánica (lección 10).
           </p>
         </ResultBox>
       )}

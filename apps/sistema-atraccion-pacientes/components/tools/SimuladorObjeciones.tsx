@@ -8,7 +8,7 @@ const objeciones = [
     id: "caro",
     label: "\"Es caro\"",
     script:
-      "Entiendo que es una inversión importante. Por eso la primera sesión está pensada para que ambos evaluemos si es el camino correcto para vos antes de comprometerte a un proceso más largo.",
+      "Entiendo que es una inversión importante. Por eso la primera sesión está pensada para que ambos evaluemos si es el camino correcto para ti antes de comprometerte a un proceso más largo.",
   },
   {
     id: "pensarlo",
@@ -20,13 +20,13 @@ const objeciones = [
     id: "no-se-si-funciona",
     label: "\"No sé si funciona conmigo\"",
     script:
-      "Es una pregunta súper válida, muchas personas la tienen antes de la primera sesión. Por eso pensá en ese primer encuentro como un espacio de evaluación mutua, no como un compromiso de largo plazo.",
+      "Es una pregunta súper válida, muchas personas la tienen antes de la primera sesión. Por eso piensa en ese primer encuentro como un espacio de evaluación mutua, no como un compromiso de largo plazo.",
   },
   {
     id: "intentar-solo",
     label: "\"Prefiero intentarlo solo primero\"",
     script:
-      "Tiene todo el sentido querer intentarlo así. Si en algún momento sentís que te vendría bien acompañamiento, acá vas a tener las puertas abiertas.",
+      "Tiene todo el sentido querer intentarlo así. Si en algún momento sientes que te vendría bien acompañamiento, aquí vas a tener las puertas abiertas.",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function SimuladorObjeciones() {
   return (
     <div>
       <p className="text-sm font-semibold mb-3" style={{ color: "var(--navy)" }}>
-        Elegí la objeción que recibiste:
+        Elige la objeción que recibiste:
       </p>
       <div className="flex flex-wrap gap-2 mb-5">
         {objeciones.map((o) => (
@@ -62,7 +62,7 @@ export default function SimuladorObjeciones() {
             {current.script}
           </p>
           <p className="text-xs mt-3" style={{ color: "var(--ink-soft)" }}>
-            Adaptá el tono a tu propio estilo — lo importante es la estructura: validar, no ponerte
+            Adapta el tono a tu propio estilo — lo importante es la estructura: validar, no ponerte
             a la defensiva, y reconectar con el siguiente paso.
           </p>
         </ResultBox>

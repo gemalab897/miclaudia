@@ -1,6 +1,6 @@
 export type ContentBlock =
   | { type: "p"; text: string }
-  | { type: "h3"; text: string }
+  | { type: "h3"; text: string; icon?: string }
   | { type: "list"; items: string[] }
   | { type: "quote"; text: string };
 

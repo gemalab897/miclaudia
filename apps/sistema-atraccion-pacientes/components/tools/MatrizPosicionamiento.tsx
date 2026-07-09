@@ -45,8 +45,8 @@ export default function MatrizPosicionamiento() {
   return (
     <div className="space-y-6">
       <p className="text-sm" style={{ color: "var(--ink-soft)" }}>
-        Ingresá entre 2 y 3 especialidades candidatas y puntuá cada dimensión de 1 a 5. En
-        &quot;Competencia&quot;, 5 significa poca competencia (mejor para vos) y 1 significa mucha
+        Ingresa entre 2 y 3 especialidades candidatas y puntúa cada dimensión de 1 a 5. En
+        &quot;Competencia&quot;, 5 significa poca competencia (mejor para ti) y 1 significa mucha
         competencia.
       </p>
 

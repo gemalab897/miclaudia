@@ -26,7 +26,7 @@ const creencias: Creencia[] = [
     id: "referidos",
     statement: "\"La terapia se gana por referidos, no se vende.\"",
     reencuadre:
-      "Depender solo de referidos es depender de la suerte de tu red social: no lo controlás ni lo podés escalar. Un sistema de atracción no reemplaza los referidos, los complementa.",
+      "Depender solo de referidos es depender de la suerte de tu red social: no lo controlas ni lo puedes escalar. Un sistema de atracción no reemplaza los referidos, los complementa.",
   },
 ];
 
@@ -47,9 +47,9 @@ export default function QuizCreencias() {
   return (
     <div className="space-y-8">
       <p className="text-sm" style={{ color: "var(--ink-soft)" }}>
-        Para cada creencia, indicá qué tan de acuerdo estás <strong>antes</strong> de leer el
-        reencuadre (1 = nada de acuerdo, 5 = totalmente de acuerdo). Después revelá el reencuadre
-        y volvé a puntuar.
+        Para cada creencia, indica qué tan de acuerdo estás <strong>antes</strong> de leer el
+        reencuadre (1 = nada de acuerdo, 5 = totalmente de acuerdo). Después revela el reencuadre
+        y vuelve a puntuar.
       </p>
 
       {creencias.map((c) => (
@@ -93,7 +93,7 @@ export default function QuizCreencias() {
             {shift > 0
               ? `Bajaste ${shift} puntos de acuerdo con las creencias limitantes. Es una buena señal de que el bloqueo mental empieza a soltarse.`
               : shift === 0
-              ? "Tu puntaje no cambió todavía. Está bien — volvé a esta lección más adelante y repetí el ejercicio."
+              ? "Tu puntaje no cambió todavía. Está bien — vuelve a esta lección más adelante y repite el ejercicio."
               : "Tu puntaje subió. Vale la pena releer los reencuadres con calma antes de avanzar."}
           </p>
         </ResultBox>

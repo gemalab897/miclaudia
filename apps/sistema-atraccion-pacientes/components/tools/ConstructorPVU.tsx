@@ -55,7 +55,7 @@ export default function ConstructorPVU() {
         </div>
       )}
 
-      <Field label="Ayudo a... (avatar específico)" hint="A quién ayudás, de forma concreta.">
+      <Field label="Ayudo a... (avatar específico)" hint="A quién ayudas, de forma concreta.">
         <TextInput value={pvu.avatar} onChange={set("avatar")} placeholder="mujeres profesionales con ansiedad y burnout" />
       </Field>
       <Field label="A lograr... (resultado deseado)" hint="En términos de vida, no clínicos.">
@@ -64,7 +64,7 @@ export default function ConstructorPVU() {
       <Field label="A través de... (método/enfoque)" hint="Tu enfoque terapéutico.">
         <TextInput value={pvu.metodo} onChange={set("metodo")} placeholder="terapia cognitivo-conductual" />
       </Field>
-      <Field label="Sin... (objeción/miedo común)" hint="La principal barrera que desactivás por adelantado.">
+      <Field label="Sin... (objeción/miedo común)" hint="La principal barrera que desactivas por adelantado.">
         <TextInput value={pvu.objecion} onChange={set("objecion")} placeholder="tener que dejar el trabajo que aman" />
       </Field>
 

@@ -20,7 +20,7 @@ export default function HomePage() {
             Aprendé a construir, paso a paso, tu propio sistema de atracción, conversión y
             agendamiento de pacientes — con principios de marketing de respuesta directa
             adaptados a la ética del gremio de la salud mental. Cada lección combina un marco
-            conceptual con una herramienta interactiva que completás con tus propios datos.
+            conceptual con una herramienta interactiva que completas con tus propios datos.
           </p>
           <Link
             href={`/leccion/${lessons[0].slug}`}
