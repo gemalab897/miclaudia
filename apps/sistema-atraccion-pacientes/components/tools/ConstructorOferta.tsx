@@ -28,35 +28,35 @@ export default function ConstructorOferta() {
 
     if (tipo === "Sesión suelta") {
       parts.push(
-        "Con sesión suelta, tu mejor palanca de valor percibido es el value stack: mostrá todo lo que rodea a la sesión (evaluación, material, seguimiento) para que no se compare solo por precio contra 'una hora de charla'."
+        "Con sesión suelta, tu mejor palanca de valor percibido es el value stack: muestra todo lo que rodea a la sesión (evaluación, material, seguimiento) para que no se compare solo por precio contra 'una hora de charla'."
       );
     } else if (tipo === "Paquete de sesiones") {
       parts.push(
-        "Para un paquete, usá anclaje: mostrá el precio de la sesión suelta junto al precio por sesión dentro del paquete, para que el paquete se perciba como la opción más razonable."
+        "Para un paquete, usa anclaje: muestra el precio de la sesión suelta junto al precio por sesión dentro del paquete, para que el paquete se perciba como la opción más razonable."
       );
     } else {
       parts.push(
-        "Un programa con duración fija funciona mejor si tu enfoque terapéutico se presta a fases (ej. evaluación → intervención → cierre). Comunicá esas fases como parte del valor del programa."
+        "Un programa con duración fija funciona mejor si tu enfoque terapéutico se presta a fases (ej. evaluación → intervención → cierre). Comunica esas fases como parte del valor del programa."
       );
     }
 
     if (stackCount <= 1) {
       parts.push(
-        "Tu value stack todavía es delgado — marcá al menos 2 o 3 elementos más arriba para que la oferta se sienta robusta frente al precio."
+        "Tu value stack todavía es delgado — marca al menos 2 o 3 elementos más arriba para que la oferta se sienta robusta frente al precio."
       );
     } else if (stackCount >= 4) {
-      parts.push("Tu value stack ya es sólido: comunicalo con claridad, es tu mejor argumento frente al precio.");
+      parts.push("Tu value stack ya es sólido: comunícalo con claridad, es tu mejor argumento frente al precio.");
     }
 
     if (garantia) {
       parts.push(
-        "Con tu garantía de experiencia activada, recordá comunicarla sobre la experiencia (compatibilidad, comodidad), nunca sobre el resultado clínico."
+        "Con tu garantía de experiencia activada, recuerda comunicarla sobre la experiencia (compatibilidad, comodidad), nunca sobre el resultado clínico."
       );
     }
 
     if (escasez) {
       parts.push(
-        "Con escasez activada, asegurate de que sea 100% real: comunicá tus cupos de agenda tal cual son, sin countdowns falsos."
+        "Con escasez activada, asegúrate de que sea 100% real: comunica tus cupos de agenda tal cual son, sin countdowns falsos."
       );
     }
 
@@ -69,7 +69,7 @@ export default function ConstructorOferta() {
     <div className="space-y-8">
       <div>
         <p className="text-sm font-semibold mb-3" style={{ color: "var(--navy)" }}>
-          1. Armá tu value stack — marcá todo lo que ya incluís (o querés incluir):
+          1. Arma tu value stack — marca todo lo que ya incluyes (o quieres incluir):
         </p>
         <div className="space-y-1">
           {stackOptions.map((opt) => (
@@ -85,7 +85,7 @@ export default function ConstructorOferta() {
 
       <div>
         <p className="text-sm font-semibold mb-3" style={{ color: "var(--navy)" }}>
-          2. Elegí el tipo de paquete:
+          2. Elige el tipo de paquete:
         </p>
         <div className="flex flex-wrap gap-2">
           {tipos.map((t) => (

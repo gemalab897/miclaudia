@@ -7,14 +7,22 @@ import { getAdjacentLessons, getPhaseById } from "@/lib/lessons";
 import { useProgress } from "@/lib/progress";
 import ContentBlocks from "./ContentBlocks";
 
-export default function LessonLayout({ lesson, tool }: { lesson: Lesson; tool: ReactNode }) {
+export default function LessonLayout({
+  lesson,
+  tool,
+  diagram,
+}: {
+  lesson: Lesson;
+  tool: ReactNode;
+  diagram?: ReactNode;
+}) {
   const { isComplete, toggle, hydrated } = useProgress();
   const phase = getPhaseById(lesson.phaseId);
   const { prev, next } = getAdjacentLessons(lesson.id);
   const done = hydrated && isComplete(lesson.id);
 
   return (
-    <div className="max-w-3xl mx-auto px-5 md:px-8 py-8 md:py-12">
+    <div className="max-w-4xl mx-auto px-5 md:px-8 py-8 md:py-12">
       <div className="mb-6">
         <p className="text-[11px] font-bold tracking-[0.12em] uppercase" style={{ color: "var(--teal)" }}>
           Fase {phase?.id} · {phase?.title} · Lección {lesson.id}
@@ -27,7 +35,9 @@ export default function LessonLayout({ lesson, tool }: { lesson: Lesson; tool: R
         </p>
       </div>
 
-      <section className="card p-6 md:p-8 mb-8">
+      {diagram && <section className="card p-5 md:p-6 mb-6">{diagram}</section>}
+
+      <section className="mb-8">
         <ContentBlocks blocks={lesson.content} />
       </section>
 

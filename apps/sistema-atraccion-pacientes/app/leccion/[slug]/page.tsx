@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { lessons, getLessonBySlug } from "@/lib/lessons";
 import { toolRegistry } from "@/components/tools/registry";
+import { diagramRegistry } from "@/components/diagrams/registry";
 import LessonLayout from "@/components/LessonLayout";
 
 export function generateStaticParams() {
@@ -13,6 +14,7 @@ export default async function LeccionPage({ params }: { params: Promise<{ slug: 
   if (!lesson) notFound();
 
   const Tool = toolRegistry[lesson.id];
+  const Diagram = diagramRegistry[lesson.id];
 
-  return <LessonLayout lesson={lesson} tool={Tool ? <Tool /> : null} />;
+  return <LessonLayout lesson={lesson} tool={Tool ? <Tool /> : null} diagram={Diagram ? <Diagram /> : undefined} />;
 }

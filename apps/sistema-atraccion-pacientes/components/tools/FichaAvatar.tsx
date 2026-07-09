@@ -65,7 +65,7 @@ ${avatar.frasesTextuales}
         <Field label="Objeciones y miedos" hint="Estigma, miedo a ser juzgada, desconfianza, costo...">
           <TextArea value={avatar.objeciones} onChange={set("objeciones")} placeholder="Ej. Le preocupa que la terapia sea 'para casos graves'." />
         </Field>
-        <Field label="Frases textuales recolectadas" hint="Copiá frases reales que viste en foros, comentarios o conversaciones.">
+        <Field label="Frases textuales recolectadas" hint="Copia frases reales que viste en foros, comentarios o conversaciones.">
           <TextArea value={avatar.frasesTextuales} onChange={set("frasesTextuales")} placeholder='Ej. "Siento que estoy fallando en todo al mismo tiempo."' />
         </Field>
       </div>

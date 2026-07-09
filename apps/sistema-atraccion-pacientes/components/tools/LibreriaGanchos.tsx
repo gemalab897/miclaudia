@@ -110,7 +110,7 @@ export default function LibreriaGanchos() {
         ))}
         {filtered.length === 0 && (
           <p className="text-sm py-6 text-center" style={{ color: "var(--ink-soft)" }}>
-            No hay ganchos con esos filtros. Probá otra combinación.
+            No hay ganchos con esos filtros. Prueba otra combinación.
           </p>
         )}
       </div>
