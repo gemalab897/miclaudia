@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #1f3864;
+  --navy-dark: #142547;
+  --navy-light: #2c4a7c;
+  --teal: #2e7d6b;
+  --teal-light: #3f9c85;
+  --teal-soft: #e6f2ef;
+  --bg: #f7f8fa;
+  --ink: #1e2430;
+  --ink-soft: #5b6472;
+  --border: #e3e7ed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c7cedb; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a7b1c2; }
+
+input:focus, textarea:focus, select:focus, button:focus-visible {
+  outline: 2px solid var(--teal-light);
+  outline-offset: 2px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.45s ease forwards; }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.prose-lesson p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.prose-lesson strong {
+  color: var(--ink);
+}
