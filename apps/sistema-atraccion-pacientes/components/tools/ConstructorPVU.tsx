@@ -2,24 +2,28 @@
 
 import { useEffect, useState } from "react";
 import { Field, TextInput, Button, ResultBox } from "./ui";
-import { usePVUState, useAvatarState } from "@/lib/sharedState";
+import { usePVUState, useAvatarState, useMecanismoState } from "@/lib/sharedState";
 
 export default function ConstructorPVU() {
   const [pvu, setPVU, hydrated] = usePVUState();
   const [avatar] = useAvatarState();
+  const [mecanismo] = useMecanismoState();
   const [prefilled, setPrefilled] = useState(false);
 
   const set = (key: keyof typeof pvu) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setPVU({ ...pvu, [key]: e.target.value });
 
   const canPrefill =
-    hydrated && !prefilled && !pvu.avatar && (avatar.situacion || avatar.dolorPrincipal || avatar.objeciones);
+    hydrated &&
+    !prefilled &&
+    !pvu.avatar &&
+    (avatar.situacion || avatar.dolorPrincipal || avatar.objeciones || mecanismo.nuevaForma);
 
   const applyPrefill = () => {
     setPVU({
       avatar: avatar.situacion ? `[avatar de tu ficha: ${avatar.situacion}]` : pvu.avatar,
       resultado: avatar.deseoPrincipal || pvu.resultado,
-      metodo: pvu.metodo,
+      metodo: mecanismo.nuevaForma || pvu.metodo,
       objecion: avatar.objeciones || pvu.objecion,
     });
     setPrefilled(true);
@@ -47,7 +51,7 @@ export default function ConstructorPVU() {
           style={{ background: "var(--teal-soft)" }}
         >
           <p className="text-sm" style={{ color: "var(--navy)" }}>
-            Detectamos datos de tu ficha de avatar. ¿Los usamos para pre-rellenar?
+            Detectamos datos de tus fichas anteriores. ¿Los usamos para pre-rellenar?
           </p>
           <Button variant="secondary" onClick={applyPrefill}>
             Pre-rellenar con mi avatar

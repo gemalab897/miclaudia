@@ -45,7 +45,7 @@ export default function CalculadoraPresupuesto() {
 
       <div>
         <p className="text-xs font-semibold mb-3" style={{ color: "var(--ink-soft)" }}>
-          Tasas del embudo — ajústalas si ya tienes datos propios (lección 12), o deja los valores
+          Tasas del embudo — ajústalas si ya tienes datos propios (lección 13), o deja los valores
           por defecto como referencia inicial.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

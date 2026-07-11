@@ -32,22 +32,22 @@ export default function DashboardMetricas() {
   if (hasData) {
     if (L >= 10 && tasaAgendamiento < 0.2) {
       diagnosticos.push(
-        "Tienes bastantes leads pero pocos agendan cita: el cuello de botella está en la conversión (mensaje → cita). Revisa tu script de primera respuesta y manejo de objeciones — Lección 9."
+        "Tienes bastantes leads pero pocos agendan cita: el cuello de botella está en la conversión (mensaje → cita). Revisa tu script de primera respuesta y manejo de objeciones — Lección 10."
       );
     }
     if (CA >= 3 && tasaAsistencia < 0.7) {
       diagnosticos.push(
-        "Agendas bien, pero la asistencia es baja: el problema está en el seguimiento previo a la sesión. Refuerza tus recordatorios — Lección 11."
+        "Agendas bien, pero la asistencia es baja: el problema está en el seguimiento previo a la sesión. Refuerza tus recordatorios — Lección 12."
       );
     }
     if (CC >= 3 && tasaConversion < 0.5) {
       diagnosticos.push(
-        "Tienes buena asistencia pero poca continuidad: revisa la experiencia de la primera sesión y cómo comunicas el valor de continuar el proceso — Lección 4."
+        "Tienes buena asistencia pero poca continuidad: revisa la experiencia de la primera sesión y cómo comunicas el valor de continuar el proceso — Lección 5."
       );
     }
     if (diagnosticos.length === 0) {
       diagnosticos.push(
-        "Tu embudo se ve saludable en las etapas que completaste. Si ya tienes capacidad de agenda, este es un buen momento para evaluar escalar con pauta publicitaria — Lección 10."
+        "Tu embudo se ve saludable en las etapas que completaste. Si ya tienes capacidad de agenda, este es un buen momento para evaluar escalar con pauta publicitaria — Lección 11."
       );
     }
   }
