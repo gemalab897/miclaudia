@@ -4,7 +4,7 @@ import MatrizPosicionamiento from "./MatrizPosicionamiento";
 import FichaAvatar from "./FichaAvatar";
 import FichaMecanismo from "./FichaMecanismo";
 import ConstructorPVU from "./ConstructorPVU";
-import ConstructorOferta from "./ConstructorOferta";
+import DesarrolladorOferta from "./DesarrolladorOferta";
 import ChecklistInstagram from "./ChecklistInstagram";
 import DiagnosticoConsciencia from "./DiagnosticoConsciencia";
 import LibreriaGanchos from "./LibreriaGanchos";
@@ -20,7 +20,7 @@ export const toolRegistry: Record<number, ComponentType> = {
   2: FichaAvatar,
   3: FichaMecanismo,
   4: ConstructorPVU,
-  5: ConstructorOferta,
+  5: DesarrolladorOferta,
   6: ChecklistInstagram,
   7: DiagnosticoConsciencia,
   8: LibreriaGanchos,
