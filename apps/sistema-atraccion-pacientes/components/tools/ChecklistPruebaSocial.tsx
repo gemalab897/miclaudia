@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { CheckItem, ResultBox } from "./ui";
 import ProgressBar from "@/components/ProgressBar";
+import { useLocalState } from "@/lib/sharedState";
 
 const items = [
   "Comparto casos anonimizados (sin datos identificables) que ilustran cómo trabajo",
@@ -14,9 +14,14 @@ const items = [
 ];
 
 export default function ChecklistPruebaSocial() {
-  const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const [checked, setChecked, hydrated] = useLocalState<Record<string, boolean>>(
+    "sap.checklist-prueba-social.v1",
+    {}
+  );
   const done = Object.values(checked).filter(Boolean).length;
   const percent = Math.round((done / items.length) * 100);
+
+  if (!hydrated) return null;
 
   return (
     <div>

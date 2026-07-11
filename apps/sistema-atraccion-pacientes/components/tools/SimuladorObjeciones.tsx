@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { ResultBox } from "./ui";
+import { useLocalState } from "@/lib/sharedState";
 
 const objeciones = [
   {
@@ -14,7 +14,7 @@ const objeciones = [
     id: "pensarlo",
     label: "\"Lo voy a pensar\"",
     script:
-      "Tiene sentido tomarse un momento. Contame, ¿qué es lo que te gustaría pensar mejor? Así te puedo ayudar a resolver esa duda puntual en vez de dejarla en el aire.",
+      "Tiene sentido tomarse un momento. Cuéntame, ¿qué es lo que te gustaría pensar mejor? Así te puedo ayudar a resolver esa duda puntual en vez de dejarla en el aire.",
   },
   {
     id: "no-se-si-funciona",
@@ -31,8 +31,10 @@ const objeciones = [
 ];
 
 export default function SimuladorObjeciones() {
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected, hydrated] = useLocalState<string | null>("sap.simulador-objeciones.v1", null);
   const current = objeciones.find((o) => o.id === selected);
+
+  if (!hydrated) return null;
 
   return (
     <div>

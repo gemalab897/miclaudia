@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { CheckItem } from "./ui";
 import ProgressBar from "@/components/ProgressBar";
+import { useLocalState } from "@/lib/sharedState";
 
 const items = [
   "Foto de perfil con rostro visible, buena iluminación y expresión cercana",
@@ -62,9 +62,14 @@ function MockProfile({ variant }: { variant: "antes" | "despues" }) {
 }
 
 export default function ChecklistInstagram() {
-  const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const [checked, setChecked, hydrated] = useLocalState<Record<string, boolean>>(
+    "sap.checklist-instagram.v1",
+    {}
+  );
   const done = Object.values(checked).filter(Boolean).length;
   const percent = Math.round((done / items.length) * 100);
+
+  if (!hydrated) return null;
 
   return (
     <div className="space-y-8">

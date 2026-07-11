@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { ResultBox } from "./ui";
+import { useLocalState } from "@/lib/sharedState";
 
 const niveles = [
   {
@@ -71,7 +71,10 @@ const preguntas = [
 ];
 
 export default function DiagnosticoConsciencia() {
-  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [answers, setAnswers, hydrated] = useLocalState<Record<number, number>>(
+    "sap.diagnostico-consciencia.v1",
+    {}
+  );
   const answered = Object.keys(answers).length;
 
   const choose = (qIdx: number, optIdx: number) => setAnswers({ ...answers, [qIdx]: optIdx });
@@ -84,6 +87,8 @@ export default function DiagnosticoConsciencia() {
     Object.values(answers).forEach((v) => (counts[v] += 1));
     predominante = counts.indexOf(Math.max(...counts));
   }
+
+  if (!hydrated) return null;
 
   return (
     <div className="space-y-7">
