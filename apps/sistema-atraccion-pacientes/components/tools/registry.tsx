@@ -2,6 +2,7 @@ import { ComponentType } from "react";
 import QuizCreencias from "./QuizCreencias";
 import MatrizPosicionamiento from "./MatrizPosicionamiento";
 import FichaAvatar from "./FichaAvatar";
+import FichaMecanismo from "./FichaMecanismo";
 import ConstructorPVU from "./ConstructorPVU";
 import ConstructorOferta from "./ConstructorOferta";
 import ChecklistInstagram from "./ChecklistInstagram";
@@ -17,14 +18,15 @@ export const toolRegistry: Record<number, ComponentType> = {
   0: QuizCreencias,
   1: MatrizPosicionamiento,
   2: FichaAvatar,
-  3: ConstructorPVU,
-  4: ConstructorOferta,
-  5: ChecklistInstagram,
-  6: DiagnosticoConsciencia,
-  7: LibreriaGanchos,
-  8: ChecklistPruebaSocial,
-  9: SimuladorObjeciones,
-  10: CalculadoraPresupuesto,
-  11: ChecklistSemanal,
-  12: DashboardMetricas,
+  3: FichaMecanismo,
+  4: ConstructorPVU,
+  5: ConstructorOferta,
+  6: ChecklistInstagram,
+  7: DiagnosticoConsciencia,
+  8: LibreriaGanchos,
+  9: ChecklistPruebaSocial,
+  10: SimuladorObjeciones,
+  11: CalculadoraPresupuesto,
+  12: ChecklistSemanal,
+  13: DashboardMetricas,
 };

@@ -1,5 +1,6 @@
 import { ComponentType } from "react";
 import MatrizDiagram from "./MatrizDiagram";
+import MecanismoDiagram from "./MecanismoDiagram";
 import ValueStackDiagram from "./ValueStackDiagram";
 import EscaleraDiagram from "./EscaleraDiagram";
 import FlujoGanchoDiagram from "./FlujoGanchoDiagram";
@@ -9,10 +10,11 @@ import EmbudoDiagram from "./EmbudoDiagram";
 
 export const diagramRegistry: Record<number, ComponentType> = {
   1: MatrizDiagram,
-  4: ValueStackDiagram,
-  6: EscaleraDiagram,
-  7: FlujoGanchoDiagram,
-  9: FlujoConversionDiagram,
-  11: TimelineDiagram,
-  12: EmbudoDiagram,
+  3: MecanismoDiagram,
+  5: ValueStackDiagram,
+  7: EscaleraDiagram,
+  8: FlujoGanchoDiagram,
+  10: FlujoConversionDiagram,
+  12: TimelineDiagram,
+  13: EmbudoDiagram,
 };

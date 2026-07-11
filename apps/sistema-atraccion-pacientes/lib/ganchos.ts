@@ -2,7 +2,7 @@ export type Gancho = {
   id: number;
   texto: string;
   especialidad: string;
-  nivel: number; // 1-5, ver lección 6
+  nivel: number; // 1-5, ver lección 7
   tipo: "Pregunta" | "Mito vs. realidad" | "Caso anonimizado" | "Dato sorprendente";
 };
 

@@ -111,6 +111,40 @@ export const lessons: Lesson[] = [
   },
   {
     id: 3,
+    slug: "dolor-creencias-y-mecanismo-unico",
+    phaseId: 1,
+    title: "Dolor, creencias y tu mecanismo único",
+    objective: "Profundizar en la psicología de tu avatar y definir el mecanismo que te diferencia de todo lo que ya intentó.",
+    toolLabel: "Ficha de dolor, creencias y mecanismo",
+    content: [
+      p("La ficha de avatar de la lección anterior te da el retrato general de tu paciente ideal. Esta lección va un nivel más profundo: separa cinco piezas específicas de su psicología que, tomadas juntas, explican por qué todavía no dio el paso de buscar ayuda —y qué necesita escuchar de vos para finalmente darlo. Estas cinco piezas son las que después van a alimentar tu Promesa de Venta, tu oferta y cada pieza de contenido que crees."),
+      h3("Puntos de dolor", "💔"),
+      p("El punto de dolor es la molestia concreta que tu avatar siente hoy, en carne propia, no la categoría clínica que vos usarías para nombrarla. No es \"trastorno de ansiedad\", es lo que esa ansiedad le hace sentir en un momento específico del día. Cuanto más preciso y sensorial sea el dolor que identifiques, más se va a reconocer tu avatar cuando lo lea en tu contenido."),
+      quote("Ejemplo: \"Se despierta a las 3am con el corazón acelerado pensando en todo lo que dejó pendiente, y al otro día llega agotada al trabajo sin haber descansado nada.\""),
+      h3("Objeciones", "🚧"),
+      p("La objeción es la barrera concreta que frena la acción incluso cuando el dolor ya es evidente. No es un rechazo a vos como profesional; es una duda razonable que necesita una respuesta antes de que tu avatar se sienta listo para agendar. Identificar la objeción con precisión te permite desactivarla por adelantado en tu comunicación, en lugar de descubrirla recién en la conversación de venta."),
+      quote("Ejemplo: \"No tengo tiempo para agregar una hora más a mi semana\", o \"ya fui a terapia antes y sentí que no avancé nada\"."),
+      h3("Falsas creencias", "🌀"),
+      p("La falsa creencia es una idea que tu avatar acepta como verdad y que, precisamente por eso, lo mantiene atascado. A diferencia de la objeción —que es una duda puntual sobre tu servicio—, la falsa creencia es más profunda: una historia que se cuenta sobre sí mismo, sobre el problema, o sobre lo que significa pedir ayuda. Nombrar esa creencia en tu contenido, y ofrecer un reencuadre honesto, es una de las formas más rápidas de generar conexión."),
+      quote("Ejemplo: \"Si necesito ayuda para manejar esto, es que soy débil\", o \"esto se soluciona solo con fuerza de voluntad, no necesito a nadie más\"."),
+      h3("La vieja forma", "🔙"),
+      list([
+        "Lo que ya probó y compró antes, y que no le dio un resultado duradero.",
+        "¿Cómo ha intentado antes resolver su problema?",
+      ]),
+      p("Antes de llegar a vos, casi todo tu avatar ya intentó algo: un libro, una app, un consejo de un amigo, incluso otro profesional que no fue el indicado. Ninguno de esos intentos fracasó por falta de esfuerzo de su parte; fracasaron porque atacaban el síntoma y no la causa, o porque no estaban hechos para sostenerse en el tiempo. Nombrar con respeto esa \"vieja forma\" —sin descalificar lo que ya intentó— es lo que prepara el terreno para presentar tu método como algo genuinamente distinto."),
+      quote("Ejemplo: \"Probó meditar con una app, leyó un par de libros de autoayuda y habló varias veces con amigos cercanos — sintió alivio por un rato, pero el problema siempre volvía apenas bajaba la guardia.\""),
+      h3("La nueva forma", "🚀"),
+      list([
+        "Tu mecanismo único: ese vehículo con el que por fin va a lograr resultados.",
+      ]),
+      p("La \"nueva forma\" es tu método, tu enfoque, tu manera particular de acompañar el proceso — el elemento que hace que tu propuesta no sea \"más de lo mismo que ya intentó y no funcionó\". No hace falta inventar una técnica nueva: alcanza con nombrar con claridad qué hace diferente tu forma de trabajar (tu combinación de enfoque terapéutico, estructura de seguimiento, o especialización) frente a los intentos anteriores de tu avatar. Este mecanismo es, en el fondo, la semilla de la Promesa de Venta que vas a construir en la próxima lección."),
+      quote("Ejemplo: \"Un proceso de 8 semanas que combina terapia cognitivo-conductual con seguimiento breve entre sesiones, diseñado específicamente para que lo aprendido se sostenga después de que termine el proceso, no solo durante.\""),
+      p("Usa la ficha de esta lección para completar tus propios cinco puntos. Cuanto más específicos y basados en tu investigación real de la lección anterior, más filoso va a quedar cada mensaje que escribas de acá en adelante."),
+    ],
+  },
+  {
+    id: 4,
     slug: "promesa-de-venta",
     phaseId: 1,
     title: "Promesa de Venta (PVU)",
@@ -138,7 +172,7 @@ export const lessons: Lesson[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     slug: "creacion-de-ofertas",
     phaseId: 1,
     title: "Creación de Ofertas",
@@ -165,7 +199,7 @@ export const lessons: Lesson[] = [
 
   // ───────────────────── FASE 2 — PRESENCIA Y ATRACCIÓN ─────────────────────
   {
-    id: 5,
+    id: 6,
     slug: "perfil-instagram-landing-page",
     phaseId: 2,
     title: "Perfil de Instagram como landing page",
@@ -177,7 +211,7 @@ export const lessons: Lesson[] = [
       list([
         "Foto de perfil: rostro visible, buena iluminación, expresión cercana. No un logo, no una foto grupal recortada.",
         "Nombre visible: incluye tu especialidad o público al que ayudas, no solo tu nombre propio (ej. \"María Pérez | Psicóloga de Parejas\").",
-        "Bio con tu PVU resumida: la promesa de venta que construiste en la lección 3, condensada en una o dos líneas.",
+        "Bio con tu PVU resumida: la promesa de venta que construiste en la lección 4, condensada en una o dos líneas.",
         "Link en bio funcional: que lleve a agendar, a WhatsApp, o a una página con más información — no un link roto ni una landing genérica sin actualizar.",
         "Highlights estratégicos: organizados por temas que responden preguntas frecuentes (ej. \"Cómo trabajo\", \"Preguntas frecuentes\", \"Testimonios éticos\", \"Sobre mí\").",
       ]),
@@ -193,7 +227,7 @@ export const lessons: Lesson[] = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     slug: "niveles-de-consciencia",
     phaseId: 2,
     title: "Niveles de consciencia de la audiencia",
@@ -215,7 +249,7 @@ export const lessons: Lesson[] = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     slug: "arquitectura-de-contenido-persuasivo",
     phaseId: 2,
     title: "Arquitectura de contenido persuasivo",
@@ -240,7 +274,7 @@ export const lessons: Lesson[] = [
     ],
   },
   {
-    id: 8,
+    id: 9,
     slug: "prueba-social-y-autoridad",
     phaseId: 2,
     title: "Prueba social y autoridad",
@@ -262,7 +296,7 @@ export const lessons: Lesson[] = [
 
   // ───────────────────── FASE 3 — CONVERSIÓN Y ESCALAMIENTO ─────────────────────
   {
-    id: 9,
+    id: 10,
     slug: "conversion-mensaje-a-cita",
     phaseId: 3,
     title: "Conversión: de mensaje a cita agendada",
@@ -285,7 +319,7 @@ export const lessons: Lesson[] = [
     ],
   },
   {
-    id: 10,
+    id: 11,
     slug: "pauta-publicitaria",
     phaseId: 3,
     title: "Pauta publicitaria",
@@ -302,14 +336,14 @@ export const lessons: Lesson[] = [
         "Presupuesto de prueba: empezar con un monto acotado, suficiente para generar datos pero sin comprometer un presupuesto grande antes de validar qué anuncio funciona mejor.",
       ]),
       h3("Creativos basados en tus ganchos", "🎨"),
-      p("Los anuncios que mejor funcionan no son piezas publicitarias genéricas; son versiones amplificadas de los ganchos que ya identificaste como efectivos en tu contenido orgánico de la lección 7. Si un gancho de pregunta o un caso anonimizado ya generó buena interacción orgánica, es una señal de que ese mismo ángulo puede funcionar como creativo pago."),
+      p("Los anuncios que mejor funcionan no son piezas publicitarias genéricas; son versiones amplificadas de los ganchos que ya identificaste como efectivos en tu contenido orgánico de la lección 8. Si un gancho de pregunta o un caso anonimizado ya generó buena interacción orgánica, es una señal de que ese mismo ángulo puede funcionar como creativo pago."),
       p("Usa la calculadora de esta lección para estimar, a partir de tu meta de pacientes nuevos por mes y un costo por lead estimado, qué presupuesto mensual sería razonable destinar y qué resultados puedes esperar."),
     ],
   },
 
   // ───────────────────── FASE 4 — OPERACIÓN Y CRECIMIENTO ─────────────────────
   {
-    id: 11,
+    id: 12,
     slug: "agendamiento-seguimiento-retencion",
     phaseId: 4,
     title: "Agendamiento, seguimiento y retención",
@@ -329,7 +363,7 @@ export const lessons: Lesson[] = [
     ],
   },
   {
-    id: 12,
+    id: 13,
     slug: "metricas-y-mejora-continua",
     phaseId: 4,
     title: "Métricas y mejora continua",

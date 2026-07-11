@@ -75,3 +75,23 @@ export function useAvatarState() {
 export function usePVUState() {
   return useLocalState<PVUData>("sap.pvu.v1", emptyPVU);
 }
+
+export type MecanismoFicha = {
+  dolor: string;
+  objeciones: string;
+  falsasCreencias: string;
+  viejaForma: string;
+  nuevaForma: string;
+};
+
+export const emptyMecanismo: MecanismoFicha = {
+  dolor: "",
+  objeciones: "",
+  falsasCreencias: "",
+  viejaForma: "",
+  nuevaForma: "",
+};
+
+export function useMecanismoState() {
+  return useLocalState<MecanismoFicha>("sap.mecanismo.v1", emptyMecanismo);
+}
