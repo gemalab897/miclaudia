@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Chip } from "./ui";
+import { Chip, Field, TextArea, Button } from "./ui";
 import { ganchos, especialidades } from "@/lib/ganchos";
 import { useLocalState } from "@/lib/sharedState";
 
 type Filtros = { especialidad: string; nivel: number };
+type Aida = { atencion: string; interes: string; deseo: string; accion: string };
+
+const emptyAida: Aida = { atencion: "", interes: "", deseo: "", accion: "" };
 
 const niveles = [
   { value: 0, label: "Todos los niveles" },
@@ -26,6 +29,9 @@ export default function LibreriaGanchos() {
   const setNivel = (nivel: number) => setFiltros({ ...filtros, nivel });
   const [copiedId, setCopiedId] = useState<number | null>(null);
 
+  const [aida, setAida, aidaHydrated] = useLocalState<Aida>("sap.aida.v1", emptyAida);
+  const [copiedAida, setCopiedAida] = useState(false);
+
   const filtered = ganchos.filter(
     (g) =>
       (especialidad === "Todas" || g.especialidad === especialidad) &&
@@ -42,10 +48,28 @@ export default function LibreriaGanchos() {
     }
   };
 
-  if (!hydrated) return null;
+  const postAida = [aida.atencion, aida.interes, aida.deseo, aida.accion]
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .join("\n\n");
+
+  const copyAida = async () => {
+    try {
+      await navigator.clipboard.writeText(postAida);
+      setCopiedAida(true);
+      setTimeout(() => setCopiedAida(false), 1500);
+    } catch {
+      // clipboard no disponible; el usuario puede seleccionar el texto manualmente.
+    }
+  };
+
+  if (!hydrated || !aidaHydrated) return null;
 
   return (
     <div>
+      <p className="text-sm font-bold mb-3" style={{ color: "var(--navy)" }}>
+        1. Librería de ganchos
+      </p>
       <div className="mb-4">
         <p className="text-xs font-semibold mb-1.5" style={{ color: "var(--ink-soft)" }}>
           Especialidad
@@ -123,6 +147,68 @@ export default function LibreriaGanchos() {
             No hay ganchos con esos filtros. Prueba otra combinación.
           </p>
         )}
+      </div>
+
+      <p className="text-sm font-bold mt-8 mb-1" style={{ color: "var(--navy)" }}>
+        2. Constructor de post AIDA
+      </p>
+      <p className="text-xs mb-4" style={{ color: "var(--ink-soft)" }}>
+        Completa las 4 etapas y armamos el post completo, listo para publicar.
+      </p>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div>
+          <Field label="🎯 Atención" hint="La primera línea que detiene el scroll.">
+            <TextArea
+              value={aida.atencion}
+              onChange={(e) => setAida({ ...aida, atencion: e.target.value })}
+              placeholder="¿Te cuesta dormir pensando en todo lo que dejaste pendiente?"
+            />
+          </Field>
+          <Field label="🔍 Interés" hint="Profundiza mostrando que entiendes el problema en detalle.">
+            <TextArea
+              value={aida.interes}
+              onChange={(e) => setAida({ ...aida, interes: e.target.value })}
+              placeholder="Esa sensación de que la cabeza no se apaga ni de noche suele ser más común de lo que parece..."
+            />
+          </Field>
+          <Field label="💭 Deseo" hint="Cómo se ve su vida del lado de después.">
+            <TextArea
+              value={aida.deseo}
+              onChange={(e) => setAida({ ...aida, deseo: e.target.value })}
+              placeholder="Imagina poder cerrar el día sin esa lista de pendientes dando vueltas en tu cabeza."
+            />
+          </Field>
+          <Field label="👉 Acción" hint="Qué quieres que haga después: comentar, guardar, escribir, agendar.">
+            <TextArea
+              value={aida.accion}
+              onChange={(e) => setAida({ ...aida, accion: e.target.value })}
+              placeholder="Si te reconoces en esto, escríbeme — hay lugar para acompañarte."
+            />
+          </Field>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold mb-2 uppercase tracking-wide" style={{ color: "var(--ink-soft)" }}>
+            Vista previa de tu post
+          </p>
+          <div className="card p-5 min-h-[160px]">
+            {postAida ? (
+              <p className="text-sm whitespace-pre-line leading-relaxed" style={{ color: "var(--ink)" }}>
+                {postAida}
+              </p>
+            ) : (
+              <p className="text-sm" style={{ color: "var(--ink-soft)" }}>
+                Completa al menos un campo para ver tu post armado acá.
+              </p>
+            )}
+          </div>
+          <div className="mt-3">
+            <Button onClick={copyAida} disabled={!postAida}>
+              {copiedAida ? "✓ Copiado" : "Copiar post"}
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
