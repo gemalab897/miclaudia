@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { Chip } from "./ui";
 import { ganchos, especialidades } from "@/lib/ganchos";
+import { useLocalState } from "@/lib/sharedState";
+
+type Filtros = { especialidad: string; nivel: number };
 
 const niveles = [
   { value: 0, label: "Todos los niveles" },
@@ -14,8 +17,13 @@ const niveles = [
 ];
 
 export default function LibreriaGanchos() {
-  const [especialidad, setEspecialidad] = useState<string>("Todas");
-  const [nivel, setNivel] = useState<number>(0);
+  const [filtros, setFiltros, hydrated] = useLocalState<Filtros>("sap.libreria-ganchos.v1", {
+    especialidad: "Todas",
+    nivel: 0,
+  });
+  const { especialidad, nivel } = filtros;
+  const setEspecialidad = (especialidad: string) => setFiltros({ ...filtros, especialidad });
+  const setNivel = (nivel: number) => setFiltros({ ...filtros, nivel });
   const [copiedId, setCopiedId] = useState<number | null>(null);
 
   const filtered = ganchos.filter(
@@ -33,6 +41,8 @@ export default function LibreriaGanchos() {
       // clipboard no disponible; el usuario puede seleccionar el texto manualmente.
     }
   };
+
+  if (!hydrated) return null;
 
   return (
     <div>

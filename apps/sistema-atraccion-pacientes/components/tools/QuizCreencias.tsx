@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Slider, ResultBox, Button } from "./ui";
+import { useLocalState } from "@/lib/sharedState";
 
 type Creencia = {
   id: string;
@@ -30,19 +30,32 @@ const creencias: Creencia[] = [
   },
 ];
 
+type QuizState = {
+  before: Record<string, number>;
+  revealed: Record<string, boolean>;
+  after: Record<string, number>;
+};
+
+const initial: QuizState = {
+  before: Object.fromEntries(creencias.map((c) => [c.id, 3])),
+  revealed: {},
+  after: Object.fromEntries(creencias.map((c) => [c.id, 3])),
+};
+
 export default function QuizCreencias() {
-  const [before, setBefore] = useState<Record<string, number>>(
-    Object.fromEntries(creencias.map((c) => [c.id, 3]))
-  );
-  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
-  const [after, setAfter] = useState<Record<string, number>>(
-    Object.fromEntries(creencias.map((c) => [c.id, 3]))
-  );
+  const [quiz, setQuiz, hydrated] = useLocalState<QuizState>("sap.quiz-creencias.v1", initial);
+  const { before, revealed, after } = quiz;
+
+  const setBefore = (id: string, v: number) => setQuiz({ ...quiz, before: { ...before, [id]: v } });
+  const setRevealed = (id: string) => setQuiz({ ...quiz, revealed: { ...revealed, [id]: true } });
+  const setAfter = (id: string, v: number) => setQuiz({ ...quiz, after: { ...after, [id]: v } });
 
   const allRevealed = creencias.every((c) => revealed[c.id]);
   const totalBefore = creencias.reduce((s, c) => s + before[c.id], 0);
   const totalAfter = creencias.reduce((s, c) => s + after[c.id], 0);
   const shift = totalBefore - totalAfter;
+
+  if (!hydrated) return null;
 
   return (
     <div className="space-y-8">
@@ -57,11 +70,15 @@ export default function QuizCreencias() {
           <p className="font-medium mb-3" style={{ color: "var(--ink)" }}>
             {c.statement}
           </p>
-          <Slider value={before[c.id]} onChange={(v) => setBefore({ ...before, [c.id]: v })} labels={["Nada de acuerdo", "Totalmente de acuerdo"]} />
+          <Slider
+            value={before[c.id]}
+            onChange={(v) => setBefore(c.id, v)}
+            labels={["Nada de acuerdo", "Totalmente de acuerdo"]}
+          />
 
           {!revealed[c.id] ? (
             <div className="mt-3">
-              <Button variant="ghost" onClick={() => setRevealed({ ...revealed, [c.id]: true })}>
+              <Button variant="ghost" onClick={() => setRevealed(c.id)}>
                 Ver reencuadre
               </Button>
             </div>
@@ -76,7 +93,11 @@ export default function QuizCreencias() {
                 <p className="text-sm font-medium mb-2" style={{ color: "var(--navy)" }}>
                   Ahora que leíste el reencuadre, ¿qué tan de acuerdo estás con la creencia original?
                 </p>
-                <Slider value={after[c.id]} onChange={(v) => setAfter({ ...after, [c.id]: v })} labels={["Nada de acuerdo", "Totalmente de acuerdo"]} />
+                <Slider
+                  value={after[c.id]}
+                  onChange={(v) => setAfter(c.id, v)}
+                  labels={["Nada de acuerdo", "Totalmente de acuerdo"]}
+                />
               </div>
             </>
           )}

@@ -1,14 +1,27 @@
 "use client";
 
-import { useState } from "react";
 import { Field, TextInput, ResultBox, Slider } from "./ui";
+import { useLocalState } from "@/lib/sharedState";
+
+type CalculadoraData = {
+  metaPacientes: string;
+  costoPorLead: string;
+  tasaAgendamiento: number;
+  tasaAsistencia: number;
+  tasaConversion: number;
+};
+
+const initial: CalculadoraData = {
+  metaPacientes: "4",
+  costoPorLead: "3",
+  tasaAgendamiento: 30,
+  tasaAsistencia: 80,
+  tasaConversion: 70,
+};
 
 export default function CalculadoraPresupuesto() {
-  const [metaPacientes, setMetaPacientes] = useState("4");
-  const [costoPorLead, setCostoPorLead] = useState("3");
-  const [tasaAgendamiento, setTasaAgendamiento] = useState(30);
-  const [tasaAsistencia, setTasaAsistencia] = useState(80);
-  const [tasaConversion, setTasaConversion] = useState(70);
+  const [data, setData, hydrated] = useLocalState<CalculadoraData>("sap.calculadora-presupuesto.v1", initial);
+  const { metaPacientes, costoPorLead, tasaAgendamiento, tasaAsistencia, tasaConversion } = data;
 
   const meta = Number(metaPacientes) || 0;
   const costo = Number(costoPorLead) || 0;
@@ -21,6 +34,8 @@ export default function CalculadoraPresupuesto() {
 
   const hasInputs = meta > 0 && costo > 0;
 
+  if (!hydrated) return null;
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
@@ -29,7 +44,7 @@ export default function CalculadoraPresupuesto() {
             type="number"
             min={0}
             value={metaPacientes}
-            onChange={(e) => setMetaPacientes(e.target.value)}
+            onChange={(e) => setData({ ...data, metaPacientes: e.target.value })}
           />
         </Field>
         <Field label="Costo por lead estimado (USD)">
@@ -38,7 +53,7 @@ export default function CalculadoraPresupuesto() {
             min={0}
             step="0.5"
             value={costoPorLead}
-            onChange={(e) => setCostoPorLead(e.target.value)}
+            onChange={(e) => setData({ ...data, costoPorLead: e.target.value })}
           />
         </Field>
       </div>
@@ -53,19 +68,37 @@ export default function CalculadoraPresupuesto() {
             <p className="text-xs font-semibold mb-1" style={{ color: "var(--navy)" }}>
               % Leads → Cita agendada
             </p>
-            <Slider value={tasaAgendamiento} onChange={setTasaAgendamiento} min={5} max={100} labels={["5%", "100%"]} />
+            <Slider
+              value={tasaAgendamiento}
+              onChange={(v) => setData({ ...data, tasaAgendamiento: v })}
+              min={5}
+              max={100}
+              labels={["5%", "100%"]}
+            />
           </div>
           <div>
             <p className="text-xs font-semibold mb-1" style={{ color: "var(--navy)" }}>
               % Asistencia a la cita
             </p>
-            <Slider value={tasaAsistencia} onChange={setTasaAsistencia} min={5} max={100} labels={["5%", "100%"]} />
+            <Slider
+              value={tasaAsistencia}
+              onChange={(v) => setData({ ...data, tasaAsistencia: v })}
+              min={5}
+              max={100}
+              labels={["5%", "100%"]}
+            />
           </div>
           <div>
             <p className="text-xs font-semibold mb-1" style={{ color: "var(--navy)" }}>
               % Conversión a paciente activo
             </p>
-            <Slider value={tasaConversion} onChange={setTasaConversion} min={5} max={100} labels={["5%", "100%"]} />
+            <Slider
+              value={tasaConversion}
+              onChange={(v) => setData({ ...data, tasaConversion: v })}
+              min={5}
+              max={100}
+              labels={["5%", "100%"]}
+            />
           </div>
         </div>
       </div>

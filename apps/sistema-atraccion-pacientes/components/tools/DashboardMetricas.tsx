@@ -1,18 +1,31 @@
 "use client";
 
-import { useState } from "react";
 import { Field, TextInput, ResultBox } from "./ui";
+import { useLocalState } from "@/lib/sharedState";
 
 function pct(n: number) {
   return `${Math.round(n * 100)}%`;
 }
 
+type MetricasData = {
+  leads: string;
+  citasAgendadas: string;
+  citasCompletadas: string;
+  pacientesActivos: string;
+  gastoAds: string;
+};
+
+const initial: MetricasData = {
+  leads: "",
+  citasAgendadas: "",
+  citasCompletadas: "",
+  pacientesActivos: "",
+  gastoAds: "",
+};
+
 export default function DashboardMetricas() {
-  const [leads, setLeads] = useState("");
-  const [citasAgendadas, setCitasAgendadas] = useState("");
-  const [citasCompletadas, setCitasCompletadas] = useState("");
-  const [pacientesActivos, setPacientesActivos] = useState("");
-  const [gastoAds, setGastoAds] = useState("");
+  const [data, setData, hydrated] = useLocalState<MetricasData>("sap.dashboard-metricas.v1", initial);
+  const { leads, citasAgendadas, citasCompletadas, pacientesActivos, gastoAds } = data;
 
   const L = Number(leads) || 0;
   const CA = Number(citasAgendadas) || 0;
@@ -52,23 +65,50 @@ export default function DashboardMetricas() {
     }
   }
 
+  if (!hydrated) return null;
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
         <Field label="Leads del mes">
-          <TextInput type="number" min={0} value={leads} onChange={(e) => setLeads(e.target.value)} />
+          <TextInput
+            type="number"
+            min={0}
+            value={leads}
+            onChange={(e) => setData({ ...data, leads: e.target.value })}
+          />
         </Field>
         <Field label="Citas agendadas">
-          <TextInput type="number" min={0} value={citasAgendadas} onChange={(e) => setCitasAgendadas(e.target.value)} />
+          <TextInput
+            type="number"
+            min={0}
+            value={citasAgendadas}
+            onChange={(e) => setData({ ...data, citasAgendadas: e.target.value })}
+          />
         </Field>
         <Field label="Citas completadas (show-up)">
-          <TextInput type="number" min={0} value={citasCompletadas} onChange={(e) => setCitasCompletadas(e.target.value)} />
+          <TextInput
+            type="number"
+            min={0}
+            value={citasCompletadas}
+            onChange={(e) => setData({ ...data, citasCompletadas: e.target.value })}
+          />
         </Field>
         <Field label="Pacientes activos resultantes">
-          <TextInput type="number" min={0} value={pacientesActivos} onChange={(e) => setPacientesActivos(e.target.value)} />
+          <TextInput
+            type="number"
+            min={0}
+            value={pacientesActivos}
+            onChange={(e) => setData({ ...data, pacientesActivos: e.target.value })}
+          />
         </Field>
         <Field label="Gasto en publicidad (USD)">
-          <TextInput type="number" min={0} value={gastoAds} onChange={(e) => setGastoAds(e.target.value)} />
+          <TextInput
+            type="number"
+            min={0}
+            value={gastoAds}
+            onChange={(e) => setData({ ...data, gastoAds: e.target.value })}
+          />
         </Field>
       </div>
 

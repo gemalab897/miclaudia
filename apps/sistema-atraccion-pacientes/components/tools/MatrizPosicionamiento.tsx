@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { TextInput, Slider, Button, ResultBox } from "./ui";
+import { useLocalState } from "@/lib/sharedState";
 
 type Especialidad = {
   id: string;
@@ -26,7 +26,10 @@ function score(e: Especialidad) {
 }
 
 export default function MatrizPosicionamiento() {
-  const [items, setItems] = useState<Especialidad[]>([makeEspecialidad("a"), makeEspecialidad("b")]);
+  const [items, setItems, hydrated] = useLocalState<Especialidad[]>("sap.matriz-posicionamiento.v1", [
+    makeEspecialidad("a"),
+    makeEspecialidad("b"),
+  ]);
 
   const update = (id: string, patch: Partial<Especialidad>) =>
     setItems((prev) => prev.map((it) => (it.id === id ? { ...it, ...patch } : it)));
@@ -41,6 +44,8 @@ export default function MatrizPosicionamiento() {
   const named = items.filter((it) => it.nombre.trim().length > 0);
   const winner =
     named.length > 0 ? [...named].sort((a, b) => score(b) - score(a))[0] : undefined;
+
+  if (!hydrated) return null;
 
   return (
     <div className="space-y-6">
