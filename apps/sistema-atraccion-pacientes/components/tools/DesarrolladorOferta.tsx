@@ -67,10 +67,37 @@ function ahorroPct(p: Paquete, precioSuelta: number) {
   return pct;
 }
 
+function capitalize(s: string) {
+  if (!s) return s;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function generarCopyPersuasivo(oferta: OfertaData, soluciones: Par[]) {
+  if (!oferta.resultado) return "";
+
+  const primerProblema = oferta.pares.find((p) => p.problema.trim())?.problema;
+  const gancho = primerProblema ? `¿${capitalize(primerProblema)}?` : `¿Buscas ${oferta.resultado}?`;
+
+  const desarrolloPartes = [`Acompaño a quienes buscan ${oferta.resultado}`];
+  if (oferta.marcoTiempo) desarrolloPartes.push(`en ${oferta.marcoTiempo}`);
+  if (oferta.objecionPrincipal) desarrolloPartes.push(`sin ${oferta.objecionPrincipal}`);
+  const desarrollo = `${desarrolloPartes.join(", ")}.`;
+
+  const incluye =
+    soluciones.length > 0 ? `\n\nEsto incluye:\n${soluciones.map((s) => `✓ ${s.solucion}`).join("\n")}` : "";
+
+  const garantia = oferta.garantiaActiva && oferta.garantiaTexto ? `\n\n🛡️ ${oferta.garantiaTexto}` : "";
+  const escasez = oferta.escasezActiva && oferta.escasezTexto ? `\n\n⏳ ${oferta.escasezTexto}` : "";
+  const cta = "\n\n👉 Escríbeme si sientes que este es tu momento — cuento con lugar para acompañarte.";
+
+  return `${gancho}\n\n${desarrollo}${incluye}${garantia}${escasez}${cta}`;
+}
+
 export default function DesarrolladorOferta() {
   const [oferta, setOferta, hydrated] = useLocalState<OfertaData>("sap.oferta-irresistible.v1", emptyOferta);
   const [avatar] = useAvatarState();
   const [prefilled, setPrefilled] = useState(false);
+  const [copiado, setCopiado] = useState(false);
 
   const canPrefill = hydrated && !prefilled && !oferta.resultado && avatar.deseoPrincipal;
 
@@ -131,6 +158,17 @@ export default function DesarrolladorOferta() {
       : "";
 
   const hasEnoughForResult = nombreOferta && soluciones.length > 0;
+  const copyPersuasivo = generarCopyPersuasivo(oferta, soluciones);
+
+  const copiarCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(copyPersuasivo);
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 1500);
+    } catch {
+      // clipboard no disponible; el usuario puede seleccionar el texto manualmente.
+    }
+  };
 
   const precioSuelta = Number(oferta.precioSesionSuelta) || 0;
   const paquetesCompletos = oferta.paquetes.filter((p) => p.nombre.trim() && p.sesiones && p.precio);
@@ -159,6 +197,10 @@ ${soluciones.map((s) => `- ${s.solucion}`).join("\n")}
 Ecuación de valor: ${puntaje}/15 (${nivel.label})
 ${oferta.garantiaActiva ? `\nGarantía: ${oferta.garantiaTexto}` : ""}
 ${oferta.escasezActiva ? `\nEscasez: ${oferta.escasezTexto}` : ""}
+
+COPY LISTO PARA PUBLICAR
+=====================================
+${copyPersuasivo}
 
 MENÚ DE SERVICIOS
 =====================================
@@ -487,6 +529,36 @@ ${lineasProductos ? `Productos adicionales:\n${lineasProductos}\n` : ""}`;
             </div>
           )}
         </div>
+
+        {copyPersuasivo && (
+          <div className="mt-5">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--ink-soft)" }}>
+                Copy persuasivo listo para publicar
+              </p>
+              <button
+                onClick={copiarCopy}
+                className="text-xs font-semibold px-3 py-1.5 rounded-full"
+                style={{
+                  background: copiado ? "var(--teal)" : "#fff",
+                  color: copiado ? "#fff" : "var(--navy)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                {copiado ? "✓ Copiado" : "Copiar"}
+              </button>
+            </div>
+            <div className="card p-5">
+              <p className="text-sm whitespace-pre-line leading-relaxed" style={{ color: "var(--ink)" }}>
+                {copyPersuasivo}
+              </p>
+            </div>
+            <p className="text-xs mt-2" style={{ color: "var(--ink-soft)" }}>
+              Estructura gancho → desarrollo → CTA (lección 8). Pégalo tal cual en un post de
+              Instagram o adáptalo a un mensaje de WhatsApp.
+            </p>
+          </div>
+        )}
 
         {hasEnoughForResult && (
           <ResultBox title="Cómo mejorar tu ecuación de valor">
