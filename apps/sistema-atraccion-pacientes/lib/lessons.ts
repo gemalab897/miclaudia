@@ -177,7 +177,7 @@ export const lessons: Lesson[] = [
     phaseId: 1,
     title: "Creación de Ofertas",
     objective: "Empaquetar el servicio de forma atractiva.",
-    toolLabel: "Desarrollador de oferta irresistible",
+    toolLabel: "Desarrollador de oferta y menú de servicios",
     content: [
       p("Tener una promesa clara no es suficiente si lo que ofreces después es genérico: \"una sesión de una hora\". La oferta es cómo empaquetas tu servicio para que el valor percibido sea evidente antes de que la persona pague. No se trata de inflar precios ni de prometer de más; se trata de comunicar con claridad todo lo que ya haces —y que probablemente no estás mencionando— para que la decisión de agendar se sienta obvia."),
       h3("La ecuación de valor (Alex Hormozi)", "⚗️"),
@@ -204,7 +204,7 @@ export const lessons: Lesson[] = [
       p("En terapia no se puede —ni se debe— garantizar un resultado clínico. Lo que sí puedes garantizar es la experiencia: por ejemplo, \"si en la primera sesión sientes que no hay compatibilidad conmigo, esa sesión no se cobra\". Este tipo de garantía reduce el riesgo percibido de dar el primer paso sin prometer nada sobre el resultado terapéutico, que depende de múltiples factores fuera de tu control absoluto."),
       h3("Escasez honesta", "⏳"),
       p("A diferencia del marketing agresivo de otros rubros, en terapia la escasez no debe fabricarse con countdowns falsos o \"quedan 2 cupos\" cuando no es cierto. La escasez ética es simplemente la verdad de tu agenda: si tienes cupo real para 3 pacientes nuevos este mes, comunícalo tal cual. Es honesto, genera urgencia real, y no compromete tu credibilidad ni tu ética profesional."),
-      p("La herramienta de esta lección te guía paso a paso por el método de Hormozi adaptado a terapia: convierte los problemas de tu avatar en soluciones incluidas, revisa las cuatro palancas de la ecuación de valor, y genera el nombre y la estructura de tu propia oferta imposible de rechazar."),
+      p("La herramienta de esta lección tiene tres partes: primero arma tu oferta principal con el método de Hormozi (convierte los problemas de tu avatar en soluciones incluidas y revisa las cuatro palancas de la ecuación de valor); después arma tus paquetes de sesiones con el precio por sesión y el ahorro calculados automáticamente; y por último suma los productos adicionales que complementan tu oferta. Al final vas a tener el nombre de tu oferta principal y un menú de servicios completo, listo para compartir."),
     ],
   },
 
