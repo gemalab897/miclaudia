@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --pine: #0b3d2e;
+  --pine-dark: #072a20;
+  --gold: #c9a227;
+  --gold-light: #e4c76a;
+  --cream: #faf6ee;
+  --ember: #a6291f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--pine-dark);
+}
+
+.font-display {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50%       { opacity: 1; transform: scale(1.1); }
+}
+.twinkle { animation: twinkle 2.4s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up   { animation: fadeUp 0.6s ease forwards; }
+.animate-fade-up-2 { animation: fadeUp 0.6s 0.12s ease forwards; opacity: 0; }
+.animate-fade-up-3 { animation: fadeUp 0.6s 0.24s ease forwards; opacity: 0; }
+
+.model-card {
+  transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.model-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(11,61,46,0.18);
+  border-color: var(--gold);
+}
