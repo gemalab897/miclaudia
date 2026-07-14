@@ -5,6 +5,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 const CATEGORIAS = [
+  { href: "/plan", label: "Tu Plan", emoji: "📅" },
   { href: "/pijamas", label: "Pijamas", emoji: "🧦" },
   { href: "/crochet", label: "Crochet", emoji: "🧶" },
   { href: "/dulces", label: "Dulces", emoji: "🍬" },

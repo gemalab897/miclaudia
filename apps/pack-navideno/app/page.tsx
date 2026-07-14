@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CategoryCard from "@/components/CategoryCard";
 import { pijamas } from "@/lib/data/pijamas";
 import { crochet } from "@/lib/data/crochet";
@@ -12,9 +13,16 @@ export default function Home() {
           <span className="gold-text">Pack Navideño</span>
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-lg text-[var(--verde)]/75">
-          3 modelos de negocio listos para emprender esta temporada navideña, con costos, precios
-          y pasos detallados para empezar a vender hoy mismo.
+          Todo lo que necesitas para emprender desde casa esta temporada: 3 modelos de negocio con
+          costos, precios y pasos detallados, más un plan mes a mes desde septiembre hasta
+          diciembre para llegar lista a vender.
         </p>
+        <Link
+          href="/plan"
+          className="mt-7 inline-flex items-center gap-2 rounded-full bg-[var(--rojo)] px-6 py-3 text-sm font-semibold text-[var(--crema)] shadow-lg transition-transform hover:scale-105"
+        >
+          📅 Ver tu plan de 4 meses
+        </Link>
       </section>
 
       <section className="grid gap-6 sm:grid-cols-3">
