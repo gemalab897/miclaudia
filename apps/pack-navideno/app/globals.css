@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --pine: #0b3d2e;
-  --pine-dark: #072a20;
-  --gold: #c9a227;
-  --gold-light: #e4c76a;
-  --cream: #faf6ee;
-  --ember: #a6291f;
+  --rojo: #a6192e;
+  --rojo-oscuro: #7a1020;
+  --verde: #0b3d2e;
+  --esmeralda: #0e6b45;
+  --dorado: #d4af37;
+  --dorado-claro: #f3d98a;
+  --plateado: #cdd6dd;
+  --crema: #fffaf1;
 }
 
 html {
@@ -14,45 +16,109 @@ html {
 }
 
 body {
-  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
-  background: var(--cream);
-  color: var(--pine-dark);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  background: var(--crema);
+  color: var(--verde);
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(166, 25, 46, 0.06), transparent 40%),
+    radial-gradient(circle at 92% 88%, rgba(14, 107, 69, 0.08), transparent 45%);
+  background-attachment: fixed;
 }
 
-.font-display {
-  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+.font-festive {
+  font-family: var(--font-display), Georgia, serif;
 }
 
-::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--dorado); border-radius: 4px; }
 
+/* ── Texto dorado con brillo ── */
 .gold-text {
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  background: linear-gradient(120deg, var(--dorado), var(--dorado-claro), var(--dorado));
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: shimmer-text 4s linear infinite;
+}
+@keyframes shimmer-text {
+  to { background-position: 200% center; }
 }
 
+/* ── Nieve cayendo ── */
+.snowfall {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+.snowflake {
+  position: absolute;
+  top: -10%;
+  color: var(--plateado);
+  opacity: 0.75;
+  text-shadow: 0 0 6px rgba(255,255,255,0.8);
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes fall {
+  0%   { transform: translate(0, -10vh) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.85; }
+  90%  { opacity: 0.85; }
+  100% { transform: translate(var(--drift, 0px), 110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ── Brillitos ── */
 @keyframes twinkle {
-  0%, 100% { opacity: 0.4; transform: scale(0.9); }
-  50%       { opacity: 1; transform: scale(1.1); }
+  0%, 100% { opacity: 0.15; transform: scale(0.7); }
+  50%       { opacity: 1; transform: scale(1.15); }
 }
-.twinkle { animation: twinkle 2.4s ease-in-out infinite; }
+.sparkle {
+  position: absolute;
+  color: var(--dorado);
+  animation: twinkle 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
 
+/* ── Tarjetas festivas ── */
+.festive-card {
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: linear-gradient(180deg, #ffffff, #fffdf7);
+  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.festive-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 22px 50px rgba(122, 16, 32, 0.18), 0 0 0 1px var(--dorado);
+  border-color: var(--dorado);
+}
+
+.category-card {
+  transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease;
+}
+.category-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(11, 61, 46, 0.3);
+}
+
+/* ── Insignias de dificultad ── */
+.badge-facil   { background: rgba(14,107,69,0.12); color: var(--esmeralda); }
+.badge-media   { background: rgba(212,175,55,0.18); color: #8a6d10; }
+.badge-dificil { background: rgba(166,25,46,0.12); color: var(--rojo); }
+
+/* ── Animaciones de entrada ── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-up   { animation: fadeUp 0.6s ease forwards; }
-.animate-fade-up-2 { animation: fadeUp 0.6s 0.12s ease forwards; opacity: 0; }
-.animate-fade-up-3 { animation: fadeUp 0.6s 0.24s ease forwards; opacity: 0; }
+.animate-fade-up { animation: fadeUp 0.6s ease forwards; }
 
-.model-card {
-  transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease, border-color 0.25s ease;
-}
-.model-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 45px rgba(11,61,46,0.18);
-  border-color: var(--gold);
+/* ── Impresión ── */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .festive-card { box-shadow: none !important; border: 1px solid #ccc !important; }
 }

@@ -1,60 +1,47 @@
-const modelos = [
-  {
-    numero: 1,
-    nombre: "Modelo 1 — Pendiente",
-    resumen: "Aquí va la descripción del primer modelo de negocio.",
-    incluye: ["Detalle 1", "Detalle 2", "Detalle 3"],
-  },
-  {
-    numero: 2,
-    nombre: "Modelo 2 — Pendiente",
-    resumen: "Aquí va la descripción del segundo modelo de negocio.",
-    incluye: ["Detalle 1", "Detalle 2", "Detalle 3"],
-  },
-  {
-    numero: 3,
-    nombre: "Modelo 3 — Pendiente",
-    resumen: "Aquí va la descripción del tercer modelo de negocio.",
-    incluye: ["Detalle 1", "Detalle 2", "Detalle 3"],
-  },
-];
+import CategoryCard from "@/components/CategoryCard";
+import { pijamas } from "@/lib/data/pijamas";
+import { crochet } from "@/lib/data/crochet";
+import { dulces } from "@/lib/data/dulces";
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-5xl px-6 pb-24">
-      <section className="animate-fade-up py-20 text-center">
-        <span className="twinkle mb-4 inline-block text-3xl">✦</span>
-        <h1 className="font-display text-4xl font-semibold text-[var(--pine-dark)] sm:text-5xl">
-          Pack Navideño
+    <main className="mx-auto max-w-6xl px-5 pb-24">
+      <section className="animate-fade-up py-16 text-center sm:py-24">
+        <span className="text-4xl">✦ 🎄 ✦</span>
+        <h1 className="font-festive mt-4 text-5xl text-[var(--verde)] sm:text-6xl">
+          <span className="gold-text">Pack Navideño</span>
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--pine-dark)]/70">
-          3 modelos de negocio listos para emprender en temporada navideña.
+        <p className="mx-auto mt-5 max-w-xl text-lg text-[var(--verde)]/75">
+          3 modelos de negocio listos para emprender esta temporada navideña, con costos, precios
+          y pasos detallados para empezar a vender hoy mismo.
         </p>
       </section>
 
       <section className="grid gap-6 sm:grid-cols-3">
-        {modelos.map((modelo, i) => (
-          <article
-            key={modelo.numero}
-            className={`model-card animate-fade-up-${Math.min(i + 1, 3)} rounded-2xl border border-[var(--pine)]/10 bg-white p-6 shadow-sm`}
-          >
-            <span className="font-display text-sm font-semibold text-[var(--gold)]">
-              Modelo {modelo.numero}
-            </span>
-            <h2 className="mt-2 font-display text-xl font-semibold text-[var(--pine-dark)]">
-              {modelo.nombre}
-            </h2>
-            <p className="mt-3 text-sm text-[var(--pine-dark)]/70">{modelo.resumen}</p>
-            <ul className="mt-4 space-y-1 text-sm text-[var(--pine-dark)]/60">
-              {modelo.incluye.map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <span className="text-[var(--gold)]">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+        <CategoryCard
+          href="/pijamas"
+          emoji="🧦"
+          titulo="Pijamas Navideñas"
+          descripcion="5 modelos familiares listos para coser y vender por set."
+          cantidad={`${pijamas.length} modelos`}
+          accent="linear-gradient(135deg, var(--rojo), var(--rojo-oscuro))"
+        />
+        <CategoryCard
+          href="/crochet"
+          emoji="🧶"
+          titulo="Crochet Navideño"
+          descripcion="25 patrones en 8 categorías: amigurumis, adornos, esferas y más."
+          cantidad={`${crochet.length} patrones`}
+          accent="linear-gradient(135deg, var(--esmeralda), var(--verde))"
+        />
+        <CategoryCard
+          href="/dulces"
+          emoji="🍬"
+          titulo="Dulces Navideños"
+          descripcion="20 recetas con dificultad, ingredientes, costos y margen."
+          cantidad={`${dulces.length} recetas`}
+          accent="linear-gradient(135deg, var(--dorado), #a97e15)"
+        />
       </section>
     </main>
   );
