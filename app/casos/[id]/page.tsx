@@ -12,10 +12,26 @@ export async function generateStaticParams() {
 }
 
 const diagnosisAccent: Record<string, string> = {
-  "ansiedad-generalizada": "#d97706",
-  "depresion-mayor":       "#2563eb",
-  "toc":                   "#dc2626",
-  "fobia-social":          "#7c3aed",
+  "ansiedad-generalizada":  "#d97706",
+  "depresion-mayor":        "#2563eb",
+  "toc":                    "#dc2626",
+  "fobia-social":           "#7c3aed",
+  "panico":                 "#ea580c",
+  "insomnio":               "#0f766e",
+  "ira":                    "#e11d48",
+  "tept":                   "#475569",
+  "ansiedad-salud":         "#ca8a04",
+  "depresion-adulto-mayor": "#4338ca",
+  "depresion-adolescente":  "#0284c7",
+  "bulimia-nerviosa":       "#db2777",
+  "dependencia-alcohol":    "#b45309",
+  "tlp-borderline":         "#a21caf",
+  "dolor-cronico":          "#78716c",
+  "duelo-complicado":       "#1d4ed8",
+  "fobia-especifica-vuelo": "#0891b2",
+  "tept-abuso":             "#b91c1c",
+  "depresion-jubilacion":   "#1e40af",
+  "panico-agorafobia":      "#c2410c",
 };
 
 export default async function CasoDetallePage({ params }: Props) {

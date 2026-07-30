@@ -3,10 +3,26 @@ import { casos } from "@/app/data/casos";
 import PageHeader from "@/components/PageHeader";
 
 const diagnosisColors: Record<string, { bg: string; text: string; border: string }> = {
-  "ansiedad-generalizada": { bg: "bg-amber-50",  text: "text-amber-700",  border: "border-l-amber-400" },
-  "depresion-mayor":       { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-l-blue-400" },
-  "toc":                   { bg: "bg-red-50",    text: "text-red-700",    border: "border-l-red-400" },
-  "fobia-social":          { bg: "bg-violet-50", text: "text-violet-700", border: "border-l-violet-400" },
+  "ansiedad-generalizada":  { bg: "bg-amber-50",   text: "text-amber-700",   border: "border-l-amber-400" },
+  "depresion-mayor":        { bg: "bg-blue-50",    text: "text-blue-700",    border: "border-l-blue-400" },
+  "toc":                    { bg: "bg-red-50",     text: "text-red-700",     border: "border-l-red-400" },
+  "fobia-social":           { bg: "bg-violet-50",  text: "text-violet-700",  border: "border-l-violet-400" },
+  "panico":                 { bg: "bg-orange-50",  text: "text-orange-700",  border: "border-l-orange-400" },
+  "insomnio":               { bg: "bg-teal-50",    text: "text-teal-700",    border: "border-l-teal-400" },
+  "ira":                    { bg: "bg-rose-50",    text: "text-rose-700",    border: "border-l-rose-400" },
+  "tept":                   { bg: "bg-slate-100",  text: "text-slate-700",   border: "border-l-slate-400" },
+  "ansiedad-salud":         { bg: "bg-yellow-50",  text: "text-yellow-700",  border: "border-l-yellow-400" },
+  "depresion-adulto-mayor": { bg: "bg-indigo-50",  text: "text-indigo-700",  border: "border-l-indigo-400" },
+  "depresion-adolescente":  { bg: "bg-sky-50",     text: "text-sky-700",     border: "border-l-sky-400" },
+  "bulimia-nerviosa":       { bg: "bg-pink-50",    text: "text-pink-700",    border: "border-l-pink-400" },
+  "dependencia-alcohol":    { bg: "bg-amber-50",   text: "text-amber-800",   border: "border-l-amber-600" },
+  "tlp-borderline":         { bg: "bg-fuchsia-50", text: "text-fuchsia-700", border: "border-l-fuchsia-400" },
+  "dolor-cronico":          { bg: "bg-stone-100",  text: "text-stone-700",   border: "border-l-stone-400" },
+  "duelo-complicado":       { bg: "bg-blue-50",    text: "text-blue-800",    border: "border-l-blue-600" },
+  "fobia-especifica-vuelo": { bg: "bg-cyan-50",    text: "text-cyan-700",    border: "border-l-cyan-400" },
+  "tept-abuso":             { bg: "bg-red-50",     text: "text-red-800",     border: "border-l-red-600" },
+  "depresion-jubilacion":   { bg: "bg-blue-50",    text: "text-blue-900",    border: "border-l-blue-700" },
+  "panico-agorafobia":      { bg: "bg-orange-50",  text: "text-orange-800",  border: "border-l-orange-600" },
 };
 
 const defaultColor = { bg: "bg-slate-50", text: "text-slate-700", border: "border-l-slate-400" };
