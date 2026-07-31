@@ -1,41 +1,33 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
-import SessionTimer from "@/components/SessionTimer";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
+import SearchShortcut from "@/components/SearchShortcut";
 
 export const metadata: Metadata = {
-  title: "CBT Atlas | Sistema Clínico de TCC",
-  description: "Plataforma clínica profesional de Terapia Cognitivo-Conductual. Protocolos, fichas interactivas, casos clínicos y guía de decisión diagnóstica basados en evidencia.",
+  title: "CBT Atlas | Herramienta Clínica TCC",
+  description:
+    "20 casos clínicos resueltos, protocolos TCC, fichas interactivas, calculadora de instrumentos y búsqueda global. Todo basado en evidencia científica.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="es" className={`h-full ${inter.variable} ${playfair.variable}`}>
-      <body className="h-full bg-slate-50 font-sans antialiased">
+    <html lang="es" className="h-full antialiased">
+      <body className="h-full bg-slate-50">
         <div className="flex h-full">
           <div className="sidebar-wrapper no-print">
             <Sidebar />
           </div>
+          <SearchShortcut />
           <main className="flex-1 min-h-screen overflow-auto">
             <div className="pt-16 lg:pt-0">
               {children}
             </div>
           </main>
         </div>
-        <SessionTimer />
       </body>
     </html>
   );

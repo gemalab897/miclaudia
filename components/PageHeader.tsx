@@ -5,32 +5,17 @@ interface PageHeaderProps {
   badgeColor?: string;
 }
 
-export default function PageHeader({
-  title,
-  description,
-  badge,
-  badgeColor = "bg-violet-700",
-}: PageHeaderProps) {
+export default function PageHeader({ title, description, badge, badgeColor = "bg-[#10b981]" }: PageHeaderProps) {
   return (
-    <div className="mb-10 pb-8" style={{ borderBottom: "1px solid #e4e8f4" }}>
+    <div className="mb-8">
       {badge && (
-        <span
-          className={`inline-flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase text-white px-3.5 py-1.5 rounded-full mb-5 ${badgeColor}`}
-        >
-          <span className="w-1 h-1 rounded-full bg-white/60" />
+        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white mb-3 ${badgeColor}`}>
           {badge}
         </span>
       )}
-      <h1
-        className="font-bold leading-tight mb-3"
-        style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(28px,4vw,42px)", color: "#0d0c2b" }}
-      >
-        {title}
-      </h1>
+      <h1 className="text-2xl md:text-3xl font-bold text-[#1e3a5f] mb-2">{title}</h1>
       {description && (
-        <p className="text-base leading-relaxed max-w-2xl" style={{ color: "#5a6280" }}>
-          {description}
-        </p>
+        <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-3xl">{description}</p>
       )}
     </div>
   );
