@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import SearchShortcut from "@/components/SearchShortcut";
 
 export const metadata: Metadata = {
-  title: "CBT PRO+ | Herramienta Clínica TCC",
+  title: "CBT Atlas | Herramienta Clínica TCC",
   description:
-    "Plataforma clínica interactiva de Terapia Cognitivo-Conductual para psicólogos. Protocolos, fichas, casos clínicos y guía de decisión diagnóstica.",
+    "20 casos clínicos resueltos, protocolos TCC, fichas interactivas, calculadora de instrumentos y búsqueda global. Todo basado en evidencia científica.",
 };
 
 export default function RootLayout({
@@ -20,6 +21,7 @@ export default function RootLayout({
           <div className="sidebar-wrapper no-print">
             <Sidebar />
           </div>
+          <SearchShortcut />
           <main className="flex-1 min-h-screen overflow-auto">
             <div className="pt-16 lg:pt-0">
               {children}
