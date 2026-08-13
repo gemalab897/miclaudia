@@ -1,347 +1,630 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageHeader from "@/components/PageHeader";
 
-interface Corte {
-  min: number;
-  max: number;
-  nivel: string;
-  accion: string;
-  color: string;
+// ─── Types ───────────────────────────────────────────────────────────────────
+
+interface HistoryEntry {
+  date: string;
+  score: number;
+  severity: string;
 }
 
-interface Instrumento {
-  nombre: string;
-  nombreCompleto: string;
-  area: string;
-  minScore: number;
-  maxScore: number;
-  color: string;
-  cortes: Corte[];
-  descripcion: string;
-}
+type InstrumentKey = "phq9" | "gad7" | "pcl5";
 
-const instrumentos: Instrumento[] = [
-  {
-    nombre: "PHQ-9",
-    nombreCompleto: "Patient Health Questionnaire-9",
-    area: "Depresión",
-    minScore: 0,
-    maxScore: 27,
-    color: "#2563eb",
-    descripcion: "9 ítems · 2-3 min · Criterios DSM depresión mayor",
-    cortes: [
-      { min: 0,  max: 4,  nivel: "Sin depresión",           accion: "Sin tratamiento indicado",                       color: "#16a34a" },
-      { min: 5,  max: 9,  nivel: "Depresión leve",          accion: "Monitorizar y reevaluar en 2 semanas",            color: "#84cc16" },
-      { min: 10, max: 14, nivel: "Depresión moderada",      accion: "Plan de tratamiento, TCC o farmacología",        color: "#f59e0b" },
-      { min: 15, max: 19, nivel: "Depresión moderada-grave",accion: "Tratamiento activo inmediato",                   color: "#f97316" },
-      { min: 20, max: 27, nivel: "Depresión grave",         accion: "Tratamiento inmediato, valorar hospitalización", color: "#dc2626" },
-    ],
-  },
-  {
-    nombre: "GAD-7",
-    nombreCompleto: "Generalized Anxiety Disorder-7",
-    area: "Ansiedad",
-    minScore: 0,
-    maxScore: 21,
-    color: "#d97706",
-    descripcion: "7 ítems · 1-2 min · Screening ansiedad generalizada",
-    cortes: [
-      { min: 0,  max: 4,  nivel: "Sin ansiedad",     accion: "Sin tratamiento indicado",                      color: "#16a34a" },
-      { min: 5,  max: 9,  nivel: "Ansiedad leve",    accion: "Psicoeducación y estrategias de afrontamiento", color: "#84cc16" },
-      { min: 10, max: 14, nivel: "Ansiedad moderada",accion: "Valorar TCC, técnicas de relajación",           color: "#f59e0b" },
-      { min: 15, max: 21, nivel: "Ansiedad grave",   accion: "Tratamiento activo: TCC y/o farmacología",      color: "#dc2626" },
-    ],
-  },
-  {
-    nombre: "BAI",
-    nombreCompleto: "Beck Anxiety Inventory",
-    area: "Ansiedad",
-    minScore: 0,
-    maxScore: 63,
-    color: "#f59e0b",
-    descripcion: "21 ítems · 5-10 min · Síntomas somáticos y cognitivos",
-    cortes: [
-      { min: 0,  max: 7,  nivel: "Ansiedad mínima",  accion: "Sin intervención clínica",                   color: "#16a34a" },
-      { min: 8,  max: 15, nivel: "Ansiedad leve",    accion: "Psicoeducación",                             color: "#84cc16" },
-      { min: 16, max: 25, nivel: "Ansiedad moderada",accion: "Tratamiento psicológico",                    color: "#f59e0b" },
-      { min: 26, max: 63, nivel: "Ansiedad grave",   accion: "Tratamiento intensivo, valorar medicación",  color: "#dc2626" },
-    ],
-  },
-  {
-    nombre: "BDI-II",
-    nombreCompleto: "Beck Depression Inventory-II",
-    area: "Depresión",
-    minScore: 0,
-    maxScore: 63,
-    color: "#7c3aed",
-    descripcion: "21 ítems · 5-10 min · Gold standard en depresión",
-    cortes: [
-      { min: 0,  max: 13, nivel: "Sin depresión",     accion: "Sin tratamiento",                           color: "#16a34a" },
-      { min: 14, max: 19, nivel: "Depresión leve",    accion: "Seguimiento, intervención preventiva",      color: "#84cc16" },
-      { min: 20, max: 28, nivel: "Depresión moderada",accion: "TCC, activación conductual",                color: "#f59e0b" },
-      { min: 29, max: 63, nivel: "Depresión grave",   accion: "Tratamiento intensivo, plan de seguridad",  color: "#dc2626" },
-    ],
-  },
-  {
-    nombre: "PCL-5",
-    nombreCompleto: "PTSD Checklist for DSM-5",
-    area: "Trauma / TEPT",
-    minScore: 0,
-    maxScore: 80,
-    color: "#dc2626",
-    descripcion: "20 ítems · 5-10 min · Punto de corte: 33",
-    cortes: [
-      { min: 0,  max: 32, nivel: "Sin TEPT probable", accion: "Seguimiento si hay historia de trauma",                            color: "#16a34a" },
-      { min: 33, max: 80, nivel: "TEPT probable",     accion: "Evaluación diagnóstica completa, EMDR o TCC focalizada en trauma", color: "#dc2626" },
-    ],
-  },
-  {
-    nombre: "SPIN",
-    nombreCompleto: "Social Phobia Inventory",
-    area: "Fobia Social",
-    minScore: 0,
-    maxScore: 68,
-    color: "#0891b2",
-    descripcion: "17 ítems · 3-5 min · Miedo, evitación y síntomas fisiológicos",
-    cortes: [
-      { min: 0,  max: 18, nivel: "Sin fobia social",     accion: "Sin tratamiento específico",                     color: "#16a34a" },
-      { min: 19, max: 29, nivel: "Fobia social leve",    accion: "Entrenamiento en habilidades sociales",          color: "#84cc16" },
-      { min: 30, max: 39, nivel: "Fobia social moderada",accion: "TCC para fobia social (protocolo Clark)",        color: "#f59e0b" },
-      { min: 40, max: 68, nivel: "Fobia social grave",   accion: "TCC intensiva, valorar grupo terapéutico",       color: "#dc2626" },
-    ],
-  },
-  {
-    nombre: "OCI-R",
-    nombreCompleto: "Obsessive-Compulsive Inventory-Revised",
-    area: "TOC",
-    minScore: 0,
-    maxScore: 72,
-    color: "#16a34a",
-    descripcion: "18 ítems · 3-5 min · Punto de corte: 21",
-    cortes: [
-      { min: 0,  max: 20, nivel: "Sin TOC clínico", accion: "Sin tratamiento específico",                  color: "#16a34a" },
-      { min: 21, max: 72, nivel: "TOC probable",    accion: "Evaluación diagnóstica, protocolo EPR (TCC)", color: "#dc2626" },
-    ],
-  },
-  {
-    nombre: "ISI",
-    nombreCompleto: "Insomnia Severity Index",
-    area: "Insomnio",
-    minScore: 0,
-    maxScore: 28,
-    color: "#0f766e",
-    descripcion: "7 ítems · 2 min · Naturaleza, gravedad e impacto del insomnio",
-    cortes: [
-      { min: 0,  max: 7,  nivel: "Sin insomnio clínico", accion: "Higiene del sueño",                           color: "#16a34a" },
-      { min: 8,  max: 14, nivel: "Insomnio subclínico",  accion: "Restricción del sueño, control de estímulos", color: "#84cc16" },
-      { min: 15, max: 21, nivel: "Insomnio moderado",    accion: "TCC-I completa (protocolo)",                  color: "#f59e0b" },
-      { min: 22, max: 28, nivel: "Insomnio grave",       accion: "TCC-I intensiva, valorar farmacología",       color: "#dc2626" },
-    ],
-  },
+// ─── Instrument Definitions ──────────────────────────────────────────────────
+
+const PHQ9_QUESTIONS = [
+  "Poco interés o placer en hacer cosas",
+  "Sentirse desanimado/a, deprimido/a o sin esperanza",
+  "Dificultad para quedarse o permanecer dormido/a, o dormir demasiado",
+  "Sentirse cansado/a o con poca energía",
+  "Falta de apetito o comer en exceso",
+  "Sentirse mal consigo mismo/a, sentir que es un/a fracasado/a o que ha fallado a sí mismo/a o a su familia",
+  "Dificultad para concentrarse en las cosas, como leer el periódico o ver la televisión",
+  "Moverse o hablar tan despacio que la gente lo/la nota, o lo contrario — estar tan inquieto/a o intranquilo/a que se mueve mucho más de lo normal",
+  "Pensamientos de que estaría mejor muerto/a, o de hacerse daño de alguna manera",
 ];
 
-function getCorte(inst: Instrumento, score: number) {
-  return inst.cortes.find((c) => score >= c.min && score <= c.max) ?? null;
+const PHQ9_OPTIONS = [
+  { label: "Nunca", value: 0 },
+  { label: "Varios días", value: 1 },
+  { label: "Más de la mitad", value: 2 },
+  { label: "Casi todos los días", value: 3 },
+];
+
+function getPHQ9Severity(score: number): { label: string; color: string; bg: string } {
+  if (score <= 4) return { label: "Mínimo", color: "text-emerald-700", bg: "bg-emerald-100" };
+  if (score <= 9) return { label: "Leve", color: "text-yellow-700", bg: "bg-yellow-100" };
+  if (score <= 14) return { label: "Moderado", color: "text-orange-700", bg: "bg-orange-100" };
+  if (score <= 19) return { label: "Moderado-grave", color: "text-red-600", bg: "bg-red-100" };
+  return { label: "Grave", color: "text-red-800", bg: "bg-red-200" };
 }
 
-function ScoreBar({ inst, score }: { inst: Instrumento; score: number }) {
-  const pct = ((score - inst.minScore) / (inst.maxScore - inst.minScore)) * 100;
-  const corte = getCorte(inst, score);
+const GAD7_QUESTIONS = [
+  "Sentirse nervioso/a, ansioso/a o muy alterado/a",
+  "No poder dejar de preocuparse o no poder controlar la preocupación",
+  "Preocuparse demasiado por diferentes cosas",
+  "Dificultad para relajarse",
+  "Estar tan intranquilo/a que es difícil permanecer sentado/a",
+  "Irritarse o ponerse de mal genio con facilidad",
+  "Sentir miedo como si fuera a ocurrir algo terrible",
+];
+
+const GAD7_OPTIONS = [
+  { label: "Nunca", value: 0 },
+  { label: "Varios días", value: 1 },
+  { label: "Más de la mitad", value: 2 },
+  { label: "Casi todos los días", value: 3 },
+];
+
+function getGAD7Severity(score: number): { label: string; color: string; bg: string } {
+  if (score <= 4) return { label: "Mínimo", color: "text-emerald-700", bg: "bg-emerald-100" };
+  if (score <= 9) return { label: "Leve", color: "text-yellow-700", bg: "bg-yellow-100" };
+  if (score <= 14) return { label: "Moderado", color: "text-orange-700", bg: "bg-orange-100" };
+  return { label: "Grave", color: "text-red-700", bg: "bg-red-100" };
+}
+
+const PCL5_QUESTIONS = [
+  "Recuerdos perturbadores, angustiantes o no deseados del evento estresante",
+  "Sueños perturbadores del evento estresante",
+  "De repente sentir o actuar como si el evento estresante estuviera ocurriendo de nuevo (como si lo estuviera reviviendo)",
+  "Sentirse muy perturbado/a cuando algo le recuerda al evento estresante",
+  "Tener reacciones físicas fuertes cuando algo le recuerda al evento estresante (por ejemplo, aceleración del corazón, dificultad para respirar, sudoración)",
+  "Evitar memorias, pensamientos o sentimientos relacionados con el evento estresante",
+  "Evitar recordatorios externos del evento estresante (personas, lugares, conversaciones, actividades, objetos o situaciones)",
+  "Problemas para recordar partes importantes del evento estresante",
+  "Tener creencias negativas fuertes sobre usted mismo/a, otras personas o el mundo",
+  "Culparse a usted mismo/a o a otros por el evento estresante o lo que ocurrió después",
+  "Tener sentimientos negativos fuertes como miedo, horror, ira, culpa o vergüenza",
+  "Pérdida de interés en actividades que antes disfrutaba",
+  "Sentirse distante o alejado/a de otras personas",
+  "Dificultad para experimentar sentimientos positivos",
+  "Comportamiento irritable, arrebatos de ira o actuar agresivamente",
+  "Asumir riesgos o hacer cosas que pudieran causarle daño",
+  "Estar en estado de alerta, vigilante o en guardia",
+  "Sentirse nervioso/a o fácilmente sobresaltado/a",
+  "Dificultad para concentrarse",
+  "Dificultad para quedarse dormido/a o permanecer dormido/a",
+];
+
+const PCL5_OPTIONS = [
+  { label: "Nada", value: 0 },
+  { label: "Un poco", value: 1 },
+  { label: "Moderado", value: 2 },
+  { label: "Bastante", value: 3 },
+  { label: "Extremamente", value: 4 },
+];
+
+function getPCL5Severity(score: number): { label: string; color: string; bg: string } {
+  if (score < 33) return { label: "Por debajo del punto de corte", color: "text-emerald-700", bg: "bg-emerald-100" };
+  return { label: "PTSD probable (≥33)", color: "text-red-700", bg: "bg-red-100" };
+}
+
+// ─── History Chart ───────────────────────────────────────────────────────────
+
+function HistoryChart({
+  history,
+  maxScore,
+  accentClass,
+}: {
+  history: HistoryEntry[];
+  maxScore: number;
+  accentClass: string;
+}) {
+  if (history.length === 0) return null;
+
+  const last5 = history.slice(-5);
+
   return (
-    <div className="mt-4">
-      <div className="relative h-3 bg-slate-100 rounded-full overflow-hidden">
-        {/* colored segments */}
-        {inst.cortes.map((c) => {
-          const left = ((c.min - inst.minScore) / (inst.maxScore - inst.minScore)) * 100;
-          const width = ((c.max - c.min + 1) / (inst.maxScore - inst.minScore + 1)) * 100;
+    <div className="mt-4 pt-4 border-t border-slate-100">
+      <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+        Historial de sesiones (últimas {last5.length})
+      </p>
+      <div className="flex items-end gap-3 h-20">
+        {last5.map((entry, i) => {
+          const pct = Math.max(4, Math.round((entry.score / maxScore) * 100));
           return (
-            <div
-              key={c.nivel}
-              className="absolute top-0 h-full opacity-20"
-              style={{ left: `${left}%`, width: `${width}%`, background: c.color }}
-            />
+            <div key={i} className="flex flex-col items-center gap-1 flex-1">
+              <span className="text-xs font-bold text-slate-700">{entry.score}</span>
+              <div className="w-full rounded-t-md relative" style={{ height: "48px" }}>
+                <div
+                  className={`absolute bottom-0 w-full rounded-t-md ${accentClass} opacity-80 transition-all`}
+                  style={{ height: `${pct}%` }}
+                />
+              </div>
+              <span
+                className="text-[10px] text-slate-400 text-center leading-tight"
+                style={{ fontSize: "10px" }}
+              >
+                {new Date(entry.date + "T00:00:00").toLocaleDateString("es-ES", {
+                  day: "2-digit",
+                  month: "2-digit",
+                })}
+              </span>
+            </div>
           );
         })}
-        {/* cursor */}
-        <div
-          className="absolute top-0 h-full w-1 rounded-full transition-all duration-300"
-          style={{ left: `calc(${pct}% - 2px)`, background: corte?.color ?? "#94a3b8" }}
-        />
       </div>
-      <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-        <span>{inst.minScore}</span>
-        <span>{inst.maxScore}</span>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {last5.map((entry, i) => (
+          <span
+            key={i}
+            className="inline-flex items-center gap-1 text-xs bg-slate-50 border border-slate-200 rounded-full px-2 py-0.5"
+          >
+            <span className="text-slate-400">
+              {new Date(entry.date + "T00:00:00").toLocaleDateString("es-ES", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "2-digit",
+              })}
+            </span>
+            <span className="font-semibold text-slate-700">{entry.score}</span>
+            <span className="text-slate-400">— {entry.severity}</span>
+          </span>
+        ))}
       </div>
     </div>
   );
 }
 
-export default function InstrumentosPage() {
-  const [selected, setSelected] = useState<string>(instrumentos[0].nombre);
-  const [score, setScore] = useState<string>("");
-  const [history, setHistory] = useState<{ nombre: string; score: number; nivel: string; color: string; date: string }[]>([]);
+// ─── Question Row ─────────────────────────────────────────────────────────────
 
-  const inst = instrumentos.find((i) => i.nombre === selected)!;
-  const numScore = score === "" ? null : parseInt(score, 10);
-  const corte = numScore !== null && !isNaN(numScore) ? getCorte(inst, numScore) : null;
-  const isValid = numScore !== null && !isNaN(numScore) && numScore >= inst.minScore && numScore <= inst.maxScore;
+function QuestionRow({
+  index,
+  text,
+  options,
+  value,
+  onChange,
+  accentSelectedClass,
+}: {
+  index: number;
+  text: string;
+  options: { label: string; value: number }[];
+  value: number | null;
+  onChange: (v: number) => void;
+  accentSelectedClass: string;
+}) {
+  return (
+    <div className="py-4 border-b border-slate-100 last:border-0">
+      <p className="text-sm font-medium text-slate-700 mb-2.5 leading-snug">
+        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-slate-100 text-slate-500 text-xs font-bold mr-2 shrink-0">
+          {index + 1}
+        </span>
+        {text}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {options.map((opt) => {
+          const selected = value === opt.value;
+          return (
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() => onChange(opt.value)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-1 ${
+                selected
+                  ? `${accentSelectedClass} border-transparent shadow-sm`
+                  : "bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50"
+              }`}
+            >
+              {opt.value} – {opt.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
-  const handleAdd = () => {
-    if (!isValid || !corte) return;
-    setHistory((prev) => [
-      { nombre: inst.nombre, score: numScore!, nivel: corte.nivel, color: corte.color, date: new Date().toLocaleDateString("es-ES") },
-      ...prev,
-    ]);
-    setScore("");
-  };
+// ─── Instrument Panel ─────────────────────────────────────────────────────────
+
+function InstrumentPanel({
+  id,
+  title,
+  subtitle,
+  badge,
+  questions,
+  options,
+  maxScore,
+  getSeverity,
+  storageKey,
+  accentSelectedClass,
+  accentBarClass,
+  accentBorderClass,
+  accentHeaderClass,
+  cutoffNote,
+}: {
+  id: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  questions: string[];
+  options: { label: string; value: number }[];
+  maxScore: number;
+  getSeverity: (score: number) => { label: string; color: string; bg: string };
+  storageKey: string;
+  accentSelectedClass: string;
+  accentBarClass: string;
+  accentBorderClass: string;
+  accentHeaderClass: string;
+  cutoffNote?: string;
+}) {
+  const today = new Date().toISOString().split("T")[0];
+  const [expanded, setExpanded] = useState(false);
+  const [answers, setAnswers] = useState<(number | null)[]>(Array(questions.length).fill(null));
+  const [evalDate, setEvalDate] = useState(today);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) setHistory(JSON.parse(raw));
+    } catch {
+      /* ignore */
+    }
+  }, [storageKey]);
+
+  const answeredCount = answers.filter((a) => a !== null).length;
+  const score = answers.reduce<number>((sum, a) => sum + (a ?? 0), 0);
+  const allAnswered = answeredCount === questions.length;
+  const severity = getSeverity(score);
+
+  function handleAnswer(i: number, v: number) {
+    setSaved(false);
+    setAnswers((prev) => {
+      const next = [...prev];
+      next[i] = v;
+      return next;
+    });
+  }
+
+  function handleSave() {
+    if (!allAnswered) return;
+    const entry: HistoryEntry = {
+      date: evalDate,
+      score,
+      severity: severity.label,
+    };
+    const next = [...history, entry];
+    setHistory(next);
+    localStorage.setItem(storageKey, JSON.stringify(next));
+    setSaved(true);
+  }
+
+  function handleReset() {
+    setAnswers(Array(questions.length).fill(null));
+    setSaved(false);
+    setEvalDate(today);
+  }
+
+  const progressPct = Math.round((answeredCount / questions.length) * 100);
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-10">
-      <PageHeader
-        title="Calculadora de Instrumentos"
-        description="Introduce la puntuación total del instrumento y obtén la interpretación clínica con la recomendación de acción."
-        badge="8 instrumentos"
-        badgeColor="bg-indigo-600"
-      />
-
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        {/* Instrument selector */}
-        <div className="lg:col-span-2 space-y-2">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Instrumento</p>
-          {instrumentos.map((i) => (
-            <button
-              key={i.nombre}
-              onClick={() => { setSelected(i.nombre); setScore(""); }}
-              className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-150 ${
-                selected === i.nombre
-                  ? "border-transparent text-white shadow-sm"
-                  : "bg-white border-slate-100 hover:border-slate-200 text-slate-700"
-              }`}
-              style={selected === i.nombre ? { background: i.color } : {}}
-            >
-              <div className="font-bold text-sm">{i.nombre}</div>
-              <div className={`text-[11px] mt-0.5 ${selected === i.nombre ? "text-white/80" : "text-slate-400"}`}>{i.nombreCompleto}</div>
-            </button>
-          ))}
+    <div
+      className={`bg-white rounded-2xl border shadow-sm overflow-hidden transition-all duration-200 ${accentBorderClass}`}
+    >
+      {/* Header */}
+      <button
+        type="button"
+        onClick={() => setExpanded((e) => !e)}
+        className={`w-full flex items-center justify-between px-6 py-5 text-left transition-colors ${accentHeaderClass}`}
+      >
+        <div className="flex items-center gap-4">
+          <span
+            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold text-white ${accentSelectedClass.split(" ")[0]}`}
+          >
+            {badge}
+          </span>
+          <div>
+            <h2 className="text-base font-bold text-[#1e3a5f]">{title}</h2>
+            <p className="text-xs text-slate-500 mt-0.5">{subtitle}</p>
+          </div>
         </div>
+        <div className="flex items-center gap-3 shrink-0">
+          {answeredCount > 0 && !expanded && (
+            <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+              <span
+                className={`inline-block w-2 h-2 rounded-full ${allAnswered ? "bg-emerald-500" : "bg-amber-400"}`}
+              />
+              {answeredCount}/{questions.length} respondidas
+            </span>
+          )}
+          <svg
+            className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </button>
 
-        {/* Calculator panel */}
-        <div className="lg:col-span-3 space-y-4">
-          {/* Info */}
-          <div className="bg-white rounded-2xl border border-slate-100 p-5">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-sm" style={{ background: inst.color }}>
-                {inst.nombre}
+      {/* Body */}
+      {expanded && (
+        <div className="px-6 pb-6">
+          {/* Progress + date row */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5 pt-2">
+            <div className="flex-1">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-xs font-medium text-slate-500">
+                  Progreso: {answeredCount}/{questions.length} preguntas
+                </span>
+                <span className="text-xs font-bold text-slate-700">{progressPct}%</span>
               </div>
-              <div>
-                <p className="font-bold text-[#1e3a5f] text-sm">{inst.nombreCompleto}</p>
-                <p className="text-xs text-slate-400">{inst.descripcion}</p>
-              </div>
-            </div>
-
-            {/* Score input */}
-            <div className="mt-4">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
-                Puntuación total ({inst.minScore}–{inst.maxScore})
-              </label>
-              <div className="flex gap-3">
-                <input
-                  type="number"
-                  min={inst.minScore}
-                  max={inst.maxScore}
-                  value={score}
-                  onChange={(e) => setScore(e.target.value)}
-                  placeholder={`0–${inst.maxScore}`}
-                  className="flex-1 border border-slate-200 rounded-xl px-4 py-3 text-2xl font-bold text-[#1e3a5f] focus:outline-none focus:ring-2 text-center"
-                  style={{ focusRingColor: inst.color } as React.CSSProperties}
+              <div className="w-full bg-slate-100 rounded-full h-1.5">
+                <div
+                  className={`h-1.5 rounded-full transition-all duration-300 ${accentBarClass}`}
+                  style={{ width: `${progressPct}%` }}
                 />
               </div>
-              {score !== "" && !isValid && (
-                <p className="text-xs text-red-500 mt-1">Puntuación fuera de rango ({inst.minScore}–{inst.maxScore})</p>
-              )}
             </div>
-
-            {/* Bar */}
-            {isValid && <ScoreBar inst={inst} score={numScore!} />}
+            <div className="flex items-center gap-2 shrink-0">
+              <label className="text-xs font-medium text-slate-500 whitespace-nowrap">
+                Fecha de evaluación
+              </label>
+              <input
+                type="date"
+                value={evalDate}
+                onChange={(e) => setEvalDate(e.target.value)}
+                className="text-xs border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+              />
+            </div>
           </div>
 
-          {/* Result */}
-          {isValid && corte && (
-            <div className="rounded-2xl p-5 border" style={{ background: `${corte.color}12`, borderColor: `${corte.color}30` }}>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0" style={{ background: corte.color }}>
-                  {numScore}
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-lg" style={{ color: corte.color }}>{corte.nivel}</p>
-                  <p className="text-sm text-slate-600 mt-1 leading-relaxed">{corte.accion}</p>
-                  <button
-                    onClick={handleAdd}
-                    className="mt-3 text-xs font-semibold px-3 py-1.5 rounded-lg text-white transition-opacity hover:opacity-90"
-                    style={{ background: corte.color }}
-                  >
-                    Guardar en historial
-                  </button>
-                </div>
+          {/* Score badge */}
+          {answeredCount > 0 && (
+            <div className="flex items-center gap-3 mb-5 p-3 rounded-xl bg-slate-50 border border-slate-100">
+              <div className="text-center px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-sm">
+                <p className="text-2xl font-extrabold text-[#1e3a5f] leading-none">{score}</p>
+                <p className="text-xs text-slate-400 mt-0.5">/ {maxScore}</p>
+              </div>
+              <div>
+                <span
+                  className={`inline-block px-3 py-1 rounded-full text-sm font-bold ${severity.bg} ${severity.color}`}
+                >
+                  {severity.label}
+                </span>
+                {cutoffNote && score >= 33 && (
+                  <p className="text-xs text-red-600 mt-1 font-medium">{cutoffNote}</p>
+                )}
               </div>
             </div>
           )}
 
-          {/* Scoring guide */}
-          <div className="bg-white rounded-2xl border border-slate-100 p-5">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Guía de puntuación</p>
-            <div className="space-y-2">
-              {inst.cortes.map((c) => (
-                <div
-                  key={c.nivel}
-                  className={`flex items-start gap-3 p-2 rounded-lg transition-colors ${
-                    isValid && corte?.nivel === c.nivel ? "bg-slate-50" : ""
-                  }`}
-                >
-                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-md text-white flex-shrink-0 mt-0.5" style={{ background: c.color }}>
-                    {c.min}–{c.max}
-                  </span>
-                  <div>
-                    <span className="text-sm font-semibold text-slate-700">{c.nivel}</span>
-                    <span className="text-sm text-slate-500"> — {c.accion}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* History */}
-      {history.length > 0 && (
-        <div className="mt-8">
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-sm font-bold text-[#1e3a5f]">Historial de sesión</p>
-            <button onClick={() => setHistory([])} className="text-xs text-slate-400 hover:text-slate-600 transition-colors">
-              Limpiar
-            </button>
-          </div>
-          <div className="bg-white rounded-2xl border border-slate-100 divide-y divide-slate-50">
-            {history.map((h, i) => (
-              <div key={i} className="flex items-center gap-4 px-5 py-3">
-                <span className="text-xs font-bold px-2 py-0.5 rounded-md text-white" style={{ background: h.color }}>{h.nombre}</span>
-                <span className="text-2xl font-bold text-[#1e3a5f]">{h.score}</span>
-                <span className="text-sm text-slate-600 flex-1">{h.nivel}</span>
-                <span className="text-xs text-slate-400">{h.date}</span>
-              </div>
+          {/* Questions */}
+          <div className="divide-y divide-slate-50">
+            {questions.map((q, i) => (
+              <QuestionRow
+                key={i}
+                index={i}
+                text={q}
+                options={options}
+                value={answers[i]}
+                onChange={(v) => handleAnswer(i, v)}
+                accentSelectedClass={accentSelectedClass}
+              />
             ))}
           </div>
+
+          {/* Actions */}
+          <div className="mt-5 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <button
+              type="button"
+              onClick={handleSave}
+              disabled={!allAnswered}
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                allAnswered
+                  ? `${accentSelectedClass.split(" ")[0]} hover:opacity-90 shadow-sm`
+                  : "bg-slate-200 text-slate-400 cursor-not-allowed"
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
+                />
+              </svg>
+              Guardar resultado
+            </button>
+            <button
+              type="button"
+              onClick={handleReset}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+              Reiniciar
+            </button>
+            {saved && (
+              <span className="inline-flex items-center gap-1.5 text-sm text-emerald-600 font-medium">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Guardado correctamente
+              </span>
+            )}
+            {!allAnswered && answeredCount > 0 && (
+              <span className="text-xs text-amber-600">
+                Faltan {questions.length - answeredCount} preguntas por responder
+              </span>
+            )}
+          </div>
+
+          {/* History */}
+          <HistoryChart history={history} maxScore={maxScore} accentClass={accentBarClass} />
         </div>
       )}
+    </div>
+  );
+}
 
-      {/* Note */}
-      <div className="mt-6 bg-indigo-50 border border-indigo-100 rounded-2xl p-4">
-        <p className="text-xs text-indigo-700 leading-relaxed">
-          Los instrumentos de screening no sustituyen la evaluación clínica. Los puntos de corte son orientativos y deben interpretarse en el contexto clínico completo del paciente.
-        </p>
+// ─── Page ────────────────────────────────────────────────────────────────────
+
+const INSTRUMENTS: InstrumentKey[] = ["phq9", "gad7", "pcl5"];
+
+const INSTRUMENT_LABELS: Record<InstrumentKey, string> = {
+  phq9: "PHQ-9 · Depresión",
+  gad7: "GAD-7 · Ansiedad",
+  pcl5: "PCL-5 · PTSD",
+};
+
+export default function InstrumentosPage() {
+  const [mounted, setMounted] = useState(false);
+  const [activeTab, setActiveTab] = useState<InstrumentKey | "all">("all");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const showAll = activeTab === "all";
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 print:py-4">
+      <PageHeader
+        title="Calculadora de Instrumentos"
+        description="Puntúa y registra la evolución del paciente sesión a sesión"
+        badge="CBT Atlas"
+        badgeColor="bg-[#0f2744]"
+      />
+
+      {/* Tabs */}
+      <div className="flex flex-wrap gap-2 mb-6 print:hidden">
+        {(["all", ...INSTRUMENTS] as const).map((key) => (
+          <button
+            key={key}
+            type="button"
+            onClick={() => setActiveTab(key)}
+            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-150 border focus:outline-none ${
+              activeTab === key
+                ? "bg-[#0f2744] text-white border-[#0f2744] shadow-sm"
+                : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+            }`}
+          >
+            {key === "all" ? "Todos los instrumentos" : INSTRUMENT_LABELS[key]}
+          </button>
+        ))}
       </div>
+
+      {/* Instruments */}
+      <div className="flex flex-col gap-5">
+        {/* PHQ-9 */}
+        {(showAll || activeTab === "phq9") && (
+          <InstrumentPanel
+            id="phq9"
+            title="PHQ-9 — Cuestionario de Salud del Paciente"
+            subtitle="Escala de cribado y severidad de la depresión · 9 ítems · 0–27 puntos"
+            badge="PHQ-9"
+            questions={PHQ9_QUESTIONS}
+            options={PHQ9_OPTIONS}
+            maxScore={27}
+            getSeverity={getPHQ9Severity}
+            storageKey="phq9-history"
+            accentSelectedClass="bg-indigo-600 text-white"
+            accentBarClass="bg-indigo-500"
+            accentBorderClass="border-indigo-100 hover:border-indigo-200"
+            accentHeaderClass="hover:bg-indigo-50"
+          />
+        )}
+
+        {/* GAD-7 */}
+        {(showAll || activeTab === "gad7") && (
+          <InstrumentPanel
+            id="gad7"
+            title="GAD-7 — Trastorno de Ansiedad Generalizada"
+            subtitle="Escala de cribado y severidad de la ansiedad · 7 ítems · 0–21 puntos"
+            badge="GAD-7"
+            questions={GAD7_QUESTIONS}
+            options={GAD7_OPTIONS}
+            maxScore={21}
+            getSeverity={getGAD7Severity}
+            storageKey="gad7-history"
+            accentSelectedClass="bg-blue-600 text-white"
+            accentBarClass="bg-blue-500"
+            accentBorderClass="border-blue-100 hover:border-blue-200"
+            accentHeaderClass="hover:bg-blue-50"
+          />
+        )}
+
+        {/* PCL-5 */}
+        {(showAll || activeTab === "pcl5") && (
+          <InstrumentPanel
+            id="pcl5"
+            title="PCL-5 — Lista de Verificación del TEPT (DSM-5)"
+            subtitle="Escala de síntomas del trastorno de estrés postraumático · 20 ítems · 0–80 puntos"
+            badge="PCL-5"
+            questions={PCL5_QUESTIONS}
+            options={PCL5_OPTIONS}
+            maxScore={80}
+            getSeverity={getPCL5Severity}
+            storageKey="pcl5-history"
+            accentSelectedClass="bg-rose-600 text-white"
+            accentBarClass="bg-rose-500"
+            accentBorderClass="border-rose-100 hover:border-rose-200"
+            accentHeaderClass="hover:bg-rose-50"
+            cutoffNote="Punto de corte alcanzado — PTSD probable"
+          />
+        )}
+      </div>
+
+      {/* Legend / scale guide */}
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 print:mt-4">
+        <div className="bg-white rounded-2xl border border-indigo-100 p-4">
+          <p className="text-xs font-bold text-indigo-700 uppercase tracking-wider mb-2">PHQ-9 Severidad</p>
+          <div className="space-y-1 text-xs text-slate-600">
+            <div className="flex justify-between"><span>0–4</span><span className="font-medium text-emerald-600">Mínimo</span></div>
+            <div className="flex justify-between"><span>5–9</span><span className="font-medium text-yellow-600">Leve</span></div>
+            <div className="flex justify-between"><span>10–14</span><span className="font-medium text-orange-600">Moderado</span></div>
+            <div className="flex justify-between"><span>15–19</span><span className="font-medium text-red-600">Moderado-grave</span></div>
+            <div className="flex justify-between"><span>20–27</span><span className="font-bold text-red-800">Grave</span></div>
+          </div>
+        </div>
+        <div className="bg-white rounded-2xl border border-blue-100 p-4">
+          <p className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">GAD-7 Severidad</p>
+          <div className="space-y-1 text-xs text-slate-600">
+            <div className="flex justify-between"><span>0–4</span><span className="font-medium text-emerald-600">Mínimo</span></div>
+            <div className="flex justify-between"><span>5–9</span><span className="font-medium text-yellow-600">Leve</span></div>
+            <div className="flex justify-between"><span>10–14</span><span className="font-medium text-orange-600">Moderado</span></div>
+            <div className="flex justify-between"><span>15–21</span><span className="font-bold text-red-700">Grave</span></div>
+          </div>
+        </div>
+        <div className="bg-white rounded-2xl border border-rose-100 p-4">
+          <p className="text-xs font-bold text-rose-700 uppercase tracking-wider mb-2">PCL-5 Interpretación</p>
+          <div className="space-y-1 text-xs text-slate-600">
+            <div className="flex justify-between"><span>0–32</span><span className="font-medium text-emerald-600">Sin PTSD probable</span></div>
+            <div className="flex justify-between"><span>≥ 33</span><span className="font-bold text-red-700">PTSD probable</span></div>
+          </div>
+          <p className="text-[10px] text-slate-400 mt-2 leading-tight">
+            Punto de corte provisional. Confirmar con evaluación clínica estructurada.
+          </p>
+        </div>
+      </div>
+
+      {/* Print note */}
+      <p className="mt-6 text-xs text-slate-400 text-center print:hidden">
+        Los datos se guardan únicamente en este dispositivo (localStorage). Para registros clínicos formales, exporta o imprime el resultado.
+      </p>
+
+      {/* Print styles */}
+      <style>{`
+        @media print {
+          body { background: white !important; }
+          button { display: none !important; }
+          input[type="date"] { border: none; }
+        }
+      `}</style>
     </div>
   );
 }

@@ -2,120 +2,68 @@ import Link from "next/link";
 import { casos } from "@/app/data/casos";
 import PageHeader from "@/components/PageHeader";
 
-const diagnosisColors: Record<string, { bg: string; text: string; border: string }> = {
-  "ansiedad-generalizada":  { bg: "bg-amber-50",   text: "text-amber-700",   border: "border-l-amber-400" },
-  "depresion-mayor":        { bg: "bg-blue-50",    text: "text-blue-700",    border: "border-l-blue-400" },
-  "toc":                    { bg: "bg-red-50",     text: "text-red-700",     border: "border-l-red-400" },
-  "fobia-social":           { bg: "bg-violet-50",  text: "text-violet-700",  border: "border-l-violet-400" },
-  "panico":                 { bg: "bg-orange-50",  text: "text-orange-700",  border: "border-l-orange-400" },
-  "insomnio":               { bg: "bg-teal-50",    text: "text-teal-700",    border: "border-l-teal-400" },
-  "ira":                    { bg: "bg-rose-50",    text: "text-rose-700",    border: "border-l-rose-400" },
-  "tept":                   { bg: "bg-slate-100",  text: "text-slate-700",   border: "border-l-slate-400" },
-  "ansiedad-salud":         { bg: "bg-yellow-50",  text: "text-yellow-700",  border: "border-l-yellow-400" },
-  "depresion-adulto-mayor": { bg: "bg-indigo-50",  text: "text-indigo-700",  border: "border-l-indigo-400" },
-  "depresion-adolescente":  { bg: "bg-sky-50",     text: "text-sky-700",     border: "border-l-sky-400" },
-  "bulimia-nerviosa":       { bg: "bg-pink-50",    text: "text-pink-700",    border: "border-l-pink-400" },
-  "dependencia-alcohol":    { bg: "bg-amber-50",   text: "text-amber-800",   border: "border-l-amber-600" },
-  "tlp-borderline":         { bg: "bg-fuchsia-50", text: "text-fuchsia-700", border: "border-l-fuchsia-400" },
-  "dolor-cronico":          { bg: "bg-stone-100",  text: "text-stone-700",   border: "border-l-stone-400" },
-  "duelo-complicado":       { bg: "bg-blue-50",    text: "text-blue-800",    border: "border-l-blue-600" },
-  "fobia-especifica-vuelo": { bg: "bg-cyan-50",    text: "text-cyan-700",    border: "border-l-cyan-400" },
-  "tept-abuso":             { bg: "bg-red-50",     text: "text-red-800",     border: "border-l-red-600" },
-  "depresion-jubilacion":   { bg: "bg-blue-50",    text: "text-blue-900",    border: "border-l-blue-700" },
-  "panico-agorafobia":      { bg: "bg-orange-50",  text: "text-orange-800",  border: "border-l-orange-600" },
+const diagnosticoColor: Record<string, string> = {
+  "Trastorno de Ansiedad Generalizada": "bg-blue-100 text-blue-700",
+  "Depresión Mayor": "bg-indigo-100 text-indigo-700",
+  "Trastorno Obsesivo-Compulsivo": "bg-purple-100 text-purple-700",
+  "Fobia Social": "bg-pink-100 text-pink-700",
+  "Trastorno de Pánico": "bg-red-100 text-red-700",
+  "Insomnio Crónico": "bg-amber-100 text-amber-700",
+  "Manejo de la Ira": "bg-orange-100 text-orange-700",
+  "Duelo Complicado": "bg-slate-100 text-slate-700",
+  "PTSD": "bg-rose-100 text-rose-700",
+  "Baja Autoestima": "bg-emerald-100 text-emerald-700",
 };
 
-const defaultColor = { bg: "bg-slate-50", text: "text-slate-700", border: "border-l-slate-400" };
+function getColor(diagnostico: string) {
+  for (const key of Object.keys(diagnosticoColor)) {
+    if (diagnostico.includes(key)) return diagnosticoColor[key];
+  }
+  return "bg-gray-100 text-gray-700";
+}
 
 export default function CasosPage() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-10">
+    <div className="max-w-4xl mx-auto px-6 py-10">
       <PageHeader
-        title="Casos Clínicos"
-        description="20 casos resueltos con análisis sesión a sesión. Reflexión interactiva antes de ver la solución del terapeuta."
-        badge={`${casos.length} Casos`}
-        badgeColor="bg-red-600"
+        title="Casos Clínicos Resueltos"
+        description="Análisis sesión a sesión de casos reales de TCC. Estudia el razonamiento clínico, las técnicas aplicadas y los resultados obtenidos."
+        badge="📋 Supervisión clínica"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {casos.map((caso) => {
-          const color = diagnosisColors[caso.id] ?? defaultColor;
-          return (
-            <Link
-              key={caso.id}
-              href={`/casos/${caso.id}`}
-              className={`group bg-white rounded-2xl border border-slate-100 border-l-4 ${color.border} shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col`}
-            >
-              {/* Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <span className={`inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-2 ${color.bg} ${color.text}`}>
-                    {caso.diagnostico.split("(")[0].trim()}
-                  </span>
-                  <h3 className="font-bold text-[#1e3a5f] text-lg leading-snug group-hover:text-violet-700 transition-colors">
-                    {caso.titulo}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Patient info */}
-              <div className="flex items-center gap-4 mb-4 text-sm text-slate-500">
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  {caso.paciente}, {caso.edad} años
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  {caso.totalSesiones} sesiones
+      <div className="grid gap-4">
+        {casos.map((caso) => (
+          <Link
+            key={caso.id}
+            href={`/casos/${caso.id}`}
+            className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-[#10b981]/30 transition-all p-5 flex gap-5 items-start"
+          >
+            <div className="w-12 h-14 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2a4a6f] flex flex-col items-center justify-center text-white flex-shrink-0">
+              <span className="text-lg font-bold leading-none">{caso.edad}</span>
+              <span className="text-[9px] font-medium opacity-75 leading-tight">años</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-start justify-between gap-3 flex-wrap">
+                <h2 className="font-bold text-[#1e3a5f] group-hover:text-[#10b981] transition-colors">
+                  {caso.titulo}
+                </h2>
+                <span className={`text-xs font-medium px-2.5 py-1 rounded-full flex-shrink-0 ${getColor(caso.diagnostico)}`}>
+                  {caso.sexo} · {caso.totalSesiones} sesiones
                 </span>
               </div>
-
-              {/* Summary */}
-              <p className="text-sm text-slate-500 leading-relaxed flex-1 line-clamp-3">
-                {caso.resumen}
-              </p>
-
-              {/* Techniques preview */}
-              <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <div className="flex flex-wrap gap-1">
-                  {caso.sesiones[0]?.tecnicas.slice(0, 2).map((t) => (
-                    <span key={t} className="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">
-                      {t}
-                    </span>
-                  ))}
-                  {caso.sesiones.length > 0 && (
-                    <span className="text-[11px] text-slate-400">+{caso.sesiones.length - 1} sesiones más</span>
-                  )}
-                </div>
-                <span className="text-sm text-violet-600 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 flex-shrink-0 ml-2">
-                  Ver caso
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
+              <p className="text-xs text-[#10b981] font-medium mt-0.5">{caso.diagnostico}</p>
+              <p className="text-sm text-gray-600 mt-1.5 leading-relaxed line-clamp-2">{caso.resumen}</p>
+              <div className="flex gap-4 mt-3 text-xs text-gray-400">
+                <span>{caso.formulacionCognitiva.creenciasNucleares.length} creencias nucleares</span>
+                <span>{caso.sesiones.length} sesiones detalladas</span>
+                <span>{caso.aprendizajesClinicos.length} aprendizajes clínicos</span>
               </div>
-            </Link>
-          );
-        })}
-      </div>
-
-      {/* Info note */}
-      <div className="mt-8 bg-slate-50 border border-slate-200 rounded-2xl p-5 flex gap-4">
-        <div className="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center flex-shrink-0">
-          <svg className="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <div>
-          <p className="text-sm font-semibold text-slate-700 mb-0.5">Cómo usar los casos clínicos</p>
-          <p className="text-sm text-slate-500 leading-relaxed">
-            Cada caso incluye sesiones con descripción, técnicas y resultado. Reflexiona sobre cada sesión antes de revelar la respuesta del terapeuta. Ideal para supervisión clínica y formación continuada.
-          </p>
-        </div>
+            </div>
+            <svg className="w-5 h-5 text-gray-300 group-hover:text-[#10b981] transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        ))}
       </div>
     </div>
   );

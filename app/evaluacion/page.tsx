@@ -3,242 +3,195 @@ import Link from "next/link";
 
 const instrumentos = [
   {
-    nombre: "PHQ-9",
-    nombreCompleto: "Patient Health Questionnaire-9",
-    area: "Depresión",
-    items: 9,
-    tiempo: "2-3 min",
-    color: "#2563eb",
-    cortes: [
-      { rango: "0–4", nivel: "Sin depresión", accion: "Sin tratamiento indicado" },
-      { rango: "5–9", nivel: "Depresión leve", accion: "Monitorizar y reevaluar en 2 semanas" },
-      { rango: "10–14", nivel: "Depresión moderada", accion: "Plan de tratamiento, TCC o farmacología" },
-      { rango: "15–19", nivel: "Depresión moderada-grave", accion: "Tratamiento activo inmediato" },
-      { rango: "20–27", nivel: "Depresión grave", accion: "Tratamiento inmediato, valorar hospitalización" },
-    ],
-    descripcion: "Instrumento de screening y seguimiento de la depresión mayor más utilizado en atención primaria y clínica. Valora los 9 criterios diagnósticos del DSM para el episodio depresivo mayor.",
-    referencia: "Kroenke K, Spitzer RL & Williams JBW (2001). J Gen Intern Med.",
+    nombre: "PHQ-9 — Escala de Depresión",
+    descripcion: "9 ítems basados en criterios DSM-5. Punto de corte: 10 (depresión moderada). Tiempo: 2 minutos.",
+    uso: "Screening y seguimiento de depresión mayor",
+    categoria: "Depresión",
+    color: "border-indigo-200",
+    badge: "bg-indigo-100 text-indigo-700",
+    fichaId: "diario-estado-animo",
   },
   {
-    nombre: "GAD-7",
-    nombreCompleto: "Generalized Anxiety Disorder-7",
-    area: "Ansiedad",
-    items: 7,
-    tiempo: "1-2 min",
-    color: "#d97706",
-    cortes: [
-      { rango: "0–4", nivel: "Sin ansiedad", accion: "Sin tratamiento indicado" },
-      { rango: "5–9", nivel: "Ansiedad leve", accion: "Psicoeducación y estrategias de afrontamiento" },
-      { rango: "10–14", nivel: "Ansiedad moderada", accion: "Valorar TCC, técnicas de relajación" },
-      { rango: "15–21", nivel: "Ansiedad grave", accion: "Tratamiento activo: TCC y/o farmacología" },
-    ],
-    descripcion: "Escala de 7 ítems para el screening y medición de severidad del Trastorno de Ansiedad Generalizada. Válida también como screener general de ansiedad.",
-    referencia: "Spitzer RL, Kroenke K, Williams JBW & Löwe B (2006). Arch Intern Med.",
+    nombre: "GAD-7 — Escala de Ansiedad Generalizada",
+    descripcion: "7 ítems para TAG. Punto de corte: 10 (ansiedad moderada). Alta sensibilidad y especificidad.",
+    uso: "Screening y seguimiento de TAG y trastornos de ansiedad",
+    categoria: "Ansiedad",
+    color: "border-blue-200",
+    badge: "bg-blue-100 text-blue-700",
+    fichaId: "automonitoreo-ansiedad",
   },
   {
-    nombre: "BAI",
-    nombreCompleto: "Beck Anxiety Inventory",
-    area: "Ansiedad",
-    items: 21,
-    tiempo: "5-10 min",
-    color: "#f59e0b",
-    cortes: [
-      { rango: "0–7", nivel: "Ansiedad mínima", accion: "Sin intervención clínica" },
-      { rango: "8–15", nivel: "Ansiedad leve", accion: "Psicoeducación" },
-      { rango: "16–25", nivel: "Ansiedad moderada", accion: "Tratamiento psicológico" },
-      { rango: "26–63", nivel: "Ansiedad grave", accion: "Tratamiento intensivo, valorar medicación" },
-    ],
-    descripcion: "21 síntomas somáticos y cognitivos de ansiedad. Diseñado por Beck, complementa al BDI-II para diferenciación depresión/ansiedad. Alta especificidad para síntomas somáticos.",
-    referencia: "Beck AT, Epstein N, Brown G & Steer RA (1988). J Consult Clin Psychol.",
+    nombre: "BDI-II — Inventario de Beck para Depresión",
+    descripcion: "21 ítems, escala 0-63. Estándar de oro para evaluar severidad depresiva en TCC.",
+    uso: "Evaluación inicial y seguimiento de depresión en TCC",
+    categoria: "Depresión",
+    color: "border-indigo-200",
+    badge: "bg-indigo-100 text-indigo-700",
+    fichaId: "bdi-ii",
   },
   {
-    nombre: "BDI-II",
-    nombreCompleto: "Beck Depression Inventory-II",
-    area: "Depresión",
-    items: 21,
-    tiempo: "5-10 min",
-    color: "#7c3aed",
-    cortes: [
-      { rango: "0–13", nivel: "Sin depresión", accion: "Sin tratamiento" },
-      { rango: "14–19", nivel: "Depresión leve", accion: "Seguimiento, intervención preventiva" },
-      { rango: "20–28", nivel: "Depresión moderada", accion: "TCC, activación conductual" },
-      { rango: "29–63", nivel: "Depresión grave", accion: "Tratamiento intensivo, plan de seguridad" },
-    ],
-    descripcion: "Escala clásica de Beck revisada para alinearse con criterios DSM-IV. 21 ítems que evalúan síntomas cognitivos, afectivos y somáticos de la depresión. Gold standard en investigación y clínica.",
-    referencia: "Beck AT, Steer RA & Brown GK (1996). San Antonio: The Psychological Corporation.",
+    nombre: "BAI — Inventario de Ansiedad de Beck",
+    descripcion: "21 síntomas físicos y cognitivos de ansiedad. Complementa el BDI-II.",
+    uso: "Evaluación de severidad de ansiedad, especialmente somática",
+    categoria: "Ansiedad",
+    color: "border-blue-200",
+    badge: "bg-blue-100 text-blue-700",
+    fichaId: "bai",
   },
   {
-    nombre: "PCL-5",
-    nombreCompleto: "PTSD Checklist for DSM-5",
-    area: "Trauma / TEPT",
-    items: 20,
-    tiempo: "5-10 min",
-    color: "#dc2626",
-    cortes: [
-      { rango: "0–32", nivel: "Sin TEPT probable", accion: "Seguimiento si hay historia de trauma" },
-      { rango: "33+", nivel: "TEPT probable", accion: "Evaluación diagnóstica completa, EMDR o TCC focalizada en trauma" },
-    ],
-    descripcion: "20 ítems correspondientes a los 4 grupos de síntomas DSM-5: reexperimentación, evitación, alteraciones cognitivas/estado de ánimo e hiperactivación. Punto de corte: 33.",
-    referencia: "Weathers FW et al. (2013). National Center for PTSD.",
+    nombre: "PCL-5 — Escala PTSD (CAPS)",
+    descripcion: "20 ítems DSM-5. Punto de corte: 33. Evalúa los 4 clusters del PTSD.",
+    uso: "Screening y seguimiento del PTSD/trauma",
+    categoria: "Trauma",
+    color: "border-rose-200",
+    badge: "bg-rose-100 text-rose-700",
+    fichaId: null,
   },
   {
-    nombre: "SPIN",
-    nombreCompleto: "Social Phobia Inventory",
-    area: "Fobia Social",
-    items: 17,
-    tiempo: "3-5 min",
-    color: "#0891b2",
-    cortes: [
-      { rango: "0–18", nivel: "Sin fobia social", accion: "Sin tratamiento específico" },
-      { rango: "19–29", nivel: "Fobia social leve", accion: "Entrenamiento en habilidades sociales" },
-      { rango: "30–39", nivel: "Fobia social moderada", accion: "TCC para fobia social (protocolo Clark)" },
-      { rango: "40–68", nivel: "Fobia social grave", accion: "TCC intensiva, valorar grupo terapéutico" },
-    ],
-    descripcion: "17 ítems que evalúan miedo, evitación y síntomas fisiológicos de la ansiedad social. Ampliamente usado en el seguimiento del protocolo de Clark para fobia social.",
-    referencia: "Connor KM et al. (2000). Br J Psychiatry.",
+    nombre: "Y-BOCS — Yale-Brown para TOC",
+    descripcion: "10 ítems que evalúan obsesiones y compulsiones por separado. Estándar para TOC.",
+    uso: "Evaluación y seguimiento del TOC",
+    categoria: "TOC",
+    color: "border-purple-200",
+    badge: "bg-purple-100 text-purple-700",
+    fichaId: null,
   },
   {
-    nombre: "OCI-R",
-    nombreCompleto: "Obsessive-Compulsive Inventory-Revised",
-    area: "TOC",
-    items: 18,
-    tiempo: "3-5 min",
-    color: "#16a34a",
-    cortes: [
-      { rango: "0–20", nivel: "Sin TOC clínico", accion: "Sin tratamiento específico" },
-      { rango: "21+", nivel: "TOC probable", accion: "Evaluación diagnóstica, protocolo EPR (TCC)" },
-    ],
-    descripcion: "18 ítems que evalúan 6 subescalas del TOC: lavado, comprobación, ordenar, obsesiones, acumulación y neutralización. Punto de corte: 21.",
-    referencia: "Foa EB et al. (2002). Psychol Assess.",
+    nombre: "SPIN — Fobia Social",
+    descripcion: "17 ítems. Punto de corte: 19 para fobia social probable.",
+    uso: "Screening y seguimiento de fobia social",
+    categoria: "Fobia Social",
+    color: "border-pink-200",
+    badge: "bg-pink-100 text-pink-700",
+    fichaId: null,
   },
   {
-    nombre: "ISI",
-    nombreCompleto: "Insomnia Severity Index",
-    area: "Insomnio",
-    items: 7,
-    tiempo: "2 min",
-    color: "#0f766e",
-    cortes: [
-      { rango: "0–7", nivel: "Sin insomnio clínico", accion: "Higiene del sueño" },
-      { rango: "8–14", nivel: "Insomnio subclínico", accion: "Restricción del sueño, control de estímulos" },
-      { rango: "15–21", nivel: "Insomnio moderado", accion: "TCC-I completa (protocolo)" },
-      { rango: "22–28", nivel: "Insomnio grave", accion: "TCC-I intensiva, valorar farmacología temporal" },
-    ],
-    descripcion: "7 ítems que evalúan la naturaleza, gravedad e impacto del insomnio. Herramienta estándar en los protocolos de TCC para el Insomnio (TCC-I).",
-    referencia: "Morin CM (1993). New York: Guilford Press.",
+    nombre: "PDSS — Trastorno de Pánico",
+    descripcion: "7 ítems que evalúan frecuencia, malestar y evitación en el pánico.",
+    uso: "Seguimiento del trastorno de pánico",
+    categoria: "Pánico",
+    color: "border-red-200",
+    badge: "bg-red-100 text-red-700",
+    fichaId: null,
   },
 ];
 
-const areaColors: Record<string, string> = {
-  "Depresión": "bg-blue-100 text-blue-700",
-  "Ansiedad": "bg-amber-100 text-amber-700",
-  "Trauma / TEPT": "bg-red-100 text-red-700",
-  "Fobia Social": "bg-cyan-100 text-cyan-700",
-  "TOC": "bg-green-100 text-green-700",
-  "Insomnio": "bg-teal-100 text-teal-700",
-};
+const plantillas = [
+  {
+    titulo: "Formulación de Caso TCC",
+    descripcion: "Estructura completa para formular un caso en TCC: eventos predisponentes, precipitantes, mantenedores, mapa cognitivo, hipótesis de trabajo y plan de tratamiento.",
+    icono: "🗺️",
+  },
+  {
+    titulo: "Registro de Progreso Sesión a Sesión",
+    descripcion: "Plantilla para registrar los avances del paciente: objetivos trabajados, técnicas aplicadas, tareas asignadas y realizadas, nivel de mejoría percibida.",
+    icono: "📈",
+  },
+  {
+    titulo: "Plan de Tratamiento TCC",
+    descripcion: "Estructura el plan completo: diagnóstico, formulación cognitiva, objetivos a corto y largo plazo, técnicas previstas, criterios de alta.",
+    icono: "📋",
+  },
+  {
+    titulo: "Escala de Evaluación de Sesión (SRS)",
+    descripcion: "4 ítems para que el paciente evalúe la alianza terapéutica al final de cada sesión. Detección temprana de problemas en la relación terapéutica.",
+    icono: "⭐",
+    fichaId: "escala-evaluacion-sesion",
+  },
+  {
+    titulo: "Escala de Resultados (ORS)",
+    descripcion: "4 ítems para evaluar el bienestar general del paciente al inicio de cada sesión. Monitoriza la evolución clínica semana a semana.",
+    icono: "📊",
+  },
+  {
+    titulo: "Plan de Alta y Prevención de Recaídas",
+    descripcion: "Estructura el proceso de alta: revisión de logros, señales de alerta, plan de acción ante recaída, contactos de apoyo, criterios para retomar terapia.",
+    icono: "🎯",
+    fichaId: "plan-prevencion-recaidas",
+  },
+];
 
 export default function EvaluacionPage() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-10">
+    <div className="max-w-4xl mx-auto px-6 py-10">
       <PageHeader
-        title="Evaluación e Instrumentos"
-        description="Escalas validadas para screening, diagnóstico y seguimiento del progreso terapéutico. Con puntos de corte y guías de interpretación clínica."
-        badge={`${instrumentos.length} instrumentos`}
-        badgeColor="bg-indigo-600"
+        title="Evaluación y Seguimiento"
+        description="Instrumentos estandarizados, plantillas de formulación y herramientas para medir el progreso del paciente sesión a sesión."
+        badge="📊 Herramientas de evaluación"
       />
 
-      {/* Quick tips */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-        {[
-          { icon: "📋", title: "Administrar al inicio", text: "Establece la línea base antes de iniciar el tratamiento." },
-          { icon: "📈", title: "Repetir cada 4 sesiones", text: "Monitoriza el progreso y ajusta el plan si no hay mejoría." },
-          { icon: "🎯", title: "Compartir con el paciente", text: "Los números son poderosos aliados para la motivación al cambio." },
-        ].map((tip) => (
-          <div key={tip.title} className="bg-white rounded-2xl border border-slate-100 p-4 flex gap-3">
-            <span className="text-2xl flex-shrink-0">{tip.icon}</span>
-            <div>
-              <p className="text-sm font-semibold text-[#1e3a5f] mb-0.5">{tip.title}</p>
-              <p className="text-xs text-slate-500 leading-relaxed">{tip.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Instruments */}
-      <div className="space-y-5">
-        {instrumentos.map((inst) => (
-          <div key={inst.nombre} className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-            {/* Header */}
-            <div className="p-5 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
-                  style={{ background: inst.color }}
+      {/* Instrumentos */}
+      <section className="mb-10">
+        <h2 className="text-lg font-bold text-[#1e3a5f] mb-4">Instrumentos de evaluación estandarizados</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {instrumentos.map((inst) => (
+            <div key={inst.nombre} className={`bg-white rounded-2xl border ${inst.color} shadow-sm p-5`}>
+              <div className="flex items-start justify-between gap-3 mb-2">
+                <h3 className="font-bold text-[#1e3a5f] text-sm leading-snug">{inst.nombre}</h3>
+                <span className={`text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0 ${inst.badge}`}>
+                  {inst.categoria}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 mb-1.5">{inst.descripcion}</p>
+              <p className="text-xs text-gray-700 font-medium">{inst.uso}</p>
+              {inst.fichaId && (
+                <Link
+                  href={`/fichas/${inst.fichaId}`}
+                  className="inline-flex items-center gap-1 mt-3 text-xs text-[#10b981] font-medium hover:underline"
                 >
-                  {inst.nombre}
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="font-bold text-[#1e3a5f] text-base">{inst.nombreCompleto}</h3>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${areaColors[inst.area] ?? "bg-slate-100 text-slate-700"}`}>
-                      {inst.area}
-                    </span>
-                    <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">
-                      {inst.items} ítems
-                    </span>
-                    <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">
-                      ⏱ {inst.tiempo}
-                    </span>
-                  </div>
-                </div>
+                  Ver ficha interactiva →
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Cómo interpretar */}
+      <section className="mb-10 bg-blue-50 rounded-2xl border border-blue-100 p-6">
+        <h2 className="text-lg font-bold text-[#1e3a5f] mb-4">Cómo usar los instrumentos en TCC</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            { paso: "1", titulo: "Evaluación inicial", desc: "Administra el instrumento correspondiente al motivo de consulta en la primera sesión para obtener una línea de base." },
+            { paso: "2", titulo: "Seguimiento periódico", desc: "Repite la escala cada 4-6 sesiones. Una reducción del 50% indica respuesta al tratamiento; del 75%, remisión." },
+            { paso: "3", titulo: "Criterio de alta", desc: "Usa los resultados para fundamentar el alta y como criterio objetivo de recuperación. Documenta el cambio con números." },
+          ].map((item) => (
+            <div key={item.paso} className="flex gap-3">
+              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                {item.paso}
+              </div>
+              <div>
+                <div className="font-semibold text-blue-900 text-sm">{item.titulo}</div>
+                <p className="text-xs text-blue-700 mt-0.5 leading-relaxed">{item.desc}</p>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Description */}
-            <div className="px-5 pb-4">
-              <p className="text-sm text-slate-600 leading-relaxed mb-1">{inst.descripcion}</p>
-              <p className="text-xs text-slate-400">{inst.referencia}</p>
-            </div>
-
-            {/* Scoring guide */}
-            <div className="border-t border-slate-100 p-5">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Guía de puntuación</p>
-              <div className="space-y-2">
-                {inst.cortes.map((corte) => (
-                  <div key={corte.rango} className="flex items-start gap-3">
-                    <span
-                      className="text-[11px] font-bold px-2 py-0.5 rounded-md text-white flex-shrink-0 mt-0.5"
-                      style={{ background: inst.color }}
-                    >
-                      {corte.rango}
-                    </span>
-                    <div>
-                      <span className="text-sm font-semibold text-slate-700">{corte.nivel}</span>
-                      <span className="text-sm text-slate-500"> — {corte.accion}</span>
-                    </div>
-                  </div>
-                ))}
+      {/* Plantillas */}
+      <section>
+        <h2 className="text-lg font-bold text-[#1e3a5f] mb-4">Plantillas y formularios clínicos</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {plantillas.map((p) => (
+            <div key={p.titulo} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex gap-4">
+              <div className="text-2xl flex-shrink-0">{p.icono}</div>
+              <div>
+                <h3 className="font-bold text-[#1e3a5f] text-sm mb-1">{p.titulo}</h3>
+                <p className="text-xs text-gray-600 leading-relaxed">{p.descripcion}</p>
+                {p.fichaId && (
+                  <Link
+                    href={`/fichas/${p.fichaId}`}
+                    className="inline-flex items-center gap-1 mt-2 text-xs text-[#10b981] font-medium hover:underline"
+                  >
+                    Usar ficha interactiva →
+                  </Link>
+                )}
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Footer note */}
-      <div className="mt-8 bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
-        <p className="text-sm font-semibold text-indigo-800 mb-1">Nota sobre el uso clínico</p>
-        <p className="text-sm text-indigo-700 leading-relaxed">
-          Los instrumentos de screening no sustituyen la evaluación clínica. Los puntos de corte son orientativos
-          y deben interpretarse siempre en el contexto clínico completo del paciente. Para la puntuación automática
-          e historial de evolución, usa la{" "}
-          <Link href="/instrumentos" className="font-semibold underline hover:no-underline">
-            Calculadora de Instrumentos
-          </Link>.
-        </p>
-      </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
