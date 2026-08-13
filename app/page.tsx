@@ -129,7 +129,7 @@ export default function Home() {
               CBT Atlas
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 font-light mb-6 leading-relaxed">
-              La guía de Terapia Cognitivo-Conductual más completa para psicólogos clínicos
+              La guía de Terapia Cognitivo-Conductual más completa para psicólogos clínicos — v2
             </p>
             <p className="text-base text-blue-200 mb-8 leading-relaxed max-w-2xl">
               20 casos clínicos resueltos, 6 protocolos, 10 fichas interactivas, calculadora de instrumentos y búsqueda global. Todo basado en evidencia científica de nivel A.
