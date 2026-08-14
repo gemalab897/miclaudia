@@ -10,7 +10,7 @@ export default function SearchShortcut() {
     const handler = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        router.push("/buscar");
+        router.push("/busqueda");
       }
     };
     window.addEventListener("keydown", handler);
