@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
-import SessionTimer from "@/components/SessionTimer";
-import SearchShortcut from "@/components/SearchShortcut";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,19 +22,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`h-full ${inter.variable} ${playfair.variable}`}>
-      <body className="h-full bg-slate-50 font-sans antialiased">
-        <div className="flex h-full">
-          <div className="sidebar-wrapper no-print">
-            <Sidebar />
-          </div>
-          <main className="flex-1 min-h-screen overflow-auto">
-            <div className="pt-16 lg:pt-0">
-              {children}
-            </div>
-          </main>
-        </div>
-        <SessionTimer />
-        <SearchShortcut />
+      <body className="h-full antialiased">
+        {children}
       </body>
     </html>
   );
