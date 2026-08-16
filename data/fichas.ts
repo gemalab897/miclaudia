@@ -1,7 +1,7 @@
 export interface CampoFicha {
   id: string;
   label: string;
-  tipo: "texto" | "textarea" | "numero" | "select" | "checkbox" | "tabla";
+  tipo: "texto" | "textarea" | "numero" | "select" | "checkbox" | "tabla" | "total";
   placeholder?: string;
   opciones?: string[];
   columnas?: string[];
@@ -950,7 +950,7 @@ export const fichas: Ficha[] = [
       { id: "bdi_19", label: "19. Dificultad de concentración (0=Puedo concentrarme como siempre / 1=No me puedo concentrar como antes / 2=Me cuesta concentrarme en algo por mucho tiempo / 3=Soy incapaz de concentrarme en nada)", tipo: "numero", min: 0, max: 3, placeholder: "0-3" },
       { id: "bdi_20", label: "20. Cansancio o fatiga (0=No estoy más cansado que de costumbre / 1=Me canso más que antes / 2=Estoy demasiado cansado para hacer muchas cosas / 3=Estoy tan cansado que no puedo hacer nada)", tipo: "numero", min: 0, max: 3, placeholder: "0-3" },
       { id: "bdi_21", label: "21. Pérdida de interés en el sexo (0=No he observado ningún cambio en el interés sexual / 1=El tema del sexo me interesa menos que antes / 2=Estoy mucho menos interesado en el sexo que antes / 3=He perdido completamente el interés sexual)", tipo: "numero", min: 0, max: 3, placeholder: "0-3" },
-      { id: "bdi_total", label: "PUNTUACIÓN TOTAL (suma de los 21 ítems)", tipo: "numero", min: 0, max: 63, placeholder: "0-63" },
+      { id: "bdi_total", label: "PUNTUACIÓN TOTAL (suma de los 21 ítems)", tipo: "total", max: 63 },
     ],
     notaClinica: "Interpretación: 0-13 = mínima depresión; 14-19 = depresión leve; 20-28 = depresión moderada; 29-63 = depresión severa. El ítem 9 (suicidio) debe explorarse siempre en entrevista clínica. Reevaluar cada 2-4 sesiones.",
   },
@@ -982,7 +982,7 @@ export const fichas: Ficha[] = [
       { id: "bai_19", label: "19. Sensación de desmayo", tipo: "numero", min: 0, max: 3, placeholder: "0-3" },
       { id: "bai_20", label: "20. Rubor facial o sofocos", tipo: "numero", min: 0, max: 3, placeholder: "0-3" },
       { id: "bai_21", label: "21. Sudoración (no relacionada con calor)", tipo: "numero", min: 0, max: 3, placeholder: "0-3" },
-      { id: "bai_total", label: "PUNTUACIÓN TOTAL", tipo: "numero", min: 0, max: 63, placeholder: "0-63" },
+      { id: "bai_total", label: "PUNTUACIÓN TOTAL", tipo: "total", max: 63 },
     ],
     notaClinica: "Interpretación: 0-7 = mínima; 8-15 = leve; 16-25 = moderada; 26-63 = severa. Especialmente sensible a síntomas somáticos de ansiedad. Útil para diferenciarlo del BDI y para monitorizar respuesta al tratamiento.",
   },
@@ -1007,7 +1007,7 @@ export const fichas: Ficha[] = [
       { id: "ham_12", label: "12. Síntomas genitourinarios — Aumento de la frecuencia de micción, urgencia urinaria, amenorrea, menorragia, frigidez, eyaculación precoz, disminución de la libido", tipo: "numero", min: 0, max: 4, placeholder: "0-4" },
       { id: "ham_13", label: "13. Síntomas autónomos — Boca seca, enrojecimiento facial, palidez, tendencia a la sudoración, vértigo, cefalea de tensión", tipo: "numero", min: 0, max: 4, placeholder: "0-4" },
       { id: "ham_14", label: "14. Comportamiento en la entrevista (general y fisiológico) — Inquietud, agitación, temblor de manos, fruncimiento, palidez facial, deglución, eructos, etc.", tipo: "numero", min: 0, max: 4, placeholder: "0-4" },
-      { id: "ham_total", label: "PUNTUACIÓN TOTAL", tipo: "numero", min: 0, max: 56, placeholder: "0-56" },
+      { id: "ham_total", label: "PUNTUACIÓN TOTAL", tipo: "total", max: 56 },
     ],
     notaClinica: "Interpretación: <17 = ansiedad leve; 18-24 = ansiedad moderada; 25-30 = ansiedad moderada-severa; >30 = ansiedad severa. Puntuación ≥ 14 suele considerarse clínicamente significativa. Esta escala es sensible al cambio terapéutico.",
   },

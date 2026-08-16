@@ -51,8 +51,50 @@ export default function FichaInteractiva({ ficha }: Props) {
     }
   };
 
+  // Suma automática de todos los campos numéricos de la ficha
+  const autoTotal = ficha.campos
+    .filter((c) => c.tipo === "numero")
+    .reduce((sum, c) => sum + (Number(valores[c.id]) || 0), 0);
+
+  const getSeverityLabel = (score: number, max: number): { label: string; color: string } => {
+    const pct = score / max;
+    if (pct < 0.2) return { label: "Mínimo", color: "bg-emerald-100 text-emerald-700" };
+    if (pct < 0.4) return { label: "Leve", color: "bg-yellow-100 text-yellow-700" };
+    if (pct < 0.6) return { label: "Moderado", color: "bg-orange-100 text-orange-700" };
+    if (pct < 0.8) return { label: "Moderado-grave", color: "bg-red-100 text-red-700" };
+    return { label: "Grave", color: "bg-red-200 text-red-800" };
+  };
+
   const renderCampo = (campo: CampoFicha) => {
     const value = valores[campo.id] || "";
+
+    if (campo.tipo === "total") {
+      const max = campo.max ?? 100;
+      const severity = getSeverityLabel(autoTotal, max);
+      return (
+        <div key={campo.id} className="mt-6 p-4 rounded-xl border-2 border-[#10b981] bg-emerald-50">
+          <p className="text-xs font-semibold text-[#1e3a5f] uppercase tracking-wide mb-2">
+            {campo.label}
+          </p>
+          <div className="flex items-center gap-4">
+            <div className="text-4xl font-extrabold text-[#1e3a5f] leading-none">
+              {autoTotal}
+            </div>
+            <div className="text-sm text-slate-500">/ {max}</div>
+            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${severity.color}`}>
+              {severity.label}
+            </span>
+          </div>
+          <div className="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-[#10b981] rounded-full transition-all duration-500"
+              style={{ width: `${Math.min((autoTotal / max) * 100, 100)}%` }}
+            />
+          </div>
+          <p className="text-xs text-slate-400 mt-1">Se calcula automáticamente</p>
+        </div>
+      );
+    }
 
     return (
       <div key={campo.id} className="ficha-field-wrapper mb-5">
