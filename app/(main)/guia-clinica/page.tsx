@@ -33,7 +33,7 @@ export default function GuiaClinicaPage() {
             <div className="flex items-start gap-4 p-6 border-b border-slate-100">
               <div className="text-3xl flex-shrink-0">{diagnosticoIcons[dx.id] || "🏥"}</div>
               <div className="flex-1">
-                <h2 className="text-xl font-bold text-[#1e3a5f] mb-1">{dx.nombre}</h2>
+                <h2 className="text-xl font-bold text-[#1e3a5f] mb-1">{dx.name}</h2>
                 <p className="text-gray-600 text-sm leading-relaxed">{dx.descripcion}</p>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function GuiaClinicaPage() {
                     >
                       <div className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg border text-xs font-medium transition-opacity hover:opacity-80 ${prioridadColors[p.prioridad]}`}>
                         <span className="uppercase font-bold text-xs opacity-60">{p.prioridad === "primera" ? "1st" : p.prioridad === "segunda" ? "2nd" : "Comp."}</span>
-                        <span className="flex-1">{p.nombre}</span>
+                        <span className="flex-1">{p.name}</span>
                         <svg className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>

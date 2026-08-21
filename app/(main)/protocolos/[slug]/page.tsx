@@ -39,7 +39,7 @@ export default async function ProtocoloPage({ params }: Props) {
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            {protocolo.sesiones}
+            {protocolo.sessions}
           </div>
           {protocolo.formatoSesion && (
             <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-xs">
@@ -58,7 +58,7 @@ export default async function ProtocoloPage({ params }: Props) {
       </div>
 
       {/* Objetivos principales */}
-      {protocolo.objetivosPrincipales && protocolo.objetivosPrincipales.length > 0 && (
+      {protocolo.objectivesPrincipales && protocolo.objectivesPrincipales.length > 0 && (
         <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-5 mb-8">
           <h3 className="font-bold text-emerald-800 mb-3 flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default async function ProtocoloPage({ params }: Props) {
             Main Protocol Objectives
           </h3>
           <ul className="space-y-1.5">
-            {protocolo.objetivosPrincipales.map((obj, i) => (
+            {protocolo.objectivesPrincipales.map((obj, i) => (
               <li key={i} className="text-sm text-emerald-900 flex items-start gap-2">
                 <span className="text-emerald-500 mt-0.5 font-bold">•</span>
                 {obj}
@@ -89,7 +89,7 @@ export default async function ProtocoloPage({ params }: Props) {
             Indications
           </h3>
           <ul className="space-y-1">
-            {protocolo.indicaciones.map((ind) => (
+            {protocolo.indications.map((ind) => (
               <li key={ind} className="text-sm text-gray-600 flex items-start gap-2">
                 <span className="text-emerald-500 mt-1">•</span>
                 {ind}
@@ -108,7 +108,7 @@ export default async function ProtocoloPage({ params }: Props) {
             Contraindications
           </h3>
           <ul className="space-y-1">
-            {protocolo.contraindicaciones.map((ci) => (
+            {protocolo.contraindications.map((ci) => (
               <li key={ci} className="text-sm text-gray-600 flex items-start gap-2">
                 <span className="text-amber-500 mt-1">•</span>
                 {ci}
@@ -122,7 +122,7 @@ export default async function ProtocoloPage({ params }: Props) {
       <div className="mb-8">
         <h2 className="text-xl font-bold text-[#1e3a5f] mb-6">Step-by-Step Protocol</h2>
         <div className="space-y-6">
-          {protocolo.pasos.map((paso) => (
+          {protocolo.steps.map((paso) => (
             <div key={paso.numero} className="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
               <div className="flex items-center gap-4 p-4 bg-slate-50 border-b border-slate-100">
                 <div className="w-9 h-9 bg-[#1e3a5f] text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
@@ -144,13 +144,13 @@ export default async function ProtocoloPage({ params }: Props) {
                 <p className="text-gray-700 leading-relaxed">{paso.descripcion}</p>
 
                 {/* Suggested script */}
-                {paso.guionTerapeuta && (
+                {paso.guionTherapist && (
                   <div className="bg-teal-50 rounded-lg border border-teal-200 p-3">
                     <div className="text-xs font-semibold text-teal-700 uppercase mb-1 flex items-center gap-1">
                       <span>💬</span>
                       Suggested script
                     </div>
-                    <p className="text-sm text-teal-900 leading-relaxed italic">&ldquo;{paso.guionTerapeuta}&rdquo;</p>
+                    <p className="text-sm text-teal-900 leading-relaxed italic">&ldquo;{paso.guionTherapist}&rdquo;</p>
                   </div>
                 )}
 
@@ -218,11 +218,11 @@ export default async function ProtocoloPage({ params }: Props) {
                     </div>
                   )}
 
-                  {paso.materiales && paso.materiales.length > 0 && (
+                  {paso.materials && paso.materials.length > 0 && (
                     <div>
                       <div className="text-xs font-semibold text-gray-400 uppercase mb-2">Materials</div>
                       <ul className="space-y-0.5">
-                        {paso.materiales.map((m) => (
+                        {paso.materials.map((m) => (
                           <li key={m} className="text-xs text-gray-600 flex items-start gap-1">
                             <span className="text-[#10b981] mt-0.5">•</span>
                             {m}
@@ -253,7 +253,7 @@ export default async function ProtocoloPage({ params }: Props) {
       {/* Evidencia */}
       <div className="bg-[#1e3a5f]/5 rounded-xl border border-[#1e3a5f]/20 p-5 mb-8">
         <h3 className="font-bold text-[#1e3a5f] mb-2">Evidence Base</h3>
-        <p className="text-gray-600 text-sm leading-relaxed">{protocolo.evidencia}</p>
+        <p className="text-gray-600 text-sm leading-relaxed">{protocolo.evidence}</p>
       </div>
 
       {/* Fichas relacionadas */}

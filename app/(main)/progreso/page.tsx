@@ -193,7 +193,7 @@ export default function ProgresoPage() {
                   <p className={`text-sm font-semibold truncate ${done ? "line-through text-slate-400" : "text-[#1e3a5f]"}`}>
                     {c.titulo}
                   </p>
-                  <p className="text-xs text-slate-400 truncate">{c.diagnostico.split("(")[0].trim()} · {c.totalSesiones} sessions</p>
+                  <p className="text-xs text-slate-400 truncate">{c.diagnostico.split("(")[0].trim()} · {c.totalSessions} sessions</p>
                 </div>
                 <Link
                   href={`/casos/${c.id}`}
@@ -233,7 +233,7 @@ export default function ProgresoPage() {
                   <p className={`text-sm font-semibold truncate ${done ? "line-through text-slate-400" : "text-[#1e3a5f]"}`}>
                     {p.titulo}
                   </p>
-                  <p className="text-xs text-slate-400 truncate">{p.sesiones}</p>
+                  <p className="text-xs text-slate-400 truncate">{p.sessions}</p>
                 </div>
                 <Link href={`/protocolos/${p.slug}`} className="flex-shrink-0 text-slate-300 hover:text-slate-500 transition-colors">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

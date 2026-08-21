@@ -224,7 +224,7 @@ function search(query: string): {
         matches(c.titulo, q) ||
         matches(c.resumen, q) ||
         matches(c.diagnostico, q) ||
-        matches(c.paciente, q)
+        matches(c.patient, q)
     )
     .map((c: CasoClinico) => ({
       type: "caso",

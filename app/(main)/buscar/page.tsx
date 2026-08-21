@@ -44,16 +44,16 @@ function buildResults(query: string, category: Category): Result[] {
 
   if (category === "todo" || category === "casos") {
     for (const c of casos) {
-      const tecnicas = c.sesiones.flatMap((s) => s.tecnicas).join(" ");
-      const objetivos = c.objetivosTerapeuticos.join(" ");
-      const haystack = [c.titulo, c.diagnostico, c.resumen, c.paciente, tecnicas, objetivos].join(" ");
+      const tecnicas = c.sessions.flatMap((s) => s.tecnicas).join(" ");
+      const objetivos = c.objectivesTerapeuticos.join(" ");
+      const haystack = [c.titulo, c.diagnostico, c.resumen, c.patient, tecnicas, objetivos].join(" ");
       if (match(haystack, q)) {
         results.push({
           type: "caso",
           id: c.id,
           href: `/casos/${c.id}`,
           titulo: c.titulo,
-          subtitulo: `${c.diagnostico.split("(")[0].trim()} · ${c.paciente} · ${c.totalSesiones} sesiones`,
+          subtitulo: `${c.diagnostico.split("(")[0].trim()} · ${c.patient} · ${c.totalSessions} sesiones`,
           tag: "Caso clínico",
           tagColor: "#dc2626",
         });
@@ -63,14 +63,14 @@ function buildResults(query: string, category: Category): Result[] {
 
   if (category === "todo" || category === "protocolos") {
     for (const p of protocolos) {
-      const haystack = [p.titulo, p.descripcion, p.indicaciones.join(" "), p.pasos.map((x) => x.titulo).join(" ")].join(" ");
+      const haystack = [p.titulo, p.descripcion, p.indications.join(" "), p.steps.map((x) => x.titulo).join(" ")].join(" ");
       if (match(haystack, q)) {
         results.push({
           type: "protocolo",
           id: p.slug,
           href: `/protocolos/${p.slug}`,
           titulo: p.titulo,
-          subtitulo: `${p.sesiones} · ${p.indicaciones.slice(0, 2).join(", ")}`,
+          subtitulo: `${p.sessions} · ${p.indications.slice(0, 2).join(", ")}`,
           tag: "Protocolo",
           tagColor: "#7c3aed",
         });
@@ -80,7 +80,7 @@ function buildResults(query: string, category: Category): Result[] {
 
   if (category === "todo" || category === "fichas") {
     for (const f of fichas) {
-      const haystack = [f.titulo, f.descripcion, f.categoria, f.instrucciones].join(" ");
+      const haystack = [f.titulo, f.descripcion, f.categoria, f.instructions].join(" ");
       if (match(haystack, q)) {
         results.push({
           type: "ficha",

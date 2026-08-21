@@ -33,9 +33,9 @@ export default async function CasoPage({ params }: Props) {
         <div className="text-xs bg-white/20 inline-block px-3 py-1 rounded-full mb-3">{caso.diagnostico}</div>
         <h1 className="text-2xl font-bold mb-2">{caso.titulo}</h1>
         <div className="flex flex-wrap gap-4 text-sm text-white/70 mb-3">
-          <span>Patient: {caso.paciente}</span>
+          <span>Patient: {caso.patient}</span>
           <span>{caso.sexo}, {caso.edad} years old</span>
-          <span>{caso.totalSesiones} sessions</span>
+          <span>{caso.totalSessions} sessions</span>
         </div>
         <p className="text-white/80 text-sm leading-relaxed">{caso.resumen}</p>
       </div>

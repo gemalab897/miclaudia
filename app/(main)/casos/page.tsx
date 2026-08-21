@@ -48,14 +48,14 @@ export default function CasosPage() {
                   {caso.titulo}
                 </h2>
                 <span className={`text-xs font-medium px-2.5 py-1 rounded-full flex-shrink-0 ${getColor(caso.diagnostico)}`}>
-                  {caso.sexo} · {caso.totalSesiones} sesiones
+                  {caso.sexo} · {caso.totalSessions} sesiones
                 </span>
               </div>
               <p className="text-xs text-[#10b981] font-medium mt-0.5">{caso.diagnostico}</p>
               <p className="text-sm text-gray-600 mt-1.5 leading-relaxed line-clamp-2">{caso.resumen}</p>
               <div className="flex gap-4 mt-3 text-xs text-gray-400">
                 <span>{caso.formulacionCognitiva.creenciasNucleares.length} core beliefs</span>
-                <span>{caso.sesiones.length} detailed sessions</span>
+                <span>{caso.sessions.length} detailed sessions</span>
                 <span>{caso.aprendizajesClinicos.length} clinical takeaways</span>
               </div>
             </div>

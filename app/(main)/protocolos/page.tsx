@@ -27,7 +27,7 @@ export default function ProtocolosPage() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                {protocolo.sesiones}
+                {protocolo.sessions}
               </div>
             </div>
             <h3 className="font-bold text-[#1e3a5f] text-lg mb-2 group-hover:text-emerald-600 transition-colors">
@@ -38,7 +38,7 @@ export default function ProtocolosPage() {
             <div className="mb-4">
               <div className="text-xs font-semibold text-gray-400 uppercase mb-2">Indicated for</div>
               <div className="flex flex-wrap gap-1">
-                {protocolo.indicaciones.slice(0, 4).map((ind) => (
+                {protocolo.indications.slice(0, 4).map((ind) => (
                   <span
                     key={ind}
                     className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full"
@@ -46,14 +46,14 @@ export default function ProtocolosPage() {
                     {ind}
                   </span>
                 ))}
-                {protocolo.indicaciones.length > 4 && (
-                  <span className="text-xs text-gray-400">+{protocolo.indicaciones.length - 4} more</span>
+                {protocolo.indications.length > 4 && (
+                  <span className="text-xs text-gray-400">+{protocolo.indications.length - 4} more</span>
                 )}
               </div>
             </div>
 
             <div className="flex items-center justify-between pt-3 border-t border-slate-100">
-              <span className="text-xs text-gray-400">{protocolo.pasos.length} detailed steps</span>
+              <span className="text-xs text-gray-400">{protocolo.steps.length} detailed steps</span>
               <span className="text-sm text-emerald-600 font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                 View protocol
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

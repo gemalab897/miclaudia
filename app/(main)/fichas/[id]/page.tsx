@@ -52,7 +52,7 @@ export default async function FichaPage({ params }: Props) {
           </svg>
           <div>
             <div className="font-semibold text-blue-800 text-sm mb-1">Instructions</div>
-            <p className="text-blue-700 text-sm leading-relaxed">{ficha.instrucciones}</p>
+            <p className="text-blue-700 text-sm leading-relaxed">{ficha.instructions}</p>
           </div>
         </div>
       </div>

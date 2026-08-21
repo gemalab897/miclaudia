@@ -45,7 +45,7 @@ function SesionCard({ sesion, index, revisadas, toggleRevisada }: SesionCardProp
           <div className="bg-blue-50 rounded-xl p-3">
             <div className="text-xs font-semibold text-blue-700 mb-1.5">Goals</div>
             <ul className="space-y-1">
-              {sesion.objetivos.map((o, i) => (
+              {sesion.objectives.map((o, i) => (
                 <li key={i} className="text-xs text-blue-800 flex gap-1.5">
                   <span className="text-blue-400 flex-shrink-0">→</span>{o}
                 </li>
@@ -103,7 +103,7 @@ function SesionCard({ sesion, index, revisadas, toggleRevisada }: SesionCardProp
             </div>
             <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3">
               <div className="text-xs font-semibold text-emerald-700 mb-1">Outcome</div>
-              <p className="text-sm text-emerald-800">{sesion.resultado}</p>
+              <p className="text-sm text-emerald-800">{sesion.outcome}</p>
             </div>
             {sesion.tarea && (
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
@@ -168,9 +168,9 @@ export default function CasoInteractivo({ caso }: Props) {
     });
   };
 
-  const totalSesiones = caso.sesiones.length;
-  const sesionesRevisadas = caso.sesiones.filter((s) => revisadas.has(s.numero)).length;
-  const progresoPct = totalSesiones > 0 ? (sesionesRevisadas / totalSesiones) * 100 : 0;
+  const totalSessions = caso.sessions.length;
+  const sesionesRevisadas = caso.sessions.filter((s) => revisadas.has(s.numero)).length;
+  const progresoPct = totalSessions > 0 ? (sesionesRevisadas / totalSessions) * 100 : 0;
 
   return (
     <div className="space-y-6">
@@ -178,7 +178,7 @@ export default function CasoInteractivo({ caso }: Props) {
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-semibold text-slate-700">
-            {sesionesRevisadas} of {totalSesiones} sessions reviewed
+            {sesionesRevisadas} of {totalSessions} sessions reviewed
           </span>
           <span className="text-sm font-bold text-emerald-600">{Math.round(progresoPct)}%</span>
         </div>
@@ -232,7 +232,7 @@ export default function CasoInteractivo({ caso }: Props) {
             <div>
               <div className="text-xs font-bold text-gray-500 uppercase mb-2">Automatic thoughts</div>
               <ul className="space-y-1.5">
-                {caso.formulacionCognitiva.pensamientosAutomaticos.map((p, i) => (
+                {caso.formulacionCognitiva.thoughtsAutomaticos.map((p, i) => (
                   <li key={i} className="text-sm text-gray-700 bg-blue-50 px-3 py-1.5 rounded-lg italic">"{p}"</li>
                 ))}
               </ul>
@@ -240,7 +240,7 @@ export default function CasoInteractivo({ caso }: Props) {
             <div>
               <div className="text-xs font-bold text-gray-500 uppercase mb-2">Problematic behaviors</div>
               <ul className="space-y-1">
-                {caso.formulacionCognitiva.conductas.map((c, i) => (
+                {caso.formulacionCognitiva.behaviors.map((c, i) => (
                   <li key={i} className="text-sm text-gray-600 flex gap-2"><span className="text-gray-400">·</span>{c}</li>
                 ))}
               </ul>
@@ -248,7 +248,7 @@ export default function CasoInteractivo({ caso }: Props) {
             <div>
               <div className="text-xs font-bold text-gray-500 uppercase mb-2">Prevalent emotions</div>
               <div className="flex flex-wrap gap-2">
-                {caso.formulacionCognitiva.emocionesPrevalentes.map((e, i) => (
+                {caso.formulacionCognitiva.emotionsPrevalentes.map((e, i) => (
                   <span key={i} className="text-xs bg-purple-100 text-purple-700 px-2.5 py-1 rounded-full">{e}</span>
                 ))}
               </div>
@@ -261,7 +261,7 @@ export default function CasoInteractivo({ caso }: Props) {
       <div className="bg-emerald-50 rounded-2xl border border-emerald-100 p-5">
         <h2 className="text-sm font-bold text-emerald-800 mb-3">Therapeutic goals</h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          {caso.objetivosTerapeuticos.map((o, i) => (
+          {caso.objectivesTerapeuticos.map((o, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-emerald-800">
               <span className="text-emerald-500 font-bold flex-shrink-0">✓</span>{o}
             </li>
@@ -273,7 +273,7 @@ export default function CasoInteractivo({ caso }: Props) {
       <div>
         <h2 className="text-lg font-bold text-[#1e3a5f] mb-4">Session-by-session progression</h2>
         <div className="space-y-4">
-          {caso.sesiones.map((sesion, i) => (
+          {caso.sessions.map((sesion, i) => (
             <SesionCard
               key={sesion.numero}
               sesion={sesion}
@@ -290,7 +290,7 @@ export default function CasoInteractivo({ caso }: Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
           <h2 className="text-sm font-bold text-[#1e3a5f] mb-3">Final outcomes</h2>
-          <p className="text-sm text-gray-700 leading-relaxed">{caso.resultados}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{caso.outcomes}</p>
         </div>
         <div className="bg-[#1e3a5f] rounded-2xl p-5">
           <h2 className="text-sm font-bold text-white mb-3">Key clinical takeaways</h2>

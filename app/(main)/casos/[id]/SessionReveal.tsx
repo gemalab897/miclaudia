@@ -41,7 +41,7 @@ export default function SessionReveal({ sesiones, accent }: Props) {
                   <div className="flex-1">
                     <h3 className="font-semibold text-[#1e3a5f] text-sm mb-2">{sesion.titulo}</h3>
                     <div className="flex flex-wrap gap-1 mb-3">
-                      {sesion.objetivos.map((obj) => (
+                      {sesion.objectives.map((obj) => (
                         <span key={obj} className="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">{obj}</span>
                       ))}
                     </div>
@@ -77,7 +77,7 @@ export default function SessionReveal({ sesiones, accent }: Props) {
                       </svg>
                       <div className="flex-1">
                         <p className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: accent }}>Outcome</p>
-                        <p className="text-sm text-slate-700 leading-relaxed">{sesion.resultado}</p>
+                        <p className="text-sm text-slate-700 leading-relaxed">{sesion.outcome}</p>
                         {sesion.tarea && (
                           <div className="mt-3 pt-3 border-t border-black/5">
                             <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Assigned homework</p>
