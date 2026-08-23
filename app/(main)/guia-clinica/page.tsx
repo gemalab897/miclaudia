@@ -12,9 +12,9 @@ const diagnosticoIcons: Record<string, string> = {
 };
 
 const prioridadColors = {
-  primera: "bg-red-100 text-red-700 border-red-200",
-  segunda: "bg-amber-100 text-amber-700 border-amber-200",
-  complementaria: "bg-blue-100 text-blue-700 border-blue-200",
+  first: "bg-red-100 text-red-700 border-red-200",
+  second: "bg-amber-100 text-amber-700 border-amber-200",
+  complementary: "bg-blue-100 text-blue-700 border-blue-200",
 };
 
 export default function GuiaClinicaPage() {
@@ -91,7 +91,7 @@ export default function GuiaClinicaPage() {
                       className="block group"
                     >
                       <div className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg border text-xs font-medium transition-opacity hover:opacity-80 ${prioridadColors[p.prioridad]}`}>
-                        <span className="uppercase font-bold text-xs opacity-60">{p.prioridad === "primera" ? "1st" : p.prioridad === "segunda" ? "2nd" : "Comp."}</span>
+                        <span className="uppercase font-bold text-xs opacity-60">{p.prioridad === "first" ? "1st" : p.prioridad === "second" ? "2nd" : "Comp."}</span>
                         <span className="flex-1">{p.name}</span>
                         <svg className="w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

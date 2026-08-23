@@ -8,7 +8,7 @@ export interface DiagnosticoGuia {
   protocolosRecomendados: {
     slug: string;
     name: string;
-    prioridad: "primera" | "segunda" | "complementaria";
+    prioridad: "first" | "second" | "complementary";
     justificacion: string;
   }[];
   fichasUtiles: string[];
@@ -39,28 +39,28 @@ export const guiaClinica: DiagnosticoGuia[] = [
       "History of early messages about the world being dangerous. Core belief: 'I must stay alert to prevent danger'. Positive metacognition about worry ('worrying protects me') maintains the cycle. Intolerance of uncertainty as central vulnerability. Safety behaviors (reassurance-seeking, excessive preparation) that reinforce the belief of vulnerability.",
     protocolosRecomendados: [
       {
-        slug: "relajacion-muscular-progresiva",
+        slug: "progressive-muscle-relaxation",
         name: "Progressive Muscle Relaxation",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "Directly addresses chronic muscle tension and physiological hyperarousal. Reduces physical symptoms and trains autonomic regulation.",
       },
       {
-        slug: "reestructuracion-cognitiva",
+        slug: "cognitive-restructuring",
         name: "Cognitive Restructuring",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "Targets metacognitions about the usefulness of worrying and intolerance-of-uncertainty beliefs. Central to the cognitive model of GAD.",
       },
       {
-        slug: "exposicion-graduada",
+        slug: "graded-exposure",
         name: "Graded Exposure (to uncertainty)",
-        prioridad: "segunda",
+        prioridad: "second",
         justificacion:
           "Exposure to uncertain situations without safety behaviors to develop tolerance for not knowing.",
       },
     ],
-    fichasUtiles: ["automonitoreo-anxiety", "record-thoughts", "diario-estado-animo"],
+    fichasUtiles: ["anxiety-self-monitoring", "record-thoughts", "mood-diary"],
     alertas: [
       "Rule out medical causes of anxiety (hyperthyroidism, arrhythmias)",
       "Assess for depression comorbidity (very common: 50-70%)",
@@ -97,31 +97,31 @@ export const guiaClinica: DiagnosticoGuia[] = [
       "Beck's cognitive triad: negative view of self ('I am a failure'), the world ('nothing works'), and the future ('I will never get better'). Early losses or excessive parental criticism form core beliefs of worthlessness. Depressive cycle: inactivity → loss of reinforcement → more depression → more inactivity. Deficits in problem solving and social skills.",
     protocolosRecomendados: [
       {
-        slug: "activacion-conductual",
+        slug: "behavioral-activation",
         name: "Behavioral Activation",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "First-line intervention in depression. Breaks the inactivity-anhedonia cycle. Should precede cognitive restructuring in moderate-to-severe depression.",
       },
       {
-        slug: "reestructuracion-cognitiva",
+        slug: "cognitive-restructuring",
         name: "Cognitive Restructuring",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "Addresses Beck's triad and core beliefs of worthlessness, helplessness, and inadequacy. Central to Beck's model of depression.",
       },
       {
-        slug: "habilidades-sociales",
+        slug: "social-skills",
         name: "Social Skills Training",
-        prioridad: "complementaria",
+        prioridad: "complementary",
         justificacion:
           "When significant interpersonal deficits or social isolation are present. Helps restore social reinforcement.",
       },
     ],
     fichasUtiles: [
-      "diario-estado-animo",
-      "actividades-agradables",
-      "plan-activacion",
+      "mood-diary",
+      "pleasant-activities",
+      "activation-plan",
       "record-thoughts",
     ],
     alertas: [
@@ -160,21 +160,21 @@ export const guiaClinica: DiagnosticoGuia[] = [
       "Inflated responsibility ('if I don't do it, something bad will happen because of me'). Intolerance of uncertainty. Thought-action fusion ('having the thought is as bad as acting on it'). Compulsions produce temporary relief and negative reinforcement that maintains the cycle. Avoidance prevents disconfirmation of feared beliefs.",
     protocolosRecomendados: [
       {
-        slug: "exposicion-graduada",
+        slug: "graded-exposure",
         name: "Exposure with Response Prevention (ERP)",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "First-line treatment for OCD with the strongest empirical evidence. Exposure to the stimulus without compulsion generates habituation and extinction. It is necessarily uncomfortable but highly effective.",
       },
       {
-        slug: "reestructuracion-cognitiva",
+        slug: "cognitive-restructuring",
         name: "Cognitive Restructuring",
-        prioridad: "segunda",
+        prioridad: "second",
         justificacion:
           "Especially useful for addressing inflated responsibility, thought-action fusion, and intolerance of uncertainty. Complements ERP but does not replace it.",
       },
     ],
-    fichasUtiles: ["jerarquia-exposicion", "automonitoreo-anxiety", "experimentos-conductuales"],
+    fichasUtiles: ["exposure-hierarchy", "anxiety-self-monitoring", "behavioral-experiments"],
     alertas: [
       "Rule out pure-O OCD (obsessions without observable compulsions)",
       "Assess for presence of tics (comorbid Tourette's syndrome)",
@@ -213,21 +213,21 @@ export const guiaClinica: DiagnosticoGuia[] = [
       "Direct or vicarious conditioning experience (seeing another person frightened by the stimulus) or negative information transmission. Fear is maintained by avoidance that prevents extinction. Overestimation of the danger of the stimulus. In blood/injury phobia: vasovagal response (syncope) differentiates this type from others.",
     protocolosRecomendados: [
       {
-        slug: "exposicion-graduada",
+        slug: "graded-exposure",
         name: "Graded Exposure In Vivo",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "Treatment of choice with the highest success rates in all of clinical psychology (80-95%). In vivo exposure is superior to imaginal. Single-session exposure (3h) is as effective as multiple sessions for many specific phobias.",
       },
       {
-        slug: "reestructuracion-cognitiva",
+        slug: "cognitive-restructuring",
         name: "Cognitive Restructuring",
-        prioridad: "complementaria",
+        prioridad: "complementary",
         justificacion:
           "Useful for addressing excessive danger beliefs but does not replace exposure. Helps motivate the patient for exposure.",
       },
     ],
-    fichasUtiles: ["jerarquia-exposicion", "automonitoreo-anxiety"],
+    fichasUtiles: ["exposure-hierarchy", "anxiety-self-monitoring"],
     alertas: [
       "In blood/injection phobia: train applied muscle tension technique (Öst) to prevent vasovagal syncope",
       "Distinguish from agoraphobia (in panic disorder) vs. specific situational phobia",
@@ -265,28 +265,28 @@ export const guiaClinica: DiagnosticoGuia[] = [
       "Fragmented, temporally unintegrated traumatic memory. Negative beliefs about self ('it was my fault'), the world ('the world is completely dangerous'), and others ('I can't trust anyone'). Avoidance prevents trauma processing. Thought suppression strategies that paradoxically increase intrusions.",
     protocolosRecomendados: [
       {
-        slug: "reestructuracion-cognitiva",
+        slug: "cognitive-restructuring",
         name: "Cognitive Processing (based on restructuring)",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "Cognitive Processing Therapy (CPT) by Resick & Schnicke is a first-line treatment for PTSD. Targets cognitive 'stuck points' that prevent trauma resolution.",
       },
       {
-        slug: "exposicion-graduada",
+        slug: "graded-exposure",
         name: "Prolonged Exposure (PE)",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "Foa's Prolonged Exposure Therapy is the other first-line treatment. Imaginal exposure to the traumatic memory + in vivo exposure to avoided situations.",
       },
       {
-        slug: "relajacion-muscular-progresiva",
+        slug: "progressive-muscle-relaxation",
         name: "Relaxation and Grounding",
-        prioridad: "segunda",
+        prioridad: "second",
         justificacion:
           "Grounding techniques (5-4-3-2-1, sensory anchoring) and relaxation for the stabilization phase before addressing the trauma.",
       },
     ],
-    fichasUtiles: ["plan-seguridad", "automonitoreo-anxiety", "record-thoughts"],
+    fichasUtiles: ["safety-plan", "anxiety-self-monitoring", "record-thoughts"],
     alertas: [
       "PHASE 1: Stabilization always before working the trauma directly",
       "Assess dissociation: severe dissociative symptoms require differentiated management",
@@ -326,32 +326,32 @@ export const guiaClinica: DiagnosticoGuia[] = [
       "Clark & Wells model (1995): in social situations, the individual directs attention inward (monitoring symptoms), which increases self-perceived anxiety and impairs functioning. Safety behaviors (avoiding eye contact, speaking little) paradoxically increase anxiety. Dysfunctional assumptions about impossible social standards. Beliefs of defectiveness/ridiculousness.",
     protocolosRecomendados: [
       {
-        slug: "habilidades-sociales",
+        slug: "social-skills",
         name: "Social Skills Training",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "Develops deficient skills and provides exposure opportunities in a controlled context. Role-play and feedback are central components.",
       },
       {
-        slug: "exposicion-graduada",
+        slug: "graded-exposure",
         name: "Graded Exposure to Social Situations",
-        prioridad: "primera",
+        prioridad: "first",
         justificacion:
           "In vivo exposure to avoided social situations, with progressive elimination of safety behaviors, is the central behavioral component.",
       },
       {
-        slug: "reestructuracion-cognitiva",
+        slug: "cognitive-restructuring",
         name: "Cognitive Restructuring",
-        prioridad: "segunda",
+        prioridad: "second",
         justificacion:
           "Addresses negative predictions and judgment beliefs. Social surveys and video feedback are particularly useful techniques.",
       },
     ],
     fichasUtiles: [
       "record-thoughts",
-      "distorsiones-cognitivas",
-      "experimentos-conductuales",
-      "jerarquia-exposicion",
+      "cognitive-distortions",
+      "behavioral-experiments",
+      "exposure-hierarchy",
     ],
     alertas: [
       "Distinguish normal shyness from disorder: the criterion is functional impairment",
