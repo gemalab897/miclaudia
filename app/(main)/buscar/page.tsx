@@ -53,8 +53,8 @@ function buildResults(query: string, category: Category): Result[] {
           id: c.id,
           href: `/casos/${c.id}`,
           titulo: c.titulo,
-          subtitulo: `${c.diagnostico.split("(")[0].trim()} · ${c.patient} · ${c.totalSessions} sesiones`,
-          tag: "Caso clínico",
+          subtitulo: `${c.diagnostico.split("(")[0].trim()} · ${c.patient} · ${c.totalSessions} sessions`,
+          tag: "Clinical Case",
           tagColor: "#dc2626",
         });
       }
@@ -71,7 +71,7 @@ function buildResults(query: string, category: Category): Result[] {
           href: `/protocolos/${p.slug}`,
           titulo: p.titulo,
           subtitulo: `${p.sessions} · ${p.indications.slice(0, 2).join(", ")}`,
-          tag: "Protocolo",
+          tag: "Protocol",
           tagColor: "#7c3aed",
         });
       }
@@ -88,7 +88,7 @@ function buildResults(query: string, category: Category): Result[] {
           href: `/fichas/${f.id}`,
           titulo: f.titulo,
           subtitulo: `${f.categoria} · ${f.descripcion.slice(0, 80)}…`,
-          tag: "Ficha",
+          tag: "Worksheet",
           tagColor: "#0891b2",
         });
       }
@@ -99,10 +99,10 @@ function buildResults(query: string, category: Category): Result[] {
 }
 
 const CATEGORIES: { id: Category; label: string; count: (r: Result[]) => number }[] = [
-  { id: "todo",       label: "Todo",       count: (r) => r.length },
-  { id: "casos",      label: "Casos",      count: (r) => r.filter((x) => x.type === "caso").length },
-  { id: "protocolos", label: "Protocolos", count: (r) => r.filter((x) => x.type === "protocolo").length },
-  { id: "fichas",     label: "Fichas",     count: (r) => r.filter((x) => x.type === "ficha").length },
+  { id: "todo",       label: "All",         count: (r) => r.length },
+  { id: "casos",      label: "Cases",       count: (r) => r.filter((x) => x.type === "caso").length },
+  { id: "protocolos", label: "Protocols",   count: (r) => r.filter((x) => x.type === "protocolo").length },
+  { id: "fichas",     label: "Worksheets",  count: (r) => r.filter((x) => x.type === "ficha").length },
 ];
 
 const TYPE_ICON: Record<string, string> = {
@@ -111,7 +111,7 @@ const TYPE_ICON: Record<string, string> = {
   ficha: "📄",
 };
 
-const SUGGESTIONS = ["ansiedad", "exposición", "depresión", "TOC", "registro", "Beck", "activación", "reestructuración"];
+const SUGGESTIONS = ["anxiety", "exposure", "depression", "OCD", "record", "Beck", "activation", "restructuring"];
 
 export default function BuscarPage() {
   const [query, setQuery] = useState("");
@@ -123,8 +123,8 @@ export default function BuscarPage() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-10">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-[#1e3a5f] mb-1">Búsqueda</h1>
-        <p className="text-slate-500 text-sm">Busca en casos clínicos, protocolos y fichas de trabajo.</p>
+        <h1 className="text-2xl font-bold text-[#1e3a5f] mb-1">Search</h1>
+        <p className="text-slate-500 text-sm">Search across clinical cases, protocols, and worksheets.</p>
       </div>
 
       {/* Search input */}
@@ -137,7 +137,7 @@ export default function BuscarPage() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Busca técnicas, diagnósticos, protocolos…"
+          placeholder="Search techniques, diagnoses, protocols…"
           className="w-full pl-12 pr-10 py-4 text-base border border-slate-200 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-[#1e3a5f]/20 focus:border-[#1e3a5f] transition-colors shadow-sm"
         />
         {query && (
@@ -155,7 +155,7 @@ export default function BuscarPage() {
       {/* Empty state — suggestions */}
       {!query && (
         <div>
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Búsquedas frecuentes</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Common searches</p>
           <div className="flex flex-wrap gap-2">
             {SUGGESTIONS.map((s) => (
               <button
@@ -203,8 +203,8 @@ export default function BuscarPage() {
               <svg className="w-12 h-12 mx-auto mb-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-              <p className="text-sm font-medium">Sin resultados para <span className="font-bold text-slate-600">"{query}"</span></p>
-              <p className="text-xs mt-1">Prueba con otro término o cambia la categoría</p>
+              <p className="text-sm font-medium">No results for <span className="font-bold text-slate-600">"{query}"</span></p>
+              <p className="text-xs mt-1">Try a different term or change the category</p>
             </div>
           ) : (
             <div className="space-y-2">

@@ -48,7 +48,7 @@ export default function CasosPage() {
                   {caso.titulo}
                 </h2>
                 <span className={`text-xs font-medium px-2.5 py-1 rounded-full flex-shrink-0 ${getColor(caso.diagnostico)}`}>
-                  {caso.sexo} · {caso.totalSessions} sesiones
+                  {caso.sexo} · {caso.totalSessions} sessions
                 </span>
               </div>
               <p className="text-xs text-[#10b981] font-medium mt-0.5">{caso.diagnostico}</p>

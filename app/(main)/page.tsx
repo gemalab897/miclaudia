@@ -19,7 +19,7 @@ const modules = [
     accent: "#10b981",
     bg: "from-emerald-500/10 to-emerald-600/5",
     border: "border-emerald-100",
-    tag: "10 protocolos",
+    tag: "10 protocols",
   },
   {
     href: "/fichas",

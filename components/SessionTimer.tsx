@@ -4,28 +4,28 @@ import { useState, useEffect, useRef } from "react";
 
 const PRESETS = [
   {
-    label: "Sesión estándar (50 min)",
+    label: "Standard session (50 min)",
     fases: [
-      { nombre: "Revisión y agenda", minutos: 5, color: "bg-blue-500" },
-      { nombre: "Trabajo terapéutico", minutos: 35, color: "bg-emerald-500" },
-      { nombre: "Cierre y tareas", minutos: 10, color: "bg-amber-500" },
+      { nombre: "Review & agenda", minutos: 5, color: "bg-blue-500" },
+      { nombre: "Therapeutic work", minutos: 35, color: "bg-emerald-500" },
+      { nombre: "Wrap-up & homework", minutos: 10, color: "bg-amber-500" },
     ],
   },
   {
-    label: "Sesión breve (30 min)",
+    label: "Brief session (30 min)",
     fases: [
-      { nombre: "Revisión", minutos: 5, color: "bg-blue-500" },
-      { nombre: "Trabajo terapéutico", minutos: 20, color: "bg-emerald-500" },
-      { nombre: "Cierre", minutos: 5, color: "bg-amber-500" },
+      { nombre: "Review", minutos: 5, color: "bg-blue-500" },
+      { nombre: "Therapeutic work", minutos: 20, color: "bg-emerald-500" },
+      { nombre: "Wrap-up", minutos: 5, color: "bg-amber-500" },
     ],
   },
   {
-    label: "Primera sesión (60 min)",
+    label: "First session (60 min)",
     fases: [
-      { nombre: "Acogida y motivo de consulta", minutos: 15, color: "bg-blue-500" },
-      { nombre: "Evaluación y formulación", minutos: 30, color: "bg-emerald-500" },
-      { nombre: "Psicoeducación TCC", minutos: 10, color: "bg-purple-500" },
-      { nombre: "Cierre y plan", minutos: 5, color: "bg-amber-500" },
+      { nombre: "Welcome & chief complaint", minutos: 15, color: "bg-blue-500" },
+      { nombre: "Assessment & formulation", minutos: 30, color: "bg-emerald-500" },
+      { nombre: "CBT psychoeducation", minutos: 10, color: "bg-purple-500" },
+      { nombre: "Wrap-up & plan", minutos: 5, color: "bg-amber-500" },
     ],
   },
 ];
@@ -100,7 +100,7 @@ export default function SessionTimer() {
       <button
         onClick={() => setOpen(!open)}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#1e3a5f] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#2a4a6f] transition-colors"
-        title="Temporizador de sesión"
+        title="Session timer"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -111,7 +111,7 @@ export default function SessionTimer() {
       {open && (
         <div className="fixed bottom-24 right-6 z-50 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
           <div className="bg-[#1e3a5f] text-white px-4 py-3 flex items-center justify-between">
-            <span className="font-semibold text-sm">Temporizador de Sesión</span>
+            <span className="font-semibold text-sm">Session Timer</span>
             <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -148,7 +148,7 @@ export default function SessionTimer() {
             <div className={`rounded-xl p-3 mb-3 ${isCritical ? "bg-red-50 border border-red-200" : "bg-slate-50"}`}>
               <div className="flex items-center justify-between mb-1">
                 <span className={`text-xs font-medium ${isCritical ? "text-red-600" : "text-gray-600"}`}>
-                  Fase {faseActual + 1}/{fases.length} — {fase.nombre}
+                  Phase {faseActual + 1}/{fases.length} — {fase.nombre}
                   {isCritical && " ⚠️"}
                 </span>
                 <span className="text-xs text-gray-400">{fase.minutos} min</span>
@@ -177,7 +177,7 @@ export default function SessionTimer() {
                     : "bg-emerald-500 text-white hover:bg-emerald-600"
                 }`}
               >
-                {running ? "Pausar" : segundos === 0 ? "Iniciar" : "Continuar"}
+                {running ? "Pause" : segundos === 0 ? "Start" : "Resume"}
               </button>
               <button
                 onClick={reset}
