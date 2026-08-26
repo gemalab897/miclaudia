@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
   }
 
   const { error } = await supabase.auth.admin.inviteUserByEmail(email, {
-    redirectTo: `${process.env.NEXT_PUBLIC_APP_URL ?? "https://miclaudia.vercel.app"}/api/auth/callback`,
+    redirectTo: `${process.env.NEXT_PUBLIC_APP_URL ?? "https://cbtatlasen.vercel.app"}/api/auth/callback`,
     data: {
       name: membership.user?.name ?? "",
       source: "whop",
