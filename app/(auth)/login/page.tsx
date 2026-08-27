@@ -92,7 +92,7 @@ function LoginForm() {
         <p className="text-center text-purple-400 text-xs mt-6">
           Don&apos;t have access?{" "}
           <a
-            href="https://whop.com"
+            href="https://whop.com/therapists-of-the-future/cbt-atlas-en/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-purple-300 underline"
