@@ -91,5 +91,7 @@ body {
   h1, h2, h3 { color: black !important; }
   .page-break { page-break-before: always; }
   header, nav, aside, footer, .sidebar-wrapper { display: none !important; }
-  main { margin: 0 !important; padding: 20px !important; width: 100% !important; }
+  html, body { height: auto !important; overflow: visible !important; }
+  main { margin: 0 !important; padding: 20px !important; width: 100% !important; height: auto !important; overflow: visible !important; }
+  div { overflow: visible !important; }
 }
