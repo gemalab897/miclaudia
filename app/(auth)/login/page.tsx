@@ -2,6 +2,7 @@
 
 import { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
 function LoginForm() {
@@ -59,7 +60,7 @@ function LoginForm() {
               required
               className="w-full px-4 py-3 rounded-xl text-white placeholder-purple-400 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
               style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
-              placeholder="tu@email.com"
+              placeholder="you@email.com"
             />
           </div>
           <div>
@@ -89,10 +90,25 @@ function LoginForm() {
           </button>
         </form>
 
-        <p className="text-center text-purple-400 text-xs mt-6">
+        <div className="mt-4 text-center">
+          <Link href="/forgot-password" className="text-purple-400 text-xs hover:text-purple-300 transition-colors">
+            Forgot your password?
+          </Link>
+        </div>
+
+        <div
+          className="mt-5 rounded-xl px-4 py-3 text-center"
+          style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.25)" }}
+        >
+          <p className="text-purple-300 text-xs leading-relaxed">
+            <span className="font-semibold text-purple-200">New member?</span> Check your email for your invitation link to set your password. Can&apos;t find it? Check your spam folder.
+          </p>
+        </div>
+
+        <p className="text-center text-purple-400 text-xs mt-5">
           Don&apos;t have access?{" "}
           <a
-            href="https://whop.com/therapists-of-the-future/cbt-atlas-en/"
+            href="https://whop.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-purple-300 underline"
